@@ -152,3 +152,25 @@ body {
 .section-fields .fields-item-name h1 {
   color: #fff;
 }
+
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background-color: rosybrown;
+  padding-left: 24px;
+  padding-top: 12px;
+  pointer-events: none;
+}
+.loading-img a {
+  pointer-events: auto;
+}
+.loading-img img {
+  object-fit: contain;
+  width: 113px;
+  height: auto;
+  transform-origin: top left;
+}

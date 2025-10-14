@@ -9,6 +9,16 @@ gsap.ticker.add((time) => {
 });
 
 gsap.ticker.lagSmoothing(0);
+function loading() {
+  const logo = document.getElementById("logo");
+  const yPos = window.innerHeight - 173;
+  const aspectRatio = 145 / 28;
+  console.log(yPos);
+  gsap.set(logo, {
+    y: yPos,
+    scale: aspectRatio
+  });
+}
 // end lenis
 
 function sectionFields() {
@@ -78,6 +88,7 @@ function sectionFields() {
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   sectionFields();
+  loading();
 };
 preloadImages("img").then(() => {
   // Once images are preloaded, remove the 'loading' indicator/class from the body
