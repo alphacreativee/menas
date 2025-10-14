@@ -1,0 +1,44 @@
+.btn--arrow {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--color-white);
+  color: var(--color-white);
+  background-color: transparent;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    .btn__icon {
+      opacity: 0;
+      transform: translate(-50%, 100%);
+
+      &-clone {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
+  .btn__icon {
+    display: block;
+    width: 16px;
+    height: 13px;
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--color-white);
+    transition: all 0.4s ease;
+
+    &-clone {
+      transform: translate(-50%, -150%);
+      opacity: 0;
+    }
+  }
+}
