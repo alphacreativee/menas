@@ -75,3 +75,20 @@ body {
   -webkit-font-smoothing: auto !important;
   -moz-osx-font-smoothing: grayscale !important;
 }
+
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background-color: rosybrown;
+  padding-left: 24px;
+  padding-top: 12px;
+}
+.loading-img img {
+  object-fit: contain;
+  width: 113px;
+  height: auto;
+}

@@ -9,9 +9,13 @@ gsap.ticker.add((time) => {
 });
 
 gsap.ticker.lagSmoothing(0);
+function loading() {
+  const logo = document.getElementById("logo");
+}
 // end lenis
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
+  loading();
 };
 preloadImages("img").then(() => {
   // Once images are preloaded, remove the 'loading' indicator/class from the body
