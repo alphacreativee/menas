@@ -1,4 +1,12 @@
 :root {
+  --color-primary: #e4a025;
+  --color-secondary: #4fb84f;
+  --color-text: #512304;
   --color-white: #fff;
   --color-black: #000;
+}
+
+body,
+a {
+  color: var(--color-text);
 }
