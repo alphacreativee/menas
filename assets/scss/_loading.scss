@@ -8,7 +8,11 @@
   background-color: rosybrown;
   padding-left: 24px;
   padding-top: 12px;
+  pointer-events: none;
   &-img {
+    a {
+      pointer-events: auto;
+    }
     img {
       object-fit: contain;
       width: 113px;

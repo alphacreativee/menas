@@ -86,6 +86,10 @@ body {
   background-color: rosybrown;
   padding-left: 24px;
   padding-top: 12px;
+  pointer-events: none;
+}
+.loading-img a {
+  pointer-events: auto;
 }
 .loading-img img {
   object-fit: contain;
