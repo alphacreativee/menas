@@ -294,3 +294,105 @@ body {
   width: auto;
   height: auto;
 }
+
+.footer-top {
+  padding: 48px 24px 35px;
+}
+.footer-bottom {
+  display: grid;
+  grid-template-columns: 4fr 5fr 3fr;
+  padding: 10px 24px;
+  background-color: var(--color-text);
+}
+.footer-logo {
+  margin-top: 60px;
+  display: block;
+  width: 210px;
+  height: auto;
+}
+.footer-logo img {
+  width: auto;
+  height: auto;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 4fr 3fr 2fr 3fr;
+}
+.footer-title {
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+.footer-col.follow-us ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 32px;
+  width: max-content;
+  align-items: center;
+}
+.footer-col.follow-us ul li {
+  display: flex;
+  align-items: center;
+}
+.footer-col ul li {
+  display: inline-block;
+  width: max-content;
+}
+.footer-col ul li a {
+  display: inline-block;
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 400;
+  color: var(--color-text);
+}
+.footer-col.copyright p {
+  color: var(--color-white);
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 400;
+  display: inline-block;
+}
+.footer-col.terms ul {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.footer-col.terms ul li a {
+  color: var(--color-white);
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 400;
+  display: inline-block;
+}
+.footer-col.by-alpha a {
+  color: var(--color-white);
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 400;
+  display: inline-block;
+}
+.footer-col.col-address ul {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+.footer-col.col-address ul li {
+  display: block;
+  width: 100%;
+}
+.footer-col.col-address ul li p,
+.footer-col.col-address ul li a {
+  display: inline-block;
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 400;
+  color: var(--color-text);
+}
+.footer-col.col-about-menas ul, .footer-col.col-menu ul {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  gap: 10px 40px;
+}
