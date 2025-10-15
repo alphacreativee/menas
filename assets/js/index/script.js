@@ -494,7 +494,7 @@ function sectionIntro() {
 
   if ($(".intro").length > 0) {
     gsap.to(".hero", {
-      y: -150,
+      y: -200,
       ease: "none",
       scrollTrigger: {
         trigger: ".intro",

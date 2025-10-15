@@ -936,7 +936,7 @@ body {
 }
 .intro-image .image-large {
   overflow: hidden;
-  height: 680px;
+  height: 100dvh;
 }
 .intro-image img {
   width: 100%;
