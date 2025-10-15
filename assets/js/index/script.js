@@ -10,6 +10,7 @@ gsap.ticker.add((time) => {
 
 gsap.ticker.lagSmoothing(0);
 function loading() {
+  if (!document.querySelector(".loading")) return;
   const logo = document.getElementById("logo");
   const loadingAfter = document.querySelector(".loading");
   const yPos = window.innerHeight - 173;
