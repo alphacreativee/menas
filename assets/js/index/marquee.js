@@ -1,33 +1,39 @@
 let scrollDirection = 1;
 let lastScrollTop = 0;
-const marqueeTimelines = new Map();
+const marqueeData = new Map();
 let animationFrameId = null;
 
 function initMarquee() {
-  // Setup marquee containers
   document.querySelectorAll(".marquee-container").forEach((container) => {
     const content = container.querySelector(".marquee-content");
     const items = [...container.querySelectorAll(".marquee-item")];
     const speed = parseFloat(container.getAttribute("data-speed")) || 30;
 
+    // Clear content
     content.innerHTML = "";
+
+    // Append original items
     items.forEach((item) => content.appendChild(item.cloneNode(true)));
 
-    const clonedItems = [...content.children];
-    let totalWidth = 0;
-    clonedItems.forEach((item) => (totalWidth += item.offsetWidth));
+    // Force reflow để lấy chính xác computed width
+    content.offsetHeight;
 
+    // Tính CHÍNH XÁC width của content (bao gồm cả gaps)
+    const originalItems = [...content.children];
+    const contentWidth = content.scrollWidth; // scrollWidth chính xác hơn offsetWidth
+
+    // Clone đủ để fill + buffer
     const containerWidth = container.offsetWidth;
-    const copiesNeeded = Math.ceil(containerWidth / totalWidth) + 8;
+    const copiesNeeded = Math.ceil((containerWidth * 2) / contentWidth) + 1;
 
     for (let i = 0; i < copiesNeeded; i++) {
-      clonedItems.forEach((item) => {
+      originalItems.forEach((item) => {
         content.appendChild(item.cloneNode(true));
       });
     }
 
-    let fullWidth = 0;
-    [...content.children].forEach((item) => (fullWidth += item.offsetWidth));
+    // Force reflow again
+    content.offsetHeight;
 
     gsap.set(content, {
       x: 0,
@@ -35,44 +41,36 @@ function initMarquee() {
       force3D: true,
     });
 
-    const duration = fullWidth / speed;
-    const tl = gsap.timeline({ paused: true });
-    tl.to(content, {
-      x: -fullWidth,
-      duration: duration,
-      ease: "none",
-      modifiers: {
-        x: (x) => `${parseFloat(x) % fullWidth}px`,
-      },
-    });
-
-    marqueeTimelines.set(container, {
-      timeline: tl,
-      fullWidth,
-      speed,
-      duration,
-      progress: 0,
+    marqueeData.set(container, {
       content,
+      loopWidth: contentWidth,
+      speed,
+      position: 0,
     });
   });
 
-  // Start animation loop
   if (animationFrameId) cancelAnimationFrame(animationFrameId);
 
-  const animate = () => {
-    marqueeTimelines.forEach((data) => {
-      const { timeline, duration, speed, fullWidth } = data;
+  let lastTime = performance.now();
 
-      data.progress += (scrollDirection * speed) / (fullWidth / 16.67);
+  const animate = (currentTime) => {
+    const deltaTime = Math.min((currentTime - lastTime) / 1000, 0.1); // Cap deltaTime
+    lastTime = currentTime;
 
-      if (data.progress < 0) {
-        data.progress = duration + data.progress;
-      }
-      if (data.progress > duration) {
-        data.progress = data.progress - duration;
-      }
+    marqueeData.forEach((data) => {
+      const { content, loopWidth, speed } = data;
 
-      timeline.progress(data.progress / duration);
+      data.position += scrollDirection * speed * deltaTime;
+
+      // Modulo để loop mượt
+      data.position = ((data.position % loopWidth) + loopWidth) % loopWidth;
+
+      // Apply với round để tránh sub-pixel rendering
+      const xPos = Math.round(-data.position * 100) / 100;
+
+      gsap.set(content, {
+        x: xPos,
+      });
     });
 
     animationFrameId = requestAnimationFrame(animate);
@@ -80,19 +78,20 @@ function initMarquee() {
 
   animationFrameId = requestAnimationFrame(animate);
 
-  // Scroll listener
-  window.addEventListener("scroll", () => {
-    const scrollTop = window.scrollY || document.documentElement.scrollTop;
-
-    if (scrollTop > lastScrollTop) {
-      scrollDirection = 1;
-    } else if (scrollTop < lastScrollTop) {
-      scrollDirection = -1;
-    }
-
-    lastScrollTop = scrollTop;
-  });
+  window.addEventListener(
+    "scroll",
+    () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      scrollDirection =
+        scrollTop > lastScrollTop
+          ? 1
+          : scrollTop < lastScrollTop
+          ? -1
+          : scrollDirection;
+      lastScrollTop = scrollTop;
+    },
+    { passive: true }
+  );
 }
 
-// Initialize
 initMarquee();
