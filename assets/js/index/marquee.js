@@ -6,81 +6,110 @@ let animationFrameId = null;
 function initMarquee() {
   document.querySelectorAll(".marquee-container").forEach((container) => {
     const content = container.querySelector(".marquee-content");
-    const items = [...container.querySelectorAll(".marquee-item")];
+    const originalItems = [...container.querySelectorAll(".marquee-item")];
     const speed = parseFloat(container.getAttribute("data-speed")) || 30;
 
-    // Xóa hết
     content.innerHTML = "";
 
-    // Tạo wrapper cho 1 set items
-    const wrapper = document.createElement("div");
-    wrapper.style.display = "flex";
-    wrapper.style.gap = getComputedStyle(content).gap || "0px";
+    originalItems.forEach((item) => {
+      content.appendChild(item.cloneNode(true));
+    });
 
-    items.forEach((item) => wrapper.appendChild(item.cloneNode(true)));
-    content.appendChild(wrapper);
-
-    // Đợi render xong
     requestAnimationFrame(() => {
-      // Lấy width THỰC của wrapper (bao gồm tất cả)
-      const wrapperWidth = wrapper.getBoundingClientRect().width;
+      requestAnimationFrame(() => {
+        const items = [...content.children];
+        let totalWidth = 0;
 
-      // Clone wrapper nhiều lần
-      const copiesNeeded = Math.ceil(container.offsetWidth / wrapperWidth) + 3;
+        items.forEach((item) => {
+          const rect = item.getBoundingClientRect();
+          const style = getComputedStyle(item);
+          const marginRight = parseFloat(style.marginRight) || 0;
+          totalWidth += rect.width + marginRight;
+        });
 
-      for (let i = 0; i < copiesNeeded; i++) {
-        content.appendChild(wrapper.cloneNode(true));
-      }
+        const gap = parseFloat(getComputedStyle(content).gap) || 0;
+        if (gap > 0 && items.length > 1) {
+          totalWidth += gap * (items.length - 1);
+        }
 
-      gsap.set(content, {
-        x: 0,
-        display: "flex",
-        willChange: "transform",
-      });
+        const containerWidth = container.offsetWidth;
+        const setsNeeded = Math.ceil((containerWidth * 2) / totalWidth) + 2;
 
-      marqueeData.set(container, {
-        content,
-        wrapperWidth,
-        speed,
-        position: 0,
+        for (let i = 1; i < setsNeeded; i++) {
+          originalItems.forEach((item) => {
+            content.appendChild(item.cloneNode(true));
+          });
+        }
+
+        // Key fix: Đảm bảo width chính xác bằng cách tính lại sau khi clone
+        requestAnimationFrame(() => {
+          const allItems = [...content.children];
+          let preciseWidth = 0;
+
+          allItems.slice(0, originalItems.length).forEach((item, idx) => {
+            const rect = item.getBoundingClientRect();
+            preciseWidth += rect.width;
+            if (idx < originalItems.length - 1) {
+              preciseWidth += gap || 0;
+            }
+          });
+
+          gsap.set(content, {
+            x: 0,
+            willChange: "transform",
+          });
+
+          marqueeData.set(container, {
+            content,
+            loopWidth: preciseWidth, // Sử dụng width chính xác hơn
+            speed,
+            x: 0,
+          });
+        });
       });
     });
   });
 
-  // Đợi tất cả marquee init xong
   setTimeout(() => {
     if (animationFrameId) cancelAnimationFrame(animationFrameId);
 
     let lastTime = performance.now();
 
     const animate = (currentTime) => {
-      const deltaTime = (currentTime - lastTime) / 1000;
+      const deltaTime = Math.min((currentTime - lastTime) / 1000, 0.1);
       lastTime = currentTime;
 
       marqueeData.forEach((data) => {
-        if (!data.wrapperWidth) return; // Chưa ready
+        if (!data.loopWidth) return;
 
-        const { content, wrapperWidth, speed } = data;
+        const { content, loopWidth, speed } = data;
 
-        data.position += scrollDirection * speed * deltaTime;
+        data.x -= scrollDirection * speed * deltaTime;
 
-        // Loop: khi đi hết 1 wrapper thì reset về 0
-        if (data.position >= wrapperWidth) {
-          data.position = data.position - wrapperWidth;
-        } else if (data.position < 0) {
-          data.position = wrapperWidth + data.position;
+        // Improved seamless loop với modulo
+        if (scrollDirection > 0) {
+          // Scroll sang trái
+          if (data.x <= -loopWidth) {
+            data.x = data.x % loopWidth;
+          }
+        } else {
+          // Scroll sang phải
+          if (data.x >= 0) {
+            data.x = -(loopWidth + (data.x % loopWidth));
+          }
         }
 
-        gsap.set(content, {
-          x: -data.position,
-        });
+        // Sử dụng transform trực tiếp thay vì GSAP để tránh conflict
+        content.style.transform = `translate3d(${
+          Math.round(data.x * 100) / 100
+        }px, 0, 0)`;
       });
 
       animationFrameId = requestAnimationFrame(animate);
     };
 
     animationFrameId = requestAnimationFrame(animate);
-  }, 100);
+  }, 200); // Tăng timeout để đảm bảo layout ổn định
 
   window.addEventListener(
     "scroll",
