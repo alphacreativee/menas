@@ -1,0 +1,122 @@
+.footer {
+  &-top {
+    padding: 48px 24px 35px;
+  }
+  &-bottom {
+    display: grid;
+    grid-template-columns: 4fr 5fr 3fr;
+    padding: 10px 24px;
+    background-color: var(--color-text);
+  }
+  &-logo {
+    margin-top: 60px;
+    display: block;
+    width: 210px;
+    height: auto;
+    img {
+      width: auto;
+      height: auto;
+    }
+  }
+  &-grid {
+    display: grid;
+    grid-template-columns: 4fr 3fr 2fr 3fr;
+  }
+  &-title {
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 24px;
+    text-transform: uppercase;
+  }
+  &-col {
+    &.follow-us {
+      ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 32px;
+        width: max-content;
+        align-items: center;
+        li {
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+    ul {
+      li {
+        display: inline-block;
+        width: max-content;
+        a {
+          display: inline-block;
+          font-size: 13px;
+          line-height: 20px;
+          font-weight: 400;
+          color: var(--color-text);
+        }
+      }
+    }
+    &.copyright {
+      p {
+        color: var(--color-white);
+        font-size: 13px;
+        line-height: 20px;
+        font-weight: 400;
+        display: inline-block;
+      }
+    }
+    &.terms {
+      ul {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        li {
+          a {
+            color: var(--color-white);
+            font-size: 13px;
+            line-height: 20px;
+            font-weight: 400;
+            display: inline-block;
+          }
+        }
+      }
+    }
+    &.by-alpha {
+      a {
+        color: var(--color-white);
+        font-size: 13px;
+        line-height: 20px;
+        font-weight: 400;
+        display: inline-block;
+      }
+    }
+    &.col-address {
+      ul {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        li {
+          display: block;
+          width: 100%;
+          p,
+          a {
+            display: inline-block;
+            font-size: 13px;
+            line-height: 20px;
+            font-weight: 400;
+            color: var(--color-text);
+          }
+        }
+      }
+    }
+    &.col-about-menas,
+    &.col-menu {
+      ul {
+        display: grid;
+        grid-template-columns: max-content max-content;
+        gap: 10px 40px;
+      }
+    }
+  }
+}
