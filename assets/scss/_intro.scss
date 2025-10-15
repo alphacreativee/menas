@@ -1,5 +1,6 @@
 .intro {
   position: relative;
+  z-index: 2;
 
   &-overlay {
     background-color: var(--color-white);

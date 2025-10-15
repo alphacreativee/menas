@@ -1,4 +1,8 @@
 .marquee {
+  position: relative;
+  z-index: 2;
+  background-color: var(--color-white);
+
   &-container {
     overflow: hidden;
     position: relative;

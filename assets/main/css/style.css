@@ -181,6 +181,8 @@ body {
 
 .section-fields {
   padding-top: 80px;
+  background-color: var(--color-white);
+  position: relative;
 }
 .section-fields .section-title {
   margin-bottom: 40px;
@@ -287,6 +289,11 @@ body {
   transform-origin: top left;
 }
 
+.marquee {
+  position: relative;
+  z-index: 2;
+  background-color: var(--color-white);
+}
 .marquee-container {
   overflow: hidden;
   position: relative;
@@ -311,6 +318,12 @@ body {
 .marquee-item img {
   width: auto;
   height: auto;
+}
+
+#footer {
+  position: relative;
+  z-index: 2;
+  background-color: var(--color-white);
 }
 
 .footer-top {
@@ -632,9 +645,16 @@ body {
 
 .hero {
   width: 100%;
-  position: relative;
-  height: 640px;
+  position: fixed;
+  height: 100dvh;
   overflow: hidden;
+  top: 0;
+  left: 0;
+}
+.hero-overlay {
+  height: 100dvh;
+  width: 1px;
+  background-color: transparent;
 }
 .hero::before {
   content: "";
@@ -879,6 +899,7 @@ body {
 
 .intro {
   position: relative;
+  z-index: 2;
 }
 .intro-overlay {
   background-color: var(--color-white);

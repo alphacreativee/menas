@@ -1,8 +1,17 @@
 .hero {
   width: 100%;
-  position: relative;
-  height: 640px;
+  position: fixed;
+  height: 100dvh;
   overflow: hidden;
+  top: 0;
+  left: 0;
+
+  &-overlay {
+    height: 100dvh;
+    width: 1px;
+    background-color: transparent;
+  }
+
   &::before {
     content: "";
     position: absolute;

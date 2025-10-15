@@ -491,6 +491,20 @@ function sectionIntro() {
       }
     });
   });
+
+  if ($(".intro").length > 0) {
+    gsap.to(".hero", {
+      y: -150,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".intro",
+        start: "top bottom",
+        end: "top top",
+        scrub: true
+        // markers: true
+      }
+    });
+  }
 }
 
 const init = () => {
