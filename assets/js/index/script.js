@@ -13,10 +13,22 @@ function loading() {
   const logo = document.getElementById("logo");
   const yPos = window.innerHeight - 173;
   const aspectRatio = 145 / 28;
-  console.log(yPos);
   gsap.set(logo, {
     y: yPos,
-    scale: aspectRatio
+    scale: aspectRatio,
+  });
+  gsap.to(logo, {
+    y: 0,
+    duration: 2.5,
+    onComplete: () => {
+      gsap.to(logo, {
+        scale: 1,
+        duration: 1,
+        onComplete: () => {
+          document.querySelector(".loading").classList.add("loaded");
+        },
+      });
+    },
   });
 }
 // end lenis
@@ -30,7 +42,7 @@ function sectionFields() {
 
     const split = SplitText.create(nameH1, {
       type: "chars",
-      mask: "chars"
+      mask: "chars",
     });
 
     gsap.set(split.chars, { y: "125%" });
@@ -42,7 +54,7 @@ function sectionFields() {
         end: `top+=${index * 25 - 100} top`,
         scrub: 1,
         // Giữ nguyên
-        animation: gsap.fromTo(char, { y: "125%" }, { y: "0%", ease: "none" })
+        animation: gsap.fromTo(char, { y: "125%" }, { y: "0%", ease: "none" }),
       });
     });
 
@@ -56,14 +68,14 @@ function sectionFields() {
         img,
         {
           // 70% thu nhỏ: tương đương cách 140px 2 bên, 60px trên dưới theo màn hình 1440
-          clipPath: "polygon(9.7% 6.7%, 90.3% 6.7%, 90.3% 93.3%, 9.7% 93.3%)"
+          clipPath: "polygon(9.7% 6.7%, 90.3% 6.7%, 90.3% 93.3%, 9.7% 93.3%)",
         },
         {
           // full 100%
           clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-          ease: "none"
+          ease: "none",
         }
-      )
+      ),
     });
 
     ScrollTrigger.create({
@@ -74,13 +86,13 @@ function sectionFields() {
       animation: gsap.fromTo(
         img,
         {
-          clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)"
+          clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
         },
         {
           clipPath: "polygon(9.7% 6.7%, 90.3% 6.7%, 90.3% 93.3%, 9.7% 93.3%)",
-          ease: "none"
+          ease: "none",
         }
-      )
+      ),
     });
   });
 }
