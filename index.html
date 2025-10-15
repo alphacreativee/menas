@@ -73,7 +73,7 @@
           });
         });
     </script>
-    <div class="loading">
+    <div class="loading d-none">
       <div class="loading-img">
         <a href="">
           <img src="./assets/images/menas-logo-min.png" alt="" id="logo" />
@@ -91,8 +91,144 @@
     </div>
 
     <main>
+      <section class="hero has-slider position-relative text-white">
+        <div
+          class="swiper hero-slider position-absolute top-0 start-0 w-100 h-100"
+          data-loop="true"
+          data-speed="2000"
+          data-autoplay="2500"
+        >
+          <div class="swiper-wrapper">
+            <!-- Slide 1 -->
+            <div class="swiper-slide overflow-hidden">
+              <div
+                data-swiper-parallax-x="100%"
+                class="position-relative w-100 h-100 hero__image"
+              >
+                <picture>
+                  <source
+                    media="(max-width: 767px)"
+                    srcset="./assets/images/banner.webp"
+                  />
+                  <img
+                    data-swiper-parallax-scale="1.1"
+                    class="w-100 h-100 object-fit-cover"
+                    src="./assets/images/banner.webp"
+                    alt="img_hero_1"
+                  />
+                </picture>
+              </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="swiper-slide overflow-hidden">
+              <div
+                data-swiper-parallax-x="100%"
+                class="position-relative w-100 h-100 hero__image"
+              >
+                <picture>
+                  <source
+                    media="(max-width: 767px)"
+                    srcset="./assets/images/banner.webp"
+                  />
+                  <img
+                    data-swiper-parallax-scale="1.1"
+                    class="w-100 h-100 object-fit-cover"
+                    src="./assets/images/banner.webp"
+                    alt="img_hero_2"
+                  />
+                </picture>
+              </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="swiper-slide overflow-hidden">
+              <div
+                data-swiper-parallax-x="100%"
+                class="position-relative w-100 h-100 hero__image"
+              >
+                <picture>
+                  <source
+                    media="(max-width: 767px)"
+                    srcset="./assets/images/banner.webp"
+                  />
+                  <img
+                    data-swiper-parallax-scale="1.1"
+                    class="w-100 h-100 object-fit-cover"
+                    src="./assets/images/banner.webp"
+                    alt="img_hero_3"
+                  />
+                </picture>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero__content">
+          <h2 class="effect-title-auto" data-delay="3.5">SME 100 AWARDS</h2>
+        </div>
+        <div class="swiper-arrows d-none">
+          <div class="swiper-button-prev">
+            <svg
+              width="8"
+              height="13"
+              viewBox="0 0 8 13"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7 1C6.30001 2.86665 3.92002 6.59996 0 6.59996"
+                stroke="white"
+              />
+              <path
+                d="M6.99994 12.2001C6.29995 10.3334 3.91996 6.6001 0 6.6001"
+                stroke="white"
+              />
+            </svg>
+          </div>
+          <div class="swiper-button-next">
+            <svg
+              width="8"
+              height="13"
+              viewBox="0 0 8 13"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1 1C1.69999 2.86665 4.07998 6.59996 8 6.59996"
+                stroke="white"
+              />
+              <path
+                d="M1.00006 12.2001C1.70005 10.3334 4.08004 6.6001 8 6.6001"
+                stroke="white"
+              />
+            </svg>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </section>
+      <section class="intro">
+        <div class="intro-overlay"></div>
+        <div class="intro-container">
+          <div class="intro-text effect-line">
+            Công ty TNHH Menas - Trở thành công ty hàng đầu trong lĩnh vực quản
+            lý, tư vấn và phát triển các Trung tâm Thương mại, Văn phòng, Cửa
+            hàng Miễn thuế và ngành F&B tại Việt Nam.
+          </div>
+          <div class="intro-image">
+            <div class="image-small item-translate" data-y="-50">
+              <img src="./assets/images/home/intro/intro-2.webp" alt="" />
+            </div>
+            <div class="image-large item-translate" data-y="-150">
+              <img src="./assets/images/home/intro/intro-1.webp" alt="" />
+            </div>
+          </div>
+        </div>
+      </section>
       <section class="section-fields">
         <div class="container-fluid p-0">
+          <h2 class="section-title h2-font color-text effect-line text-center">
+            LĨNH VỰC HOẠT ĐỘNG
+          </h2>
           <div class="fields-list">
             <div class="fields-item" data-cursor-text="Chi tiết">
               <div class="fields-item-img">

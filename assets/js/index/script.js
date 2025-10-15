@@ -260,6 +260,25 @@ function effectText() {
       }
     );
   });
+
+  gsap.utils.toArray(".effect-title-auto").forEach((title) => {
+    const delay = parseFloat(title.getAttribute("data-delay")) || 0;
+
+    const splitTitle = SplitText.create(title, {
+      type: "chars",
+      mask: "chars"
+    });
+
+    gsap.set(splitTitle.chars, { y: "125%" });
+
+    gsap.to(splitTitle.chars, {
+      y: "0%",
+      ease: "power3.out",
+      duration: 1,
+      stagger: 0.03,
+      delay: delay
+    });
+  });
 }
 
 function customDropdown() {
@@ -338,6 +357,142 @@ function customDropdown() {
   }
 }
 
+function hero() {
+  if ($("section.hero").length < 1) return;
+
+  $(".hero-slider").each(function () {
+    let $slider = $(this);
+
+    let $dataSpeed;
+    let $dataLoop = $slider.attr("data-loop");
+    let $dataAutoplay = $slider.data("autoplay")
+      ? { delay: $slider.data("autoplay") }
+      : $slider.data("autoplay");
+    if ($slider.is("[data-speed]")) {
+      $dataSpeed = $slider.data("speed");
+    } else {
+      $dataSpeed = 900;
+    }
+
+    new Swiper($slider[0], {
+      direction: "horizontal",
+      rtl: true,
+      speed: $dataSpeed,
+      loop: $dataLoop,
+      autoplay: $dataAutoplay,
+      preloadImages: true,
+      parallax: true,
+      lazy: {
+        loadPrevNext: true
+      },
+      allowTouchMove: false,
+      simulateTouch: false,
+      mousewheel: false,
+      pagination: {
+        el: ".hero .swiper-pagination",
+        clickable: false,
+        renderBullet: function (i, className) {
+          return `
+            <button class="${className}">
+            <svg class="progress" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle class="circle-origin" cx="14" cy="14" r="13" stroke="white"/>
+            </svg>
+            </button>`;
+        }
+      },
+      // navigation: {
+      //   nextEl: ".hero .swiper-button-next",
+      //   prevEl: ".hero .swiper-button-prev"
+      // },
+      on: {
+        init: function () {
+          let $this = this;
+          $($this.slides[$this.activeIndex]);
+        }
+      }
+    });
+  });
+}
+
+function sectionIntro() {
+  if ($("section.intro").length < 1) return;
+
+  gsap.to(".intro-overlay", {
+    y: -200,
+    ease: "none",
+    scrollTrigger: {
+      trigger: "section.intro",
+      start: "top 80%",
+      end: "bottom top",
+      scrub: true
+      // markers: true
+    }
+  });
+
+  gsap.utils
+    .toArray([".image-small img", ".image-large img"])
+    .forEach((img) => {
+      gsap.fromTo(
+        img,
+        {
+          scale: 1.3,
+          yPercent: 10
+        },
+        {
+          scale: 1.2,
+          yPercent: -10,
+          ease: "none",
+          scrollTrigger: {
+            trigger: "section.intro",
+            start: "top 80%",
+            end: "bottom top",
+            scrub: true
+            // markers: true
+          }
+        }
+      );
+    });
+
+  gsap.utils
+    .toArray([".image-small img", ".image-large img"])
+    .forEach((img) => {
+      gsap.fromTo(
+        img,
+        {
+          scale: 1.3,
+          yPercent: 10
+        },
+        {
+          scale: 1.2,
+          yPercent: -10,
+          ease: "none",
+          scrollTrigger: {
+            trigger: "section.intro",
+            start: "top 80%",
+            end: "bottom top",
+            scrub: true
+            // markers: true
+          }
+        }
+      );
+    });
+
+  gsap.utils.toArray(".item-translate").forEach((el) => {
+    const yValue = parseFloat(el.getAttribute("data-y")) || 0;
+
+    gsap.to(el, {
+      y: yValue,
+      ease: "none",
+      scrollTrigger: {
+        trigger: "section.intro",
+        start: "top 80%",
+        end: "bottom top",
+        scrub: true
+      }
+    });
+  });
+}
+
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   sectionFields();
@@ -345,6 +500,8 @@ const init = () => {
   magicCursor();
   effectText();
   customDropdown();
+  hero();
+  sectionIntro();
 };
 preloadImages("img").then(() => {
   // Once images are preloaded, remove the 'loading' indicator/class from the body
