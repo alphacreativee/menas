@@ -927,7 +927,7 @@ body {
   z-index: 2;
 }
 .intro-image {
-  margin-top: 80px;
+  margin-top: 40px;
   display: grid;
   align-items: flex-end;
   grid-template-columns: 30% 70%;
