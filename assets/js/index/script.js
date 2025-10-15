@@ -10,13 +10,42 @@ gsap.ticker.add((time) => {
 
 gsap.ticker.lagSmoothing(0);
 function loading() {
+  if (!document.querySelector(".loading")) return;
   const logo = document.getElementById("logo");
+  const loadingAfter = document.querySelector(".loading");
   const yPos = window.innerHeight - 173;
   const aspectRatio = 145 / 28;
-  console.log(yPos);
+  const paddingTop = 12;
+
   gsap.set(logo, {
     y: yPos,
     scale: aspectRatio
+  });
+
+  gsap.set(loadingAfter, {
+    "--after-height": "0px"
+  });
+
+  gsap.to(logo, {
+    y: 0,
+    duration: 2.5,
+    onUpdate: function () {
+      const logoRect = logo.getBoundingClientRect();
+      const logoTop = logoRect.top;
+      const afterHeight = window.innerHeight - logoTop + paddingTop;
+      gsap.set(loadingAfter, {
+        "--after-height": afterHeight + "px"
+      });
+    },
+    onComplete: () => {
+      gsap.to(logo, {
+        scale: 1,
+        duration: 1,
+        onComplete: () => {
+          document.querySelector(".loading").classList.add("loaded");
+        }
+      });
+    }
   });
 }
 // end lenis
