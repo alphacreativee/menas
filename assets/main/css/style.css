@@ -315,12 +315,13 @@ body {
 
 .footer-top {
   padding: 48px 24px 35px;
+  background-color: #575f62;
 }
 .footer-bottom {
   display: grid;
   grid-template-columns: 4fr 5fr 3fr;
   padding: 10px 24px;
-  background-color: var(--color-text);
+  background-color: #3a4041;
 }
 .footer-logo {
   margin-top: 60px;
@@ -340,7 +341,7 @@ body {
   font-size: 13px;
   line-height: 20px;
   font-weight: 700;
-  color: var(--color-text);
+  color: var(--color-white);
   margin-bottom: 24px;
   text-transform: uppercase;
 }
@@ -364,7 +365,7 @@ body {
   font-size: 13px;
   line-height: 20px;
   font-weight: 400;
-  color: var(--color-text);
+  color: var(--color-white);
 }
 .footer-col.copyright p {
   color: var(--color-white);
@@ -407,7 +408,7 @@ body {
   font-size: 13px;
   line-height: 20px;
   font-weight: 400;
-  color: var(--color-text);
+  color: var(--color-white);
 }
 .footer-col.col-about-menas ul, .footer-col.col-menu ul {
   display: grid;
