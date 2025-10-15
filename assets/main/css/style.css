@@ -206,3 +206,26 @@ body {
   height: auto;
   transform-origin: top left;
 }
+
+.marquee-container {
+  overflow: hidden;
+}
+.marquee-content {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.marquee-item {
+  width: 212px;
+  min-width: 212px;
+  height: 137px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f6f2;
+}
+.marquee-item img {
+  width: auto;
+  height: auto;
+}
