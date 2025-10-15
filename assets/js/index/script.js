@@ -128,6 +128,26 @@ function sectionFields() {
         })
       });
     }
+
+    const imgEl = item.querySelector(".fields-item-img img");
+
+    if (imgEl) {
+      gsap.fromTo(
+        imgEl,
+        { scale: 1.3 },
+        {
+          scale: 1,
+          ease: "none",
+          scrollTrigger: {
+            trigger: imgEl,
+            start: "top bottom",
+            end: "top top",
+            scrub: 1
+            // markers: true
+          }
+        }
+      );
+    }
   });
 }
 
