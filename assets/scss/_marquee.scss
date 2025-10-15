@@ -1,8 +1,10 @@
 .marquee {
   position: relative;
   z-index: 2;
-  background-color: var(--color-white);
-
+  background-image: url("../../images/bg-loading.webp");
+  background-size: cover;
+  background-position: center;
+  padding: 220px 0;
   &-container {
     overflow: hidden;
     position: relative;
