@@ -1,16 +1,16 @@
 let scrollDirection = 1;
 let lastScrollTop = 0;
 const marqueeTimelines = new Map();
-let animationFrameId = null;
 
 function initMarquee() {
   if (!document.querySelector(".marquee-container")) return;
-  // Setup marquee containers
+
   document.querySelectorAll(".marquee-container").forEach((container) => {
     const content = container.querySelector(".marquee-content");
     const items = [...container.querySelectorAll(".marquee-item")];
-    const speed = parseFloat(container.getAttribute("data-speed")) || 30;
+    const speed = parseFloat(container.getAttribute("data-speed")) || 50;
 
+    // Clear and clone items
     content.innerHTML = "";
     items.forEach((item) => content.appendChild(item.cloneNode(true)));
 
@@ -30,56 +30,34 @@ function initMarquee() {
     let fullWidth = 0;
     [...content.children].forEach((item) => (fullWidth += item.offsetWidth));
 
+    // Calculate half width for seamless loop
+    const halfWidth = fullWidth / 2;
+
     gsap.set(content, {
       x: 0,
       willChange: "transform",
       force3D: true,
     });
 
-    const duration = fullWidth / speed;
-    const tl = gsap.timeline({ paused: true });
+    const duration = halfWidth / speed;
+
+    const tl = gsap.timeline({
+      repeat: -1,
+      paused: false,
+    });
+
     tl.to(content, {
-      x: -fullWidth,
+      x: -halfWidth,
       duration: duration,
       ease: "none",
-      modifiers: {
-        x: (x) => `${parseFloat(x) % fullWidth}px`,
-      },
     });
 
     marqueeTimelines.set(container, {
       timeline: tl,
-      fullWidth,
       speed,
-      duration,
-      progress: 0,
-      content,
+      baseTimeScale: 1,
     });
   });
-
-  // Start animation loop
-  if (animationFrameId) cancelAnimationFrame(animationFrameId);
-
-  const animate = () => {
-    marqueeTimelines.forEach((data) => {
-      const { timeline, duration, speed, fullWidth } = data;
-
-      data.progress += (scrollDirection * speed) / (fullWidth / 16.67);
-
-      if (data.progress < 0) {
-        data.progress = duration + data.progress;
-      }
-      if (data.progress > duration) {
-        data.progress = data.progress - duration;
-      }
-
-      timeline.progress(data.progress / duration);
-    });
-
-    animationFrameId = requestAnimationFrame(animate);
-  };
-
-  animationFrameId = requestAnimationFrame(animate);
 
   // Scroll listener
   window.addEventListener("scroll", () => {
@@ -90,6 +68,10 @@ function initMarquee() {
     } else if (scrollTop < lastScrollTop) {
       scrollDirection = -1;
     }
+
+    marqueeTimelines.forEach((data) => {
+      data.timeline.timeScale(scrollDirection * data.baseTimeScale);
+    });
 
     lastScrollTop = scrollTop;
   });
