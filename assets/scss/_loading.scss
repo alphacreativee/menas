@@ -5,13 +5,25 @@
   width: 100%;
   height: 100%;
   z-index: 999;
-  background-color: rosybrown;
   padding-left: 24px;
   padding-top: 12px;
   pointer-events: none;
-  transition: background-color 0.3s ease;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../../images/bg-loading.jpg");
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
   &.loaded {
-    background-color: transparent;
+    &::before {
+      opacity: 0;
+    }
   }
   &-img {
     a {
