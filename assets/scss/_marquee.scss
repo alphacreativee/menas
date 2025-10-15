@@ -1,14 +1,17 @@
 .marquee {
   &-container {
     overflow: hidden;
+    position: relative;
   }
   &-content {
     display: flex;
     gap: 24px;
     align-items: center;
     flex-wrap: nowrap;
+    width: max-content;
   }
   &-item {
+    flex-shrink: 0;
     width: 212px;
     min-width: 212px;
     height: 137px;

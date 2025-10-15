@@ -9,85 +9,85 @@ function initMarquee() {
     const items = [...container.querySelectorAll(".marquee-item")];
     const speed = parseFloat(container.getAttribute("data-speed")) || 30;
 
-    // Clear content
+    // Xóa hết
     content.innerHTML = "";
 
-    // Append original items
-    items.forEach((item) => content.appendChild(item.cloneNode(true)));
+    // Tạo wrapper cho 1 set items
+    const wrapper = document.createElement("div");
+    wrapper.style.display = "flex";
+    wrapper.style.gap = getComputedStyle(content).gap || "0px";
 
-    // Force reflow để lấy chính xác computed width
-    content.offsetHeight;
+    items.forEach((item) => wrapper.appendChild(item.cloneNode(true)));
+    content.appendChild(wrapper);
 
-    // Tính CHÍNH XÁC width của content (bao gồm cả gaps)
-    const originalItems = [...content.children];
-    const contentWidth = content.scrollWidth; // scrollWidth chính xác hơn offsetWidth
+    // Đợi render xong
+    requestAnimationFrame(() => {
+      // Lấy width THỰC của wrapper (bao gồm tất cả)
+      const wrapperWidth = wrapper.getBoundingClientRect().width;
 
-    // Clone đủ để fill + buffer
-    const containerWidth = container.offsetWidth;
-    const copiesNeeded = Math.ceil((containerWidth * 2) / contentWidth) + 1;
+      // Clone wrapper nhiều lần
+      const copiesNeeded = Math.ceil(container.offsetWidth / wrapperWidth) + 3;
 
-    for (let i = 0; i < copiesNeeded; i++) {
-      originalItems.forEach((item) => {
-        content.appendChild(item.cloneNode(true));
+      for (let i = 0; i < copiesNeeded; i++) {
+        content.appendChild(wrapper.cloneNode(true));
+      }
+
+      gsap.set(content, {
+        x: 0,
+        display: "flex",
+        willChange: "transform",
       });
-    }
 
-    // Force reflow again
-    content.offsetHeight;
-
-    gsap.set(content, {
-      x: 0,
-      willChange: "transform",
-      force3D: true,
-    });
-
-    marqueeData.set(container, {
-      content,
-      loopWidth: contentWidth,
-      speed,
-      position: 0,
+      marqueeData.set(container, {
+        content,
+        wrapperWidth,
+        speed,
+        position: 0,
+      });
     });
   });
 
-  if (animationFrameId) cancelAnimationFrame(animationFrameId);
+  // Đợi tất cả marquee init xong
+  setTimeout(() => {
+    if (animationFrameId) cancelAnimationFrame(animationFrameId);
 
-  let lastTime = performance.now();
+    let lastTime = performance.now();
 
-  const animate = (currentTime) => {
-    const deltaTime = Math.min((currentTime - lastTime) / 1000, 0.1); // Cap deltaTime
-    lastTime = currentTime;
+    const animate = (currentTime) => {
+      const deltaTime = (currentTime - lastTime) / 1000;
+      lastTime = currentTime;
 
-    marqueeData.forEach((data) => {
-      const { content, loopWidth, speed } = data;
+      marqueeData.forEach((data) => {
+        if (!data.wrapperWidth) return; // Chưa ready
 
-      data.position += scrollDirection * speed * deltaTime;
+        const { content, wrapperWidth, speed } = data;
 
-      // Modulo để loop mượt
-      data.position = ((data.position % loopWidth) + loopWidth) % loopWidth;
+        data.position += scrollDirection * speed * deltaTime;
 
-      // Apply với round để tránh sub-pixel rendering
-      const xPos = Math.round(-data.position * 100) / 100;
+        // Loop: khi đi hết 1 wrapper thì reset về 0
+        if (data.position >= wrapperWidth) {
+          data.position = data.position - wrapperWidth;
+        } else if (data.position < 0) {
+          data.position = wrapperWidth + data.position;
+        }
 
-      gsap.set(content, {
-        x: xPos,
+        gsap.set(content, {
+          x: -data.position,
+        });
       });
-    });
+
+      animationFrameId = requestAnimationFrame(animate);
+    };
 
     animationFrameId = requestAnimationFrame(animate);
-  };
-
-  animationFrameId = requestAnimationFrame(animate);
+  }, 100);
 
   window.addEventListener(
     "scroll",
     () => {
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
-      scrollDirection =
-        scrollTop > lastScrollTop
-          ? 1
-          : scrollTop < lastScrollTop
-          ? -1
-          : scrollDirection;
+      if (scrollTop > lastScrollTop) scrollDirection = 1;
+      else if (scrollTop < lastScrollTop) scrollDirection = -1;
       lastScrollTop = scrollTop;
     },
     { passive: true }
