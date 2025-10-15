@@ -8,7 +8,7 @@ function initMarquee() {
   document.querySelectorAll(".marquee-container").forEach((container) => {
     const content = container.querySelector(".marquee-content");
     const items = [...container.querySelectorAll(".marquee-item")];
-    const speed = parseFloat(container.getAttribute("data-speed")) || 50;
+    const speed = parseFloat(container.getAttribute("data-speed")) || 30;
 
     // Clear and clone items
     content.innerHTML = "";
@@ -19,7 +19,7 @@ function initMarquee() {
     clonedItems.forEach((item) => (totalWidth += item.offsetWidth));
 
     const containerWidth = container.offsetWidth;
-    const copiesNeeded = Math.ceil(containerWidth / totalWidth) + 4;
+    const copiesNeeded = Math.ceil(containerWidth / totalWidth) + 2;
 
     for (let i = 0; i < copiesNeeded; i++) {
       clonedItems.forEach((item) => {
@@ -30,7 +30,6 @@ function initMarquee() {
     let fullWidth = 0;
     [...content.children].forEach((item) => (fullWidth += item.offsetWidth));
 
-    // Calculate half width for seamless loop
     const halfWidth = fullWidth / 2;
 
     gsap.set(content, {
@@ -43,19 +42,19 @@ function initMarquee() {
 
     const tl = gsap.timeline({
       repeat: -1,
-      paused: false,
     });
 
     tl.to(content, {
       x: -halfWidth,
       duration: duration,
       ease: "none",
+      modifiers: {
+        x: gsap.utils.unitize((x) => parseFloat(x) % -halfWidth),
+      },
     });
 
     marqueeTimelines.set(container, {
       timeline: tl,
-      speed,
-      baseTimeScale: 1,
     });
   });
 
@@ -70,7 +69,7 @@ function initMarquee() {
     }
 
     marqueeTimelines.forEach((data) => {
-      data.timeline.timeScale(scrollDirection * data.baseTimeScale);
+      data.timeline.timeScale(scrollDirection);
     });
 
     lastScrollTop = scrollTop;
