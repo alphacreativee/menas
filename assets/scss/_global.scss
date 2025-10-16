@@ -74,6 +74,7 @@
     span {
       font-family: var(--font-body);
       font-size: 13px;
+      text-transform: uppercase;
     }
   }
 
@@ -84,5 +85,10 @@
 }
 
 [data-cursor-text] {
-  cursor: none;
+  cursor: none !important;
+}
+
+main {
+  position: relative;
+  z-index: 3;
 }

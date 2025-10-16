@@ -2,9 +2,11 @@
   &-wrap {
     position: relative;
     padding: 0 24px;
+    z-index: 2;
+    background-color: var(--color-white);
     &.project-sec {
       padding: 80px 24px;
-      background-color: var(--color-white);
+
       .scroll-item {
         flex-direction: row-reverse;
       }

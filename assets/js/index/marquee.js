@@ -1,4 +1,3 @@
-if (!document.querySelector(".logo-wrap")) return;
 document.querySelectorAll(".logo-wrap").forEach((element) => {
   if (element.dataset.scriptInitialized) return;
   element.dataset.scriptInitialized = "true";
