@@ -24,6 +24,12 @@ a {
   font-weight: 400;
 }
 
+.h1-font {
+  font-size: 72px;
+  line-height: 88px;
+  font-weight: 400;
+}
+
 .h2-font {
   font-size: 40px;
   font-weight: 400;
@@ -36,12 +42,22 @@ a {
   font-weight: 400;
 }
 
+.h4-font {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: bold;
+}
+
 .font-heading {
   font-family: var(--font-heading);
 }
 
 .font-body {
   font-family: var(--font-body);
+}
+
+.spacing {
+  height: 50vh;
 }
 
 *,
@@ -1024,4 +1040,92 @@ body {
   height: 100%;
   object-fit: cover;
   transform: scale(1.2);
+}
+
+.scroll-wrap {
+  position: relative;
+  padding: 0 24px;
+}
+.scroll-wrap.project-sec {
+  padding: 80px 24px;
+  background-color: var(--color-white);
+}
+.scroll-wrap.project-sec .scroll-item {
+  flex-direction: row-reverse;
+}
+.scroll-wrap.project-sec .scroll-box-content {
+  right: auto;
+  top: auto;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.scroll-wrap-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.scroll-trigger {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+.scroll-track {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0%;
+  bottom: 0%;
+  left: 0;
+  right: 0;
+  padding: 80px 24px;
+}
+.scroll-sticky {
+  width: 100%;
+  height: calc(100vh - 54px);
+  position: -webkit-sticky;
+  position: sticky;
+  top: 54px;
+}
+.scroll-item {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0%;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+  display: flex;
+  align-items: flex-start;
+}
+.scroll-img {
+  width: 100%;
+  width: 75%;
+  flex: none;
+  overflow: hidden;
+}
+.scroll-background {
+  height: 100%;
+  opacity: 0;
+}
+.scroll-box-content {
+  color: var(--color-white);
+  background-color: var(--bg-color);
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 33.3333333333%;
+  height: 370px;
+  padding: 40px;
+}
+.scroll-box-content .title {
+  margin-bottom: 24px;
+}
+.scroll-box-content .description {
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 400;
+  font-family: var(--font-body);
 }
