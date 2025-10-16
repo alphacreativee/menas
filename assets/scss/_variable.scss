@@ -1,7 +1,7 @@
 :root {
   --color-primary: #e4a025;
   --color-secondary: #4fb84f;
-  --color-text: #512304;
+  --color-text: #3a4041;
   --color-white: #fff;
   --color-black: #000;
   --font-heading: "VNF-Optima", sans-serif;
@@ -11,6 +11,7 @@
 body,
 a {
   color: var(--color-text);
+  font-family: var(--font-body);
 }
 
 .color-white {
@@ -20,6 +21,7 @@ a {
 .b1-font {
   font-size: 13px;
   line-height: 20px;
+  font-weight: 400;
 }
 
 .h2-font {

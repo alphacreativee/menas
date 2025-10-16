@@ -1,7 +1,7 @@
 :root {
   --color-primary: #e4a025;
   --color-secondary: #4fb84f;
-  --color-text: #512304;
+  --color-text: #3a4041;
   --color-white: #fff;
   --color-black: #000;
   --font-heading: "VNF-Optima", sans-serif;
@@ -11,6 +11,7 @@
 body,
 a {
   color: var(--color-text);
+  font-family: var(--font-body);
 }
 
 .color-white {
@@ -20,6 +21,7 @@ a {
 .b1-font {
   font-size: 13px;
   line-height: 20px;
+  font-weight: 400;
 }
 
 .h2-font {
@@ -230,16 +232,16 @@ body {
   width: 100%;
   height: 100%;
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.5);
+  background: linear-gradient(to top, #3a4041 0%, rgba(58, 64, 65, 0) 76%);
   top: 0;
   left: 0;
   z-index: 2;
 }
 .section-fields .fields-item-name {
   position: absolute;
-  top: 50%;
+  bottom: 80px;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   width: 100%;
   z-index: 2;
   max-width: 500px;
@@ -251,6 +253,39 @@ body {
 }
 .section-fields .fields-item-name .desc {
   margin-top: 24px;
+}
+.section-fields .fields-tabs {
+  position: fixed;
+  z-index: 3;
+  bottom: 24px;
+  left: 50%;
+  transform: translate(-50%, 20px);
+  opacity: 0;
+  pointer-events: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  max-width: 90%;
+  transition: transform 0.4s ease, opacity 0.3s ease;
+}
+.section-fields .fields-tabs.active {
+  transform: translate(-50%, 0);
+  opacity: 1;
+  pointer-events: auto;
+}
+.section-fields .fields-tabs__item {
+  padding: 8px 16px;
+  border-radius: 72px;
+  background-color: var(--color-white);
+  width: max-content;
+  transition: all 0.4s ease;
+}
+.section-fields .fields-tabs__item.active {
+  background-color: var(--color-secondary);
+  color: var(--color-white);
 }
 
 .loading {
