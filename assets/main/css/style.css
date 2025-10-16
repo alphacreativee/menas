@@ -1274,3 +1274,40 @@ main {
   transform: translateY(50%);
   right: 10px;
 }
+
+.ticket {
+  position: relative;
+  z-index: 2;
+  background-image: url("../../images/bg-loading.webp");
+  background-size: cover;
+  background-position: center;
+  padding: 190px 0;
+  overflow: hidden;
+}
+.ticket-content {
+  display: flex;
+  align-items: center;
+  font-family: var(--font-heading);
+  font-size: 320px;
+  line-height: 320px;
+  text-transform: uppercase;
+  color: var(--color-white);
+}
+.ticket-content svg path {
+  color: var(--color-white);
+}
+.ticket-inner {
+  display: flex;
+  align-items: center;
+}
+.ticket .diamond {
+  width: 100px;
+  height: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ticket .diamond svg {
+  width: 100px;
+  height: 100px;
+}

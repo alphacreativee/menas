@@ -1,0 +1,39 @@
+.ticket {
+  position: relative;
+  z-index: 2;
+  background-image: url("../../images/bg-loading.webp");
+  background-size: cover;
+  background-position: center;
+  padding: 190px 0;
+  overflow: hidden;
+  &-content {
+    display: flex;
+    align-items: center;
+    font-family: var(--font-heading);
+    font-size: 320px;
+    line-height: 320px;
+    text-transform: uppercase;
+    color: var(--color-white);
+
+    svg {
+      path {
+        color: var(--color-white);
+      }
+    }
+  }
+  &-inner {
+    display: flex;
+    align-items: center;
+  }
+  .diamond {
+    width: 100px;
+    height: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    svg {
+      width: 100px;
+      height: 100px;
+    }
+  }
+}
