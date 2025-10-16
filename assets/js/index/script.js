@@ -53,7 +53,7 @@ function loading() {
 function sectionFields() {
   if ($(".section-fields").length < 1) return;
 
-  gsap.utils.toArray(".fields-item").forEach((item) => {
+  gsap.utils.toArray(".fields-item").forEach((item, index) => {
     const img = item.querySelector(".fields-item-img");
     const title = item.querySelector(".fields-item-name h3");
     const desc = item.querySelector(".fields-item-name .desc");
@@ -147,6 +147,41 @@ function sectionFields() {
           }
         }
       );
+    }
+
+    // active tabs
+    ScrollTrigger.create({
+      trigger: item,
+      start: "top center",
+      end: "bottom center",
+      // markers: true,
+      onEnter: () => {
+        $(".fields-tabs__item").removeClass("active");
+        $(".fields-tabs__item").eq(index).addClass("active");
+      },
+      onEnterBack: () => {
+        $(".fields-tabs__item").removeClass("active");
+        $(".fields-tabs__item").eq(index).addClass("active");
+      }
+    });
+  });
+
+  ScrollTrigger.create({
+    trigger: ".section-fields",
+    start: "top center",
+    end: "bottom+=40 bottom",
+    // markers: true,
+    onEnter: () => {
+      $(".fields-tabs").addClass("active");
+    },
+    onLeave: () => {
+      $(".fields-tabs").removeClass("active");
+    },
+    onEnterBack: () => {
+      $(".fields-tabs").addClass("active");
+    },
+    onLeaveBack: () => {
+      $(".fields-tabs").removeClass("active");
     }
   });
 }
