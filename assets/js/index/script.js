@@ -19,33 +19,35 @@ function loading() {
 
   gsap.set(logo, {
     y: yPos,
-    scale: aspectRatio
+    scale: aspectRatio,
   });
 
   gsap.set(loadingAfter, {
-    "--after-height": "0px"
+    "--after-height": "0px",
   });
 
   gsap.to(logo, {
     y: 0,
-    duration: 2.5,
+    duration: 2,
+    ease: "expo.in",
     onUpdate: function () {
       const logoRect = logo.getBoundingClientRect();
       const logoTop = logoRect.top;
       const afterHeight = window.innerHeight - logoTop + paddingTop;
       gsap.set(loadingAfter, {
-        "--after-height": afterHeight + "px"
+        "--after-height": afterHeight + "px",
       });
     },
     onComplete: () => {
       gsap.to(logo, {
         scale: 1,
         duration: 1,
+        ease: "expo.in",
         onComplete: () => {
           document.querySelector(".loading").classList.add("loaded");
-        }
+        },
       });
-    }
+    },
   });
 }
 // end lenis
@@ -69,9 +71,9 @@ function sectionFields() {
         { clipPath: "polygon(25% 25%, 75% 40%, 100% 100%, 0% 100%)" },
         {
           clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-          ease: "none"
+          ease: "none",
         }
-      )
+      ),
     });
 
     // Hiệu ứng clipPath đóng
@@ -84,14 +86,14 @@ function sectionFields() {
         img,
         { clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)" },
         { clipPath: "polygon(0% 0%, 100% 0%, 75% 60%, 25% 75%)", ease: "none" }
-      )
+      ),
     });
 
     // Hiệu ứng title từng chữ nghiêng, xuất hiện dần
     if (title) {
       const splitTitle = SplitText.create(title, {
         type: "chars",
-        mask: "chars"
+        mask: "chars",
       });
       gsap.set(splitTitle.chars, { y: "125%" });
 
@@ -102,7 +104,11 @@ function sectionFields() {
           end: `top+=${index * 25} 40%`,
           scrub: 1,
           // markers: true,
-          animation: gsap.fromTo(char, { y: "125%" }, { y: "0%", ease: "none" })
+          animation: gsap.fromTo(
+            char,
+            { y: "125%" },
+            { y: "0%", ease: "none" }
+          ),
         });
       });
     }
@@ -112,7 +118,7 @@ function sectionFields() {
       const splitDesc = new SplitText(desc, {
         type: "lines",
         linesClass: "line",
-        mask: "lines"
+        mask: "lines",
       });
 
       gsap.set(splitDesc.lines, { yPercent: 100 });
@@ -124,8 +130,8 @@ function sectionFields() {
         scrub: 1,
         animation: gsap.to(splitDesc.lines, {
           yPercent: 0,
-          ease: "none"
-        })
+          ease: "none",
+        }),
       });
     }
 
@@ -142,9 +148,9 @@ function sectionFields() {
             trigger: imgEl,
             start: "top bottom",
             end: "top top",
-            scrub: 1
+            scrub: 1,
             // markers: true
-          }
+          },
         }
       );
     }
@@ -156,7 +162,7 @@ function magicCursor() {
 
   gsap.set(circle, {
     xPercent: -50,
-    yPercent: -50
+    yPercent: -50,
   });
 
   let mouseX = 0,
@@ -169,7 +175,7 @@ function magicCursor() {
     gsap.to(circle, {
       x: mouseX,
       y: mouseY,
-      duration: 0.1
+      duration: 0.1,
     });
   });
 
@@ -217,18 +223,18 @@ function effectText() {
       {
         "will-change": "opacity, transform",
         opacity: 0,
-        y: 20
+        y: 20,
       },
       {
         scrollTrigger: {
           trigger: element,
           start: "top 80%",
-          end: "bottom 80%"
+          end: "bottom 80%",
         },
         opacity: 1,
         y: 0,
         duration: 0.5,
-        ease: "sine.out"
+        ease: "sine.out",
       }
     );
   });
@@ -237,14 +243,14 @@ function effectText() {
     const splitDescription = new SplitText(description, {
       type: "lines",
       linesClass: "line",
-      mask: "lines"
+      mask: "lines",
     });
 
     gsap.fromTo(
       splitDescription.lines,
       {
         yPercent: 100,
-        willChange: "transform"
+        willChange: "transform",
       },
       {
         yPercent: 0,
@@ -254,9 +260,9 @@ function effectText() {
 
         scrollTrigger: {
           trigger: description,
-          start: "top 80%"
+          start: "top 80%",
           // markers: true,
-        }
+        },
       }
     );
   });
@@ -266,7 +272,7 @@ function effectText() {
 
     const splitTitle = SplitText.create(title, {
       type: "chars",
-      mask: "chars"
+      mask: "chars",
     });
 
     gsap.set(splitTitle.chars, { y: "125%" });
@@ -276,7 +282,7 @@ function effectText() {
       ease: "power3.out",
       duration: 1,
       stagger: 0.03,
-      delay: delay
+      delay: delay,
     });
   });
 }
@@ -383,7 +389,7 @@ function hero() {
       preloadImages: true,
       parallax: true,
       lazy: {
-        loadPrevNext: true
+        loadPrevNext: true,
       },
       allowTouchMove: false,
       simulateTouch: false,
@@ -398,7 +404,7 @@ function hero() {
               <circle class="circle-origin" cx="14" cy="14" r="13" stroke="white"/>
             </svg>
             </button>`;
-        }
+        },
       },
       // navigation: {
       //   nextEl: ".hero .swiper-button-next",
@@ -408,8 +414,8 @@ function hero() {
         init: function () {
           let $this = this;
           $($this.slides[$this.activeIndex]);
-        }
-      }
+        },
+      },
     });
   });
 }
@@ -424,9 +430,9 @@ function sectionIntro() {
       trigger: "section.intro",
       start: "top 80%",
       end: "bottom top",
-      scrub: true
+      scrub: true,
       // markers: true
-    }
+    },
   });
 
   gsap.utils
@@ -436,7 +442,7 @@ function sectionIntro() {
         img,
         {
           scale: 1.3,
-          yPercent: 10
+          yPercent: 10,
         },
         {
           scale: 1.2,
@@ -446,9 +452,9 @@ function sectionIntro() {
             trigger: "section.intro",
             start: "top 80%",
             end: "bottom top",
-            scrub: true
+            scrub: true,
             // markers: true
-          }
+          },
         }
       );
     });
@@ -460,7 +466,7 @@ function sectionIntro() {
         img,
         {
           scale: 1.3,
-          yPercent: 10
+          yPercent: 10,
         },
         {
           scale: 1.2,
@@ -470,9 +476,9 @@ function sectionIntro() {
             trigger: "section.intro",
             start: "top 80%",
             end: "bottom top",
-            scrub: true
+            scrub: true,
             // markers: true
-          }
+          },
         }
       );
     });
@@ -487,8 +493,8 @@ function sectionIntro() {
         trigger: "section.intro",
         start: "top 80%",
         end: "bottom top",
-        scrub: true
-      }
+        scrub: true,
+      },
     });
   });
 
@@ -500,9 +506,9 @@ function sectionIntro() {
         trigger: ".intro",
         start: "top bottom",
         end: "top top",
-        scrub: true
+        scrub: true,
         // markers: true
-      }
+      },
     });
   }
 }
