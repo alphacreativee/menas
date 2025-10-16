@@ -28,7 +28,8 @@ function loading() {
 
   gsap.to(logo, {
     y: 0,
-    duration: 2.5,
+    duration: 2,
+    ease: "expo.in",
     onUpdate: function () {
       const logoRect = logo.getBoundingClientRect();
       const logoTop = logoRect.top;
@@ -41,6 +42,7 @@ function loading() {
       gsap.to(logo, {
         scale: 1,
         duration: 1,
+        ease: "expo.in",
         onComplete: () => {
           document.querySelector(".loading").classList.add("loaded");
         }
