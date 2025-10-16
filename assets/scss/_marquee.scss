@@ -1,33 +1,52 @@
-.marquee {
+.logo-wrap {
   position: relative;
   z-index: 2;
   background-image: url("../../images/bg-loading.webp");
   background-size: cover;
   background-position: center;
-  padding: 220px 0;
-  &-container {
-    overflow: hidden;
-    position: relative;
-  }
+  padding: 190px 0;
   &-content {
-    display: flex;
-    gap: 24px;
-    align-items: center;
-    flex-wrap: nowrap;
-    width: max-content;
+    width: 55%;
+    margin: 0 auto;
+    text-align: center;
+    h3 {
+      margin-bottom: 32px;
+    }
+    .description {
+      margin-bottom: 80px;
+    }
   }
-  &-item {
-    flex-shrink: 0;
-    width: 212px;
-    min-width: 212px;
-    height: 137px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f4f6f2;
-    img {
-      width: auto;
-      height: auto;
+  .marquee {
+    width: 100vw;
+    overflow: hidden;
+    &-wrap {
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    &-scroll {
+      display: flex;
+      position: relative;
+      will-change: transform;
+    }
+    &-list {
+      display: flex;
+      position: relative;
+      will-change: transform;
+      &-wrap {
+        flex: none;
+      }
+    }
+    &-item {
+      margin-right: 12px;
+      margin-left: 12px;
+      flex: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--color-white);
+      min-width: 212px;
+      height: 140px;
     }
   }
 }

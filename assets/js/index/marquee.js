@@ -1,126 +1,124 @@
-let scrollDirection = 1;
-let lastScrollTop = 0;
-const marqueeData = new Map();
-let animationFrameId = null;
+document.querySelectorAll(".logo-wrap").forEach((element) => {
+  if (element.dataset.scriptInitialized) return;
+  element.dataset.scriptInitialized = "true";
 
-function initMarquee() {
-  document.querySelectorAll(".marquee-container").forEach((container) => {
-    const content = container.querySelector(".marquee-content");
-    const originalItems = [...container.querySelectorAll(".marquee-item")];
-    const speed = parseFloat(container.getAttribute("data-speed")) || 30;
+  document
+    .querySelectorAll("[data-marquee-scroll-direction-target]")
+    .forEach((marquee) => {
+      // Query marquee elements
+      const marqueeContent = marquee.querySelector(
+        "[data-marquee-collection-target]"
+      );
+      const marqueeScroll = marquee.querySelector(
+        "[data-marquee-scroll-target]"
+      );
+      if (!marqueeContent || !marqueeScroll) return;
 
-    content.innerHTML = "";
+      // Get data attributes
+      const {
+        marqueeSpeed: speed,
+        marqueeDirection: direction,
+        marqueeDuplicate: duplicate,
+        marqueeScrollSpeed: scrollSpeed,
+      } = marquee.dataset;
 
-    originalItems.forEach((item) => {
-      content.appendChild(item.cloneNode(true));
-    });
+      // Convert data attributes to usable types
+      const marqueeSpeedAttr = parseFloat(speed);
+      const marqueeDirectionAttr = direction === "right" ? 1 : -1;
+      // 1 for right, -1 for left
+      const duplicateAmount = parseInt(duplicate || 0);
+      const scrollSpeedAttr = parseFloat(scrollSpeed);
+      const speedMultiplier =
+        window.innerWidth < 479 ? 0.25 : window.innerWidth < 991 ? 0.5 : 1;
 
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        const items = [...content.children];
-        let totalWidth = 0;
+      let marqueeSpeed =
+        marqueeSpeedAttr *
+        (marqueeContent.offsetWidth / window.innerWidth) *
+        speedMultiplier;
 
-        items.forEach((item) => {
-          const rect = item.getBoundingClientRect();
-          const style = getComputedStyle(item);
-          const marginRight = parseFloat(style.marginRight) || 0;
-          totalWidth += rect.width + marginRight;
-        });
+      // Precompute styles for the scroll container
+      marqueeScroll.style.marginLeft = `${scrollSpeedAttr * -1}%`;
+      marqueeScroll.style.width = `${scrollSpeedAttr * 2 + 100}%`;
 
-        const gap = parseFloat(getComputedStyle(content).gap) || 0;
-        if (gap > 0 && items.length > 1) {
-          totalWidth += gap * (items.length - 1);
+      // Duplicate marquee content
+      if (duplicateAmount > 0) {
+        const fragment = document.createDocumentFragment();
+        for (let i = 0; i < duplicateAmount; i++) {
+          fragment.appendChild(marqueeContent.cloneNode(true));
         }
+        marqueeScroll.appendChild(fragment);
+      }
 
-        const containerWidth = container.offsetWidth;
-        const setsNeeded = Math.ceil((containerWidth * 2) / totalWidth) + 2;
+      // GSAP animation for marquee content
+      const marqueeItems = marquee.querySelectorAll(
+        "[data-marquee-collection-target]"
+      );
+      const animation = gsap
+        .to(marqueeItems, {
+          xPercent: -100,
+          // Move completely out of view
+          repeat: -1,
+          duration: marqueeSpeed,
+          ease: "linear",
+        })
+        .totalProgress(0.5);
 
-        for (let i = 1; i < setsNeeded; i++) {
-          originalItems.forEach((item) => {
-            content.appendChild(item.cloneNode(true));
-          });
-        }
-
-        // Key fix: Đảm bảo width chính xác bằng cách tính lại sau khi clone
-        requestAnimationFrame(() => {
-          const allItems = [...content.children];
-          let preciseWidth = 0;
-
-          allItems.slice(0, originalItems.length).forEach((item, idx) => {
-            const rect = item.getBoundingClientRect();
-            preciseWidth += rect.width;
-            if (idx < originalItems.length - 1) {
-              preciseWidth += gap || 0;
-            }
-          });
-
-          gsap.set(content, {
-            x: 0,
-            willChange: "transform",
-          });
-
-          marqueeData.set(container, {
-            content,
-            loopWidth: preciseWidth, // Sử dụng width chính xác hơn
-            speed,
-            x: 0,
-          });
-        });
+      // Initialize marquee in the correct direction
+      gsap.set(marqueeItems, {
+        xPercent: marqueeDirectionAttr === 1 ? 100 : -100,
       });
-    });
-  });
+      animation.timeScale(marqueeDirectionAttr);
+      // Set correct direction
+      animation.play();
+      // Start animation immediately
 
-  setTimeout(() => {
-    if (animationFrameId) cancelAnimationFrame(animationFrameId);
+      // Set initial marquee status
+      marquee.setAttribute("data-marquee-status", "normal");
 
-    let lastTime = performance.now();
+      // ScrollTrigger logic for direction inversion
+      ScrollTrigger.create({
+        trigger: marquee,
+        start: "top bottom",
+        end: "bottom top",
+        onUpdate: (self) => {
+          const isInverted = self.direction === 1;
+          // Scrolling down
+          const currentDirection = isInverted
+            ? -marqueeDirectionAttr
+            : marqueeDirectionAttr;
 
-    const animate = (currentTime) => {
-      const deltaTime = Math.min((currentTime - lastTime) / 1000, 0.1);
-      lastTime = currentTime;
-
-      marqueeData.forEach((data) => {
-        if (!data.loopWidth) return;
-
-        const { content, loopWidth, speed } = data;
-
-        data.x -= scrollDirection * speed * deltaTime;
-
-        // Improved seamless loop với modulo
-        if (scrollDirection > 0) {
-          // Scroll sang trái
-          if (data.x <= -loopWidth) {
-            data.x = data.x % loopWidth;
-          }
-        } else {
-          // Scroll sang phải
-          if (data.x >= 0) {
-            data.x = -(loopWidth + (data.x % loopWidth));
-          }
-        }
-
-        // Sử dụng transform trực tiếp thay vì GSAP để tránh conflict
-        content.style.transform = `translate3d(${
-          Math.round(data.x * 100) / 100
-        }px, 0, 0)`;
+          // Update animation direction and marquee status
+          animation.timeScale(currentDirection);
+          marquee.setAttribute(
+            "data-marquee-status",
+            isInverted ? "normal" : "inverted"
+          );
+        },
       });
 
-      animationFrameId = requestAnimationFrame(animate);
-    };
+      // Extra speed effect on scroll
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: marquee,
+          start: "0% 100%",
+          end: "100% 0%",
+          scrub: 0,
+        },
+      });
 
-    animationFrameId = requestAnimationFrame(animate);
-  }, 200); // Tăng timeout để đảm bảo layout ổn định
+      const scrollStart =
+        marqueeDirectionAttr === -1 ? scrollSpeedAttr : -scrollSpeedAttr;
+      const scrollEnd = -scrollStart;
 
-  window.addEventListener(
-    "scroll",
-    () => {
-      const scrollTop = window.scrollY || document.documentElement.scrollTop;
-      if (scrollTop > lastScrollTop) scrollDirection = 1;
-      else if (scrollTop < lastScrollTop) scrollDirection = -1;
-      lastScrollTop = scrollTop;
-    },
-    { passive: true }
-  );
-}
-
-initMarquee();
+      tl.fromTo(
+        marqueeScroll,
+        {
+          x: `${scrollStart}vw`,
+        },
+        {
+          x: `${scrollEnd}vw`,
+          ease: "none",
+        }
+      );
+    });
+});
