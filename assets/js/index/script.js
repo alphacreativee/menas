@@ -55,7 +55,7 @@ function loading() {
 function sectionFields() {
   if ($(".section-fields").length < 1) return;
 
-  gsap.utils.toArray(".fields-item").forEach((item, index) => {
+  gsap.utils.toArray(".fields-item").forEach((item, index, array) => {
     const img = item.querySelector(".fields-item-img");
     const title = item.querySelector(".fields-item-name h3");
     const desc = item.querySelector(".fields-item-name .desc");
@@ -77,17 +77,22 @@ function sectionFields() {
     });
 
     // Hiệu ứng clipPath đóng
-    ScrollTrigger.create({
-      trigger: item,
-      start: "bottom bottom",
-      end: "bottom top",
-      scrub: 0.5,
-      animation: gsap.fromTo(
-        img,
-        { clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)" },
-        { clipPath: "polygon(0% 0%, 100% 0%, 75% 60%, 25% 75%)", ease: "none" }
-      )
-    });
+    if (index < array.length - 1) {
+      ScrollTrigger.create({
+        trigger: item,
+        start: "bottom bottom",
+        end: "bottom top",
+        scrub: 0.5,
+        animation: gsap.fromTo(
+          img,
+          { clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)" },
+          {
+            clipPath: "polygon(0% 0%, 100% 0%, 75% 60%, 25% 75%)",
+            ease: "none"
+          }
+        )
+      });
+    }
 
     // Hiệu ứng title từng chữ nghiêng, xuất hiện dần
     if (title) {
@@ -316,6 +321,33 @@ function effectText() {
       delay: delay
     });
   });
+
+  gsap.utils.toArray(".effect-title").forEach((title) => {
+    const delay = parseFloat(title.getAttribute("data-delay")) || 0;
+
+    const splitTitle = new SplitText(title, {
+      type: "chars",
+      charsClass: "char",
+      mask: "chars"
+    });
+
+    gsap.set(splitTitle.chars, { y: "125%", opacity: 0 });
+
+    gsap.to(splitTitle.chars, {
+      y: "0%",
+      opacity: 1,
+      ease: "power3.out",
+      duration: 1,
+      stagger: 0.03,
+      delay: delay,
+      scrollTrigger: {
+        trigger: title,
+        start: "top 80%",
+        toggleActions: "play none none reverse"
+        // markers: true,
+      }
+    });
+  });
 }
 
 function customDropdown() {
@@ -472,12 +504,12 @@ function sectionIntro() {
       gsap.fromTo(
         img,
         {
-          scale: 1.3,
-          yPercent: 10
+          scale: 1.2
+          // yPercent: 10
         },
         {
-          scale: 1.2,
-          yPercent: -10,
+          scale: 1,
+          // yPercent: -10,
           ease: "none",
           scrollTrigger: {
             trigger: "section.intro",
@@ -496,12 +528,12 @@ function sectionIntro() {
       gsap.fromTo(
         img,
         {
-          scale: 1.3,
-          yPercent: 10
+          scale: 1.2
+          // yPercent: 10
         },
         {
-          scale: 1.2,
-          yPercent: -10,
+          scale: 1,
+          // yPercent: -10,
           ease: "none",
           scrollTrigger: {
             trigger: "section.intro",
@@ -541,7 +573,45 @@ function sectionIntro() {
         // markers: true
       }
     });
+
+    ScrollTrigger.create({
+      trigger: ".intro",
+      start: "bottom top",
+      // markers: true,
+      onEnter: () => {
+        $(".hero").addClass("hidden-section");
+      },
+      onEnterBack: () => {
+        $(".hero").removeClass("hidden-section");
+      }
+    });
   }
+}
+
+function sectionNews() {
+  if ($(".section-news").length < 1) return;
+
+  const items = gsap.utils.toArray(".section-news .grid-news__item");
+
+  gsap.set(items, { y: 40, opacity: 0 });
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".section-news",
+      start: "top 70%",
+      end: "bottom bottom",
+      toggleActions: "play none none reverse"
+      // markers: true,
+    }
+  });
+
+  tl.to(items, {
+    y: 0,
+    opacity: 1,
+    duration: 0.6,
+    ease: "power2.out",
+    stagger: 0.2
+  });
 }
 
 const init = () => {
@@ -553,6 +623,7 @@ const init = () => {
   customDropdown();
   hero();
   sectionIntro();
+  sectionNews();
 };
 preloadImages("img").then(() => {
   // Once images are preloaded, remove the 'loading' indicator/class from the body

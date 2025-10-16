@@ -3,6 +3,7 @@
   --color-secondary: #4fb84f;
   --color-text: #3a4041;
   --color-white: #fff;
+  --color-white-2: #f0f0f0;
   --color-black: #000;
   --font-heading: "VNF-Optima", sans-serif;
   --font-body: "BT Beau Sans", sans-serif;
@@ -189,6 +190,7 @@ body {
 .magic-cursor .cursor span {
   font-family: var(--font-body);
   font-size: 13px;
+  text-transform: uppercase;
 }
 .magic-cursor .text {
   min-width: max-content;
@@ -196,7 +198,12 @@ body {
 }
 
 [data-cursor-text] {
-  cursor: none;
+  cursor: none !important;
+}
+
+main {
+  position: relative;
+  z-index: 3;
 }
 
 .section-fields {
@@ -401,6 +408,16 @@ body {
   background-color: var(--color-white);
 }
 
+.footer-container.footer-main {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+.footer-container.footer-overlay {
+  opacity: 0;
+  pointer-events: none;
+  position: unset !important;
+}
 .footer-top {
   padding: 48px 24px 35px;
   background-color: #575f62;
@@ -732,6 +749,10 @@ body {
   top: 0;
   left: 0;
 }
+.hero.hidden-section {
+  opacity: 0;
+  pointer-events: none;
+}
 .hero-overlay {
   height: 100dvh;
   width: 1px;
@@ -1024,4 +1045,60 @@ body {
   height: 100%;
   object-fit: cover;
   transform: scale(1.2);
+}
+
+.section-news {
+  position: relative;
+  z-index: 1;
+  background-color: var(--color-white-2);
+}
+.section-news .news-wrapper {
+  padding: 80px 24px;
+}
+.section-news .news-grid {
+  margin-top: 80px;
+}
+.section-news .news-grid__wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.section-news .news-grid .news-item {
+  transition: transform 0.4s ease;
+}
+.section-news .news-grid .news-item:hover {
+  transform: translateY(-16px);
+}
+
+.news-item {
+  display: flex;
+  flex-direction: column;
+  display: block;
+  background-color: var(--color-white);
+}
+.news-item .content {
+  padding: 24px;
+  min-height: 215px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.news-item .content .name {
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: bold;
+}
+.news-item .content .date {
+  font-size: 16px;
+  line-height: 26px;
+}
+.news-item .image {
+  width: 100%;
+  aspect-ratio: 488/252;
+  overflow: hidden;
+}
+.news-item .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
