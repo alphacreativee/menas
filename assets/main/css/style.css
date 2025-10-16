@@ -626,8 +626,8 @@ main {
 .header-menu ul > li.menu-item-has-children::after {
   content: "";
   position: absolute;
-  width: 9px;
-  height: 5px;
+  width: 13px;
+  height: 7px;
   background-image: url("../../images/icon/ic_arrow_down.svg");
   right: 0;
   top: 50%;
