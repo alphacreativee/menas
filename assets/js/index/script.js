@@ -683,7 +683,38 @@ function sectionNews() {
     stagger: 0.2,
   });
 }
+function ticket() {
+  const ticket = document.querySelectorAll(".ticket");
 
+  if (!ticket) return;
+
+  ticket.forEach((item) => {
+    const ticketInner = item.querySelector(".ticket-inner");
+    const ticketContent = ticketInner.querySelector(".ticket-content");
+
+    // Duration
+    const duration = item.getAttribute("data-ticket-duration");
+
+    const cloneCount = 5;
+
+    // Element Clone
+    for (let i = 0; i < cloneCount; i++) {
+      const ticketContentClone = ticketContent.cloneNode(true);
+      ticketInner.append(ticketContentClone);
+    }
+
+    // Marquee animation
+    const ticketContentAll = ticketInner.querySelectorAll(".ticket-content");
+    ticketContentAll.forEach((element) => {
+      gsap.to(element, {
+        x: "-101%",
+        repeat: -1,
+        duration: duration,
+        ease: "linear",
+      });
+    });
+  });
+}
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   sectionFields();
@@ -695,6 +726,7 @@ const init = () => {
   sectionIntro();
   scrollWrap();
   sectionNews();
+  ticket();
 };
 preloadImages("img").then(() => {
   // Once images are preloaded, remove the 'loading' indicator/class from the body
