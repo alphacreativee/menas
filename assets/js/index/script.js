@@ -343,7 +343,7 @@ function effectText() {
       scrollTrigger: {
         trigger: title,
         start: "top 80%",
-        toggleActions: "play none none reverse"
+        toggleActions: "play none none none"
         // markers: true,
       }
     });
@@ -600,7 +600,7 @@ function sectionNews() {
       trigger: ".section-news",
       start: "top 70%",
       end: "bottom bottom",
-      toggleActions: "play none none reverse"
+      toggleActions: "play none none none"
       // markers: true,
     }
   });
