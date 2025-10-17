@@ -1284,7 +1284,7 @@ main {
   background-image: url("../../images/bg-loading.webp");
   background-size: cover;
   background-position: center;
-  padding: 190px 0;
+  padding: 110px 0 190px;
   overflow: hidden;
 }
 .ticket-content {
