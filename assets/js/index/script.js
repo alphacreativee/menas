@@ -736,10 +736,6 @@ function ticket() {
       ticketInner.append(ticketContentClone);
     }
 
-    // Đảm bảo CSS cho marquee
-    ticketInner.style.display = "flex";
-    ticketInner.style.flexWrap = "nowrap";
-
     // Lấy tất cả các ticket-content
     const ticketContentAll = gsap.utils.toArray(".ticket-content", ticketInner);
 
