@@ -726,7 +726,7 @@ function ticket() {
     // Số lượng bản clone
     const cloneCount = 10;
 
-    // Xóa các clone cũ (nếu có) để tránh lặp lại
+    // Xóa các clone cũ
     ticketInner.innerHTML = "";
     ticketInner.append(ticketContent);
 
@@ -736,6 +736,10 @@ function ticket() {
       ticketInner.append(ticketContentClone);
     }
 
+    // Đảm bảo CSS cho marquee
+    ticketInner.style.display = "flex";
+    ticketInner.style.flexWrap = "nowrap";
+
     // Lấy tất cả các ticket-content
     const ticketContentAll = gsap.utils.toArray(".ticket-content", ticketInner);
 
@@ -744,19 +748,19 @@ function ticket() {
 
     // Animation marquee
     gsap.to(ticketContentAll, {
-      x: -contentWidth, // Di chuyển chính xác bằng chiều rộng của một phần tử
+      x: -contentWidth,
       repeat: -1,
       duration: duration,
       ease: "linear",
       modifiers: {
-        x: gsap.utils.unitize((x) => parseFloat(x) % contentWidth), // Đảm bảo lặp lại mượt mà
+        x: gsap.utils.unitize((x) => parseFloat(x) % contentWidth),
       },
     });
 
     // Diamond rotation animation
     const diamonds = ticketInner.querySelectorAll(".diamond");
     diamonds.forEach((diamond) => {
-      gsap.to(diamond, {
+      const rotationTimeline = gsap.to(diamond, {
         rotation: -360,
         repeat: -1,
         duration: 3,
