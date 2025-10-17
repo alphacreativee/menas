@@ -5,6 +5,14 @@
   width: 100%;
   z-index: 998;
   background-color: var(--color-white);
+
+  &.not-home {
+    .header-logo {
+      a {
+        display: block !important;
+      }
+    }
+  }
 }
 
 .header {

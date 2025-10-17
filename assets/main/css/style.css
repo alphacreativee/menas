@@ -567,6 +567,9 @@ main {
   z-index: 998;
   background-color: var(--color-white);
 }
+#header.not-home .header-logo a {
+  display: block !important;
+}
 
 .header-container {
   display: grid;
