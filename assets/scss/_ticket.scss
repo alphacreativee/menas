@@ -10,11 +10,11 @@
     display: flex;
     align-items: center;
     font-family: var(--font-heading);
-    font-size: 320px;
-    line-height: 320px;
+    font-size: 280px;
+    line-height: 280px;
     text-transform: uppercase;
     color: var(--color-white);
-
+    will-change: transform;
     svg {
       path {
         color: var(--color-white);
@@ -23,7 +23,8 @@
   }
   &-inner {
     display: flex;
-    align-items: center;
+    flex-wrap: nowrap;
+    white-space: nowrap;
   }
   .diamond {
     width: 100px;
@@ -31,9 +32,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    will-change: transform;
+    transform: translateY(20px);
     svg {
-      width: 100px;
-      height: 100px;
+      width: 70px;
+      height: 70px;
     }
   }
 }

@@ -1288,17 +1288,19 @@ main {
   display: flex;
   align-items: center;
   font-family: var(--font-heading);
-  font-size: 320px;
-  line-height: 320px;
+  font-size: 280px;
+  line-height: 280px;
   text-transform: uppercase;
   color: var(--color-white);
+  will-change: transform;
 }
 .ticket-content svg path {
   color: var(--color-white);
 }
 .ticket-inner {
   display: flex;
-  align-items: center;
+  flex-wrap: nowrap;
+  white-space: nowrap;
 }
 .ticket .diamond {
   width: 100px;
@@ -1306,8 +1308,10 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  will-change: transform;
+  transform: translateY(20px);
 }
 .ticket .diamond svg {
-  width: 100px;
-  height: 100px;
+  width: 70px;
+  height: 70px;
 }
