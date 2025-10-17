@@ -752,6 +752,46 @@ function ticket() {
     });
   });
 }
+
+function responsibility() {
+  if ($(".responsibility").length < 1) return;
+
+  const responsibilityItems = gsap.utils.toArray(
+    ".responsibility .responsibility-item"
+  );
+
+  gsap.set(responsibilityItems, { y: 50, opacity: 0 });
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".responsibility-grid",
+      start: "top 70%",
+      end: "bottom bottom",
+      toggleActions: "play none none none"
+      // markers: true,
+    }
+  });
+
+  tl.to(responsibilityItems, {
+    y: 0,
+    opacity: 1,
+    duration: 0.6,
+    ease: "power2.out",
+    stagger: 0.2
+  });
+
+  const responsibilityItemsMove = $(".responsibility .responsibility-item");
+
+  responsibilityItemsMove.mousemove(function (e) {
+    let offset = $(this).offset();
+    let x = e.pageX - offset.left;
+    let y = e.pageY - offset.top;
+
+    $(this).css("--x", x + "px");
+    $(this).css("--y", y + "px");
+  });
+}
+
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   sectionFields();
@@ -765,6 +805,7 @@ const init = () => {
   sectionNews();
   sectionAwards();
   ticket();
+  responsibility();
 };
 preloadImages("img").then(() => {
   // Once images are preloaded, remove the 'loading' indicator/class from the body
