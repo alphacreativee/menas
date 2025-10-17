@@ -739,7 +739,7 @@ main {
   text-decoration: none;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-image: linear-gradient(90deg, #e4a025, #e4a025 50%, #080808 0);
+  background-image: linear-gradient(90deg, #e4a025, #e4a025 50%, #3a4041 0);
   background-size: 200% 100%;
   background-position: 100%;
   color: var(--color-text);
@@ -768,7 +768,7 @@ main {
   text-decoration: none;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-image: linear-gradient(90deg, #e4a025, #e4a025 50%, #080808 0);
+  background-image: linear-gradient(90deg, #e4a025, #e4a025 50%, #3a4041 0);
   background-size: 200% 100%;
   background-position: 100%;
   color: var(--color-text);
@@ -1081,7 +1081,7 @@ main {
 }
 .intro-image .image-large {
   overflow: hidden;
-  height: 100dvh;
+  height: 690px;
 }
 .intro-image img {
   width: 100%;
