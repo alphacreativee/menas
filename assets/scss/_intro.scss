@@ -38,11 +38,13 @@
     .image-small {
       overflow: hidden;
       height: 370px;
+      margin-bottom: 150px;
     }
 
     .image-large {
       overflow: hidden;
       height: 690px;
+      width: calc(100% - 24px);
     }
 
     img {

@@ -250,7 +250,6 @@ section {
 }
 
 .section-fields {
-  padding-top: 80px;
   background-color: var(--color-white);
   position: relative;
 }
@@ -1092,10 +1091,12 @@ section {
 .intro-image .image-small {
   overflow: hidden;
   height: 370px;
+  margin-bottom: 150px;
 }
 .intro-image .image-large {
   overflow: hidden;
   height: 690px;
+  width: calc(100% - 24px);
 }
 .intro-image img {
   width: 100%;
