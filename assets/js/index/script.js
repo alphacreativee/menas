@@ -809,6 +809,29 @@ function responsibility() {
   });
 }
 
+function parallaxSection() {
+  if ($(".parallax-section").length < 1) return;
+
+  $(".parallax-section").each(function () {
+    const $section = $(this);
+    const $overlay = $section.find(".section-overlay-parallax");
+
+    if ($overlay.length < 1) return;
+
+    gsap.to($overlay, {
+      y: -200,
+      ease: "none",
+      scrollTrigger: {
+        trigger: $section[0],
+        start: "top 80%",
+        end: "bottom top",
+        scrub: true
+        // markers: true
+      }
+    });
+  });
+}
+
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   sectionFields();
@@ -823,6 +846,7 @@ const init = () => {
   sectionAwards();
   ticket();
   responsibility();
+  parallaxSection();
 };
 preloadImages("img").then(() => {
   // Once images are preloaded, remove the 'loading' indicator/class from the body

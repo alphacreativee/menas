@@ -1,19 +1,20 @@
 .intro {
   position: relative;
   z-index: 2;
+  background-color: var(--color-white);
 
   &-overlay {
     background-color: var(--color-white);
     position: absolute;
     width: 100%;
-    height: calc(100% + 200px);
+    height: 100%;
     z-index: 1;
     top: 0;
     left: 0;
   }
 
   &-container {
-    padding: 40px 24px 80px;
+    padding: 40px 24px 0;
     position: relative;
     z-index: 2;
   }

@@ -112,3 +112,16 @@ main {
     color: var(--color-secondary);
   }
 }
+
+section {
+  z-index: var(--z-index);
+}
+
+.section-overlay-parallax {
+  background: var(--overlay-bg);
+  position: absolute;
+  width: 100%;
+  height: var(--overlay-height);
+  top: 0;
+  left: 0;
+}

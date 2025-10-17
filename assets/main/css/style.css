@@ -236,6 +236,19 @@ main {
   color: var(--color-secondary);
 }
 
+section {
+  z-index: var(--z-index);
+}
+
+.section-overlay-parallax {
+  background: var(--overlay-bg);
+  position: absolute;
+  width: 100%;
+  height: var(--overlay-height);
+  top: 0;
+  left: 0;
+}
+
 .section-fields {
   padding-top: 80px;
   background-color: var(--color-white);
@@ -1045,18 +1058,19 @@ main {
 .intro {
   position: relative;
   z-index: 2;
+  background-color: var(--color-white);
 }
 .intro-overlay {
   background-color: var(--color-white);
   position: absolute;
   width: 100%;
-  height: calc(100% + 200px);
+  height: 100%;
   z-index: 1;
   top: 0;
   left: 0;
 }
 .intro-container {
-  padding: 40px 24px 80px;
+  padding: 40px 24px 0;
   position: relative;
   z-index: 2;
 }
@@ -1093,7 +1107,6 @@ main {
 .scroll-wrap {
   position: relative;
   padding: 0 24px;
-  z-index: 2;
   background-color: var(--color-white);
 }
 .scroll-wrap.project-sec {
@@ -1181,7 +1194,6 @@ main {
 
 .section-news {
   position: relative;
-  z-index: 1;
   background-color: var(--color-white-2);
 }
 .section-news .news-wrapper {
@@ -1345,7 +1357,6 @@ main {
 
 .responsibility {
   position: relative;
-  z-index: 1;
   background-color: var(--color-white-2);
 }
 .responsibility-wrapper {
