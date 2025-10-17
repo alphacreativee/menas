@@ -83,6 +83,15 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transition: all 2s ease;
+    }
+  }
+
+  &:hover {
+    .image {
+      img {
+        transform: scale(1.05);
+      }
     }
   }
 }
