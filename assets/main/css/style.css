@@ -1124,10 +1124,10 @@ main {
 }
 .scroll-sticky {
   width: 100%;
-  height: calc(100vh - 54px);
+  height: calc(100vh - 130px);
   position: -webkit-sticky;
   position: sticky;
-  top: 54px;
+  top: 94px;
 }
 .scroll-item {
   width: 100%;
