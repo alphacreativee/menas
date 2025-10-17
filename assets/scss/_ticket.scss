@@ -29,14 +29,15 @@
   .diamond {
     width: 100px;
     height: 320px;
+    margin: 0px 50px;
     display: flex;
     justify-content: center;
     align-items: center;
     will-change: transform;
     transform: translateY(20px);
     svg {
-      width: 70px;
-      height: 70px;
+      width: 50px;
+      height: 50px;
     }
   }
 }

@@ -1318,6 +1318,7 @@ main {
 .ticket .diamond {
   width: 100px;
   height: 320px;
+  margin: 0px 50px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1325,8 +1326,8 @@ main {
   transform: translateY(20px);
 }
 .ticket .diamond svg {
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
 }
 
 .responsibility {
