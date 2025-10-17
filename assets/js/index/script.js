@@ -709,35 +709,44 @@ function sectionAwards() {
   });
 }
 function ticket() {
-  const ticket = document.querySelectorAll(".ticket");
+  const tickets = document.querySelectorAll(".ticket");
 
-  if (!ticket) return;
+  if (!tickets.length) return;
 
-  ticket.forEach((item) => {
+  tickets.forEach((item) => {
     const ticketInner = item.querySelector(".ticket-inner");
     const ticketContent = ticketInner.querySelector(".ticket-content");
-
-    // Duration
-    const duration = item.getAttribute("data-ticket-duration");
+    const duration =
+      parseFloat(item.getAttribute("data-ticket-duration")) || 10;
 
     // Số lượng bản clone
-    const cloneCount = 3;
+    const cloneCount = 10;
 
-    // Element Clone
+    // Xóa các clone cũ (nếu có) để tránh lặp lại
+    ticketInner.innerHTML = "";
+    ticketInner.append(ticketContent);
+
+    // Clone các phần tử
     for (let i = 0; i < cloneCount; i++) {
       const ticketContentClone = ticketContent.cloneNode(true);
       ticketInner.append(ticketContentClone);
     }
 
-    // Marquee animation
-    const ticketContentAll = ticketInner.querySelectorAll(".ticket-content");
-    ticketContentAll.forEach((element) => {
-      gsap.to(element, {
-        x: "-101%",
-        repeat: -1,
-        duration: duration,
-        ease: "linear"
-      });
+    // Lấy tất cả các ticket-content
+    const ticketContentAll = gsap.utils.toArray(".ticket-content", ticketInner);
+
+    // Tính chiều rộng của một phần tử
+    const contentWidth = ticketContent.offsetWidth;
+
+    // Animation marquee
+    gsap.to(ticketContentAll, {
+      x: -contentWidth, // Di chuyển chính xác bằng chiều rộng của một phần tử
+      repeat: -1,
+      duration: duration,
+      ease: "linear",
+      modifiers: {
+        x: gsap.utils.unitize((x) => parseFloat(x) % contentWidth) // Đảm bảo lặp lại mượt mà
+      }
     });
 
     // Diamond rotation animation
@@ -746,7 +755,7 @@ function ticket() {
       gsap.to(diamond, {
         rotation: -360,
         repeat: -1,
-        duration: 3, // Thời gian 1 vòng quay (có thể điều chỉnh)
+        duration: 3,
         ease: "linear"
       });
     });
