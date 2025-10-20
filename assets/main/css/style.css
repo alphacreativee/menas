@@ -473,7 +473,7 @@ section {
   background-color: #3a4041;
 }
 .footer-logo {
-  margin-top: 60px;
+  margin-top: 40px;
   display: block;
   width: 210px;
   height: auto;
@@ -666,7 +666,7 @@ section {
   position: absolute;
   top: 100%;
   padding: 8px;
-  transform: translateY(18px);
+  transform: translateY(17px);
   left: -16px;
   width: 200px;
   background-color: var(--color-white);
@@ -1401,6 +1401,8 @@ section {
 }
 .responsibility .section-title {
   padding-right: 40px;
+  max-width: 380px;
+  margin-left: auto;
 }
 .responsibility .section-title .line {
   text-align: right !important;
