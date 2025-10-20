@@ -62,6 +62,20 @@
         li {
           display: flex;
           align-items: center;
+
+          svg {
+            * {
+              transition: all 0.4s ease;
+            }
+          }
+
+          a {
+            color: var(--color-white);
+
+            &:hover {
+              color: var(--color-primary);
+            }
+          }
         }
       }
     }
