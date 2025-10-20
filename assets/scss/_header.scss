@@ -59,17 +59,40 @@
         }
         &.menu-item-has-children {
           position: relative;
-          padding-right: 20px;
+          // padding-right: 20px;
+          display: flex;
+          align-items: center;
+          gap: 8px;
 
-          & > a {
-            pointer-events: none;
+          .icon {
+            path {
+              transition: all 0.4s ease;
+            }
+          }
+
+          & > a.active {
+            & + .icon {
+              path {
+                color: var(--color-primary);
+              }
+            }
           }
 
           &:hover {
             .sub-menu {
               clip-path: inset(0 0 0 0);
             }
+
+            .icon {
+              path {
+                color: var(--color-primary);
+              }
+            }
+
             & > a {
+              background-position: 0;
+              color: var(--color-secondary);
+
               &::before {
                 transform: scaleX(1);
                 transform-origin: bottom left;
@@ -87,16 +110,7 @@
             left: 0;
             cursor: pointer;
           }
-          &::after {
-            content: "";
-            position: absolute;
-            width: 13px;
-            height: 7px;
-            background-image: url("../../images/icon/ic_arrow_down.svg");
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-          }
+
           .sub-menu {
             position: absolute;
             top: 100%;

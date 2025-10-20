@@ -457,6 +457,7 @@ function hero() {
       speed: $dataSpeed,
       loop: $dataLoop,
       autoplay: $dataAutoplay,
+      // autoplay: false,
       preloadImages: true,
       parallax: true,
       lazy: {
