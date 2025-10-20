@@ -561,6 +561,9 @@ section {
   display: grid;
   grid-template-columns: 1fr;
   gap: 10px;
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 400;
 }
 .footer-col.col-address ul li {
   display: block;
@@ -663,7 +666,7 @@ section {
   position: absolute;
   top: 100%;
   padding: 8px;
-  transform: translateY(8px);
+  transform: translateY(18px);
   left: -16px;
   width: 200px;
   background-color: var(--color-white);
@@ -707,7 +710,7 @@ section {
   position: absolute;
   top: 100%;
   left: -16px;
-  transform: translateY(14px);
+  transform: translateY(17px);
   background-color: var(--color-white);
   width: calc(100% + 24px);
   padding: 8px;
@@ -1325,9 +1328,10 @@ section {
   position: absolute;
   z-index: 3;
   top: 50%;
+  transition: opacity 0.3s ease;
 }
 .section-awards .arrow-custom.swiper-button-disabled {
-  opacity: 0.5;
+  opacity: 0;
   pointer-events: none;
 }
 .section-awards .arrow-custom.arrow-prev {

@@ -37,9 +37,10 @@
     position: absolute;
     z-index: 3;
     top: 50%;
+    transition: opacity 0.3s ease;
 
     &.swiper-button-disabled {
-      opacity: 0.5;
+      opacity: 0;
       pointer-events: none;
     }
 

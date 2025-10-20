@@ -133,6 +133,9 @@
         display: grid;
         grid-template-columns: 1fr;
         gap: 10px;
+        font-size: 13px;
+        line-height: 20px;
+        font-weight: 400;
         li {
           display: block;
           width: 100%;
