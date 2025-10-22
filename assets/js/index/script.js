@@ -481,7 +481,7 @@ function sectionIntro() {
     ease: "none",
     scrollTrigger: {
       trigger: "section.intro",
-      start: "top 70%",
+      start: "top 65%",
       end: "+=300",
       scrub: true
       // markers: true
@@ -557,7 +557,7 @@ function sectionIntro() {
       ease: "none",
       scrollTrigger: {
         trigger: ".intro",
-        start: "top 70%",
+        start: "top 65%",
         end: "top top",
         scrub: true
         // markers: true
@@ -661,27 +661,31 @@ function sectionNews() {
 function sectionAwards() {
   if ($(".section-awards").length < 1) return;
 
-  const awardsSwiper = new Swiper(".awards-slider", {
-    slidesPerView: 4,
-    spaceBetween: 30,
-    loop: false,
-    speed: 800,
-    autoplay: false,
-    navigation: {
-      prevEl: ".section-awards .arrow-prev",
-      nextEl: ".section-awards .arrow-next"
-    },
-    breakpoints: {
-      768: {
-        slidesPerView: 4
+  document.querySelectorAll(".section-awards").forEach((section) => {
+    const swiperEl = section.querySelector(".awards-slider");
+
+    new Swiper(swiperEl, {
+      slidesPerView: 4,
+      spaceBetween: 30,
+      loop: false,
+      speed: 800,
+      autoplay: false,
+      navigation: {
+        prevEl: section.querySelector(".arrow-prev"),
+        nextEl: section.querySelector(".arrow-next")
       },
-      480: {
-        slidesPerView: 2
-      },
-      0: {
-        slidesPerView: 1
+      breakpoints: {
+        768: {
+          slidesPerView: 4
+        },
+        480: {
+          slidesPerView: 2
+        },
+        0: {
+          slidesPerView: 1
+        }
       }
-    }
+    });
   });
 }
 function ticket() {
