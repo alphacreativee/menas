@@ -19,6 +19,10 @@ a {
   color: var(--color-white);
 }
 
+.color-secondary {
+  color: var(--color-secondary);
+}
+
 .b1-font {
   font-size: 16px;
   line-height: 26px;
@@ -464,6 +468,20 @@ section {
   background-color: var(--color-white);
 }
 
+.footer-container.footer-main {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+.footer-container.footer-overlay {
+  opacity: 0;
+  pointer-events: none;
+  position: unset !important;
+}
+.footer-container .footer-logo-sub {
+  display: flex;
+  align-items: center;
+}
 .footer-top {
   padding: 48px 24px 35px;
   background-color: #575f62;
@@ -471,8 +489,9 @@ section {
 .footer-bottom {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
   padding: 10px 24px;
-  background-color: #3a4041;
+  background-color: #000;
 }
 .footer-logo {
   display: block;
@@ -489,10 +508,6 @@ section {
   gap: 24px;
 }
 .footer-title {
-  font-size: 13px;
-  line-height: 20px;
-  font-weight: 700;
-  color: var(--color-white);
   margin-bottom: 16px;
 }
 .footer-col.follow-us ul {
@@ -521,16 +536,8 @@ section {
 }
 .footer-col ul li a {
   display: inline-block;
-  font-size: 13px;
-  line-height: 20px;
-  font-weight: 400;
-  color: var(--color-white);
 }
 .footer-col.copyright p {
-  color: var(--color-white);
-  font-size: 13px;
-  line-height: 20px;
-  font-weight: 400;
   display: inline-block;
 }
 .footer-col.terms ul {
@@ -539,26 +546,20 @@ section {
   gap: 40px;
 }
 .footer-col.terms ul li a {
-  color: var(--color-white);
-  font-size: 13px;
-  line-height: 20px;
-  font-weight: 400;
   display: inline-block;
 }
 .footer-col.by-alpha a {
-  color: var(--color-white);
-  font-size: 13px;
-  line-height: 20px;
-  font-weight: 400;
   display: inline-block;
+}
+.footer-col.col-address .col-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
 }
 .footer-col.col-address ul {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 10px;
-  font-size: 13px;
-  line-height: 20px;
-  font-weight: 400;
+  gap: 12px;
 }
 .footer-col.col-address ul li {
   display: block;
@@ -567,15 +568,24 @@ section {
 .footer-col.col-address ul li p,
 .footer-col.col-address ul li a {
   display: inline-block;
-  font-size: 13px;
-  line-height: 20px;
-  font-weight: 400;
+}
+.footer-col.col-address ul.social {
+  display: flex;
+  gap: 18px;
+}
+.footer-col.col-address ul.social li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: max-content;
+}
+.footer-col.col-address ul.social li a svg path {
   color: var(--color-white);
 }
 .footer-col.col-about-menas ul, .footer-col.col-menu ul {
-  display: grid;
-  grid-template-columns: max-content max-content;
-  gap: 10px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 #header {

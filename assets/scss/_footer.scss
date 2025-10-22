@@ -6,17 +6,21 @@
 
 .footer {
   &-container {
-    // &.footer-main {
-    //   position: fixed;
-    //   bottom: 0;
-    //   left: 0;
-    // }
+    &.footer-main {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+    }
 
-    // &.footer-overlay {
-    //   opacity: 0;
-    //   pointer-events: none;
-    //   position: unset !important;
-    // }
+    &.footer-overlay {
+      opacity: 0;
+      pointer-events: none;
+      position: unset !important;
+    }
+    .footer-logo-sub {
+      display: flex;
+      align-items: center;
+    }
   }
 
   &-top {
@@ -26,8 +30,9 @@
   &-bottom {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
     padding: 10px 24px;
-    background-color: #3a4041;
+    background-color: #000;
   }
   &-logo {
     display: block;
@@ -44,10 +49,6 @@
     gap: 24px;
   }
   &-title {
-    font-size: 13px;
-    line-height: 20px;
-    font-weight: 700;
-    color: var(--color-white);
     margin-bottom: 16px;
   }
   &-col {
@@ -84,19 +85,11 @@
         width: max-content;
         a {
           display: inline-block;
-          font-size: 13px;
-          line-height: 20px;
-          font-weight: 400;
-          color: var(--color-white);
         }
       }
     }
     &.copyright {
       p {
-        color: var(--color-white);
-        font-size: 13px;
-        line-height: 20px;
-        font-weight: 400;
         display: inline-block;
       }
     }
@@ -107,10 +100,6 @@
         gap: 40px;
         li {
           a {
-            color: var(--color-white);
-            font-size: 13px;
-            line-height: 20px;
-            font-weight: 400;
             display: inline-block;
           }
         }
@@ -118,31 +107,43 @@
     }
     &.by-alpha {
       a {
-        color: var(--color-white);
-        font-size: 13px;
-        line-height: 20px;
-        font-weight: 400;
         display: inline-block;
       }
     }
     &.col-address {
+      .col-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 60px;
+      }
       ul {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 10px;
-        font-size: 13px;
-        line-height: 20px;
-        font-weight: 400;
+        gap: 12px;
+
         li {
           display: block;
           width: 100%;
           p,
           a {
             display: inline-block;
-            font-size: 13px;
-            line-height: 20px;
-            font-weight: 400;
-            color: var(--color-white);
+          }
+        }
+      }
+      ul.social {
+        display: flex;
+        gap: 18px;
+        li {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: max-content;
+          a {
+            svg {
+              path {
+                color: var(--color-white);
+              }
+            }
           }
         }
       }
@@ -150,9 +151,9 @@
     &.col-about-menas,
     &.col-menu {
       ul {
-        display: grid;
-        grid-template-columns: max-content max-content;
-        gap: 10px 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
       }
     }
   }
