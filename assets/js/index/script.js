@@ -663,9 +663,10 @@ function sectionAwards() {
 
   document.querySelectorAll(".section-awards").forEach((section) => {
     const swiperEl = section.querySelector(".awards-slider");
+    const isAwardsSlider = section.id.includes("awards");
 
     new Swiper(swiperEl, {
-      slidesPerView: 4,
+      slidesPerView: isAwardsSlider ? 3 : 4,
       spaceBetween: 30,
       loop: false,
       speed: 800,
@@ -676,7 +677,7 @@ function sectionAwards() {
       },
       breakpoints: {
         768: {
-          slidesPerView: 4
+          slidesPerView: isAwardsSlider ? 3 : 4
         },
         480: {
           slidesPerView: 2
