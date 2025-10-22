@@ -34,17 +34,6 @@
   display: block;
   background-color: var(--color-white);
 
-  &.awards-item {
-    .content {
-      min-height: 232px;
-      justify-content: space-between;
-    }
-
-    .image {
-      aspect-ratio: 406 / 228;
-    }
-  }
-
   .content {
     padding: 24px;
     display: flex;
