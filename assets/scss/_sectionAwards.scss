@@ -5,39 +5,44 @@
 
   .awards {
     &-wrapper {
-      padding: 80px 24px;
+      padding: 80px 60px;
     }
 
     &-slider {
       margin-top: 60px;
 
-      .swiper-wrapper {
-        padding-top: 20px;
+      .swiper-slide {
+        height: auto;
       }
 
       .awards-item {
-        transition: transform 0.4s ease;
-
-        &:hover {
-          transform: translateY(-16px);
-        }
+        height: 100%;
       }
     }
   }
 
   .arrow-custom {
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    background-color: var(--color-primary);
-    color: var(--color-white);
+    background-color: var(--color-white);
+    color: var(--color-black);
     display: flex;
     align-items: center;
     justify-content: center;
     position: absolute;
     z-index: 3;
     top: 50%;
-    transition: opacity 0.3s ease;
+    transition: all 0.3s ease;
+
+    svg * {
+      transition: all 0.3s ease;
+    }
+
+    &:hover {
+      color: var(--color-white);
+      background-color: var(--color-primary);
+    }
 
     &.swiper-button-disabled {
       opacity: 0;

@@ -1,7 +1,7 @@
 :root {
   --color-primary: #e4a025;
   --color-secondary: #4fb84f;
-  --color-text: #52595c;
+  --color-text: #3e4648;
   --color-white: #fff;
   --color-white-2: #f0f0f0;
   --color-black: #000;
@@ -61,6 +61,11 @@ a {
   font-size: 32px;
   font-weight: 400;
   line-height: 40px;
+}
+
+.h3-font {
+  font-size: 24px;
+  line-height: 32px;
 }
 
 .tag-font {
@@ -268,6 +273,10 @@ section {
   height: var(--overlay-height);
   top: 0;
   left: 0;
+}
+
+.effect-line .line {
+  line-height: 1.4;
 }
 
 .section-fields {
@@ -815,7 +824,7 @@ section {
   left: 0;
 }
 .hero-sec__container {
-  height: 640px;
+  height: 610px;
   background-color: var(--color-white);
 }
 .hero.hidden-section {
@@ -833,7 +842,7 @@ section {
   z-index: 2;
 }
 .hero-overlay {
-  height: 640px;
+  height: 610px;
   width: 1px;
   background-color: transparent;
 }
@@ -853,13 +862,13 @@ section {
 }
 .hero .swiper-banner .swiper-content {
   width: 100%;
-  max-width: 735px;
+  max-width: 520px;
   position: absolute;
   z-index: 2;
   bottom: 24px;
   left: 24px;
   text-align: left;
-  line-height: 58px;
+  line-height: 1.4;
 }
 .hero .swiper-banner .swiper-slide {
   overflow: hidden;
@@ -1030,15 +1039,16 @@ section {
   left: 0;
 }
 .intro-container {
-  padding: 40px 24px 0;
+  padding: 40px 24px 80px;
   position: relative;
   z-index: 2;
 }
 .intro-text {
-  max-width: 75%;
+  max-width: 920px;
+  margin: 0 auto;
+  text-align: center;
   position: relative;
   z-index: 2;
-  line-height: 48px;
 }
 .intro-image {
   margin-top: 80px;
@@ -1133,30 +1143,26 @@ section {
   display: block;
   background-color: var(--color-white);
 }
-.news-item.awards-item .content {
-  min-height: 252px;
-}
 .news-item .content {
   padding: 24px;
-  min-height: 215px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 .news-item .content .name {
-  font-size: 20px;
-  line-height: 30px;
+  font-size: 16px;
+  line-height: 24px;
   font-weight: bold;
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
 }
-.news-item .content .date,
-.news-item .content .desc {
-  font-size: 16px;
-  line-height: 26px;
+.news-item .content .date {
+  font-size: 12px;
+  line-height: 20px;
+  margin-bottom: 8px;
 }
 .news-item .content .desc {
   overflow: hidden;
@@ -1164,17 +1170,20 @@ section {
   -webkit-line-clamp: 3;
   line-clamp: 3;
   -webkit-box-orient: vertical;
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 24px;
 }
 .news-item .image {
   width: 100%;
-  aspect-ratio: 488/252;
+  aspect-ratio: 308/233;
   overflow: hidden;
 }
 .news-item .image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: all 2s ease;
+  transition: all 0.4s cubic-bezier(0, 0, 0.58, 1);
 }
 .news-item:hover .image img {
   transform: scale(1.05);
@@ -1186,33 +1195,37 @@ section {
   background-color: var(--color-white-2);
 }
 .section-awards .awards-wrapper {
-  padding: 80px 24px;
+  padding: 80px 60px;
 }
 .section-awards .awards-slider {
   margin-top: 60px;
 }
-.section-awards .awards-slider .swiper-wrapper {
-  padding-top: 20px;
+.section-awards .awards-slider .swiper-slide {
+  height: auto;
 }
 .section-awards .awards-slider .awards-item {
-  transition: transform 0.4s ease;
-}
-.section-awards .awards-slider .awards-item:hover {
-  transform: translateY(-16px);
+  height: 100%;
 }
 .section-awards .arrow-custom {
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background-color: var(--color-primary);
-  color: var(--color-white);
+  background-color: var(--color-white);
+  color: var(--color-black);
   display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
   z-index: 3;
   top: 50%;
-  transition: opacity 0.3s ease;
+  transition: all 0.3s ease;
+}
+.section-awards .arrow-custom svg * {
+  transition: all 0.3s ease;
+}
+.section-awards .arrow-custom:hover {
+  color: var(--color-white);
+  background-color: var(--color-primary);
 }
 .section-awards .arrow-custom.swiper-button-disabled {
   opacity: 0;

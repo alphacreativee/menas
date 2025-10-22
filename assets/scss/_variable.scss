@@ -1,7 +1,7 @@
 :root {
   --color-primary: #e4a025;
   --color-secondary: #4fb84f;
-  --color-text: #52595c;
+  --color-text: #3e4648;
   --color-white: #fff;
   --color-white-2: #f0f0f0;
   --color-black: #000;
@@ -54,6 +54,10 @@ a {
   font-size: 32px;
   font-weight: 400;
   line-height: 40px;
+}
+.h3-font {
+  font-size: 24px;
+  line-height: 32px;
 }
 .tag-font {
   font-size: 12px;
