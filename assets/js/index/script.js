@@ -825,7 +825,7 @@ function ticket() {
       parseFloat(item.getAttribute("data-ticket-duration")) || 10;
 
     // Số lượng bản clone
-    const cloneCount = 10;
+    const cloneCount = 20;
 
     // Xóa các clone cũ
     ticketInner.innerHTML = "";
