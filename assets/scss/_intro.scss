@@ -20,12 +20,10 @@
   }
 
   &-text {
-    font-size: 40px;
-    line-height: 56px;
-    text-transform: uppercase;
-    max-width: 80%;
+    max-width: 75%;
     position: relative;
     z-index: 2;
+    line-height: 48px;
   }
 
   &-image {

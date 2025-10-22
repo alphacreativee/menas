@@ -163,41 +163,6 @@ function sectionFields() {
         }
       );
     }
-
-    // active tabs
-    ScrollTrigger.create({
-      trigger: item,
-      start: "top center",
-      end: "bottom center",
-      // markers: true,
-      onEnter: () => {
-        $(".fields-tabs__item").removeClass("active");
-        $(".fields-tabs__item").eq(index).addClass("active");
-      },
-      onEnterBack: () => {
-        $(".fields-tabs__item").removeClass("active");
-        $(".fields-tabs__item").eq(index).addClass("active");
-      }
-    });
-  });
-
-  ScrollTrigger.create({
-    trigger: ".section-fields",
-    start: "top center",
-    end: "bottom+=40 bottom",
-    // markers: true,
-    onEnter: () => {
-      $(".fields-tabs").addClass("active");
-    },
-    onLeave: () => {
-      $(".fields-tabs").removeClass("active");
-    },
-    onEnterBack: () => {
-      $(".fields-tabs").addClass("active");
-    },
-    onLeaveBack: () => {
-      $(".fields-tabs").removeClass("active");
-    }
   });
 }
 
@@ -452,7 +417,7 @@ function hero() {
       prevEl: ".swiper-banner .swiper-prev"
     },
     autoplay: {
-      delay: 3500,
+      delay: 5000,
       disableOnInteraction: false
     },
     on: {

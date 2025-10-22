@@ -23,6 +23,10 @@ a {
   color: var(--color-secondary);
 }
 
+.color-text {
+  color: var(--color-text);
+}
+
 .b1-font {
   font-size: 16px;
   line-height: 26px;
@@ -217,7 +221,8 @@ body {
 }
 .magic-cursor .cursor span {
   font-family: var(--font-body);
-  font-size: 13px;
+  font-size: 10px;
+  line-height: 14px;
   text-transform: uppercase;
 }
 .magic-cursor .text {
@@ -295,31 +300,28 @@ section {
 .section-fields .fields-item-img::after {
   content: "";
   width: 100%;
-  height: 100%;
+  height: 50%;
   position: absolute;
-  background: linear-gradient(to top, #3a4041 0%, rgba(58, 64, 65, 0) 76%);
-  top: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.86) 100%);
+  bottom: 0;
   left: 0;
   z-index: 2;
 }
 .section-fields .fields-item-name {
   position: absolute;
-  bottom: 160px;
+  bottom: 80px;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
   z-index: 2;
-  max-width: 500px;
+  max-width: 540px;
   margin: 0 auto;
 }
 .section-fields .fields-item-name h3 {
-  font-size: 24px;
-  line-height: 32px;
+  line-height: 48px;
 }
 .section-fields .fields-item-name .desc {
   margin-top: 24px;
-  font-size: 16px;
-  line-height: 26px;
 }
 .section-fields .fields-tabs {
   position: fixed;
@@ -363,7 +365,7 @@ section {
   height: 100%;
   z-index: 999;
   padding-left: 24px;
-  padding-top: 12px;
+  padding-top: 15px;
   pointer-events: none;
   --after-height: 0%;
 }
@@ -605,7 +607,7 @@ section {
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   padding: 13px 24px;
-  min-height: 54px;
+  height: 60px;
 }
 .header-logo {
   width: 115px;
@@ -705,7 +707,7 @@ section {
 }
 .header-lang {
   width: max-content;
-  min-width: 115px;
+  min-width: 75px;
 }
 .header-lang .dropdown-custom {
   position: relative;
@@ -761,8 +763,8 @@ section {
 }
 .header-lang .dropdown-custom-btn .value-select span {
   color: var(--color-text);
-  font-size: 13px;
-  line-height: 22px;
+  font-size: 14px;
+  line-height: 20px;
   font-weight: bold;
   display: block;
   position: relative;
@@ -792,8 +794,8 @@ section {
 }
 .header-lang .dropdown-custom-item span {
   color: var(--color-text);
-  font-size: 13px;
-  line-height: 22px;
+  font-size: 14px;
+  line-height: 20px;
   font-weight: bold;
   transition: all 0.4s cubic-bezier(0, 0, 0.23, 1);
   text-decoration: none;
@@ -835,18 +837,29 @@ section {
   width: 1px;
   background-color: transparent;
 }
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 230px;
-  background: linear-gradient(to bottom, rgb(0, 0, 0), rgba(0, 0, 0, 0));
-}
 .hero .swiper-banner {
   width: 100%;
   height: 100%;
+}
+.hero .swiper-banner::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);
+}
+.hero .swiper-banner .swiper-content {
+  width: 100%;
+  max-width: 735px;
+  position: absolute;
+  z-index: 2;
+  bottom: 24px;
+  left: 24px;
+  text-align: left;
+  line-height: 58px;
 }
 .hero .swiper-banner .swiper-slide {
   overflow: hidden;
@@ -864,11 +877,12 @@ section {
   bottom: 24px;
   left: 24px;
   text-align: left;
+  line-height: 58px;
 }
 .hero .swiper-banner .slide-banner img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: top;
 }
 .hero .hero__image {
   width: 100%;
@@ -949,7 +963,7 @@ section {
   right: 0;
   top: unset;
   transform: none;
-  height: 4px;
+  height: 2px;
   background: var(--color-primary);
   width: 0%;
   transition: width 0.1s linear;
@@ -1021,12 +1035,10 @@ section {
   z-index: 2;
 }
 .intro-text {
-  font-size: 40px;
-  line-height: 56px;
-  text-transform: uppercase;
-  max-width: 80%;
+  max-width: 75%;
   position: relative;
   z-index: 2;
+  line-height: 48px;
 }
 .intro-image {
   margin-top: 80px;
