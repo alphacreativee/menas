@@ -275,6 +275,32 @@ function effectText() {
       }
     );
   });
+  gsap.utils.toArray(".effect-line-box").forEach((description) => {
+    const splitDescription = new SplitText(description, {
+      type: "lines",
+      linesClass: "line",
+      mask: "lines"
+    });
+
+    gsap.fromTo(
+      splitDescription.lines,
+      {
+        yPercent: 100,
+        willChange: "transform"
+      },
+      {
+        yPercent: 0,
+        duration: 1,
+        ease: "power3.out",
+
+        scrollTrigger: {
+          trigger: description,
+          start: "top 80%"
+          // markers: true,
+        }
+      }
+    );
+  });
 
   gsap.utils.toArray(".effect-title-auto").forEach((title) => {
     const delay = parseFloat(title.getAttribute("data-delay")) || 0;
@@ -566,72 +592,171 @@ function sectionIntro() {
   }
 }
 function scrollWrap() {
-  if (document.querySelectorAll(".scroll-wrap").length < 1) return;
-  document.querySelectorAll(".scroll-wrap").forEach((wrap) => {
-    const triggers = wrap.querySelectorAll(".scroll-trigger");
+  const wraps = document.querySelectorAll(".scroll-wrap");
+  if (!wraps.length) return;
+
+  wraps.forEach((wrap) => {
     const items = wrap.querySelectorAll(".scroll-item");
+    const texts = wrap.querySelectorAll(".scroll-wrap-content-wrap-item");
+    if (!items.length) return;
 
-    triggers.forEach((trigger, index) => {
-      const item = items[index];
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: wrap,
+        start: "top top",
+        end: `+=${window.innerHeight * items.length}px`,
+        scrub: true,
+        pin: true,
+        anticipatePin: 1
+        // markers: true,
+      },
+      defaults: { ease: "power2.out" }
+    });
 
-      if (index === 0) {
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: trigger,
-            start: "top top",
-            end: "bottom top",
-            scrub: true
-            // markers: true,
-          },
-          defaults: { ease: "none" }
+    items.forEach((item, index) => {
+      const img = item.querySelector("img");
+      const textWrap = texts[index];
+      const title = textWrap ? textWrap.querySelector("h2") : null;
+      const descriptionElements = textWrap
+        ? textWrap.querySelectorAll("div.description")
+        : [];
+      const isFirst = index === 0;
+      const isLast = index === items.length - 1;
+
+      // --- Setup initial state ---
+      gsap.set(item, {
+        clipPath: isFirst
+          ? "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)"
+          : "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)"
+      });
+      gsap.set(img, { scale: 1 });
+      if (textWrap) gsap.set(textWrap, { opacity: isFirst ? 1 : 0, y: 0 });
+
+      // --- SplitText setup for h2 ---
+      let splitTitle = null;
+      if (title) {
+        splitTitle = SplitText.create(title, {
+          type: "words,chars",
+          mask: "words"
         });
+        gsap.set(splitTitle.chars, { y: isFirst ? "0%" : "125%" });
+      }
 
-        tl.fromTo(
-          item,
-          { clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)" },
-          { clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)" }
-        );
-      } else if (index === items.length - 1) {
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: trigger,
-            start: "top bottom",
-            end: "bottom bottom",
-            scrub: true
-            // markers: true,
-          },
-          defaults: { ease: "none" }
-        });
-
-        tl.fromTo(
-          item,
-          { clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)" },
-          { clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)" }
-        );
-      } else {
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: trigger,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: true
-          },
-          defaults: { ease: "none" }
-        });
-
-        tl.fromTo(
-          item,
-          { clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)" },
-          { clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)" }
-        );
-
-        tl.to(item, {
-          clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)"
+      // --- Setup initial state for div.description elements ---
+      if (descriptionElements.length) {
+        gsap.set(descriptionElements, {
+          "will-change": "opacity, transform",
+          opacity: isFirst ? 1 : 0,
+          y: isFirst ? 0 : 20
         });
       }
+
+      // --- Image transition + text fade ---
+      if (!isFirst) {
+        const prev = items[index - 1];
+        const prevImg = prev.querySelector("img");
+        const prevText = texts[index - 1];
+        const prevTitle = prevText ? prevText.querySelector("h2") : null;
+        const prevDescriptionElements = prevText
+          ? prevText.querySelectorAll("div.description")
+          : [];
+        let prevSplitTitle = null;
+
+        if (prevTitle) {
+          prevSplitTitle = SplitText.create(prevTitle, {
+            type: "words,chars",
+            mask: "words"
+          });
+        }
+
+        tl.to(prev, {
+          clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)"
+        });
+        tl.to(prevImg, { scale: 1.1 }, "<");
+
+        tl.to(
+          item,
+          {
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)"
+          },
+          "<"
+        );
+        tl.fromTo(img, { scale: 1 }, { scale: 1.1 }, "<");
+
+        if (prevText && textWrap) {
+          tl.to(prevText, { opacity: 0, y: -30, duration: 0.6 }, "<");
+          tl.to(textWrap, { opacity: 1, y: 0, duration: 0.8 }, "<+=0.2");
+
+          // --- Animate current h2 characters ---
+          if (splitTitle) {
+            tl.to(
+              splitTitle.chars,
+              {
+                y: "0%",
+                ease: "power3.out",
+                duration: 1,
+                stagger: 0.03
+              },
+              "<+=0.2"
+            );
+          }
+
+          // --- Hide previous h2 characters ---
+          if (prevSplitTitle) {
+            tl.to(
+              prevSplitTitle.chars,
+              {
+                y: "-125%",
+                ease: "power3.out",
+                duration: 1,
+                stagger: 0.03
+              },
+              "<"
+            );
+          }
+
+          // --- Animate current div.description elements ---
+          if (descriptionElements.length) {
+            tl.fromTo(
+              descriptionElements,
+              {
+                "will-change": "opacity, transform",
+                opacity: 0,
+                y: 20
+              },
+              {
+                opacity: 1,
+                y: 0,
+                duration: 0.5,
+                ease: "sine.out",
+                stagger: 0.1
+              },
+              "<+=0.2"
+            );
+          }
+
+          // --- Hide previous div.description elements ---
+          if (prevDescriptionElements.length) {
+            tl.to(
+              prevDescriptionElements,
+              {
+                opacity: 0,
+                y: -20,
+                duration: 0.5,
+                ease: "sine.out",
+                stagger: 0.1
+              },
+              "<"
+            );
+          }
+        }
+      }
+
+      if (isLast) tl.to({}, { duration: 0.3 });
     });
   });
 }
+
 function sectionNews() {
   if ($(".section-news").length < 1) return;
 
@@ -701,7 +826,7 @@ function ticket() {
       parseFloat(item.getAttribute("data-ticket-duration")) || 10;
 
     // Số lượng bản clone
-    const cloneCount = 10;
+    const cloneCount = 20;
 
     // Xóa các clone cũ
     ticketInner.innerHTML = "";

@@ -4,14 +4,14 @@
   background-image: url("../../images/bg-loading.webp");
   background-size: cover;
   background-position: center;
-  padding: 110px 0 190px;
+  padding: 125px 0 135px;
   overflow: hidden;
   &-content {
     display: flex;
     align-items: center;
     font-family: var(--font-heading);
-    font-size: 280px;
-    line-height: 280px;
+    font-size: 80px;
+    line-height: 80px;
     text-transform: uppercase;
     color: var(--color-white);
     will-change: transform;
@@ -27,17 +27,17 @@
     white-space: nowrap;
   }
   .diamond {
-    width: 100px;
-    height: 320px;
-    margin: 0px 50px;
+    width: 80px;
+    height: 80px;
+    margin: 0px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     will-change: transform;
-    transform: translateY(20px);
+    transform: translateY(10px);
     svg {
-      width: 50px;
-      height: 50px;
+      width: 30px;
+      height: 30px;
     }
   }
 }
