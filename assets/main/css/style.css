@@ -20,33 +20,45 @@ a {
 }
 
 .b1-font {
-  font-size: 13px;
-  line-height: 20px;
+  font-size: 16px;
+  line-height: 26px;
   font-weight: 400;
 }
 
+.b1-bold-font {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: bold;
+}
+
+.b2-font {
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.b2-bold-font {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: bold;
+}
+
 .h1-font {
-  font-size: 72px;
-  line-height: 88px;
+  font-size: 40px;
+  line-height: 56px;
   font-weight: 400;
 }
 
 .h2-font {
-  font-size: 40px;
+  font-size: 32px;
   font-weight: 400;
-  line-height: 48px;
-}
-
-.h3-font {
-  font-size: 28px;
   line-height: 40px;
-  font-weight: 400;
 }
 
-.h4-font {
-  font-size: 24px;
-  line-height: 32px;
-  font-weight: bold;
+.tag-font {
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 400;
 }
 
 .font-heading {
@@ -452,28 +464,17 @@ section {
   background-color: var(--color-white);
 }
 
-.footer-container.footer-main {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-}
-.footer-container.footer-overlay {
-  opacity: 0;
-  pointer-events: none;
-  position: unset !important;
-}
 .footer-top {
   padding: 48px 24px 35px;
   background-color: #575f62;
 }
 .footer-bottom {
   display: grid;
-  grid-template-columns: 4fr 5fr 3fr;
+  grid-template-columns: repeat(4, 1fr);
   padding: 10px 24px;
   background-color: #3a4041;
 }
 .footer-logo {
-  margin-top: 40px;
   display: block;
   width: 210px;
   height: auto;
@@ -484,15 +485,15 @@ section {
 }
 .footer-grid {
   display: grid;
-  grid-template-columns: 4fr 3fr 2fr 3fr;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
 }
 .footer-title {
   font-size: 13px;
   line-height: 20px;
   font-weight: 700;
   color: var(--color-white);
-  margin-bottom: 24px;
-  text-transform: uppercase;
+  margin-bottom: 16px;
 }
 .footer-col.follow-us ul {
   display: grid;
@@ -544,18 +545,12 @@ section {
   font-weight: 400;
   display: inline-block;
 }
-.footer-col.by-alpha {
-  padding-left: 50px;
-}
 .footer-col.by-alpha a {
   color: var(--color-white);
   font-size: 13px;
   line-height: 20px;
   font-weight: 400;
   display: inline-block;
-}
-.footer-col.col-address {
-  padding-left: 50px;
 }
 .footer-col.col-address ul {
   display: grid;

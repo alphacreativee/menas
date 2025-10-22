@@ -6,17 +6,17 @@
 
 .footer {
   &-container {
-    &.footer-main {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-    }
+    // &.footer-main {
+    //   position: fixed;
+    //   bottom: 0;
+    //   left: 0;
+    // }
 
-    &.footer-overlay {
-      opacity: 0;
-      pointer-events: none;
-      position: unset !important;
-    }
+    // &.footer-overlay {
+    //   opacity: 0;
+    //   pointer-events: none;
+    //   position: unset !important;
+    // }
   }
 
   &-top {
@@ -25,12 +25,11 @@
   }
   &-bottom {
     display: grid;
-    grid-template-columns: 4fr 5fr 3fr;
+    grid-template-columns: repeat(4, 1fr);
     padding: 10px 24px;
     background-color: #3a4041;
   }
   &-logo {
-    margin-top: 40px;
     display: block;
     width: 210px;
     height: auto;
@@ -41,15 +40,15 @@
   }
   &-grid {
     display: grid;
-    grid-template-columns: 4fr 3fr 2fr 3fr;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
   }
   &-title {
     font-size: 13px;
     line-height: 20px;
     font-weight: 700;
     color: var(--color-white);
-    margin-bottom: 24px;
-    text-transform: uppercase;
+    margin-bottom: 16px;
   }
   &-col {
     &.follow-us {
@@ -118,7 +117,6 @@
       }
     }
     &.by-alpha {
-      padding-left: 50px;
       a {
         color: var(--color-white);
         font-size: 13px;
@@ -128,7 +126,6 @@
       }
     }
     &.col-address {
-      padding-left: 50px;
       ul {
         display: grid;
         grid-template-columns: 1fr;
