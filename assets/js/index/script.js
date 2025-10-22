@@ -662,8 +662,8 @@ function sectionAwards() {
   if ($(".section-awards").length < 1) return;
 
   const awardsSwiper = new Swiper(".awards-slider", {
-    slidesPerView: 3,
-    spaceBetween: 24,
+    slidesPerView: 4,
+    spaceBetween: 30,
     loop: false,
     speed: 800,
     autoplay: false,
@@ -673,7 +673,7 @@ function sectionAwards() {
     },
     breakpoints: {
       768: {
-        slidesPerView: 3
+        slidesPerView: 4
       },
       480: {
         slidesPerView: 2
