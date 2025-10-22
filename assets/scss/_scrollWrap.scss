@@ -4,88 +4,41 @@
     padding: 0 24px;
     // z-index: 2;
     background-color: var(--color-white);
-    &.project-sec {
-      padding: 80px 24px;
+    &-image {
+      position: relative;
+      height: 100svh;
 
       .scroll-item {
-        flex-direction: row-reverse;
-      }
-      .scroll-box-content {
-        right: auto;
-        top: auto;
+        position: absolute;
+        top: 100px;
         left: 0;
-        bottom: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
+        width: 75%;
+        height: calc(100svh - 140px);
+        img {
+          object-position: bottom;
+        }
       }
     }
-    &-title {
+    &-content {
       position: absolute;
-      top: 0;
-      left: 0;
-    }
-  }
-  &-trigger {
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
-  }
-  &-track {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0%;
-    bottom: 0%;
-    left: 0;
-    right: 0;
-    padding: 80px 24px;
-  }
-  &-sticky {
-    width: 100%;
-    height: calc(100vh - 130px);
-    position: -webkit-sticky;
-    position: sticky;
-    top: 94px;
-  }
-  &-item {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0%;
-    bottom: 0%;
-    left: 0%;
-    right: 0%;
-    display: flex;
-    align-items: flex-start;
-  }
-  &-img {
-    width: 100%;
-    width: calc(calc(9 / 12) * 100%);
-    flex: none;
-    overflow: hidden;
-  }
-  &-background {
-    height: 100%;
-    opacity: 0;
-  }
-  &-box-content {
-    color: var(--color-white);
-    background-color: var(--bg-color);
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: calc(calc(4 / 12) * 100%);
-    height: 370px;
-    padding: 40px;
-    .title {
-      margin-bottom: 24px;
-    }
-    .description {
-      font-size: 16px;
-      line-height: 26px;
-      font-weight: 400;
-      font-family: var(--font-body);
+      right: 24px;
+      top: 100px;
+      width: calc(calc(4 / 12) * 100%);
+      z-index: 2;
+      background-color: var(--color-text);
+      height: 370px;
+      padding: 40px;
+      &-wrap {
+        position: relative;
+        height: 100%;
+        &-item {
+          position: absolute;
+          inset: 0;
+          .box-title {
+            margin-bottom: 24px;
+          }
+        }
+      }
     }
   }
 }
