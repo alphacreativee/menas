@@ -528,26 +528,6 @@ section {
 .footer-title {
   margin-bottom: 16px;
 }
-.footer-col.follow-us ul {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 32px;
-  width: max-content;
-  align-items: center;
-}
-.footer-col.follow-us ul li {
-  display: flex;
-  align-items: center;
-}
-.footer-col.follow-us ul li svg * {
-  transition: all 0.4s ease;
-}
-.footer-col.follow-us ul li a {
-  color: var(--color-white);
-}
-.footer-col.follow-us ul li a:hover {
-  color: var(--color-primary);
-}
 .footer-col ul li {
   display: inline-block;
   width: max-content;
@@ -597,8 +577,12 @@ section {
   align-items: center;
   width: max-content;
 }
+.footer-col.col-address ul.social li a:hover svg path {
+  color: var(--color-primary);
+}
 .footer-col.col-address ul.social li a svg path {
   color: var(--color-white);
+  transition: all 0.3s ease;
 }
 .footer-col.col-about-menas ul, .footer-col.col-menu ul {
   display: flex;
