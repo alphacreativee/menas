@@ -280,8 +280,8 @@ function effectText() {
     const delay = parseFloat(title.getAttribute("data-delay")) || 0;
 
     const splitTitle = SplitText.create(title, {
-      type: "chars",
-      mask: "chars"
+      type: "words,chars",
+      mask: "words"
     });
 
     gsap.set(splitTitle.chars, { y: "125%" });

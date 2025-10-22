@@ -63,6 +63,11 @@ a {
   line-height: 40px;
 }
 
+.h3-font {
+  font-size: 24px;
+  line-height: 32px;
+}
+
 .tag-font {
   font-size: 12px;
   line-height: 20px;
@@ -268,6 +273,10 @@ section {
   height: var(--overlay-height);
   top: 0;
   left: 0;
+}
+
+.effect-line .line {
+  line-height: 1.4;
 }
 
 .section-fields {
@@ -853,13 +862,13 @@ section {
 }
 .hero .swiper-banner .swiper-content {
   width: 100%;
-  max-width: 735px;
+  max-width: 520px;
   position: absolute;
   z-index: 2;
   bottom: 24px;
   left: 24px;
   text-align: left;
-  line-height: 58px;
+  line-height: 1.4;
 }
 .hero .swiper-banner .swiper-slide {
   overflow: hidden;
@@ -1038,7 +1047,6 @@ section {
   max-width: 75%;
   position: relative;
   z-index: 2;
-  line-height: 48px;
 }
 .intro-image {
   margin-top: 80px;
