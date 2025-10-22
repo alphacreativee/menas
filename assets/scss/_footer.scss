@@ -20,6 +20,10 @@
     .footer-logo-sub {
       display: flex;
       align-items: center;
+      &-content {
+        margin-top: 24px;
+        padding-right: 32px;
+      }
     }
   }
 

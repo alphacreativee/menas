@@ -509,6 +509,10 @@ section {
   display: flex;
   align-items: center;
 }
+.footer-container .footer-logo-sub-content {
+  margin-top: 24px;
+  padding-right: 32px;
+}
 .footer-top {
   padding: 48px 24px 35px;
   background-color: #575f62;
