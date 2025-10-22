@@ -19,11 +19,11 @@ function loading() {
 
   gsap.set(logo, {
     y: yPos,
-    scale: aspectRatio,
+    scale: aspectRatio
   });
 
   gsap.set(loadingAfter, {
-    "--after-height": "0px",
+    "--after-height": "0px"
   });
 
   gsap.to(logo, {
@@ -35,7 +35,7 @@ function loading() {
       const logoTop = logoRect.top;
       const afterHeight = window.innerHeight - logoTop + paddingTop;
       gsap.set(loadingAfter, {
-        "--after-height": afterHeight + "px",
+        "--after-height": afterHeight + "px"
       });
     },
     onComplete: () => {
@@ -45,9 +45,9 @@ function loading() {
         ease: "expo.in",
         onComplete: () => {
           document.querySelector(".loading").classList.add("loaded");
-        },
+        }
       });
-    },
+    }
   });
 }
 // end lenis
@@ -71,9 +71,9 @@ function sectionFields() {
         { clipPath: "polygon(25% 25%, 75% 40%, 100% 100%, 0% 100%)" },
         {
           clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-          ease: "none",
+          ease: "none"
         }
-      ),
+      )
     });
 
     // Hiệu ứng clipPath đóng
@@ -88,16 +88,16 @@ function sectionFields() {
           { clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)" },
           {
             clipPath: "polygon(0% 0%, 100% 0%, 75% 60%, 25% 75%)",
-            ease: "none",
+            ease: "none"
           }
-        ),
+        )
       });
     }
 
     if (title) {
       const splitTitle = SplitText.create(title, {
         type: "chars",
-        mask: "chars",
+        mask: "chars"
       });
       gsap.set(splitTitle.chars, { y: "125%" });
 
@@ -105,16 +105,16 @@ function sectionFields() {
         scrollTrigger: {
           trigger: item,
           start: "top 20%",
-          toggleActions: "play none none none",
+          toggleActions: "play none none none"
           // markers: true
-        },
+        }
       });
 
       tlTitle.to(splitTitle.chars, {
         y: "0%",
         ease: "power2.out",
         duration: 0.6,
-        stagger: 0.03,
+        stagger: 0.03
       });
     }
 
@@ -122,7 +122,7 @@ function sectionFields() {
       const splitDesc = new SplitText(desc, {
         type: "lines",
         linesClass: "line",
-        mask: "lines",
+        mask: "lines"
       });
 
       gsap.set(splitDesc.lines, { yPercent: 100 });
@@ -131,16 +131,16 @@ function sectionFields() {
         scrollTrigger: {
           trigger: item,
           start: "top 20%",
-          toggleActions: "play none none none",
+          toggleActions: "play none none none"
           // markers: true,
-        },
+        }
       });
 
       tlDesc.to(splitDesc.lines, {
         yPercent: 0,
         ease: "power2.out",
         duration: 0.8,
-        stagger: 0.1,
+        stagger: 0.1
       });
     }
 
@@ -157,9 +157,9 @@ function sectionFields() {
             trigger: imgEl,
             start: "top bottom",
             end: "top top",
-            scrub: 1,
+            scrub: 1
             // markers: true
-          },
+          }
         }
       );
     }
@@ -177,7 +177,7 @@ function sectionFields() {
       onEnterBack: () => {
         $(".fields-tabs__item").removeClass("active");
         $(".fields-tabs__item").eq(index).addClass("active");
-      },
+      }
     });
   });
 
@@ -197,7 +197,7 @@ function sectionFields() {
     },
     onLeaveBack: () => {
       $(".fields-tabs").removeClass("active");
-    },
+    }
   });
 }
 
@@ -206,7 +206,7 @@ function magicCursor() {
 
   gsap.set(circle, {
     xPercent: -50,
-    yPercent: -50,
+    yPercent: -50
   });
 
   let mouseX = 0,
@@ -219,7 +219,7 @@ function magicCursor() {
     gsap.to(circle, {
       x: mouseX,
       y: mouseY,
-      duration: 0.1,
+      duration: 0.1
     });
   });
 
@@ -267,18 +267,18 @@ function effectText() {
       {
         "will-change": "opacity, transform",
         opacity: 0,
-        y: 20,
+        y: 20
       },
       {
         scrollTrigger: {
           trigger: element,
           start: "top 80%",
-          end: "bottom 80%",
+          end: "bottom 80%"
         },
         opacity: 1,
         y: 0,
         duration: 0.5,
-        ease: "sine.out",
+        ease: "sine.out"
       }
     );
   });
@@ -287,14 +287,14 @@ function effectText() {
     const splitDescription = new SplitText(description, {
       type: "lines",
       linesClass: "line",
-      mask: "lines",
+      mask: "lines"
     });
 
     gsap.fromTo(
       splitDescription.lines,
       {
         yPercent: 100,
-        willChange: "transform",
+        willChange: "transform"
       },
       {
         yPercent: 0,
@@ -304,9 +304,9 @@ function effectText() {
 
         scrollTrigger: {
           trigger: description,
-          start: "top 80%",
+          start: "top 80%"
           // markers: true,
-        },
+        }
       }
     );
   });
@@ -316,7 +316,7 @@ function effectText() {
 
     const splitTitle = SplitText.create(title, {
       type: "chars",
-      mask: "chars",
+      mask: "chars"
     });
 
     gsap.set(splitTitle.chars, { y: "125%" });
@@ -326,7 +326,7 @@ function effectText() {
       ease: "power3.out",
       duration: 1,
       stagger: 0.03,
-      delay: delay,
+      delay: delay
     });
   });
 
@@ -336,7 +336,7 @@ function effectText() {
     const splitTitle = new SplitText(title, {
       type: "chars",
       charsClass: "char",
-      mask: "chars",
+      mask: "chars"
     });
 
     gsap.set(splitTitle.chars, { y: "125%", opacity: 0 });
@@ -351,9 +351,9 @@ function effectText() {
       scrollTrigger: {
         trigger: title,
         start: "top 80%",
-        toggleActions: "play none none none",
+        toggleActions: "play none none none"
         // markers: true,
-      },
+      }
     });
   });
 }
@@ -437,58 +437,60 @@ function customDropdown() {
 function hero() {
   if ($("section.hero").length < 1) return;
 
-  $(".hero-slider").each(function () {
-    let $slider = $(this);
+  var interleaveOffset = 0.9;
+  const progressBar = document.querySelector(".swiper-banner .progress-bar");
 
-    let $dataSpeed;
-    let $dataLoop = $slider.attr("data-loop");
-    let $dataAutoplay = $slider.data("autoplay")
-      ? { delay: $slider.data("autoplay") }
-      : $slider.data("autoplay");
-    if ($slider.is("[data-speed]")) {
-      $dataSpeed = $slider.data("speed");
-    } else {
-      $dataSpeed = 900;
+  var swiperBanner = new Swiper(".swiper-banner", {
+    loop: true,
+    speed: 1500,
+    grabCursor: true,
+    watchSlidesProgress: true,
+    mousewheelControl: true,
+    keyboardControl: true,
+    navigation: {
+      nextEl: ".swiper-banner .swiper-next",
+      prevEl: ".swiper-banner .swiper-prev"
+    },
+    autoplay: {
+      delay: 3500,
+      disableOnInteraction: false
+    },
+    on: {
+      autoplayTimeLeft(s, time, progress) {
+        // progress: từ 0 -> 1
+        progressBar.style.width = `${(1 - progress) * 100}%`;
+      },
+      progress: function (swiper) {
+        swiper.slides.forEach(function (slide) {
+          var slideProgress = slide.progress || 0;
+          var innerOffset = swiper.width * interleaveOffset;
+          var innerTranslate = slideProgress * innerOffset;
+          // Kiểm tra nếu innerTranslate không phải là NaN
+          if (!isNaN(innerTranslate)) {
+            var slideInner = slide.querySelector(".slide-banner");
+            if (slideInner) {
+              slideInner.style.transform =
+                "translate3d(" + innerTranslate + "px, 0, 0)";
+            }
+          }
+        });
+      },
+      touchStart: function (swiper) {
+        swiper.slides.forEach(function (slide) {
+          slide.style.transition = "";
+        });
+      },
+      setTransition: function (swiper, speed) {
+        var easing = "cubic-bezier(0.25, 0.1, 0.25, 1)";
+        swiper.slides.forEach(function (slide) {
+          slide.style.transition = speed + "ms " + easing;
+          var slideInner = slide.querySelector(".slide-banner");
+          if (slideInner) {
+            slideInner.style.transition = speed + "ms " + easing;
+          }
+        });
+      }
     }
-
-    new Swiper($slider[0], {
-      direction: "horizontal",
-      rtl: true,
-      speed: $dataSpeed,
-      loop: $dataLoop,
-      autoplay: $dataAutoplay,
-      // autoplay: false,
-      preloadImages: true,
-      parallax: true,
-      lazy: {
-        loadPrevNext: true,
-      },
-      allowTouchMove: false,
-      simulateTouch: false,
-      mousewheel: false,
-      pagination: {
-        el: ".hero .swiper-pagination",
-        clickable: false,
-        renderBullet: function (i, className) {
-          return `
-            <button class="${className}">
-            <svg class="progress" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle class="circle-origin" cx="14" cy="14" r="13" stroke="white"/>
-            </svg>
-            </button>`;
-        },
-      },
-      // navigation: {
-      //   nextEl: ".hero .swiper-button-next",
-      //   prevEl: ".hero .swiper-button-prev"
-      // },
-      on: {
-        init: function () {
-          let $this = this;
-          $($this.slides[$this.activeIndex]);
-        },
-      },
-    });
   });
 
   ScrollTrigger.create({
@@ -502,7 +504,7 @@ function hero() {
       } else {
         $(".hero").removeClass("hidden-section");
       }
-    },
+    }
   });
 }
 
@@ -510,15 +512,15 @@ function sectionIntro() {
   if ($("section.intro").length < 1) return;
 
   gsap.to(".intro-overlay", {
-    y: -200,
+    y: -100,
     ease: "none",
     scrollTrigger: {
       trigger: "section.intro",
-      start: "top 80%",
-      end: "bottom top",
-      scrub: true,
+      start: "top 70%",
+      end: "+=300",
+      scrub: true
       // markers: true
-    },
+    }
   });
 
   gsap.utils
@@ -527,7 +529,7 @@ function sectionIntro() {
       gsap.fromTo(
         img,
         {
-          scale: 1.2,
+          scale: 1.2
           // yPercent: 10
         },
         {
@@ -538,9 +540,9 @@ function sectionIntro() {
             trigger: "section.intro",
             start: "top 80%",
             end: "bottom top",
-            scrub: true,
+            scrub: true
             // markers: true
-          },
+          }
         }
       );
     });
@@ -551,7 +553,7 @@ function sectionIntro() {
       gsap.fromTo(
         img,
         {
-          scale: 1.2,
+          scale: 1.2
           // yPercent: 10
         },
         {
@@ -562,9 +564,9 @@ function sectionIntro() {
             trigger: "section.intro",
             start: "top 80%",
             end: "bottom top",
-            scrub: true,
+            scrub: true
             // markers: true
-          },
+          }
         }
       );
     });
@@ -579,8 +581,8 @@ function sectionIntro() {
         trigger: "section.intro",
         start: "top 80%",
         end: "bottom top",
-        scrub: true,
-      },
+        scrub: true
+      }
     });
   });
 
@@ -590,11 +592,11 @@ function sectionIntro() {
       ease: "none",
       scrollTrigger: {
         trigger: ".intro",
-        start: "top bottom",
+        start: "top 70%",
         end: "top top",
-        scrub: true,
+        scrub: true
         // markers: true
-      },
+      }
     });
   }
 }
@@ -613,10 +615,10 @@ function scrollWrap() {
             trigger: trigger,
             start: "top top",
             end: "bottom top",
-            scrub: true,
+            scrub: true
             // markers: true,
           },
-          defaults: { ease: "none" },
+          defaults: { ease: "none" }
         });
 
         tl.fromTo(
@@ -630,10 +632,10 @@ function scrollWrap() {
             trigger: trigger,
             start: "top bottom",
             end: "bottom bottom",
-            scrub: true,
+            scrub: true
             // markers: true,
           },
-          defaults: { ease: "none" },
+          defaults: { ease: "none" }
         });
 
         tl.fromTo(
@@ -647,9 +649,9 @@ function scrollWrap() {
             trigger: trigger,
             start: "top bottom",
             end: "bottom top",
-            scrub: true,
+            scrub: true
           },
-          defaults: { ease: "none" },
+          defaults: { ease: "none" }
         });
 
         tl.fromTo(
@@ -659,7 +661,7 @@ function scrollWrap() {
         );
 
         tl.to(item, {
-          clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+          clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)"
         });
       }
     });
@@ -677,9 +679,9 @@ function sectionNews() {
       trigger: ".section-news",
       start: "top 70%",
       end: "bottom bottom",
-      toggleActions: "play none none none",
+      toggleActions: "play none none none"
       // markers: true,
-    },
+    }
   });
 
   tl.to(items, {
@@ -687,7 +689,7 @@ function sectionNews() {
     opacity: 1,
     duration: 0.6,
     ease: "power2.out",
-    stagger: 0.2,
+    stagger: 0.2
   });
 }
 
@@ -702,19 +704,19 @@ function sectionAwards() {
     autoplay: false,
     navigation: {
       prevEl: ".section-awards .arrow-prev",
-      nextEl: ".section-awards .arrow-next",
+      nextEl: ".section-awards .arrow-next"
     },
     breakpoints: {
       768: {
-        slidesPerView: 3,
+        slidesPerView: 3
       },
       480: {
-        slidesPerView: 2,
+        slidesPerView: 2
       },
       0: {
-        slidesPerView: 1,
-      },
-    },
+        slidesPerView: 1
+      }
+    }
   });
 }
 function ticket() {
@@ -754,8 +756,8 @@ function ticket() {
       duration: duration,
       ease: "linear",
       modifiers: {
-        x: gsap.utils.unitize((x) => parseFloat(x) % contentWidth),
-      },
+        x: gsap.utils.unitize((x) => parseFloat(x) % contentWidth)
+      }
     });
 
     // Diamond rotation animation
@@ -765,7 +767,7 @@ function ticket() {
         rotation: -360,
         repeat: -1,
         duration: 3,
-        ease: "linear",
+        ease: "linear"
       });
     });
   });
@@ -785,9 +787,9 @@ function responsibility() {
       trigger: ".responsibility-grid",
       start: "top 70%",
       end: "bottom bottom",
-      toggleActions: "play none none none",
+      toggleActions: "play none none none"
       // markers: true,
-    },
+    }
   });
 
   tl.to(responsibilityItems, {
@@ -795,7 +797,7 @@ function responsibility() {
     opacity: 1,
     duration: 0.6,
     ease: "power2.out",
-    stagger: 0.2,
+    stagger: 0.2
   });
 
   const responsibilityItemsMove = $(".responsibility .responsibility-item");
@@ -826,9 +828,9 @@ function parallaxSection() {
         trigger: $section[0],
         start: "top 80%",
         end: "bottom top",
-        scrub: true,
+        scrub: true
         // markers: true
-      },
+      }
     });
   });
 }
