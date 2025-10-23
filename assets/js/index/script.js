@@ -616,7 +616,7 @@ function scrollWrap() {
     items.forEach((item, index) => {
       const img = item.querySelector("img");
       const textWrap = texts[index];
-      const title = textWrap ? textWrap.querySelector("h2") : null;
+      const title = textWrap ? textWrap.querySelector(".box-title") : null;
       const descriptionElements = textWrap
         ? textWrap.querySelectorAll("div.description")
         : [];
@@ -656,7 +656,9 @@ function scrollWrap() {
         const prev = items[index - 1];
         const prevImg = prev.querySelector("img");
         const prevText = texts[index - 1];
-        const prevTitle = prevText ? prevText.querySelector("h2") : null;
+        const prevTitle = prevText
+          ? prevText.querySelector(".box-title")
+          : null;
         const prevDescriptionElements = prevText
           ? prevText.querySelectorAll("div.description")
           : [];
