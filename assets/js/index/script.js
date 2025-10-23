@@ -202,7 +202,7 @@ function magicCursor() {
       }
 
       // const text = item.getAttribute("data-cursor-text");
-      cursorText.innerHTML = `<span class="b2-regular color-white">${text}</span>`;
+      cursorText.innerHTML = `<span class="color-white">${text}</span>`;
       cursorDot.classList.add("show-text");
     });
 
@@ -218,7 +218,7 @@ function magicCursor() {
       cursorDot.classList.remove("show-text");
     });
     item.addEventListener("mouseleave", () => {
-      cursorText.innerHTML = `<span class="b2-regular color-white">Đóng</span>`;
+      cursorText.innerHTML = `<span class="color-white">Đóng</span>`;
       cursorDot.classList.add("show-text");
     });
   });
@@ -244,6 +244,27 @@ function effectText() {
         y: 0,
         duration: 0.5,
         ease: "sine.out",
+      }
+    );
+  });
+
+  gsap.utils.toArray(".effect-line-auto").forEach((description) => {
+    const delay = parseFloat(description.getAttribute("data-delay")) || 0;
+    const splitDescription = new SplitText(description, {
+      type: "lines",
+      linesClass: "line",
+      mask: "lines"
+    });
+
+    gsap.fromTo(
+      splitDescription.lines,
+      { yPercent: 100, willChange: "transform" },
+      {
+        yPercent: 0,
+        duration: 1,
+        ease: "power3.out",
+        stagger: 0.05,
+        delay: delay
       }
     );
   });
@@ -275,6 +296,7 @@ function effectText() {
       }
     );
   });
+
   gsap.utils.toArray(".effect-line-box").forEach((description) => {
     const splitDescription = new SplitText(description, {
       type: "lines",
@@ -325,7 +347,7 @@ function effectText() {
     const delay = parseFloat(title.getAttribute("data-delay")) || 0;
 
     const splitTitle = new SplitText(title, {
-      type: "chars",
+      type: "chars, words",
       charsClass: "char",
       mask: "chars",
     });

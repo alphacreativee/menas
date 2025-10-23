@@ -228,7 +228,9 @@ body {
   font-family: var(--font-body);
   font-size: 10px;
   line-height: 14px;
+  text-align: center;
   text-transform: uppercase;
+  display: block;
 }
 .magic-cursor .text {
   min-width: max-content;
@@ -275,8 +277,9 @@ section {
   left: 0;
 }
 
-.effect-line .line {
-  line-height: 1.4;
+.effect-line .line,
+.effect-line-auto .line {
+  line-height: 1.5;
 }
 
 .section-fields {
@@ -1190,6 +1193,13 @@ section {
   display: block;
   background-color: var(--color-white);
 }
+.news-item.awards-item .content {
+  min-height: 232px;
+  justify-content: space-between;
+}
+.news-item.awards-item .image {
+  aspect-ratio: 406/228;
+}
 .news-item .content {
   padding: 24px;
   display: flex;
@@ -1370,7 +1380,7 @@ section {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0, 0, 0.58, 1);
+  transition: transform 0.6s;
 }
 .responsibility-item .item-title {
   position: absolute;
