@@ -280,14 +280,17 @@
   }
 }
 .menu-fixed-bottom {
-  bottom: 0;
+  bottom: -100%;
   left: 0;
   right: 0;
   position: fixed;
   background-color: #f4f4f4;
   padding: 20px 0;
   transition: bottom 0.4s ease;
-  &.hide-menu {
+  &.show-menu-fixed {
+    bottom: 0;
+  }
+  &.hide-menu-fixed {
     bottom: -100%;
   }
   ul {
