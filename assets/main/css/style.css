@@ -282,6 +282,10 @@ section {
   line-height: 1.5;
 }
 
+.effect-title .char {
+  line-height: 1.5;
+}
+
 .section-fields {
   background-color: var(--color-white);
   position: relative;
@@ -1258,7 +1262,7 @@ section {
   padding: 80px 60px;
 }
 .section-awards .awards-slider {
-  margin-top: 60px;
+  margin-top: 64px;
 }
 .section-awards .awards-slider .swiper-slide {
   height: auto;
