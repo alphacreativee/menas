@@ -36,7 +36,7 @@ a {
 .b1-bold-font {
   font-size: 16px;
   line-height: 24px;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 .b2-font {
@@ -1195,6 +1195,7 @@ section {
   display: flex;
   flex-direction: column;
   display: block;
+  height: 100%;
   background-color: var(--color-white);
 }
 .news-item.awards-item .content {
@@ -1213,7 +1214,7 @@ section {
 .news-item .content .name {
   font-size: 16px;
   line-height: 24px;
-  font-weight: bold;
+  font-weight: 500;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 3;
