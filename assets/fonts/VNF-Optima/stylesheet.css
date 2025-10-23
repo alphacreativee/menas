@@ -1,12 +1,13 @@
 @font-face {
-  font-family: "VNF-Optima";
-  src: url("VNF-Optima.eot");
-  src: url("VNF-Optima.eot?#iefix") format("embedded-opentype"),
-    url("VNF-Optima.woff2") format("woff2"),
-    url("VNF-Optima.woff") format("woff"),
-    url("VNF-Optima.ttf") format("truetype"),
-    url("VNF-Optima.svg#VNF-Optima") format("svg");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
+    font-family: 'VNF-Optima';
+    src: url('VNF-Optima.eot');
+    src: url('VNF-Optima.eot?#iefix') format('embedded-opentype'),
+        url('VNF-Optima.woff2') format('woff2'),
+        url('VNF-Optima.woff') format('woff'),
+        url('VNF-Optima.ttf') format('truetype'),
+        url('VNF-Optima.svg#VNF-Optima') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
+
