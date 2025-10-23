@@ -48,6 +48,7 @@ a {
 .b2-bold-font {
   font-size: 14px;
   line-height: 20px;
+  letter-spacing: 0.28px;
   font-weight: bold;
 }
 
