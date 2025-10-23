@@ -19,11 +19,11 @@ function loading() {
 
   gsap.set(logo, {
     y: yPos,
-    scale: aspectRatio,
+    scale: aspectRatio
   });
 
   gsap.set(loadingAfter, {
-    "--after-height": "0px",
+    "--after-height": "0px"
   });
 
   gsap.to(logo, {
@@ -35,7 +35,7 @@ function loading() {
       const logoTop = logoRect.top;
       const afterHeight = window.innerHeight - logoTop + paddingTop;
       gsap.set(loadingAfter, {
-        "--after-height": afterHeight + "px",
+        "--after-height": afterHeight + "px"
       });
     },
     onComplete: () => {
@@ -45,9 +45,9 @@ function loading() {
         ease: "expo.in",
         onComplete: () => {
           document.querySelector(".loading").classList.add("loaded");
-        },
+        }
       });
-    },
+    }
   });
 }
 // end lenis
@@ -71,9 +71,9 @@ function sectionFields() {
         { clipPath: "polygon(25% 25%, 75% 40%, 100% 100%, 0% 100%)" },
         {
           clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-          ease: "none",
+          ease: "none"
         }
-      ),
+      )
     });
 
     // Hiệu ứng clipPath đóng
@@ -88,16 +88,16 @@ function sectionFields() {
           { clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)" },
           {
             clipPath: "polygon(0% 0%, 100% 0%, 75% 60%, 25% 75%)",
-            ease: "none",
+            ease: "none"
           }
-        ),
+        )
       });
     }
 
     if (title) {
       const splitTitle = SplitText.create(title, {
         type: "chars",
-        mask: "chars",
+        mask: "chars"
       });
       gsap.set(splitTitle.chars, { y: "125%" });
 
@@ -105,16 +105,16 @@ function sectionFields() {
         scrollTrigger: {
           trigger: item,
           start: "top 20%",
-          toggleActions: "play none none none",
+          toggleActions: "play none none none"
           // markers: true
-        },
+        }
       });
 
       tlTitle.to(splitTitle.chars, {
         y: "0%",
         ease: "power2.out",
         duration: 0.6,
-        stagger: 0.03,
+        stagger: 0.03
       });
     }
 
@@ -122,7 +122,7 @@ function sectionFields() {
       const splitDesc = new SplitText(desc, {
         type: "lines",
         linesClass: "line",
-        mask: "lines",
+        mask: "lines"
       });
 
       gsap.set(splitDesc.lines, { yPercent: 100 });
@@ -131,16 +131,16 @@ function sectionFields() {
         scrollTrigger: {
           trigger: item,
           start: "top 20%",
-          toggleActions: "play none none none",
+          toggleActions: "play none none none"
           // markers: true,
-        },
+        }
       });
 
       tlDesc.to(splitDesc.lines, {
         yPercent: 0,
         ease: "power2.out",
         duration: 0.8,
-        stagger: 0.1,
+        stagger: 0.1
       });
     }
 
@@ -157,9 +157,9 @@ function sectionFields() {
             trigger: imgEl,
             start: "top bottom",
             end: "top top",
-            scrub: 1,
+            scrub: 1
             // markers: true
-          },
+          }
         }
       );
     }
@@ -171,7 +171,7 @@ function magicCursor() {
 
   gsap.set(circle, {
     xPercent: -50,
-    yPercent: -50,
+    yPercent: -50
   });
 
   let mouseX = 0,
@@ -184,7 +184,7 @@ function magicCursor() {
     gsap.to(circle, {
       x: mouseX,
       y: mouseY,
-      duration: 0.1,
+      duration: 0.1
     });
   });
 
@@ -232,18 +232,18 @@ function effectText() {
       {
         "will-change": "opacity, transform",
         opacity: 0,
-        y: 20,
+        y: 20
       },
       {
         scrollTrigger: {
           trigger: element,
           start: "top 80%",
-          end: "bottom 80%",
+          end: "bottom 80%"
         },
         opacity: 1,
         y: 0,
         duration: 0.5,
-        ease: "sine.out",
+        ease: "sine.out"
       }
     );
   });
@@ -252,14 +252,14 @@ function effectText() {
     const splitDescription = new SplitText(description, {
       type: "lines",
       linesClass: "line",
-      mask: "lines",
+      mask: "lines"
     });
 
     gsap.fromTo(
       splitDescription.lines,
       {
         yPercent: 100,
-        willChange: "transform",
+        willChange: "transform"
       },
       {
         yPercent: 0,
@@ -269,9 +269,9 @@ function effectText() {
 
         scrollTrigger: {
           trigger: description,
-          start: "top 80%",
+          start: "top 80%"
           // markers: true,
-        },
+        }
       }
     );
   });
@@ -279,14 +279,14 @@ function effectText() {
     const splitDescription = new SplitText(description, {
       type: "lines",
       linesClass: "line",
-      mask: "lines",
+      mask: "lines"
     });
 
     gsap.fromTo(
       splitDescription.lines,
       {
         yPercent: 100,
-        willChange: "transform",
+        willChange: "transform"
       },
       {
         yPercent: 0,
@@ -295,9 +295,9 @@ function effectText() {
 
         scrollTrigger: {
           trigger: description,
-          start: "top 80%",
+          start: "top 80%"
           // markers: true,
-        },
+        }
       }
     );
   });
@@ -307,7 +307,7 @@ function effectText() {
 
     const splitTitle = SplitText.create(title, {
       type: "words,chars",
-      mask: "words",
+      mask: "words"
     });
 
     gsap.set(splitTitle.chars, { y: "125%" });
@@ -317,7 +317,7 @@ function effectText() {
       ease: "power3.out",
       duration: 1,
       stagger: 0.03,
-      delay: delay,
+      delay: delay
     });
   });
 
@@ -327,7 +327,7 @@ function effectText() {
     const splitTitle = new SplitText(title, {
       type: "chars",
       charsClass: "char",
-      mask: "chars",
+      mask: "chars"
     });
 
     gsap.set(splitTitle.chars, { y: "125%", opacity: 0 });
@@ -342,9 +342,9 @@ function effectText() {
       scrollTrigger: {
         trigger: title,
         start: "top 80%",
-        toggleActions: "play none none none",
+        toggleActions: "play none none none"
         // markers: true,
-      },
+      }
     });
   });
 }
@@ -440,11 +440,11 @@ function hero() {
     keyboardControl: true,
     navigation: {
       nextEl: ".swiper-banner .swiper-next",
-      prevEl: ".swiper-banner .swiper-prev",
+      prevEl: ".swiper-banner .swiper-prev"
     },
     autoplay: {
       delay: 5000,
-      disableOnInteraction: false,
+      disableOnInteraction: false
     },
     on: {
       autoplayTimeLeft(s, time, progress) {
@@ -480,8 +480,8 @@ function hero() {
             slideInner.style.transition = speed + "ms " + easing;
           }
         });
-      },
-    },
+      }
+    }
   });
 
   ScrollTrigger.create({
@@ -495,7 +495,7 @@ function hero() {
       } else {
         $(".hero").removeClass("hidden-section");
       }
-    },
+    }
   });
 }
 
@@ -509,9 +509,9 @@ function sectionIntro() {
       trigger: "section.intro",
       start: "top 65%",
       end: "+=300",
-      scrub: true,
+      scrub: true
       // markers: true
-    },
+    }
   });
 
   gsap.utils
@@ -520,7 +520,7 @@ function sectionIntro() {
       gsap.fromTo(
         img,
         {
-          scale: 1.2,
+          scale: 1.2
           // yPercent: 10
         },
         {
@@ -531,9 +531,9 @@ function sectionIntro() {
             trigger: "section.intro",
             start: "top 80%",
             end: "bottom top",
-            scrub: true,
+            scrub: true
             // markers: true
-          },
+          }
         }
       );
     });
@@ -544,7 +544,7 @@ function sectionIntro() {
       gsap.fromTo(
         img,
         {
-          scale: 1.2,
+          scale: 1.2
           // yPercent: 10
         },
         {
@@ -555,9 +555,9 @@ function sectionIntro() {
             trigger: "section.intro",
             start: "top 80%",
             end: "bottom top",
-            scrub: true,
+            scrub: true
             // markers: true
-          },
+          }
         }
       );
     });
@@ -572,8 +572,8 @@ function sectionIntro() {
         trigger: "section.intro",
         start: "top 80%",
         end: "bottom top",
-        scrub: true,
-      },
+        scrub: true
+      }
     });
   });
 
@@ -585,9 +585,9 @@ function sectionIntro() {
         trigger: ".intro",
         start: "top 65%",
         end: "top top",
-        scrub: true,
+        scrub: true
         // markers: true
-      },
+      }
     });
   }
 }
@@ -607,10 +607,10 @@ function scrollWrap() {
         end: `+=${window.innerHeight * items.length}px`,
         scrub: true,
         pin: true,
-        anticipatePin: 1,
+        anticipatePin: 1
         // markers: true,
       },
-      defaults: { ease: "power2.out" },
+      defaults: { ease: "power2.out" }
     });
 
     items.forEach((item, index) => {
@@ -627,7 +627,7 @@ function scrollWrap() {
       gsap.set(item, {
         clipPath: isFirst
           ? "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)"
-          : "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
+          : "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)"
       });
       gsap.set(img, { scale: 1 });
       if (textWrap) gsap.set(textWrap, { opacity: isFirst ? 1 : 0, y: 0 });
@@ -637,7 +637,7 @@ function scrollWrap() {
       if (title) {
         splitTitle = SplitText.create(title, {
           type: "words,chars",
-          mask: "words",
+          mask: "words"
         });
         gsap.set(splitTitle.chars, { y: isFirst ? "0%" : "125%" });
       }
@@ -647,7 +647,7 @@ function scrollWrap() {
         gsap.set(descriptionElements, {
           "will-change": "opacity, transform",
           opacity: isFirst ? 1 : 0,
-          y: isFirst ? 0 : 20,
+          y: isFirst ? 0 : 20
         });
       }
 
@@ -667,19 +667,19 @@ function scrollWrap() {
         if (prevTitle) {
           prevSplitTitle = SplitText.create(prevTitle, {
             type: "words,chars",
-            mask: "words",
+            mask: "words"
           });
         }
 
         tl.to(prev, {
-          clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+          clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)"
         });
         tl.to(prevImg, { scale: 1.1 }, "<");
 
         tl.to(
           item,
           {
-            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)"
           },
           "<"
         );
@@ -697,7 +697,7 @@ function scrollWrap() {
                 y: "0%",
                 ease: "power3.out",
                 duration: 1,
-                stagger: 0.03,
+                stagger: 0.03
               },
               "<+=0.2"
             );
@@ -711,7 +711,7 @@ function scrollWrap() {
                 y: "-125%",
                 ease: "power3.out",
                 duration: 1,
-                stagger: 0.03,
+                stagger: 0.03
               },
               "<"
             );
@@ -724,14 +724,14 @@ function scrollWrap() {
               {
                 "will-change": "opacity, transform",
                 opacity: 0,
-                y: 20,
+                y: 20
               },
               {
                 opacity: 1,
                 y: 0,
                 duration: 0.5,
                 ease: "sine.out",
-                stagger: 0.1,
+                stagger: 0.1
               },
               "<+=0.2"
             );
@@ -746,7 +746,7 @@ function scrollWrap() {
                 y: -20,
                 duration: 0.5,
                 ease: "sine.out",
-                stagger: 0.1,
+                stagger: 0.1
               },
               "<"
             );
@@ -771,9 +771,9 @@ function sectionNews() {
       trigger: ".section-news",
       start: "top 70%",
       end: "bottom bottom",
-      toggleActions: "play none none none",
+      toggleActions: "play none none none"
       // markers: true,
-    },
+    }
   });
 
   tl.to(items, {
@@ -781,7 +781,7 @@ function sectionNews() {
     opacity: 1,
     duration: 0.6,
     ease: "power2.out",
-    stagger: 0.2,
+    stagger: 0.2
   });
 }
 
@@ -790,28 +790,29 @@ function sectionAwards() {
 
   document.querySelectorAll(".section-awards").forEach((section) => {
     const swiperEl = section.querySelector(".awards-slider");
+    const isAwardsSlider = section.id.includes("awards");
 
     new Swiper(swiperEl, {
-      slidesPerView: 4,
+      slidesPerView: isAwardsSlider ? 3 : 4,
       spaceBetween: 30,
       loop: false,
       speed: 800,
       autoplay: false,
       navigation: {
         prevEl: section.querySelector(".arrow-prev"),
-        nextEl: section.querySelector(".arrow-next"),
+        nextEl: section.querySelector(".arrow-next")
       },
       breakpoints: {
         768: {
-          slidesPerView: 4,
+          slidesPerView: isAwardsSlider ? 3 : 4
         },
         480: {
-          slidesPerView: 2,
+          slidesPerView: 2
         },
         0: {
-          slidesPerView: 1,
-        },
-      },
+          slidesPerView: 1
+        }
+      }
     });
   });
 }
@@ -852,8 +853,8 @@ function ticket() {
       duration: duration,
       ease: "linear",
       modifiers: {
-        x: gsap.utils.unitize((x) => parseFloat(x) % contentWidth),
-      },
+        x: gsap.utils.unitize((x) => parseFloat(x) % contentWidth)
+      }
     });
 
     // Diamond rotation animation
@@ -863,7 +864,7 @@ function ticket() {
         rotation: -360,
         repeat: -1,
         duration: 3,
-        ease: "linear",
+        ease: "linear"
       });
     });
   });
@@ -883,9 +884,9 @@ function responsibility() {
       trigger: ".responsibility-grid",
       start: "top 70%",
       end: "bottom bottom",
-      toggleActions: "play none none none",
+      toggleActions: "play none none none"
       // markers: true,
-    },
+    }
   });
 
   tl.to(responsibilityItems, {
@@ -893,7 +894,7 @@ function responsibility() {
     opacity: 1,
     duration: 0.6,
     ease: "power2.out",
-    stagger: 0.2,
+    stagger: 0.2
   });
 
   const responsibilityItemsMove = $(".responsibility .responsibility-item");
@@ -924,9 +925,9 @@ function parallaxSection() {
         trigger: $section[0],
         start: "top 80%",
         end: "bottom top",
-        scrub: true,
+        scrub: true
         // markers: true
-      },
+      }
     });
   });
 }
