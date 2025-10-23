@@ -1273,8 +1273,8 @@ section {
   display: flex;
   align-items: center;
   font-family: var(--font-heading);
-  font-size: 80px;
-  line-height: 80px;
+  font-size: 70px;
+  line-height: 70px;
   text-transform: uppercase;
   color: var(--color-white);
   will-change: transform;
