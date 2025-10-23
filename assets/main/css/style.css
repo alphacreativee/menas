@@ -524,6 +524,9 @@ section {
   padding: 10px 24px;
   background-color: #000;
 }
+.footer-bottom .menas-group {
+  padding-left: 50px;
+}
 .footer-logo {
   display: block;
   width: 210px;
@@ -551,6 +554,9 @@ section {
 .footer-col.copyright p {
   display: inline-block;
 }
+.footer-col.terms {
+  padding-left: 50px;
+}
 .footer-col.terms ul {
   display: flex;
   align-items: center;
@@ -559,8 +565,14 @@ section {
 .footer-col.terms ul li a {
   display: inline-block;
 }
+.footer-col.by-alpha {
+  padding-left: 50px;
+}
 .footer-col.by-alpha a {
   display: inline-block;
+}
+.footer-col.col-address {
+  padding-left: 50px;
 }
 .footer-col.col-address .col-wrapper {
   display: flex;
@@ -596,6 +608,9 @@ section {
 .footer-col.col-address ul.social li a svg path {
   color: var(--color-white);
   transition: all 0.3s ease;
+}
+.footer-col.col-about-menas, .footer-col.col-menu {
+  padding-left: 50px;
 }
 .footer-col.col-about-menas ul, .footer-col.col-menu ul {
   display: flex;

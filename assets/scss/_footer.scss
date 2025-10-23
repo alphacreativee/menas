@@ -37,6 +37,9 @@
     gap: 24px;
     padding: 10px 24px;
     background-color: #000;
+    .menas-group {
+      padding-left: 50px;
+    }
   }
   &-logo {
     display: block;
@@ -71,6 +74,7 @@
       }
     }
     &.terms {
+      padding-left: 50px;
       ul {
         display: flex;
         align-items: center;
@@ -83,11 +87,13 @@
       }
     }
     &.by-alpha {
+      padding-left: 50px;
       a {
         display: inline-block;
       }
     }
     &.col-address {
+      padding-left: 50px;
       .col-wrapper {
         display: flex;
         flex-direction: column;
@@ -135,6 +141,7 @@
     }
     &.col-about-menas,
     &.col-menu {
+      padding-left: 50px;
       ul {
         display: flex;
         flex-direction: column;
