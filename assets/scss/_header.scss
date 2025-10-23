@@ -279,3 +279,29 @@
     }
   }
 }
+.menu-fixed-bottom {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  background-color: #f4f4f4;
+  padding: 20px 0;
+  ul {
+    justify-content: center;
+    li.menu-item-has-children {
+      .sub-menu {
+        top: -22px;
+        transform: translateY(-100%);
+        clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+      }
+      &:hover {
+        .sub-menu {
+          clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0);
+        }
+      }
+      .icon {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
