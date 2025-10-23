@@ -253,7 +253,7 @@ function effectText() {
     const splitDescription = new SplitText(description, {
       type: "lines",
       linesClass: "line",
-      mask: "lines"
+      mask: "lines",
     });
 
     gsap.fromTo(
@@ -264,7 +264,7 @@ function effectText() {
         duration: 1,
         ease: "power3.out",
         stagger: 0.05,
-        delay: delay
+        delay: delay,
       }
     );
   });
@@ -958,7 +958,7 @@ function hideMenuOnFooter() {
 
   ScrollTrigger.create({
     trigger: "footer",
-    start: "top bottom",
+    start: "top bottom+=50",
     end: "bottom bottom",
     // markers: true,
     onEnter: () => {
