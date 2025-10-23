@@ -1362,6 +1362,7 @@ section {
 }
 .responsibility .section-desc {
   margin-top: 24px;
+  max-width: 373px;
 }
 .responsibility-grid {
   display: flex;
