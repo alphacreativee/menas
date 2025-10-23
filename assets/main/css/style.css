@@ -343,7 +343,7 @@ section {
 .section-fields .fields-tabs {
   position: fixed;
   z-index: 3;
-  bottom: 24px;
+  top: 84px;
   left: 50%;
   transform: translate(-50%, 20px);
   opacity: 0;
@@ -365,12 +365,14 @@ section {
 .section-fields .fields-tabs__item {
   padding: 8px 16px;
   border-radius: 72px;
-  background-color: var(--color-white);
+  background-color: #f4f4f4;
   width: max-content;
   transition: all 0.4s ease;
+  font-size: 13px;
+  line-height: 20px;
 }
 .section-fields .fields-tabs__item.active {
-  background-color: var(--color-secondary);
+  background-color: var(--color-primary);
   color: var(--color-white);
 }
 
@@ -712,7 +714,7 @@ section {
   transform: translateY(20px);
   left: -16px;
   width: 215px;
-  background-color: var(--color-white);
+  background-color: #f4f4f4;
   clip-path: inset(0 0 100% 0);
   will-change: clip-path;
   transition: clip-path 0.3s ease;
@@ -754,7 +756,7 @@ section {
   top: 100%;
   left: -16px;
   transform: translateY(17px);
-  background-color: var(--color-white);
+  background-color: #f4f4f4;
   width: calc(100% + 24px);
   padding: 8px;
   clip-path: inset(0 0 100% 0);
@@ -1318,7 +1320,7 @@ section {
   padding: 80px 60px;
 }
 .section-awards .awards-slider {
-  margin-top: 64px;
+  margin-top: 48px;
 }
 .section-awards .awards-slider .swiper-slide {
   height: auto;

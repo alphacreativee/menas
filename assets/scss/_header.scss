@@ -118,7 +118,7 @@
             transform: translateY(20px);
             left: -16px;
             width: 215px;
-            background-color: var(--color-white);
+            background-color: #f4f4f4;
             clip-path: inset(0 0 100% 0);
             will-change: clip-path;
             transition: clip-path 0.3s ease;
@@ -167,7 +167,7 @@
       top: 100%;
       left: -16px;
       transform: translateY(17px);
-      background-color: var(--color-white);
+      background-color: #f4f4f4;
       width: calc(100% + 24px);
       padding: 8px;
       clip-path: inset(0 0 100% 0);
