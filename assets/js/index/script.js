@@ -955,19 +955,38 @@ function parallaxSection() {
 }
 function hideMenuOnFooter() {
   gsap.registerPlugin(ScrollTrigger);
-
+  // show menu fixed on scroll
+  ScrollTrigger.create({
+    trigger: "body",
+    start: "top top-=180vh",
+    end: "bottom bottom",
+    onEnter: () => {
+      document
+        .querySelector(".menu-fixed-bottom")
+        .classList.add("show-menu-fixed");
+    },
+    onLeaveBack: () => {
+      document
+        .querySelector(".menu-fixed-bottom")
+        .classList.remove("show-menu-fixed");
+    },
+    // markers: true
+  });
+  // hide menu fixed on footer
   ScrollTrigger.create({
     trigger: "footer",
     start: "top bottom+=50",
     end: "bottom bottom",
     // markers: true,
     onEnter: () => {
-      document.querySelector(".menu-fixed-bottom").classList.add("hide-menu");
+      document
+        .querySelector(".menu-fixed-bottom")
+        .classList.add("hide-menu-fixed");
     },
     onLeaveBack: () => {
       document
         .querySelector(".menu-fixed-bottom")
-        .classList.remove("hide-menu");
+        .classList.remove("hide-menu-fixed");
     },
   });
 }

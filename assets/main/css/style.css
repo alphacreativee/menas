@@ -839,7 +839,7 @@ section {
 }
 
 .menu-fixed-bottom {
-  bottom: 0;
+  bottom: -100%;
   left: 0;
   right: 0;
   position: fixed;
@@ -847,7 +847,10 @@ section {
   padding: 20px 0;
   transition: bottom 0.4s ease;
 }
-.menu-fixed-bottom.hide-menu {
+.menu-fixed-bottom.show-menu-fixed {
+  bottom: 0;
+}
+.menu-fixed-bottom.hide-menu-fixed {
   bottom: -100%;
 }
 .menu-fixed-bottom ul {
