@@ -681,32 +681,6 @@ function scrollWrap() {
   });
 }
 
-function sectionNews() {
-  if ($(".section-news").length < 1) return;
-
-  const items = gsap.utils.toArray(".section-news .grid-news__item");
-
-  gsap.set(items, { y: 40, opacity: 0 });
-
-  const tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".section-news",
-      start: "top 70%",
-      end: "bottom bottom",
-      toggleActions: "play none none none",
-      // markers: true,
-    },
-  });
-
-  tl.to(items, {
-    y: 0,
-    opacity: 1,
-    duration: 0.6,
-    ease: "power2.out",
-    stagger: 0.2,
-  });
-}
-
 function sectionAwards() {
   if ($(".section-awards").length < 1) return;
 
@@ -735,6 +709,31 @@ function sectionAwards() {
           slidesPerView: 1,
         },
       },
+    });
+  });
+
+  // fade each items
+  gsap.utils.toArray(".section-awards").forEach((section) => {
+    const items = section.querySelectorAll(".news-item");
+
+    gsap.set(items, { y: 40, opacity: 0 });
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: "top 70%",
+        end: "bottom bottom",
+        toggleActions: "play none none none",
+        // markers: true,
+      },
+    });
+
+    tl.to(items, {
+      y: 0,
+      opacity: 1,
+      duration: 0.6,
+      ease: "power2.out",
+      stagger: 0.2,
     });
   });
 }
@@ -900,7 +899,6 @@ const init = () => {
   hero();
   sectionIntro();
   scrollWrap();
-  sectionNews();
   sectionAwards();
   ticket();
   responsibility();
