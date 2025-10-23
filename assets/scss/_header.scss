@@ -296,11 +296,12 @@
       .sub-menu {
         top: -22px;
         transform: translateY(-100%);
-        clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+
+        clip-path: inset(100% 0 0 0);
       }
       &:hover {
         .sub-menu {
-          clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0);
+          clip-path: inset(0 0 0 0);
         }
       }
       .icon {
