@@ -75,7 +75,9 @@
       font-family: var(--font-body);
       font-size: 10px;
       line-height: 14px;
+      text-align: center;
       text-transform: uppercase;
+      display: block;
     }
   }
 
@@ -127,8 +129,9 @@ section {
   left: 0;
 }
 
-.effect-line {
+.effect-line,
+.effect-line-auto {
   .line {
-    line-height: 1.4;
+    line-height: 1.5;
   }
 }
