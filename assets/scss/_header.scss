@@ -286,17 +286,22 @@
   position: fixed;
   background-color: #f4f4f4;
   padding: 20px 0;
+  transition: bottom 0.4s ease;
+  &.hide-menu {
+    bottom: -100%;
+  }
   ul {
     justify-content: center;
     li.menu-item-has-children {
       .sub-menu {
         top: -22px;
         transform: translateY(-100%);
-        clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+
+        clip-path: inset(100% 0 0 0);
       }
       &:hover {
         .sub-menu {
-          clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0);
+          clip-path: inset(0 0 0 0);
         }
       }
       .icon {
