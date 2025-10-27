@@ -107,6 +107,14 @@
         <div class="text"></div>
       </div>
     </div>
+    <script>
+      fetch("./components/chat.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("chat-ai").innerHTML = data;
+        });
+    </script>
+    <div id="chat-ai" data-lenis-prevent></div>
 
     <main>
       <section class="hero has-slider">
@@ -609,6 +617,7 @@
     <script src="./assets/libs/imagesloaded.pkgd.min.js"></script>
     <script src="./assets/libs/swiper-bundle.min.js"></script>
     <!-- import custom js -->
+    <script src="./assets/js/index/chat.js"></script>
     <script src="./assets/main/js/marquee.min.js"></script>
     <script type="module" src="./assets/main/js/script.min.js"></script>
 

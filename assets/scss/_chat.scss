@@ -28,6 +28,7 @@
     visibility: hidden;
     transition: all 0.3s ease;
     transform: translateY(30px);
+    border-radius: 8px;
     &.active {
       opacity: 1;
       visibility: visible;
@@ -84,16 +85,44 @@
         .message-content {
           border-bottom-right-radius: 4px;
           background-color: var(--color-primary);
-          color: #fff;
+          color: var(--color-white);
         }
       }
     }
   }
   &-header {
-    padding: 20px;
+    padding: 10px 20px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    .avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      overflow: hidden;
+      background-color: var(--color-white);
+    }
+    .chat-title {
+      color: var(--color-white);
+    }
+    .wrap-dot {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      span {
+        font-size: 11px;
+        color: var(--color-white);
+      }
+    }
+    .dot-onl {
+      width: 4px;
+      height: 4px;
+      background-color: var(--color-secondary);
+      border-radius: 50%;
+    }
   }
   &-input-area {
-    background-color: #fff;
+    background-color: var(--color-white);
     padding: 10px 20px;
     display: flex;
     gap: 12px;
