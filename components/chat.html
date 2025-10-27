@@ -3,7 +3,11 @@
   <div class="chat-header">MenasGroup AI Chat</div>
 
   <div class="chat-messages" id="chatMessages"></div>
-
+  <div class="typing-indicator" id="typingIndicator">
+    <div class="typing-dot"></div>
+    <div class="typing-dot"></div>
+    <div class="typing-dot"></div>
+  </div>
   <div class="chat-input-area">
     <input
       type="text"
@@ -11,6 +15,7 @@
       id="chatInput"
       placeholder="Nhập tin nhắn của bạn..."
       onkeypress="handleKeyPress(event)"
+      autocomplete="off"
     />
     <button class="send-btn" id="sendBtn" onclick="sendMessage()">
       <svg

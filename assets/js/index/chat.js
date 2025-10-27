@@ -161,7 +161,15 @@ function removeMarkdown(text) {
 
   return cleanText;
 }
+function showTyping() {
+  document.getElementById("typingIndicator").classList.add("active");
+  const messagesDiv = document.getElementById("chatMessages");
+  messagesDiv.scrollTop = messagesDiv.scrollHeight;
+}
 
+function hideTyping() {
+  document.getElementById("typingIndicator").classList.remove("active");
+}
 async function sendMessage() {
   const input = document.getElementById("chatInput");
   const message = input.value.trim();
@@ -176,7 +184,7 @@ async function sendMessage() {
     role: "user",
     parts: [{ text: message }],
   });
-
+  showTyping();
   document.getElementById("sendBtn").disabled = true;
   input.disabled = true;
 
@@ -207,7 +215,7 @@ async function sendMessage() {
     });
 
     const data = await response.json();
-
+    hideTyping();
     if (data.candidates && data.candidates[0]) {
       const aiResponse = data.candidates[0].content.parts[0].text;
       addMessage(aiResponse, "ai");
@@ -223,6 +231,7 @@ async function sendMessage() {
       addMessage("Không thể nhận được phản hồi từ AI", "ai");
     }
   } catch (error) {
+    hideTyping();
     addMessage("Lỗi kết nối: " + error.message, "ai");
   }
 
