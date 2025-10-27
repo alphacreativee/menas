@@ -503,6 +503,8 @@ section {
   position: fixed;
   bottom: 0;
   left: 0;
+  transform: translateY(100px);
+  opacity: 0.5;
 }
 .footer-container.footer-overlay {
   opacity: 0;
