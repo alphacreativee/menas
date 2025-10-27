@@ -503,6 +503,7 @@ section {
   position: fixed;
   bottom: 0;
   left: 0;
+  transform: translateY(100px);
 }
 .footer-container.footer-overlay {
   opacity: 0;
@@ -1514,6 +1515,7 @@ section {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  color: var(--color-white);
 }
 .chat-container {
   position: fixed;
