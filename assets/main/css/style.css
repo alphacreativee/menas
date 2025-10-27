@@ -1516,6 +1516,8 @@ section {
   align-items: center;
   cursor: pointer;
   color: var(--color-white);
+  font-size: 13px;
+  line-height: 20px;
 }
 .chat-container {
   position: fixed;
