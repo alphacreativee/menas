@@ -176,7 +176,7 @@ function sectionFields() {
 
   ScrollTrigger.create({
     trigger: ".section-fields",
-    start: "top center",
+    start: "top top",
     end: "bottom+=40 bottom",
     // markers: true,
     onEnter: () => {
