@@ -37,24 +37,13 @@
         & > a {
           position: relative;
           font-weight: bold;
-          transition: all 0.4s cubic-bezier(0, 0, 0.23, 1);
-          text-decoration: none;
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-image: linear-gradient(
-            90deg,
-            #e4a025,
-            #e4a025 50%,
-            #3a4041 0
-          );
-          background-size: 200% 100%;
-          background-position: 100%;
+          transition: all 0.4s ease;
           color: var(--color-text);
 
           &:hover,
           &.active {
             background-position: 0;
-            color: var(--color-secondary);
+            color: var(--color-primary);
           }
         }
         &.menu-item-has-children {
@@ -91,7 +80,7 @@
 
             & > a {
               background-position: 0;
-              color: var(--color-secondary);
+              color: var(--color-primary);
 
               &::before {
                 transform: scaleX(1);
@@ -131,12 +120,11 @@
               width: 100%;
               a {
                 padding: 8px;
-                transition: all 0.4s cubic-bezier(0, 0, 0.23, 1);
+                transition: all 0.4s ease;
                 width: 100%;
                 display: block;
                 &:hover {
-                  background-color: rgba(228, 160, 37, 0.1);
-                  color: var(--color-text);
+                  color: var(--color-primary);
                 }
                 &::before {
                   content: unset;
@@ -194,7 +182,7 @@
 
         span {
           background-position: 0 !important;
-          color: var(--color-secondary) !important;
+          color: var(--color-primary) !important;
         }
       }
 
@@ -222,22 +210,15 @@
           display: block;
           position: relative;
 
-          transition: all 0.4s cubic-bezier(0, 0, 0.23, 1);
-          text-decoration: none;
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-image: linear-gradient(
-            90deg,
-            #e4a025,
-            #e4a025 50%,
-            #3a4041 0
-          );
-          background-size: 200% 100%;
-          background-position: 100%;
-          color: var(--color-text);
+          transition: all 0.4s ease;
         }
       }
     }
+
+    .icon path {
+      transition: all 0.4s ease;
+    }
+
     .dropdown-custom-item {
       display: flex;
       gap: 12px;
@@ -253,7 +234,7 @@
       &:hover {
         span {
           background-position: 0 !important;
-          color: var(--color-secondary) !important;
+          color: var(--color-primary) !important;
         }
       }
       span {
@@ -262,18 +243,8 @@
         line-height: 20px;
         font-weight: bold;
 
-        transition: all 0.4s cubic-bezier(0, 0, 0.23, 1);
+        transition: all 0.4s ease;
         text-decoration: none;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-image: linear-gradient(
-          90deg,
-          #e4a025,
-          #e4a025 50%,
-          #3a4041 0
-        );
-        background-size: 200% 100%;
-        background-position: 100%;
         color: var(--color-text);
       }
     }

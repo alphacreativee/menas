@@ -68,15 +68,12 @@ function sectionFields() {
       scrub: 0.5,
       animation: gsap.fromTo(
         img,
-        { clipPath: "polygon(25% 25%, 75% 40%, 100% 100%, 0% 100%)" },
-        {
-          clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-          ease: "none"
-        }
+        { clipPath: "inset(100px 100px 100px 100px)" }, // cách top, right, bottom, left 100px
+        { clipPath: "inset(0px 0px 0px 0px)", ease: "none" } // full 100%
       )
     });
 
-    // Hiệu ứng clipPath đóng
+    // Hiệu ứng clipPath đóng (thu nhỏ lại thành hình chữ nhật nhỏ)
     if (index < array.length - 1) {
       ScrollTrigger.create({
         trigger: item,
@@ -85,11 +82,8 @@ function sectionFields() {
         scrub: 0.5,
         animation: gsap.fromTo(
           img,
-          { clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)" },
-          {
-            clipPath: "polygon(0% 0%, 100% 0%, 75% 60%, 25% 75%)",
-            ease: "none"
-          }
+          { clipPath: "inset(0px 0px 0px 0px)" }, // đang full
+          { clipPath: "inset(100px 100px 100px 100px)", ease: "none" } // thu lại cách đều 100px
         )
       });
     }
