@@ -1507,17 +1507,23 @@ section {
   bottom: 40px;
   right: 24px;
   z-index: 1000;
-  background-color: var(--color-secondary);
+  background-color: var(--color-primary);
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
+  width: 48px;
+  height: 48px;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   color: var(--color-white);
-  font-size: 13px;
-  line-height: 20px;
+  transition: all 0.4s ease;
+}
+.chat-button:hover {
+  background-color: var(--color-secondary);
+}
+.chat-button img {
+  width: 40px;
+  height: 40px;
 }
 .chat-container {
   position: fixed;
@@ -1545,12 +1551,15 @@ section {
   text-transform: uppercase;
   width: 48px;
   height: 48px;
-  border-radius: 50%;
-  background-color: var(--color-primary);
+  background-color: var(--color-secondary);
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 0.4s ease;
+}
+.chat-container .send-btn:hover {
+  background-color: var(--color-primary);
 }
 .chat-container .send-btn svg {
   width: 24px;
