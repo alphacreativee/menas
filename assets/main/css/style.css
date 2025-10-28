@@ -1606,8 +1606,26 @@ section {
 .chat-header {
   padding: 10px 20px;
   display: flex;
+  justify-content: space-between;
   gap: 12px;
   align-items: center;
+}
+.chat-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.chat-header-right {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  cursor: pointer;
+}
+.chat-header-right::before {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  background-color: transparent;
 }
 .chat-header .avatar {
   width: 48px;

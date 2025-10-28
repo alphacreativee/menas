@@ -2,12 +2,14 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!document.querySelector("#chat-ai")) return;
   const chatButton = document.querySelector(".chat-button");
   const chatContainer = document.querySelector(".chat-container");
-
+  const closeChatButton = document.querySelector(".close-chat");
   chatButton.addEventListener("click", (event) => {
     event.stopPropagation();
     chatContainer.classList.toggle("active");
   });
-
+  closeChatButton.addEventListener("click", (event) => {
+    chatContainer.classList.remove("active");
+  });
   document.addEventListener("click", (event) => {
     if (
       !chatContainer.contains(event.target) &&
