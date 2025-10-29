@@ -1036,7 +1036,7 @@ function wipe() {
         trigger: wipe,
         start: "top 70%",
         end: "top 30%",
-        toggleActions: "play none none reverse",
+
         // markers: true,
       },
     });
