@@ -635,7 +635,70 @@ function sectionIntro() {
     }
   });
 
-  if ($(".hero").length > 0) {
+  gsap.utils
+    .toArray([".image-small img", ".image-large img"])
+    .forEach((img) => {
+      gsap.fromTo(
+        img,
+        {
+          scale: 1.2
+          // yPercent: 10
+        },
+        {
+          scale: 1,
+          // yPercent: -10,
+          ease: "none",
+          scrollTrigger: {
+            trigger: "section.intro",
+            start: "top 80%",
+            end: "bottom top",
+            scrub: true
+            // markers: true
+          }
+        }
+      );
+    });
+
+  gsap.utils
+    .toArray([".image-small img", ".image-large img"])
+    .forEach((img) => {
+      gsap.fromTo(
+        img,
+        {
+          scale: 1.2
+          // yPercent: 10
+        },
+        {
+          scale: 1,
+          // yPercent: -10,
+          ease: "none",
+          scrollTrigger: {
+            trigger: "section.intro",
+            start: "top 80%",
+            end: "bottom top",
+            scrub: true
+            // markers: true
+          }
+        }
+      );
+    });
+
+  gsap.utils.toArray(".item-translate").forEach((el) => {
+    const yValue = parseFloat(el.getAttribute("data-y")) || 0;
+
+    gsap.to(el, {
+      y: yValue,
+      ease: "none",
+      scrollTrigger: {
+        trigger: "section.intro",
+        start: "top 80%",
+        end: "bottom top",
+        scrub: true
+      }
+    });
+  });
+
+  if ($(".intro").length > 0) {
     gsap.to(".hero", {
       y: -200,
       ease: "none",
@@ -957,6 +1020,28 @@ function hideMenuOnFooter() {
     }
   );
 }
+function wipe() {
+  if (!document.querySelector(".wipe")) return;
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.querySelectorAll(".wipe").forEach((wipe) => {
+    const wipeImage = wipe.querySelector(".wipe-image");
+    gsap.set(wipeImage, { "--wipe-height": "100%" });
+    // Animation: height 100% → 0%
+    gsap.to(wipeImage, {
+      "--wipe-height": "0%",
+      duration: 1.6,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: wipe,
+        start: "top 70%",
+        end: "top 30%"
+
+        // markers: true,
+      }
+    });
+  });
+}
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   // sectionFields();
@@ -972,6 +1057,7 @@ const init = () => {
   responsibility();
   parallaxSection();
   hideMenuOnFooter();
+  wipe();
   ScrollTrigger.refresh();
 };
 preloadImages("img").then(() => {
