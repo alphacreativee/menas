@@ -10,8 +10,8 @@
       }
     }
     &-content {
-      padding-left: calc(calc(1 / 12) * 100%);
-      padding-right: calc(calc(1 / 12) * 100%);
+      padding-left: calc(calc(1 / 12) * 100% + 48px);
+      padding-right: calc(calc(1 / 12) * 100% + 48px);
       display: flex;
       flex-direction: column;
       justify-content: center;

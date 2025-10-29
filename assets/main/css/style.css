@@ -1125,8 +1125,8 @@ section {
   margin-bottom: 0;
 }
 .scroll-wrap-content {
-  padding-left: 8.3333333333%;
-  padding-right: 8.3333333333%;
+  padding-left: calc(8.3333333333% + 48px);
+  padding-right: calc(8.3333333333% + 48px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1450,7 +1450,7 @@ section {
 
 .chat-button {
   position: fixed;
-  bottom: 40px;
+  bottom: 70px;
   right: 24px;
   z-index: 1000;
   background-color: var(--color-primary);
@@ -1463,9 +1463,19 @@ section {
   cursor: pointer;
   color: var(--color-white);
   transition: all 0.4s ease;
+  transform: translateX(80px);
+}
+.chat-button.show-chat {
+  transform: translateX(0px);
 }
 .chat-button:hover {
   background-color: var(--color-secondary);
+}
+.chat-button:hover svg path:nth-child(2), .chat-button:hover svg path:nth-child(3) {
+  stroke: var(--color-secondary);
+}
+.chat-button svg path {
+  transition: all 0.4s ease;
 }
 .chat-button img {
   width: 40px;

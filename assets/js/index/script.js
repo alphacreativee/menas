@@ -946,6 +946,19 @@ function parallaxSection() {
 }
 function hideMenuOnFooter() {
   gsap.registerPlugin(ScrollTrigger);
+  // show menu chat
+  ScrollTrigger.create({
+    trigger: "body",
+    start: "top top-=180vh",
+    end: "bottom bottom",
+    onEnter: () => {
+      document.querySelector(".chat-button").classList.add("show-chat");
+    },
+    onLeaveBack: () => {
+      document.querySelector(".chat-button").classList.remove("show-chat");
+    },
+    // markers: true
+  });
   // show menu fixed on scroll
   ScrollTrigger.create({
     trigger: "body",
