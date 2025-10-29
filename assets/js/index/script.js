@@ -1013,6 +1013,28 @@ function hideMenuOnFooter() {
     }
   );
 }
+function wipe() {
+  if (!document.querySelector(".wipe")) return;
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.querySelectorAll(".wipe").forEach((wipe) => {
+    const wipeImage = wipe.querySelector(".wipe-image");
+    gsap.set(wipeImage, { "--wipe-height": "100%" });
+    // Animation: height 100% → 0%
+    gsap.to(wipeImage, {
+      "--wipe-height": "0%",
+      duration: 1.6,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: wipe,
+        start: "top 70%",
+        end: "top 30%",
+        toggleActions: "play none none reverse",
+        // markers: true,
+      },
+    });
+  });
+}
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   // sectionFields();
@@ -1028,6 +1050,7 @@ const init = () => {
   responsibility();
   parallaxSection();
   hideMenuOnFooter();
+  wipe();
   ScrollTrigger.refresh();
 };
 preloadImages("img").then(() => {

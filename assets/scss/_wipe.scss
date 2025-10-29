@@ -1,0 +1,36 @@
+.wipe {
+  position: relative;
+  background-color: var(--color-white-2);
+
+  &-image {
+    width: 100%;
+    aspect-ratio: 1440 / 453;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: var(--wipe-height, 100%);
+      background-color: #d9d9d9;
+      z-index: 3;
+      transform-origin: top;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .logo-symbol {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+}
