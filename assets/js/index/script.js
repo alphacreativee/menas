@@ -792,7 +792,7 @@ function sectionAwards() {
       },
       breakpoints: {
         768: {
-          slidesPerView: isAwardsSlider ? 3 : 4,
+          slidesPerView: isAwardsSlider ? 2 : 4,
         },
         480: {
           slidesPerView: 2,
