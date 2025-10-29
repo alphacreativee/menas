@@ -635,70 +635,7 @@ function sectionIntro() {
     }
   });
 
-  gsap.utils
-    .toArray([".image-small img", ".image-large img"])
-    .forEach((img) => {
-      gsap.fromTo(
-        img,
-        {
-          scale: 1.2
-          // yPercent: 10
-        },
-        {
-          scale: 1,
-          // yPercent: -10,
-          ease: "none",
-          scrollTrigger: {
-            trigger: "section.intro",
-            start: "top 80%",
-            end: "bottom top",
-            scrub: true
-            // markers: true
-          }
-        }
-      );
-    });
-
-  gsap.utils
-    .toArray([".image-small img", ".image-large img"])
-    .forEach((img) => {
-      gsap.fromTo(
-        img,
-        {
-          scale: 1.2
-          // yPercent: 10
-        },
-        {
-          scale: 1,
-          // yPercent: -10,
-          ease: "none",
-          scrollTrigger: {
-            trigger: "section.intro",
-            start: "top 80%",
-            end: "bottom top",
-            scrub: true
-            // markers: true
-          }
-        }
-      );
-    });
-
-  gsap.utils.toArray(".item-translate").forEach((el) => {
-    const yValue = parseFloat(el.getAttribute("data-y")) || 0;
-
-    gsap.to(el, {
-      y: yValue,
-      ease: "none",
-      scrollTrigger: {
-        trigger: "section.intro",
-        start: "top 80%",
-        end: "bottom top",
-        scrub: true
-      }
-    });
-  });
-
-  if ($(".intro").length > 0) {
+  if ($(".hero").length > 0) {
     gsap.to(".hero", {
       y: -200,
       ease: "none",

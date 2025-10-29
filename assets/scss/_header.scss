@@ -13,6 +13,10 @@
       }
     }
   }
+
+  & + .blank-spacing {
+    height: 60px;
+  }
 }
 
 .header {
