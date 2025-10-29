@@ -1015,7 +1015,7 @@ function hideMenuOnFooter() {
 }
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
-  sectionFields();
+  // sectionFields();
   loading();
   magicCursor();
   effectText();
