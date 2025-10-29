@@ -397,6 +397,70 @@ function effectText() {
       },
     });
   });
+  gsap.registerPlugin(ScrollTrigger, SplitText);
+
+  document.querySelectorAll(".scroll-wrap-item").forEach((scrollItem) => {
+    const img = scrollItem.querySelector(".scroll-wrap-image");
+    const title = scrollItem.querySelector(".title-box");
+    const desc = scrollItem.querySelector(".description-box");
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: scrollItem,
+        start: "top 70%",
+        toggleActions: "play none none reverse",
+      },
+    });
+
+    if (img) {
+      gsap.set(img, { opacity: 0, y: 30 });
+      tl.to(img, { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" });
+    }
+
+    if (title) {
+      const delay = parseFloat(title.getAttribute("data-delay")) || 0;
+      const split = new SplitText(title, {
+        type: "chars,words",
+        charsClass: "char",
+        mask: "chars",
+      });
+      gsap.set(split.chars, { y: "125%", opacity: 0 });
+      tl.to(
+        split.chars,
+        { y: "0%", opacity: 1, duration: 1, ease: "power3.out", stagger: 0.03 },
+        `-=${0.8 - delay}`
+      );
+    }
+
+    if (desc) {
+      const descDelay = parseFloat(desc.getAttribute("data-delay")) || 0;
+
+      const splitDesc = new SplitText(desc, {
+        type: "lines",
+        linesClass: "line",
+        mask: "lines",
+      });
+
+      // Ẩn ban đầu
+      gsap.set(splitDesc.lines, { yPercent: 100, willChange: "transform" });
+
+      // Animation từng dòng
+      tl.fromTo(
+        splitDesc.lines,
+        {
+          yPercent: 100,
+        },
+        {
+          yPercent: 0,
+          duration: 1,
+          ease: "power3.out",
+          stagger: 0.08,
+          delay: descDelay,
+        },
+        "<"
+      ); // "<" = bắt đầu cùng lúc với animation trước
+    }
+  });
 }
 
 function customDropdown() {

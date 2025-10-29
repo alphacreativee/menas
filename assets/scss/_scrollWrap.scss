@@ -1,103 +1,48 @@
 .scroll {
   &-wrap {
     position: relative;
-    padding: 0 24px;
-    // z-index: 2;
-    background-color: var(--color-white);
-    &.project-sec {
-      padding: 80px 24px;
-
-      .scroll-item {
-        flex-direction: row-reverse;
-      }
-      .scroll-box-content {
-        right: auto;
-        top: auto;
-        left: 0;
-        bottom: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-      }
-    }
-    &-title {
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-  }
-  &-trigger {
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
-  }
-  &-track {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0%;
-    bottom: 0%;
-    left: 0;
-    right: 0;
     padding: 80px 24px;
-  }
-  &-sticky {
-    width: 100%;
-    height: calc(100vh - 130px);
-    position: -webkit-sticky;
-    position: sticky;
-    top: 94px;
-  }
-  &-item {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0%;
-    bottom: 0%;
-    left: 0%;
-    right: 0%;
-    display: flex;
-    align-items: flex-start;
-    &:nth-child(even) {
-      .scroll-box-content {
-        background-color: #5a6367;
+    background-color: var(--color-white);
+    &-item {
+      margin-bottom: 80px;
+      &:last-child {
+        margin-bottom: 0;
       }
     }
-    &:nth-child(odd) {
-      .scroll-box-content {
-        background-color: var(--color-text);
+    &-content {
+      padding-left: calc(calc(1 / 12) * 100%);
+      padding-right: calc(calc(1 / 12) * 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+    }
+    &-box {
+      .title-box {
+        margin-bottom: 24px;
+      }
+      .description-box {
+        .br {
+          display: block;
+          height: 24px;
+        }
       }
     }
-  }
-  &-img {
-    width: 100%;
-    width: calc(calc(9 / 12) * 100%);
-    flex: none;
-    overflow: hidden;
-  }
-  &-background {
-    height: 100%;
-    opacity: 0;
-  }
-  &-box-content {
-    color: var(--color-white);
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: calc(calc(4 / 12) * 100%);
-    height: 370px;
-    padding: 40px;
-    .title {
-      margin-bottom: 24px;
-      font-size: 32px;
-      line-height: 40px;
-      font-family: var(--font-heading);
-    }
-    .description {
-      font-size: 16px;
-      line-height: 26px;
-      font-weight: 400;
-      font-family: var(--font-body);
+    &-image {
+      width: 100%;
+      aspect-ratio: 628 / 380;
+      overflow: hidden;
+      &:hover {
+        img {
+          transform: scale(1.05);
+        }
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.4s ease;
+      }
     }
   }
 }
