@@ -28,13 +28,13 @@ a {
 }
 
 .b1-font {
-  font-size: 16px;
+  font-size: 17px;
   line-height: 26px;
   font-weight: 400;
 }
 
 .b1-bold-font {
-  font-size: 16px;
+  font-size: 17px;
   line-height: 24px;
   font-weight: 500;
 }
@@ -73,6 +73,11 @@ a {
   font-size: 12px;
   line-height: 20px;
   font-weight: 400;
+}
+
+.button-font {
+  font-size: 10px;
+  line-height: 14px;
 }
 
 .font-heading {
