@@ -37,11 +37,23 @@
     background-color: transparent;
   }
 
+  .video-banner {
+    height: 100%;
+    width: 100%;
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
   .swiper-banner {
     width: 100%;
     height: 100%;
 
     &::after {
+      display: none;
       content: "";
       position: absolute;
       width: 100%;
@@ -167,6 +179,17 @@
           }
         }
       }
+    }
+  }
+
+  .swiper-pagination {
+    height: 2px;
+    background-color: transparent;
+    top: unset;
+    bottom: 0;
+
+    .swiper-pagination-progressbar-fill {
+      background-color: var(--color-primary);
     }
   }
 

@@ -879,11 +879,21 @@ section {
   width: 1px;
   background-color: transparent;
 }
+.hero .video-banner {
+  height: 100%;
+  width: 100%;
+}
+.hero .video-banner video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .hero .swiper-banner {
   width: 100%;
   height: 100%;
 }
 .hero .swiper-banner::after {
+  display: none;
   content: "";
   position: absolute;
   width: 100%;
@@ -997,6 +1007,15 @@ section {
     overflow: visible;
   }
 }
+.hero .swiper-pagination {
+  height: 2px;
+  background-color: transparent;
+  top: unset;
+  bottom: 0;
+}
+.hero .swiper-pagination .swiper-pagination-progressbar-fill {
+  background-color: var(--color-primary);
+}
 .hero .progress-bar {
   position: absolute;
   z-index: 3;
@@ -1077,7 +1096,7 @@ section {
   z-index: 2;
 }
 .intro-text {
-  max-width: 920px;
+  max-width: 960px;
   margin: 0 auto;
   text-align: center;
   position: relative;

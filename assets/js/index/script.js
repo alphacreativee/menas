@@ -255,12 +255,14 @@ function magicCursor() {
 function effectText() {
   gsap.registerPlugin(ScrollTrigger, SplitText);
   gsap.utils.toArray(".data-fade-in").forEach((element) => {
+    const delay = parseFloat(element.getAttribute("data-delay")) || 0;
+
     gsap.fromTo(
       element,
       {
         "will-change": "opacity, transform",
         opacity: 0,
-        y: 20,
+        y: 40,
       },
       {
         scrollTrigger: {
@@ -269,8 +271,9 @@ function effectText() {
           end: "bottom 80%",
         },
         opacity: 1,
+        delay: delay,
         y: 0,
-        duration: 0.5,
+        duration: 0.6,
         ease: "sine.out",
       }
     );
@@ -556,15 +559,19 @@ function hero() {
       nextEl: ".swiper-banner .swiper-next",
       prevEl: ".swiper-banner .swiper-prev",
     },
+    pagination: {
+      el: ".swiper-banner .swiper-pagination",
+      type: "progressbar",
+    },
     autoplay: {
       delay: 5000,
       disableOnInteraction: false,
     },
     on: {
-      autoplayTimeLeft(s, time, progress) {
-        // progress: từ 0 -> 1
-        progressBar.style.width = `${(1 - progress) * 100}%`;
-      },
+      // autoplayTimeLeft(s, time, progress) {
+      //   // progress: từ 0 -> 1
+      //   progressBar.style.width = `${(1 - progress) * 100}%`;
+      // },
       progress: function (swiper) {
         swiper.slides.forEach(function (slide) {
           var slideProgress = slide.progress || 0;
@@ -792,7 +799,7 @@ function sectionAwards() {
       },
       breakpoints: {
         768: {
-          slidesPerView: isAwardsSlider ? 2 : 4,
+          slidesPerView: isAwardsSlider ? 3 : 4,
         },
         480: {
           slidesPerView: 2,
