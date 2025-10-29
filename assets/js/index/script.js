@@ -262,7 +262,7 @@ function effectText() {
       {
         "will-change": "opacity, transform",
         opacity: 0,
-        y: 20
+        y: 40
       },
       {
         scrollTrigger: {
@@ -273,7 +273,7 @@ function effectText() {
         opacity: 1,
         delay: delay,
         y: 0,
-        duration: 0.5,
+        duration: 0.6,
         ease: "sine.out"
       }
     );
