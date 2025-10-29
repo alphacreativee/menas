@@ -560,7 +560,7 @@ function hero() {
       prevEl: ".swiper-banner .swiper-prev"
     },
     pagination: {
-      el: ".swiper-pagination",
+      el: ".swiper-banner .swiper-pagination",
       type: "progressbar"
     },
     autoplay: {
