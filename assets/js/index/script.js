@@ -411,7 +411,7 @@ function effectText() {
       scrollTrigger: {
         trigger: scrollItem,
         start: "top 70%",
-        toggleActions: "play none none reverse"
+        toggleActions: "play none none none"
       }
     });
 
