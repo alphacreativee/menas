@@ -40,6 +40,10 @@
     background-color: #000;
     .menas-group {
       padding-left: 50px;
+
+      p.color-white {
+        color: rgba($color: #fff, $alpha: 0.5);
+      }
     }
   }
   &-logo {
@@ -83,6 +87,11 @@
         li {
           a {
             display: inline-block;
+            color: rgba($color: #fff, $alpha: 0.5);
+
+            &:hover {
+              color: var(--color-primary);
+            }
           }
         }
       }
@@ -91,6 +100,11 @@
       padding-left: 50px;
       a {
         display: inline-block;
+        color: rgba($color: #fff, $alpha: 0.5);
+
+        &:hover {
+          color: var(--color-primary);
+        }
       }
     }
     &.col-address {
