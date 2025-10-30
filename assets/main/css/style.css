@@ -840,6 +840,9 @@ section {
 .menu-fixed-bottom ul {
   justify-content: center;
 }
+.menu-fixed-bottom ul li.menu-item-has-children::before {
+  top: -30px;
+}
 .menu-fixed-bottom ul li.menu-item-has-children .sub-menu {
   top: -22px;
   transform: translateY(-100%);
