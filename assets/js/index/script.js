@@ -628,7 +628,7 @@ function sectionIntro() {
     ease: "none",
     scrollTrigger: {
       trigger: "section.intro",
-      start: "top 55%",
+      start: "top 60%",
       end: "+=300",
       scrub: true,
       // markers: true
@@ -704,7 +704,7 @@ function sectionIntro() {
       ease: "none",
       scrollTrigger: {
         trigger: ".intro",
-        start: "top 55%",
+        start: "top 60%",
         end: "top top",
         scrub: true,
         // markers: true
