@@ -801,7 +801,9 @@ section {
   display: flex;
   gap: 12px;
   align-items: center;
+  justify-content: flex-end;
   padding: 8px;
+  padding-right: 21px;
   transition: all 0.3s ease;
 }
 .header-lang .dropdown-custom-item img {
