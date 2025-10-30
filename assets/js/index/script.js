@@ -788,7 +788,7 @@ function sectionAwards() {
     const isAwardsSlider = section.id.includes("awards");
 
     new Swiper(swiperEl, {
-      slidesPerView: isAwardsSlider ? 3 : 4,
+      slidesPerView: isAwardsSlider ? 2 : 4,
       spaceBetween: 30,
       loop: false,
       speed: 800,
@@ -799,7 +799,7 @@ function sectionAwards() {
       },
       breakpoints: {
         768: {
-          slidesPerView: isAwardsSlider ? 3 : 4
+          slidesPerView: isAwardsSlider ? 2 : 4
         },
         480: {
           slidesPerView: 2

@@ -28,7 +28,7 @@ a {
 
 .b1-font {
   font-size: 17px;
-  line-height: 26px;
+  line-height: 24px;
   font-weight: 400;
 }
 
@@ -422,7 +422,7 @@ section {
 .logo-wrap {
   position: relative;
   z-index: 2;
-  background-image: url("../../images/bg-loading.webp");
+  background: #8c9598;
   background-size: cover;
   background-position: center;
   padding: 80px 0 120px;
@@ -789,7 +789,7 @@ section {
   color: var(--color-text);
   font-size: 14px;
   line-height: 20px;
-  font-weight: bold;
+  font-weight: 400;
   display: block;
   position: relative;
   transition: all 0.4s ease;
@@ -816,7 +816,7 @@ section {
   color: var(--color-text);
   font-size: 14px;
   line-height: 20px;
-  font-weight: bold;
+  font-weight: 400;
   transition: all 0.4s ease;
   text-decoration: none;
   color: var(--color-text);
