@@ -1,22 +1,51 @@
 document.addEventListener("DOMContentLoaded", () => {
-  if (!document.querySelector("#chat-ai")) return;
-  const chatButton = document.querySelector(".chat-button");
-  const chatContainer = document.querySelector(".chat-container");
-  const closeChatButton = document.querySelector(".close-chat");
-  chatButton.addEventListener("click", (event) => {
-    event.stopPropagation();
+  // Kiểm tra toàn bộ các phần tử cần thiết
+  const chatRoot = document.querySelector("#chat-ai");
+  if (!chatRoot) return;
+
+  const chatButton = chatRoot.querySelector(".chat-button");
+  const chatContainer = chatRoot.querySelector(".chat-container");
+  const closeChatButton = chatRoot.querySelector(".close-chat");
+
+  // Kiểm tra null trước khi dùng
+  if (!chatButton || !chatContainer || !closeChatButton) {
+    console.warn(
+      "Thiếu một trong các phần tử: .chat-button, .chat-container, .close-chat"
+    );
+    return;
+  }
+
+  // Mở/đóng chat
+  const toggleChat = (e) => {
+    e.stopPropagation(); // Ngăn bubble lên document
     chatContainer.classList.toggle("active");
-  });
-  closeChatButton.addEventListener("click", (event) => {
+  };
+
+  const closeChat = () => {
     chatContainer.classList.remove("active");
-  });
-  document.addEventListener("click", (event) => {
-    if (
-      !chatContainer.contains(event.target) &&
-      !chatButton.contains(event.target)
-    ) {
-      chatContainer.classList.remove("active");
+  };
+
+  // Gắn sự kiện
+  chatButton.addEventListener("click", toggleChat);
+  closeChatButton.addEventListener("click", closeChat);
+
+  // Đóng khi click ngoài
+  document.addEventListener("click", (e) => {
+    const isClickInside =
+      chatContainer.contains(e.target) || chatButton.contains(e.target);
+    if (!isClickInside && chatContainer.classList.contains("active")) {
+      closeChat();
     }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && chatContainer.classList.contains("active")) {
+      closeChat();
+    }
+  });
+
+  chatContainer.addEventListener("click", (e) => {
+    e.stopPropagation();
   });
 });
 
