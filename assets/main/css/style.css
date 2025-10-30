@@ -1135,7 +1135,7 @@ section {
 
 .scroll-wrap {
   position: relative;
-  padding: 80px 24px;
+  padding: 80px 60px;
   background-color: var(--color-white);
 }
 .scroll-wrap-item {
