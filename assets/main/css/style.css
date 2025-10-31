@@ -1419,11 +1419,12 @@ section {
   left: 0;
   right: 0;
   transform: translateY(56px);
-  background-color: var(--color-white);
+  background-color: var(--color-white-2);
   transition: transform 0.4s ease;
 }
 .section-awards .awards-slider .awards-item .content-overlay {
   min-height: 88px;
+  background-color: var(--color-white-2);
 }
 .section-awards .awards-slider .awards-item .content .name {
   margin-bottom: 8px;
