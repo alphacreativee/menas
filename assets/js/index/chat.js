@@ -8,16 +8,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeChatButton = chatRoot.querySelector(".close-chat");
 
   // Kiểm tra null trước khi dùng
-  if (!chatButton || !chatContainer || !closeChatButton) {
-    console.warn(
-      "Thiếu một trong các phần tử: .chat-button, .chat-container, .close-chat"
-    );
-    return;
-  }
+  if (!chatButton || !chatContainer || !closeChatButton) return;
 
   // Mở/đóng chat
   const toggleChat = (e) => {
-    e.stopPropagation(); // Ngăn bubble lên document
+    e.stopPropagation();
     chatContainer.classList.toggle("active");
   };
 
