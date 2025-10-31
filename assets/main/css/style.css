@@ -1488,7 +1488,7 @@ section {
   height: 40px;
   border-radius: 50%;
   background-color: var(--color-white);
-  color: var(--color-black);
+  color: var(--color-text);
   display: flex;
   align-items: center;
   justify-content: center;
