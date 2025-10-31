@@ -1393,6 +1393,9 @@ section {
   z-index: 1;
   background-color: var(--color-white-2);
 }
+.section-awards.bg-white .arrow-custom {
+  background-color: var(--color-white-2);
+}
 .section-awards .awards-wrapper {
   padding: 48px 60px 60px;
 }
