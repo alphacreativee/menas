@@ -123,14 +123,22 @@
       <section class="hero has-slider">
         <div class="container-fluid p-0">
           <div class="hero-sec__container">
-            <div class="video-banner">
-              <video
+            <div class="video-banner video-iframe">
+              <!-- <video
                 src="./assets/images/banner.mp4"
                 autoplay
                 muted
                 playsinline
                 loop
-              ></video>
+              ></video> -->
+              <iframe
+                title="vimeo-player"
+                src="https://player.vimeo.com/video/1132440071?h=9ec1257b5f&controls=0&autoplay=1&loop=1&muted=1&playsinline=1"
+                width="100%"
+                height="100%"
+                frameborder="0"
+                allowfullscreen
+              ></iframe>
             </div>
           </div>
         </div>
@@ -244,7 +252,10 @@
                 </div>
               </div>
             </div>
-            <div class="fields-item data-fade-in" data-cursor-text="Chi tiết">
+            <div
+              class="fields-item data-fade-in animation-image-clip"
+              data-cursor-text="Chi tiết"
+            >
               <div class="fields-item-img item-hover-video">
                 <img
                   src="./assets/images/home/fields/field-5.webp"
@@ -252,7 +263,12 @@
                   alt=""
                 />
                 <div class="item-video">
-                  <video playsinline muted loop>
+                  <video
+                    playsinline
+                    muted
+                    loop
+                    poster="./assets/images/home/fields/poster-field-5.jpg"
+                  >
                     <source
                       src="./assets/images/home/fields/field-5.mp4"
                       type="video/mp4"

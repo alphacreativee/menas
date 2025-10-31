@@ -1003,22 +1003,22 @@ function hideMenuOnFooter() {
 
   const heightFooter = document.querySelector("footer").offsetHeight;
 
-  // gsap.fromTo(
-  //   ".footer-main",
-  //   { y: 100 },
-  //   {
-  //     y: 0,
-  //     ease: "none",
-  //     scrollTrigger: {
-  //       trigger: "body",
-  //       start: `bottom-=${heightFooter} bottom`,
-  //       end: "bottom bottom",
-  //       scrub: true,
-  //       // markers: true,
-  //       toggleActions: "play reverse play reverse",
-  //     },
-  //   }
-  // );
+  gsap.fromTo(
+    ".footer-main",
+    { y: 100 },
+    {
+      y: 0,
+      ease: "none",
+      scrollTrigger: {
+        trigger: "body",
+        start: `bottom-=${heightFooter} bottom`,
+        end: "bottom bottom",
+        scrub: true,
+        // markers: true,
+        toggleActions: "play reverse play reverse"
+      }
+    }
+  );
 }
 function wipe() {
   if (!document.querySelector(".wipe")) return;
