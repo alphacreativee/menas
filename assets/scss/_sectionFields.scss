@@ -11,7 +11,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 48px;
-    padding: 0 48px 48px;
+    padding: 0 48px 60px;
   }
 
   .fields-item {
@@ -21,12 +21,6 @@
 
     display: flex;
     flex-direction: column;
-
-    &:hover {
-      .fields-item-img img {
-        transform: scale(1.03);
-      }
-    }
   }
 
   .fields-item-img {
@@ -34,20 +28,32 @@
     aspect-ratio: 648 / 386;
     z-index: 1;
     overflow: hidden;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0.86)
+      );
+      inset: 0;
+    }
 
     img {
-      transition: all 0.6s cubic-bezier(0.645, 0.045, 0.095, 1.08);
       width: 100%;
       height: 100%;
-      transform: scale(1);
       object-fit: cover;
     }
   }
   .fields-item-name {
     width: 100%;
     z-index: 2;
-    padding: 32px 54px;
     margin: 0 auto;
+    position: absolute;
+    bottom: 32px;
+    left: 0;
 
     .desc {
       margin-top: 24px;

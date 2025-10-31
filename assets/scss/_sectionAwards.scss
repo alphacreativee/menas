@@ -5,7 +5,7 @@
 
   .awards {
     &-wrapper {
-      padding: 48px 60px;
+      padding: 60px 60px;
     }
 
     &-slider {
@@ -104,6 +104,9 @@
 
   .btn-view-all {
     width: max-content;
-    margin: 48px auto 0;
+    position: absolute;
+    top: 60px;
+    right: 60px;
+    transform: translateY(20px);
   }
 }
