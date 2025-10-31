@@ -3,17 +3,22 @@
     position: relative;
     padding: 80px 24px;
     background-color: var(--color-white);
-    padding-left: calc(calc(1 / 12) * 100% + 24px);
-    padding-right: calc(calc(1 / 12) * 100% + 24px);
+    padding-left: calc(calc(1 / 12) * 100% + 48px);
+    padding-right: calc(calc(1 / 12) * 100% + 48px);
     &-item {
       margin-bottom: 80px;
       &:last-child {
         margin-bottom: 0;
       }
+      &:nth-child(even) {
+        .scroll-wrap-content {
+          padding-left: 0;
+          padding-right: calc(calc(1 / 12) * 100% + 48px);
+        }
+      }
     }
     &-content {
       padding-left: calc(calc(1 / 12) * 100% + 48px);
-      padding-right: calc(calc(1 / 12) * 100% + 48px);
       display: flex;
       flex-direction: column;
       justify-content: center;

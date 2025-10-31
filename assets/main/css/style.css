@@ -1294,8 +1294,8 @@ section {
   position: relative;
   padding: 80px 24px;
   background-color: var(--color-white);
-  padding-left: calc(8.3333333333% + 24px);
-  padding-right: calc(8.3333333333% + 24px);
+  padding-left: calc(8.3333333333% + 48px);
+  padding-right: calc(8.3333333333% + 48px);
 }
 .scroll-wrap-item {
   margin-bottom: 80px;
@@ -1303,9 +1303,12 @@ section {
 .scroll-wrap-item:last-child {
   margin-bottom: 0;
 }
+.scroll-wrap-item:nth-child(even) .scroll-wrap-content {
+  padding-left: 0;
+  padding-right: calc(8.3333333333% + 48px);
+}
 .scroll-wrap-content {
   padding-left: calc(8.3333333333% + 48px);
-  padding-right: calc(8.3333333333% + 48px);
   display: flex;
   flex-direction: column;
   justify-content: center;
