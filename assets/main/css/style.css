@@ -1,9 +1,9 @@
 :root {
   --color-primary: #e4a025;
   --color-secondary: #4fb84f;
-  --color-text: #3e4648;
+  --color-text: #1a3d4e;
   --color-white: #fff;
-  --color-white-2: #f0f0f0;
+  --color-white-2: #f7f7f7;
   --color-black: #000;
   --font-body: "SVN-Graphik", sans-serif;
 }
@@ -12,6 +12,11 @@ body,
 a {
   color: var(--color-text);
   font-family: var(--font-body);
+}
+
+::selection {
+  background-color: transparent;
+  color: var(--color-primary);
 }
 
 .color-white {
@@ -78,6 +83,8 @@ a {
 .button-font {
   font-size: 10px;
   line-height: 14px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
 }
 
 .font-body {
@@ -225,6 +232,7 @@ body {
 .magic-cursor .cursor.show-text .text {
   opacity: 1;
   transition-delay: 0.2s;
+  transition-duration: 0.4s;
 }
 .magic-cursor .cursor span {
   font-family: var(--font-body);
@@ -284,12 +292,33 @@ section {
   line-height: 1.5;
 }
 
+.btn-view-all {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.4s ease;
+}
+.btn-view-all .icon {
+  transition: all 0.4s ease;
+  width: 6px;
+  height: 11px;
+}
+.btn-view-all .icon svg * {
+  transition: all 0.4s ease;
+}
+.btn-view-all:hover {
+  color: var(--color-primary);
+}
+.btn-view-all:hover .icon {
+  transform: translateX(4px);
+}
+
 .section-fields {
   background-color: var(--color-white);
   position: relative;
 }
 .section-fields .section-title {
-  margin-bottom: 72px;
+  margin-bottom: 48px;
 }
 .section-fields .fields-list {
   display: flex;
@@ -515,7 +544,7 @@ section {
 }
 .footer-top {
   padding: 48px 24px 35px;
-  background-color: #575f62;
+  background-color: var(--color-text);
 }
 .footer-bottom {
   display: grid;
@@ -635,7 +664,8 @@ section {
   left: 0;
   width: 100%;
   z-index: 998;
-  background-color: #f4f4f4;
+  background-color: var(--color-white);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 #header.not-home .header-logo a {
   display: block !important;
@@ -712,7 +742,7 @@ section {
   transform: translateY(20px);
   left: -16px;
   width: 280px;
-  background-color: #f4f4f4;
+  background-color: var(--color-white);
   clip-path: inset(0 0 100% 0);
   will-change: clip-path;
   transition: clip-path 0.3s ease;
@@ -753,7 +783,7 @@ section {
   top: 100%;
   left: -16px;
   transform: translateY(17px);
-  background-color: #f4f4f4;
+  background-color: var(--color-white);
   width: calc(100% + 24px);
   padding: 8px;
   clip-path: inset(0 0 100% 0);
@@ -840,9 +870,10 @@ section {
   left: 0;
   right: 0;
   position: fixed;
-  background-color: #f4f4f4;
+  background-color: var(--color-white);
   padding: 20px 0;
   transition: bottom 0.4s ease;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
 }
 .menu-fixed-bottom.show-menu-fixed {
   bottom: 0;
@@ -1101,6 +1132,9 @@ section {
   z-index: 2;
   background-color: var(--color-white);
 }
+.intro h2.title {
+  margin-bottom: 24px;
+}
 .intro-overlay {
   background-color: var(--color-white);
   position: absolute;
@@ -1111,7 +1145,7 @@ section {
   left: 0;
 }
 .intro-container {
-  padding: 40px 24px 80px;
+  padding: 48px 24px;
   position: relative;
   z-index: 2;
 }
@@ -1276,7 +1310,7 @@ section {
   transition: all 0.4s cubic-bezier(0, 0, 0.58, 1);
 }
 .news-item:hover .image img {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .section-awards {
@@ -1285,7 +1319,7 @@ section {
   background-color: var(--color-white-2);
 }
 .section-awards .awards-wrapper {
-  padding: 80px 60px;
+  padding: 48px 60px;
 }
 .section-awards .awards-slider {
   margin-top: 48px;
@@ -1367,6 +1401,10 @@ section {
 .section-awards .arrow-custom.arrow-next {
   transform: translateY(50%);
   right: 10px;
+}
+.section-awards .btn-view-all {
+  width: max-content;
+  margin: 48px auto 0;
 }
 
 .ticket {

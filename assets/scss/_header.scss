@@ -4,7 +4,9 @@
   left: 0;
   width: 100%;
   z-index: 998;
-  background-color: #f4f4f4;
+  background-color: var(--color-white);
+  // box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 
   &.not-home {
     .header-logo {
@@ -111,7 +113,7 @@
             transform: translateY(20px);
             left: -16px;
             width: 280px;
-            background-color: #f4f4f4;
+            background-color: var(--color-white);
             clip-path: inset(0 0 100% 0);
             will-change: clip-path;
             transition: clip-path 0.3s ease;
@@ -159,7 +161,7 @@
       top: 100%;
       left: -16px;
       transform: translateY(17px);
-      background-color: #f4f4f4;
+      background-color: var(--color-white);
       width: calc(100% + 24px);
       padding: 8px;
       clip-path: inset(0 0 100% 0);
@@ -261,9 +263,11 @@
   left: 0;
   right: 0;
   position: fixed;
-  background-color: #f4f4f4;
+  background-color: var(--color-white);
   padding: 20px 0;
   transition: bottom 0.4s ease;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+
   &.show-menu-fixed {
     bottom: 0;
   }

@@ -1,9 +1,9 @@
 :root {
   --color-primary: #e4a025;
   --color-secondary: #4fb84f;
-  --color-text: #3e4648;
+  --color-text: #1a3d4e;
   --color-white: #fff;
-  --color-white-2: #f0f0f0;
+  --color-white-2: #f7f7f7;
   --color-black: #000;
   --font-body: "SVN-Graphik", sans-serif;
 }
@@ -12,6 +12,11 @@ body,
 a {
   color: var(--color-text);
   font-family: var(--font-body);
+}
+
+::selection {
+  background-color: transparent;
+  color: var(--color-primary);
 }
 
 .color-white {
@@ -68,6 +73,8 @@ a {
 .button-font {
   font-size: 10px;
   line-height: 14px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
 }
 
 .font-body {

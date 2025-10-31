@@ -68,6 +68,7 @@
       .text {
         opacity: 1;
         transition-delay: 0.2s;
+        transition-duration: 0.4s;
       }
     }
 
@@ -86,6 +87,7 @@
   .text {
     min-width: max-content;
     opacity: 0;
+    // transition: all 0.5s ease;
   }
 }
 
@@ -135,5 +137,32 @@ section {
 .effect-title {
   .char {
     line-height: 1.5;
+  }
+}
+
+.btn-view-all {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.4s ease;
+
+  .icon {
+    transition: all 0.4s ease;
+    width: 6px;
+    height: 11px;
+
+    svg {
+      * {
+        transition: all 0.4s ease;
+      }
+    }
+  }
+
+  &:hover {
+    color: var(--color-primary);
+
+    .icon {
+      transform: translateX(4px);
+    }
   }
 }

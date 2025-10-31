@@ -3,6 +3,10 @@
   z-index: 2;
   background-color: var(--color-white);
 
+  h2.title {
+    margin-bottom: 24px;
+  }
+
   &-overlay {
     background-color: var(--color-white);
     position: absolute;
@@ -14,7 +18,7 @@
   }
 
   &-container {
-    padding: 40px 24px 80px;
+    padding: 48px 24px;
     position: relative;
     z-index: 2;
   }
