@@ -178,10 +178,10 @@ section {
 
   @media (min-width: 992px) {
     &:hover {
-      clip-path: inset(3%);
+      clip-path: inset(1.5%);
 
       img {
-        transform: scale(1.05);
+        transform: scale(1.03);
       }
     }
   }

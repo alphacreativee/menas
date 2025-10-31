@@ -1040,6 +1040,29 @@ function wipe() {
     });
   });
 }
+
+function hoverVideo() {
+  if ($(".item-hover-video").length < 1) return;
+
+  document.querySelectorAll(".item-hover-video").forEach((item) => {
+    const video = item.querySelector("video");
+
+    item.addEventListener("mouseenter", () => {
+      video.loop = true;
+      video.play();
+    });
+
+    item.addEventListener("mouseleave", () => {
+      video.pause();
+
+      setTimeout(() => {
+        video.currentTime = 0;
+        video.load();
+      }, 500);
+    });
+  });
+}
+
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   // sectionFields();
@@ -1056,6 +1079,7 @@ const init = () => {
   parallaxSection();
   hideMenuOnFooter();
   wipe();
+  hoverVideo();
   ScrollTrigger.refresh();
 };
 preloadImages("img").then(() => {
