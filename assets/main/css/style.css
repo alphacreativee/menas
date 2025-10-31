@@ -98,6 +98,10 @@ a {
   font-family: var(--font-body);
 }
 
+.bg-white {
+  background-color: var(--color-white);
+}
+
 *,
 *:before,
 *:after {
@@ -1424,8 +1428,11 @@ section {
   z-index: 1;
   background-color: var(--color-white-2);
 }
+.section-awards.bg-white .arrow-custom {
+  background-color: var(--color-white-2);
+}
 .section-awards .awards-wrapper {
-  padding: 60px 60px;
+  padding: 48px 60px 60px;
 }
 .section-awards .awards-slider {
   margin-top: 48px;
@@ -1450,11 +1457,12 @@ section {
   left: 0;
   right: 0;
   transform: translateY(56px);
-  background-color: var(--color-white);
+  background-color: var(--color-white-2);
   transition: transform 0.4s ease;
 }
 .section-awards .awards-slider .awards-item .content-overlay {
   min-height: 88px;
+  background-color: var(--color-white-2);
 }
 .section-awards .awards-slider .awards-item .content .name {
   margin-bottom: 8px;
@@ -1560,10 +1568,10 @@ section {
 
 .responsibility {
   position: relative;
-  background-color: var(--overlay-bg);
+  background-color: var(--color-white-2);
 }
 .responsibility-wrapper {
-  padding: 120px 80px;
+  padding: 48px 80px;
 }
 .responsibility .content-left {
   padding-right: 24px;
@@ -1575,8 +1583,8 @@ section {
 .responsibility-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 40px;
-  margin-top: 64px;
+  gap: 48px 40px;
+  margin-top: 48px;
 }
 .responsibility-item {
   width: calc((100% - 80px) / 3);

@@ -2,10 +2,14 @@
   position: relative;
   z-index: 1;
   background-color: var(--color-white-2);
-
+  &.bg-white {
+    .arrow-custom {
+      background-color: var(--color-white-2);
+    }
+  }
   .awards {
     &-wrapper {
-      padding: 60px 60px;
+      padding: 48px 60px 60px;
     }
 
     &-slider {
@@ -33,11 +37,12 @@
           left: 0;
           right: 0;
           transform: translateY(56px);
-          background-color: var(--color-white);
+          background-color: var(--color-white-2);
           transition: transform 0.4s ease;
           &-overlay {
             // padding: 32px;
             min-height: 88px;
+            background-color: var(--color-white-2);
           }
           .name {
             margin-bottom: 8px;
