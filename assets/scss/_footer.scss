@@ -64,7 +64,7 @@
   }
   &-logo {
     display: block;
-    width: 210px;
+    width: 170px;
     height: auto;
     img {
       width: auto;
@@ -163,6 +163,8 @@
               }
             }
             svg {
+              width: 20px;
+              height: 20px;
               path {
                 color: var(--color-white);
                 transition: all 0.3s ease;

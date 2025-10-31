@@ -56,6 +56,13 @@ a {
   font-weight: bold;
 }
 
+.tag-bold-font {
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 600;
+  letter-spacing: 0.24px;
+}
+
 .h1-font {
   font-size: 40px;
   line-height: 56px;
@@ -481,18 +488,15 @@ section {
 .logo-wrap {
   position: relative;
   z-index: 2;
-  background: #8c9598;
+  background: var(--color-white);
   background-size: cover;
   background-position: center;
-  padding: 80px 0 120px;
+  padding: 60px 0 48px;
 }
 .logo-wrap-content {
   width: 40%;
-  margin: 0 auto 64px;
+  margin: 0 auto 48px;
   text-align: center;
-}
-.logo-wrap-content h3 {
-  line-height: 60px;
 }
 .logo-wrap .marquee {
   width: 100vw;
@@ -502,7 +506,7 @@ section {
   width: 100%;
   position: relative;
   overflow: hidden;
-  margin-bottom: 75px;
+  margin-bottom: 32px;
 }
 .logo-wrap .marquee-wrap:last-child {
   margin-bottom: 0;
@@ -524,12 +528,11 @@ section {
   margin-right: 30px;
   margin-left: 30px;
   flex: none;
-  min-width: 170px;
+  width: 170px;
 }
 .logo-wrap .marquee-item .logo-icon {
   width: 100%;
   height: 110px;
-  margin-bottom: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -541,6 +544,7 @@ section {
   display: block;
 }
 .logo-wrap .marquee-item .logo-name {
+  display: none;
   font-size: 14px;
   line-height: 24px;
   color: var(--color-white);
@@ -603,7 +607,7 @@ section {
 }
 .footer-logo {
   display: block;
-  width: 210px;
+  width: 170px;
   height: auto;
 }
 .footer-logo img {
@@ -688,6 +692,10 @@ section {
 }
 .footer-col.col-address ul.social li a:hover svg path {
   color: var(--color-primary);
+}
+.footer-col.col-address ul.social li a svg {
+  width: 20px;
+  height: 20px;
 }
 .footer-col.col-address ul.social li a svg path {
   color: var(--color-white);
