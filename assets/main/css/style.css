@@ -98,6 +98,10 @@ a {
   font-family: var(--font-body);
 }
 
+.bg-white {
+  background-color: var(--color-white);
+}
+
 *,
 *:before,
 *:after {
@@ -1390,7 +1394,7 @@ section {
   background-color: var(--color-white-2);
 }
 .section-awards .awards-wrapper {
-  padding: 60px 60px;
+  padding: 48px 60px 60px;
 }
 .section-awards .awards-slider {
   margin-top: 48px;
@@ -1525,10 +1529,10 @@ section {
 
 .responsibility {
   position: relative;
-  background-color: var(--overlay-bg);
+  background-color: var(--color-white-2);
 }
 .responsibility-wrapper {
-  padding: 120px 80px;
+  padding: 48px 80px;
 }
 .responsibility .content-left {
   padding-right: 24px;
@@ -1540,8 +1544,8 @@ section {
 .responsibility-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 40px;
-  margin-top: 64px;
+  gap: 48px 40px;
+  margin-top: 48px;
 }
 .responsibility-item {
   width: calc((100% - 80px) / 3);

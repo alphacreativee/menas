@@ -1,10 +1,10 @@
 .responsibility {
   position: relative;
   // z-index: 1;
-  background-color: var(--overlay-bg);
+  background-color: var(--color-white-2);
 
   &-wrapper {
-    padding: 120px 80px;
+    padding: 48px 80px;
   }
 
   .content-left {
@@ -19,8 +19,8 @@
   &-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 40px;
-    margin-top: 64px;
+    gap: 48px 40px;
+    margin-top: 48px;
   }
 
   &-item {
