@@ -1368,11 +1368,6 @@ section {
 .news-item.awards-item .image {
   aspect-ratio: 646/390;
 }
-.news-item.awards-item .name {
-  font-size: 16px !important;
-  line-height: 24px !important;
-  font-weight: 600 !important;
-}
 .news-item:hover .content .name {
   color: var(--color-primary);
 }
