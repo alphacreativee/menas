@@ -1,8 +1,10 @@
 .scroll {
   &-wrap {
     position: relative;
-    padding: 80px 60px;
+    padding: 80px 24px;
     background-color: var(--color-white);
+    padding-left: calc(calc(1 / 12) * 100% + 24px);
+    padding-right: calc(calc(1 / 12) * 100% + 24px);
     &-item {
       margin-bottom: 80px;
       &:last-child {
@@ -30,8 +32,9 @@
     }
     &-image {
       width: 100%;
-      aspect-ratio: 628 / 380;
+      aspect-ratio: 526 / 330;
       overflow: hidden;
+
       &:hover {
         img {
           transform: scale(1.05);

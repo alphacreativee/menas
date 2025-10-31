@@ -1292,8 +1292,10 @@ section {
 
 .scroll-wrap {
   position: relative;
-  padding: 80px 60px;
+  padding: 80px 24px;
   background-color: var(--color-white);
+  padding-left: calc(8.3333333333% + 24px);
+  padding-right: calc(8.3333333333% + 24px);
 }
 .scroll-wrap-item {
   margin-bottom: 80px;
@@ -1318,7 +1320,7 @@ section {
 }
 .scroll-wrap-image {
   width: 100%;
-  aspect-ratio: 628/380;
+  aspect-ratio: 526/330;
   overflow: hidden;
 }
 .scroll-wrap-image:hover img {
