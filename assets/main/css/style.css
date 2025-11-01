@@ -631,6 +631,8 @@ section {
 @media (max-width: 991px) {
   .footer-bottom {
     grid-template-columns: 1fr;
+    gap: 12px 24px;
+    padding: 24px;
   }
 }
 .footer-bottom .menas-group {
@@ -737,6 +739,11 @@ section {
   flex-direction: column;
   gap: 60px;
 }
+@media (max-width: 991px) {
+  .footer-col.col-address .col-wrapper {
+    gap: 32px;
+  }
+}
 .footer-col.col-address ul {
   display: grid;
   grid-template-columns: 1fr;
@@ -788,7 +795,7 @@ section {
   .footer-col.col-about-menas ul, .footer-col.col-menu ul {
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 24px;
+    gap: 12px 24px;
   }
 }
 
