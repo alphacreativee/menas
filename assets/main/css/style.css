@@ -784,6 +784,13 @@ section {
   flex-direction: column;
   gap: 12px;
 }
+@media (max-width: 991px) {
+  .footer-col.col-about-menas ul, .footer-col.col-menu ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+}
 
 #header {
   position: fixed;
