@@ -77,6 +77,9 @@
     gap: 24px;
     position: relative;
     z-index: 3;
+    @media (max-width: 991px) {
+      grid-template-columns: 1fr;
+    }
   }
   &-title {
     margin-bottom: 16px;
@@ -98,6 +101,9 @@
     }
     &.terms {
       padding-left: 50px;
+      @media (max-width: 991px) {
+        padding-left: 0;
+      }
       ul {
         display: flex;
         align-items: center;
@@ -116,6 +122,9 @@
     }
     &.by-alpha {
       padding-left: 50px;
+      @media (max-width: 991px) {
+        padding-left: 0;
+      }
       a {
         display: inline-block;
         color: rgba($color: #fff, $alpha: 0.5);
@@ -127,6 +136,9 @@
     }
     &.col-address {
       padding-left: 50px;
+      @media (max-width: 991px) {
+        padding-left: 0;
+      }
       .col-wrapper {
         display: flex;
         flex-direction: column;
@@ -177,6 +189,9 @@
     &.col-about-menas,
     &.col-menu {
       padding-left: 50px;
+      @media (max-width: 991px) {
+        padding-left: 0;
+      }
       ul {
         display: flex;
         flex-direction: column;
