@@ -92,9 +92,12 @@
     }
 
     &:hover {
-      .item-image {
-        img {
-          transform: scale(1.05);
+      .animation-image-clip {
+        clip-path: inset(1.5%);
+
+        img,
+        video {
+          transform: scale(1.03);
         }
       }
     }
