@@ -1081,14 +1081,24 @@ function scrollTop() {
     if (currentPath === targetPath || targetPath === "") {
       e.preventDefault();
 
-      const $targetEl = $(hash);
-      if ($targetEl.length) {
-        const headerHeight = $("header").outerHeight() || 0;
-        lenis.scrollTo($targetEl[0], {
-          offset: -headerHeight,
+      const headerHeight = $("header").outerHeight() || 0;
+
+      if (hash === "#") {
+        // Nếu chỉ là "#": scroll về top
+        lenis.scrollTo(0, {
+          offset: 0,
           duration: 0.6,
           easing: (t) => t
         });
+      } else {
+        const $targetEl = $(hash);
+        if ($targetEl.length) {
+          lenis.scrollTo($targetEl[0], {
+            offset: -headerHeight,
+            duration: 0.6,
+            easing: (t) => t
+          });
+        }
       }
     }
   });
