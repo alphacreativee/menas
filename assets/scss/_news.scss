@@ -1,6 +1,28 @@
 .news {
   background-color: var(--color-white-2);
 
+  &-featured {
+    padding: 60px 60px 0;
+    .news-item {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+
+      .image {
+        width: 100%;
+        aspect-ratio: 648 / 380;
+      }
+
+      .content {
+        padding: 52px 108px 52px 52px;
+      }
+
+      .desc {
+        display: block;
+      }
+    }
+  }
+
   &-main {
     padding: 60px;
 
