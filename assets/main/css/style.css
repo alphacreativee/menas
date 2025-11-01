@@ -242,7 +242,6 @@ body {
 }
 .magic-cursor .cursor.show-text .text {
   opacity: 1;
-  transition-delay: 0.2s;
   transition-duration: 0.4s;
 }
 .magic-cursor .cursor span {
@@ -988,6 +987,10 @@ section {
   top: 60px;
   left: 0;
   background-color: var(--color-white);
+}
+.hero.not-has-sticky {
+  position: unset;
+  top: unset;
 }
 .hero-sec__container {
   height: calc(100dvh - 60px);
@@ -1903,4 +1906,16 @@ section {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 5;
+}
+
+.news {
+  background-color: var(--color-white-2);
+}
+.news-main {
+  padding: 60px;
+}
+.news-main .list-item {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
 }

@@ -1,0 +1,13 @@
+.news {
+  background-color: var(--color-white-2);
+
+  &-main {
+    padding: 60px;
+
+    .list-item {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+    }
+  }
+}
