@@ -1068,20 +1068,28 @@ function hoverVideo() {
 }
 
 function scrollTop() {
-  $('a[href^="#"]').on("click", function (e) {
-    e.preventDefault();
+  $('a[href*="#"]').on("click", function (e) {
+    const url = this.getAttribute("href");
+    const hashIndex = url.indexOf("#");
 
-    const target = $(this).attr("href");
-    const $targetEl = $(target);
+    if (hashIndex === -1) return;
 
-    if ($targetEl.length) {
-      const headerHeight = $("header").outerHeight() || 0;
+    const hash = url.slice(hashIndex);
+    const currentPath = window.location.pathname.replace(/\/$/, "");
+    const targetPath = this.pathname.replace(/\/$/, "");
 
-      lenis.scrollTo(target, {
-        offset: -headerHeight,
-        duration: 0.6,
-        easing: (t) => t
-      });
+    if (currentPath === targetPath || targetPath === "") {
+      e.preventDefault();
+
+      const $targetEl = $(hash);
+      if ($targetEl.length) {
+        const headerHeight = $("header").outerHeight() || 0;
+        lenis.scrollTo($targetEl[0], {
+          offset: -headerHeight,
+          duration: 0.6,
+          easing: (t) => t
+        });
+      }
     }
   });
 }
