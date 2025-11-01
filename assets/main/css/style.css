@@ -589,6 +589,7 @@ section {
   bottom: 0;
   left: 0;
   transform: translateY(100px);
+  right: 0;
 }
 .footer-container.footer-overlay {
   opacity: 0;
@@ -627,8 +628,18 @@ section {
   padding: 10px 24px;
   background-color: #000;
 }
+@media (max-width: 991px) {
+  .footer-bottom {
+    grid-template-columns: 1fr;
+  }
+}
 .footer-bottom .menas-group {
   padding-left: 50px;
+}
+@media (max-width: 991px) {
+  .footer-bottom .menas-group {
+    padding-left: 0;
+  }
 }
 .footer-bottom .menas-group p.color-white {
   color: rgba(255, 255, 255, 0.5);
@@ -650,6 +661,11 @@ section {
   z-index: 3;
 }
 @media (max-width: 991px) {
+  .footer-grid {
+    grid-template-columns: 2fr;
+  }
+}
+@media (max-width: 767px) {
   .footer-grid {
     grid-template-columns: 1fr;
   }
@@ -679,6 +695,12 @@ section {
   display: flex;
   align-items: center;
   gap: 40px;
+  flex-wrap: wrap;
+}
+@media (max-width: 991px) {
+  .footer-col.terms ul {
+    gap: 32px;
+  }
 }
 .footer-col.terms ul li a {
   display: inline-block;
@@ -1327,8 +1349,18 @@ section {
   padding-left: calc(8.3333333333% + 48px);
   padding-right: calc(8.3333333333% + 48px);
 }
+@media (max-width: 991px) {
+  .scroll-wrap {
+    padding: 64px 24px;
+  }
+}
 .scroll-wrap-item {
   margin-bottom: 80px;
+}
+@media (max-width: 991px) {
+  .scroll-wrap-item {
+    margin-bottom: 48px;
+  }
 }
 .scroll-wrap-item:last-child {
   margin-bottom: 0;
@@ -1337,12 +1369,25 @@ section {
   padding-left: 0;
   padding-right: calc(8.3333333333% + 48px);
 }
+@media (max-width: 991px) {
+  .scroll-wrap-item:nth-child(even) .scroll-wrap-content {
+    padding-right: 0;
+  }
+}
 .scroll-wrap-content {
   padding-left: calc(8.3333333333% + 48px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 100%;
+}
+@media (max-width: 991px) {
+  .scroll-wrap-content {
+    padding-left: 0;
+    margin-top: 24px;
+    justify-content: flex-start;
+    height: auto;
+  }
 }
 .scroll-wrap-box .title-box {
   margin-bottom: 24px;
@@ -1463,6 +1508,11 @@ section {
 .section-awards .awards-wrapper {
   padding: 48px 60px 60px;
 }
+@media (max-width: 991px) {
+  .section-awards .awards-wrapper {
+    padding: 48px 24px;
+  }
+}
 .section-awards .awards-slider {
   margin-top: 48px;
 }
@@ -1472,6 +1522,11 @@ section {
 .section-awards .awards-slider .awards-item {
   height: 100%;
   position: relative;
+}
+@media (max-width: 991px) {
+  .section-awards .awards-slider .awards-item {
+    background-color: var(--color-white-2);
+  }
 }
 .section-awards .awards-slider .awards-item:hover .content {
   transform: translateY(0px);
@@ -1489,9 +1544,21 @@ section {
   background-color: var(--color-white-2);
   transition: transform 0.4s ease;
 }
+@media (max-width: 991px) {
+  .section-awards .awards-slider .awards-item .content {
+    position: static;
+    transform: translateY(0);
+  }
+}
 .section-awards .awards-slider .awards-item .content-overlay {
   min-height: 88px;
   background-color: var(--color-white-2);
+  display: block;
+}
+@media (max-width: 991px) {
+  .section-awards .awards-slider .awards-item .content-overlay {
+    display: none;
+  }
 }
 .section-awards .awards-slider .awards-item .content .name {
   margin-bottom: 8px;
@@ -1505,6 +1572,13 @@ section {
   opacity: 0;
   visibility: hidden;
   transition: all 0.2s ease;
+}
+@media (max-width: 991px) {
+  .section-awards .awards-slider .awards-item .content .description {
+    opacity: 1;
+    visibility: visible;
+    height: auto;
+  }
 }
 .section-awards .arrow-custom {
   width: 40px;
@@ -1596,8 +1670,18 @@ section {
 .responsibility-wrapper {
   padding: 48px 80px;
 }
+@media (max-width: 991px) {
+  .responsibility-wrapper {
+    padding: 48px 24px;
+  }
+}
 .responsibility .content-left {
   padding-right: 24px;
+}
+@media (max-width: 991px) {
+  .responsibility .content-left {
+    padding-right: 0;
+  }
 }
 .responsibility .section-desc {
   margin: 24px auto 0;
@@ -1614,6 +1698,11 @@ section {
   height: auto;
   position: relative;
   overflow: hidden;
+}
+@media (max-width: 991px) {
+  .responsibility-item {
+    width: 100%;
+  }
 }
 .responsibility-item::after {
   display: none;

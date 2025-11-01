@@ -10,6 +10,9 @@
   .awards {
     &-wrapper {
       padding: 48px 60px 60px;
+      @media (max-width: 991px) {
+        padding: 48px 24px;
+      }
     }
 
     &-slider {
@@ -22,6 +25,9 @@
       .awards-item {
         height: 100%;
         position: relative;
+        @media (max-width: 991px) {
+          background-color: var(--color-white-2);
+        }
         &:hover {
           .content {
             transform: translateY(0px);
@@ -39,10 +45,18 @@
           transform: translateY(80px);
           background-color: var(--color-white-2);
           transition: transform 0.4s ease;
+          @media (max-width: 991px) {
+            position: static;
+            transform: translateY(0);
+          }
           &-overlay {
             // padding: 32px;
             min-height: 88px;
             background-color: var(--color-white-2);
+            display: block;
+            @media (max-width: 991px) {
+              display: none;
+            }
           }
           .name {
             margin-bottom: 8px;
@@ -56,6 +70,11 @@
             opacity: 0;
             visibility: hidden;
             transition: all 0.2s ease;
+            @media (max-width: 991px) {
+              opacity: 1;
+              visibility: visible;
+              height: auto;
+            }
           }
         }
       }

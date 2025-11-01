@@ -5,8 +5,14 @@
     background-color: var(--color-white);
     padding-left: calc(calc(1 / 12) * 100% + 48px);
     padding-right: calc(calc(1 / 12) * 100% + 48px);
+    @media (max-width: 991px) {
+      padding: 64px 24px;
+    }
     &-item {
       margin-bottom: 80px;
+      @media (max-width: 991px) {
+        margin-bottom: 48px;
+      }
       &:last-child {
         margin-bottom: 0;
       }
@@ -14,6 +20,9 @@
         .scroll-wrap-content {
           padding-left: 0;
           padding-right: calc(calc(1 / 12) * 100% + 48px);
+          @media (max-width: 991px) {
+            padding-right: 0;
+          }
         }
       }
     }
@@ -23,6 +32,12 @@
       flex-direction: column;
       justify-content: center;
       height: 100%;
+      @media (max-width: 991px) {
+        padding-left: 0;
+        margin-top: 24px;
+        justify-content: flex-start;
+        height: auto;
+      }
     }
     &-box {
       .title-box {

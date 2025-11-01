@@ -5,10 +5,16 @@
 
   &-wrapper {
     padding: 48px 80px;
+    @media (max-width: 991px) {
+      padding: 48px 24px;
+    }
   }
 
   .content-left {
     padding-right: 24px;
+    @media (max-width: 991px) {
+      padding-right: 0;
+    }
   }
 
   .section-desc {
@@ -28,7 +34,9 @@
     height: auto;
     position: relative;
     overflow: hidden;
-
+    @media (max-width: 991px) {
+      width: 100%;
+    }
     &::after {
       display: none;
       content: "";
