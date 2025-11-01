@@ -822,7 +822,8 @@ section {
   padding: 8px;
   transform: translateY(20px);
   left: -16px;
-  width: 280px;
+  width: max-content;
+  max-width: 260px;
   background-color: var(--color-white);
   clip-path: inset(0 0 100% 0);
   will-change: clip-path;
