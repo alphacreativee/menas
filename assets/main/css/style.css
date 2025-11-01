@@ -1916,6 +1916,24 @@ section {
 .news {
   background-color: var(--color-white-2);
 }
+.news-featured {
+  padding: 60px 60px 0;
+}
+.news-featured .news-item {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+.news-featured .news-item .image {
+  width: 100%;
+  aspect-ratio: 648/380;
+}
+.news-featured .news-item .content {
+  padding: 52px 108px 52px 52px;
+}
+.news-featured .news-item .desc {
+  display: block;
+}
 .news-main {
   padding: 60px;
 }
