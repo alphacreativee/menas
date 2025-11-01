@@ -510,7 +510,7 @@ function customDropdown() {
         // Update the clicked item with the previous button values
         if (!isSelectTime) {
           if (currentImg) {
-            item.innerHTML = `<img src="${currentImg}" alt="" /><span>${currentText}</span>`;
+            item.innerHTML = `<span>${currentText}</span><img src="${currentImg}" alt="" />`;
           } else {
             item.innerHTML = `<span>${currentText}</span>`;
           }
@@ -1067,6 +1067,25 @@ function hoverVideo() {
   });
 }
 
+function scrollTop() {
+  $('a[href^="#"]').on("click", function (e) {
+    e.preventDefault();
+
+    const target = $(this).attr("href");
+    const $targetEl = $(target);
+
+    if ($targetEl.length) {
+      const headerHeight = $("header").outerHeight() || 0;
+
+      lenis.scrollTo(target, {
+        offset: -headerHeight,
+        duration: 0.6,
+        easing: (t) => t
+      });
+    }
+  });
+}
+
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   // sectionFields();
@@ -1084,6 +1103,7 @@ const init = () => {
   hideMenuOnFooter();
   wipe();
   hoverVideo();
+  scrollTop();
   ScrollTrigger.refresh();
 };
 preloadImages("img").then(() => {

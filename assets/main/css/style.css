@@ -862,10 +862,11 @@ section {
 .header-lang .dropdown-custom-menu {
   position: absolute;
   top: 100%;
-  left: -16px;
+  right: -8px;
   transform: translateY(17px);
   background-color: var(--color-white);
   width: calc(100% + 24px);
+  min-width: 145px;
   padding: 8px;
   clip-path: inset(0 0 100% 0);
   will-change: clip-path;
