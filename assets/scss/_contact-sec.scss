@@ -1,0 +1,24 @@
+.contact-sec {
+  padding: 48px 24px;
+  position: relative;
+  z-index: 2;
+  background-color: var(--color-white);
+  .contact {
+    &-container {
+      display: grid;
+      grid-template-columns: 3fr 5fr;
+      gap: 24px;
+    }
+    &-title {
+      margin-bottom: 40px;
+    }
+    &-left {
+      max-width: 75%;
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+    }
+  }
+}

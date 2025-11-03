@@ -2105,3 +2105,26 @@ section {
   opacity: 0.3;
   pointer-events: none;
 }
+
+.contact-sec {
+  padding: 48px 24px;
+  position: relative;
+  z-index: 2;
+  background-color: var(--color-white);
+}
+.contact-sec .contact-container {
+  display: grid;
+  grid-template-columns: 3fr 5fr;
+  gap: 24px;
+}
+.contact-sec .contact-title {
+  margin-bottom: 40px;
+}
+.contact-sec .contact-left {
+  max-width: 75%;
+}
+.contact-sec .contact-left ul {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
