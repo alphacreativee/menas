@@ -6,7 +6,11 @@
   .section-title {
     margin-bottom: 48px;
   }
-
+  &.not-home {
+    .fields-list {
+      padding: 80px 48px;
+    }
+  }
   .fields-list {
     display: flex;
     flex-wrap: wrap;

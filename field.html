@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lĩnh vực hoạt động</title>
+    <!-- import favicon -->
+    <link
+      rel="icon"
+      href="./assets/images/menas-favicon-min.png"
+      type="image/x-icon"
+    />
+    <!-- meta -->
+    <meta property="og:url" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Lĩnh vực hoạt động" />
+    <meta
+      property="og:description"
+      content="Cung cấp dịch vụ tư vấn, quản lý và phát triển bất động sản vượt trội cho các nhà phát triển và nhà đầu tư, mang lại hiệu quả cao trong vận hành và quản lý dự án với tầm nhìn dài hạn"
+    />
+    <meta
+      property="og:image"
+      content="https://alphacreativee.github.io/menas/assets/images/bg-intro.webp"
+    />
+    <!-- meta -->
+    <link rel="stylesheet" href="./assets/libs/bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/libs/lenis.css" />
+    <link rel="stylesheet" href="./assets/libs/swiper-bundle.min.css" />
+    <!-- end meta -->
+    <!-- link custom css page -->
+    <link rel="stylesheet" href="./assets/main/css/style.min.css" />
+    <link rel="stylesheet" href="./assets/fonts/SVN-Graphik/stylesheet.css" />
+    <!-- end link custom css page -->
+    <!-- scrollRestoration -->
+    <script>
+      if ("scrollRestoration" in history) {
+        history.scrollRestoration = "manual";
+      }
+    </script>
+  </head>
+  <body>
+    <!-- layout -->
+    <!-- header -->
+    <script>
+      fetch("./components/header.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("header").innerHTML = data;
+          const currentPath = window.location.pathname || "/";
+
+          const navLinks = document.querySelectorAll(".header-menu ul>li>a");
+          navLinks.forEach((link) => {
+            const linkPath = link.getAttribute("href");
+
+            // Normalize paths for comparison
+            let normalizedCurrentPath = currentPath;
+            let normalizedLinkPath = linkPath;
+
+            // Remove leading "./" from link path
+            if (normalizedLinkPath.startsWith("./")) {
+              normalizedLinkPath = normalizedLinkPath.substring(1);
+            }
+
+            // Get the last segment of the path
+            const currentSegment = normalizedCurrentPath.split("/").pop() || "";
+            const linkSegment = normalizedLinkPath.split("/").pop() || "";
+
+            // Check if current path is root or ends with /
+            const isRootPath =
+              currentPath === "/" ||
+              currentPath.endsWith("/") ||
+              currentSegment === "";
+
+            // Check if link is home/index
+            const isHomeLink =
+              linkPath === "/" ||
+              linkPath === "./" ||
+              linkPath === "./index.html" ||
+              linkPath === "index.html" ||
+              linkSegment === "index.html";
+
+            // Match logic
+            const isMatch =
+              normalizedLinkPath === normalizedCurrentPath || // Exact match
+              currentSegment === linkSegment || // Segment match
+              (isRootPath && isHomeLink) || // Root path matches home link
+              (currentPath.endsWith(normalizedLinkPath) &&
+                normalizedLinkPath !== "/");
+
+            if (isMatch) {
+              link.classList.add("active");
+            }
+          });
+        });
+    </script>
+    <header id="header"></header>
+    <div class="blank-spacing"></div>
+    <!-- end header -->
+
+    <!-- magic cursor -->
+    <div class="magic-cursor">
+      <div class="cursor">
+        <div class="text"></div>
+      </div>
+    </div>
+    <script>
+      fetch("./components/chat.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("chat-ai").innerHTML = data;
+        });
+    </script>
+    <div id="chat-ai" data-lenis-prevent></div>
+
+    <main>
+      <section class="hero has-slider not-has-sticky">
+        <div class="container-fluid p-0">
+          <div class="hero-sec__container">
+            <div class="swiper swiper-banner">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="slide-banner">
+                    <img
+                      srcset="./assets/images/about/banner/banner-5.webp"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="slide-banner">
+                    <img
+                      srcset="./assets/images/about/banner/banner-7.webp"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="slide-banner">
+                    <img
+                      srcset="./assets/images/about/banner/banner-1.webp"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="slide-banner">
+                    <img
+                      srcset="./assets/images/about/banner/banner-2.webp"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="slide-banner">
+                    <img
+                      srcset="./assets/images/about/banner/banner-3.webp"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="slide-banner">
+                    <img
+                      srcset="./assets/images/about/banner/banner-4.webp"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="slide-banner">
+                    <img
+                      srcset="./assets/images/about/banner/banner-6.webp"
+                      alt=""
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="swiper-content effect-title-auto h3-font color-white d-none"
+                data-delay="0.5"
+              >
+                Về Menas Group
+              </div>
+              <div class="swiper-pagination"></div>
+              <div class="progress-bar d-none"></div>
+              <div class="swiper-arrows">
+                <div class="swiper-prev">
+                  <svg
+                    width="7"
+                    height="12"
+                    viewBox="0 0 7 12"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M5.91183 5.96875C4.46529 5.60711 1.35523 3.92913 0.487304 0.11026"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    />
+                    <path
+                      d="M5.91183 5.75195C4.46529 6.11359 1.35523 7.79158 0.487305 11.6104"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    />
+                  </svg>
+                </div>
+                <div class="swiper-next">
+                  <svg
+                    width="7"
+                    height="12"
+                    viewBox="0 0 7 12"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M5.91183 5.96875C4.46529 5.60711 1.35523 3.92913 0.487304 0.11026"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    />
+                    <path
+                      d="M5.91183 5.75195C4.46529 6.11359 1.35523 7.79158 0.487305 11.6104"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="intro">
+        <div class="intro-overlay"></div>
+        <div class="intro-container pb-0">
+          <div class="intro-text effect-line b1-bold-font">
+            Menas Vietnam cam kết trở thành đơn vị tiên phong kiến tạo các không
+            gian sống và thương mại đẳng cấp. Với sự tập trung mạnh mẽ vào phát
+            triển bền vững và đổi mới liên tục, chúng tôi kết hợp các tiêu chuẩn
+            toàn cầu với văn hóa bản địa, đảm bảo mọi không gian được quản lý
+            đều mang đến trải nghiệm ấn tượng và nâng tầm phong cách sống hiện
+            đại của người Việt
+          </div>
+        </div>
+      </section>
+      <section class="section-fields not-home">
+        <div class="container-fluid p-0">
+          <div class="fields-list">
+            <div
+              class="fields-item data-fade-in animation-image-clip"
+              data-cursor-text="Chi tiết"
+            >
+              <div class="fields-item-img">
+                <img src="./assets/images/home/fields/field-1.webp" alt="" />
+              </div>
+              <div class="fields-item-name color-text text-center">
+                <h3 class="h3-font color-white font-heading">Siêu thị</h3>
+                <div class="desc b1-font color-text d-none">
+                  Trải nghiệm Menas Gourmet Market, nơi các sản phẩm thực phẩm
+                  cao cấp gặp gỡ tiêu chí phát triển bền vững. Chúng tôi tuyển
+                  chọn kỹ lưỡng các sản phẩm chất lượng cao từ những nguồn cung
+                  tốt nhất và hợp tác với các trang trại địa phương để hỗ trợ
+                  cộng đồng.
+                </div>
+              </div>
+            </div>
+            <div
+              class="fields-item data-fade-in animation-image-clip"
+              data-delay="0.2"
+              data-cursor-text="Chi tiết"
+            >
+              <div class="fields-item-img">
+                <img src="./assets/images/home/fields/field-2.webp" alt="" />
+              </div>
+              <div class="fields-item-name color-text text-center">
+                <h3 class="h3-font color-white font-heading">Bán lẻ</h3>
+                <div class="desc b1-font color-text d-none">
+                  Chúng tôi nâng cao trải nghiệm mua sắm thông qua việc phát
+                  triển và vận hành các mô hình bán lẻ chuyên biệt, bao gồm các
+                  Cửa hàng Miễn thuế (Duty-Free Stores) và chuỗi siêu thị sang
+                  trọng, hiện đại Mena Gourmet Market.
+                </div>
+              </div>
+            </div>
+            <div
+              class="fields-item data-fade-in animation-image-clip"
+              data-cursor-text="Chi tiết"
+            >
+              <div class="fields-item-img">
+                <img src="./assets/images/home/fields/field-3.webp" alt="" />
+              </div>
+              <div class="fields-item-name color-text text-center">
+                <h3 class="h3-font color-white font-heading">Ẩm thực</h3>
+                <div class="desc b1-font color-text d-none">
+                  Chúng tôi kiến tạo các trung tâm ẩm thực sôi động, điển hình
+                  là Làng Ẩm thực Yum Food Village, đồng thời cung cấp các dịch
+                  vụ tư vấn chuyên sâu về F&B và quản lý nhượng quyền thương
+                  hiệu để mang đến những lựa chọn ẩm thực tuyệt vời.
+                </div>
+              </div>
+            </div>
+            <div
+              class="fields-item data-fade-in animation-image-clip"
+              data-delay="0.2"
+              data-cursor-text="Chi tiết"
+            >
+              <div class="fields-item-img">
+                <img src="./assets/images/home/fields/field-4.webp" alt="" />
+              </div>
+              <div class="fields-item-name color-text text-center">
+                <h3 class="h3-font color-white font-heading">
+                  Mỹ phẩm & Nước hoa
+                </h3>
+                <div class="desc b1-font color-text d-none">
+                  Thông qua thỏa thuận chiến lược với các thương hiệu danh
+                  tiếng, Menas chuyên cung cấp đa dạng các dòng sản phẩm chất
+                  lượng cao tại chuỗi cửa hàng boutique cao cấp, hiện diện tại
+                  các vị trí đắc địa như trung tâm thương mại và sân bay.
+                </div>
+              </div>
+            </div>
+            <div
+              class="fields-item data-fade-in animation-image-clip"
+              data-cursor-text="Chi tiết"
+            >
+              <div class="fields-item-img item-hover-video">
+                <img
+                  src="./assets/images/home/fields/field-5.webp"
+                  class="d-none"
+                  alt=""
+                />
+                <div class="item-video">
+                  <video
+                    playsinline
+                    muted
+                    loop
+                    poster="./assets/images/home/fields/poster-field-5.jpg"
+                  >
+                    <source
+                      src="./assets/images/home/fields/field-5.mp4"
+                      type="video/mp4"
+                    />
+                  </video>
+                </div>
+              </div>
+              <div class="fields-item-name color-text text-center">
+                <h3 class="h3-font color-white font-heading">
+                  Quản lý tài sản
+                </h3>
+                <div class="desc b1-font color-text d-none">
+                  Menas chuyên trách vận hành trọn gói các tài sản thương mại
+                  trọng điểm, bao gồm các Trung tâm Thương mại, Trung tâm Đổi
+                  mới Sáng tạo, và các Tòa nhà Văn phòng cao cấp. 
+                </div>
+              </div>
+            </div>
+            <div
+              class="fields-item data-fade-in animation-image-clip"
+              data-delay="0.2"
+              data-cursor-text="Chi tiết"
+            >
+              <div class="fields-item-img">
+                <img src="./assets/images/home/fields/field-7.webp" alt="" />
+              </div>
+              <div class="fields-item-name color-text text-center">
+                <h3 class="h3-font color-white font-heading">
+                  Khách sạn nghỉ dưỡng
+                </h3>
+                <div class="desc b1-font color-text d-none">
+                  Lĩnh vực Hospitality của Menas Vietnam được định hình để trở
+                  thành một giải pháp toàn diện, không chỉ dừng lại ở việc cung
+                  cấp tiện ích mà còn đi sâu vào quản lý vận hành các tài sản
+                  lưu trú. Menas đang phát triển để trở thành đơn vị cung cấp
+                  giải pháp trọn gói, bao gồm cả phát triển dự án, cung cấp tiện
+                  ích chất lượng cao, và quản lý vận hành chuyên sâu cho các tài
+                  sản lưu trú và du lịch.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="fields-tabs d-none">
+            <div class="fields-tabs__item active color-text">
+              Siêu thị & cửa hàng tiện lợi
+            </div>
+            <div class="fields-tabs__item color-text">Bán lẻ</div>
+            <div class="fields-tabs__item color-text">Ẩm thực</div>
+            <div class="fields-tabs__item color-text">Mỹ phẩm & Nước hoa</div>
+            <div class="fields-tabs__item color-text">
+              Quản lý & cho thuê Bất động sản
+            </div>
+            <div class="fields-tabs__item color-text">Khách sạn nghỉ dưỡng</div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- layout -->
+    <!-- footer -->
+    <script>
+      fetch("./components/footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer").innerHTML = data;
+        });
+    </script>
+    <footer id="footer"></footer>
+    <!-- end footer -->
+    <!-- end layout -->
+
+    <script src="./assets/libs/jquery-3.7.1.js"></script>
+    <script src="./assets/libs/lenis.min.js"></script>
+    <script src="./assets/libs/gsap.min.js"></script>
+    <script src="./assets/libs/ScrollTrigger.min.js"></script>
+    <script src="./assets/libs/SplitText.min.js"></script>
+    <script src="./assets/libs/bootstrap.bundle.min.js"></script>
+    <script src="./assets/libs/imagesloaded.pkgd.min.js"></script>
+    <script src="./assets/libs/swiper-bundle.min.js"></script>
+    <!-- import custom js -->
+    <script src="./assets/js/index/chat.js"></script>
+    <script src="./assets/main/js/marquee.min.js"></script>
+    <script type="module" src="./assets/main/js/script.min.js"></script>
+
+    <!-- end import custom js -->
+  </body>
+</html>
+<!-- https://gsap.com/community/forums/topic/30338-circular-carouselslider/ -->

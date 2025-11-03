@@ -358,6 +358,9 @@ section {
 .section-fields .section-title {
   margin-bottom: 48px;
 }
+.section-fields.not-home .fields-list {
+  padding: 80px 48px;
+}
 .section-fields .fields-list {
   display: flex;
   flex-wrap: wrap;
