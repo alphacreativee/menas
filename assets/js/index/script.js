@@ -572,7 +572,7 @@ function hero() {
         var activeSlide = swiper.slides[swiper.activeIndex];
         var img = activeSlide.querySelector(".slide-banner img");
         if (img) {
-          img.style.transform = "scale(1.05)";
+          img.style.transform = "scale(1.1)";
           setTimeout(function () {
             img.style.transition = "transform 5000ms ease-out";
             img.style.transform = "scale(1)";
@@ -613,7 +613,7 @@ function hero() {
         swiper.slides.forEach(function (slide) {
           var img = slide.querySelector(".slide-banner img");
           if (img) {
-            img.style.transform = "scale(1.05)";
+            img.style.transform = "scale(1.1)";
           }
         });
       },
