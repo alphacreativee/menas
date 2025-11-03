@@ -406,11 +406,12 @@ function effectText() {
     const img = scrollItem.querySelector(".scroll-wrap-image");
     const title = scrollItem.querySelector(".title-box");
     const desc = scrollItem.querySelector(".description-box");
+    const btn = scrollItem.querySelector(".btn-view-all");
 
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: scrollItem,
-        start: "top 70%",
+        start: "top 65%",
         toggleActions: "play none none none",
       },
     });
@@ -444,10 +445,8 @@ function effectText() {
         mask: "lines",
       });
 
-      // Ẩn ban đầu
       gsap.set(splitDesc.lines, { yPercent: 100, willChange: "transform" });
 
-      // Animation từng dòng
       tl.fromTo(
         splitDesc.lines,
         {
@@ -461,7 +460,23 @@ function effectText() {
           delay: descDelay,
         },
         "<"
-      ); // "<" = bắt đầu cùng lúc với animation trước
+      );
+    }
+
+    if (btn) {
+      const btnDelay = parseFloat(btn.getAttribute("data-delay")) || 0;
+      gsap.set(btn, { opacity: 0, y: 20 });
+      tl.to(
+        btn,
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.3,
+          ease: "none",
+          delay: btnDelay,
+        },
+        "<" // Bắt đầu trước khi animation trước kết thúc 0.5s
+      );
     }
   });
 }
@@ -1177,7 +1192,32 @@ function scrollTop() {
     }
   });
 }
+function parallaxSwiper() {
+  if (!document.querySelector(".media-list")) return;
 
+  const swiperRoom = new Swiper(".media-list", {
+    centeredSlides: true,
+    slidesPerView: 1,
+    initialSlide: 1,
+    speed: 900,
+    parallax: true,
+    loop: true,
+    spaceBetween: 32,
+    autoplay: {
+      delay: 2000,
+    },
+    navigation: {
+      nextEl: ".media .swiper-button-next",
+      prevEl: ".media .swiper-button-prev",
+    },
+    breakpoints: {
+      991: {
+        slidesPerView: 1.7,
+        autoplay: false,
+      },
+    },
+  });
+}
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   // sectionFields();
@@ -1197,6 +1237,7 @@ const init = () => {
   hoverVideo();
   scrollTop();
   customDropdownSelectValue();
+  parallaxSwiper();
   ScrollTrigger.refresh();
 };
 preloadImages("img").then(() => {
