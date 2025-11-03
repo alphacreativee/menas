@@ -1329,7 +1329,7 @@ section {
   z-index: 2;
 }
 .intro-text {
-  max-width: 960px;
+  max-width: 50%;
   margin: 0 auto;
   text-align: center;
   position: relative;
