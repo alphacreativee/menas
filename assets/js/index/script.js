@@ -411,7 +411,7 @@ function effectText() {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: scrollItem,
-        start: "top 65%",
+        start: "top 55%",
         toggleActions: "play none none none",
       },
     });
