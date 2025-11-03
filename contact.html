@@ -267,21 +267,27 @@
                     <div class="form-group-top">
                       <div class="form-item">
                         <div class="form-field">
+                          <input
+                            type="text"
+                            name="name"
+                            placeholder=" "
+                            autocomplete="off"
+                          />
                           <label for="name">Họ và tên<span>*</span></label>
-                          <input type="text" name="name" />
                         </div>
                       </div>
                       <div class="form-item">
                         <div class="form-field">
-                          <label for="phonenumber"
-                            >Số điện thoại<span>*</span></label
-                          >
                           <input
                             type="tel"
                             autocomplete="off"
                             pattern="[0-9]{10,11}"
                             name="phonenumber"
+                            placeholder=" "
                           />
+                          <label for="phonenumber"
+                            >Số điện thoại<span>*</span></label
+                          >
                         </div>
                       </div>
                       <div class="form-item">
@@ -334,25 +340,59 @@
                       </div>
                       <div class="form-item">
                         <div class="form-field">
+                          <input
+                            type="text"
+                            autocomplete="off"
+                            name="region"
+                            placeholder=" "
+                            autocomplete="off"
+                          />
                           <label for="region"
                             >Quốc gia/Khu vực<span>*</span></label
                           >
-                          <input type="text" autocomplete="off" name="region" />
                         </div>
                       </div>
                       <div class="form-item">
                         <div class="form-field">
+                          <input
+                            type="text"
+                            company="name"
+                            placeholder=" "
+                            autocomplete="off"
+                          />
                           <label for="company">Tên công ty</label>
-                          <input type="text" company="name" />
                         </div>
                       </div>
                       <div class="form-item">
                         <div class="form-field">
+                          <input
+                            type="text"
+                            name="website"
+                            placeholder=" "
+                            autocomplete="off"
+                          />
                           <label for="website">Website</label>
-                          <input type="text" name="website" />
                         </div>
                       </div>
                     </div>
+                    <div class="form-text-area">
+                      <textarea
+                        name=""
+                        id=""
+                        name="note"
+                        rows="5"
+                        placeholder=" "
+                      ></textarea>
+                      <label for="note">Lời nhắn</label>
+                    </div>
+                    <div class="form-note">
+                      Bằng việc ‘LIÊN HỆ’, bạn đồng ý với
+                      <span>
+                        <a href="">Chính sách bảo mật</a>
+                      </span>
+                      của Menas.
+                    </div>
+                    <button>liên hệ</button>
                   </form>
                 </div>
               </div>

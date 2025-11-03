@@ -2128,3 +2128,118 @@ section {
   flex-direction: column;
   gap: 24px;
 }
+.contact-sec .contact-right .form-group-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 24px;
+}
+.contact-sec .contact-right .form-group-top .form-item .form-field {
+  position: relative;
+}
+.contact-sec .contact-right .form-group-top .form-item .form-field input {
+  width: 100%;
+  border: none;
+  font-size: 14px;
+  line-height: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(26, 61, 78, 0.3);
+}
+.contact-sec .contact-right .form-group-top .form-item .form-field input:not(:placeholder-shown) + label {
+  opacity: 0;
+  visibility: hidden;
+}
+.contact-sec .contact-right .form-group-top .form-item .form-field label {
+  position: absolute;
+  font-size: 14px;
+  line-height: 24px;
+  left: 0px;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  pointer-events: none;
+}
+.contact-sec .contact-right .form-group-top .form-item .form-field span {
+  color: #ff0000;
+}
+.contact-sec .contact-right .dropdown-custom-select {
+  position: relative;
+}
+.contact-sec .contact-right .dropdown-custom-select .dropdown-custom-menu {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  background-color: var(--color-white);
+  bottom: 0;
+  left: -12px;
+  transform: translateY(100%);
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 0.3s ease;
+  will-change: clip-path;
+  display: flex;
+  padding: 12px;
+  flex-direction: column;
+  gap: 12px;
+}
+.contact-sec .contact-right .dropdown-custom-select .dropdown-custom-menu.dropdown--active {
+  clip-path: inset(0 0 0 0);
+}
+.contact-sec .contact-right .dropdown-custom-select .dropdown-custom-text {
+  font-size: 14px;
+  line-height: 24px;
+}
+.contact-sec .contact-right .dropdown-custom-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(26, 61, 78, 0.3);
+  padding-bottom: 12px;
+}
+.contact-sec .contact-right .form-text-area {
+  position: relative;
+}
+.contact-sec .contact-right .form-text-area textarea {
+  resize: none;
+  width: 100%;
+  margin-top: 16px;
+  border: none;
+  font-size: 14px;
+  line-height: 24px;
+  border-bottom: 1px solid rgba(26, 61, 78, 0.3);
+}
+.contact-sec .contact-right .form-text-area textarea:not(:placeholder-shown) + label {
+  opacity: 0;
+  visibility: hidden;
+}
+.contact-sec .contact-right .form-text-area label {
+  position: absolute;
+  left: 0;
+  top: 16px;
+  font-size: 14px;
+  line-height: 24px;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  pointer-events: none;
+}
+.contact-sec .contact-right .form-note {
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 500;
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+.contact-sec .contact-right .form-note span a {
+  color: var(--color-primary);
+}
+.contact-sec .contact-right form button {
+  width: 212px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: var(--color-text);
+  font-size: 10px;
+  line-height: 14px;
+  text-transform: uppercase;
+  color: var(--color-white);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+.contact-sec .contact-right form button:hover {
+  background-color: var(--color-primary);
+}

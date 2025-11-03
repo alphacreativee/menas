@@ -20,5 +20,133 @@
         gap: 24px;
       }
     }
+    &-right {
+      .form-group-top {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px 24px;
+        .form-item {
+          .form-field {
+            position: relative;
+
+            input {
+              width: 100%;
+              border: none;
+              font-size: 14px;
+              line-height: 24px;
+              padding-bottom: 12px;
+              border-bottom: 1px solid rgba(26, 61, 78, 0.3);
+
+              &:not(:placeholder-shown) + label {
+                opacity: 0;
+                visibility: hidden;
+              }
+            }
+
+            label {
+              position: absolute;
+              font-size: 14px;
+              line-height: 24px;
+              left: 0px;
+              transition: opacity 0.3s ease, visibility 0.3s ease;
+              pointer-events: none;
+            }
+
+            span {
+              color: #ff0000;
+            }
+          }
+        }
+      }
+      .dropdown-custom-select {
+        position: relative;
+        .dropdown-custom-menu {
+          position: absolute;
+          left: 0;
+          width: 100%;
+          z-index: 1;
+          background-color: var(--color-white);
+          bottom: 0;
+          left: -12px;
+          transform: translateY(100%);
+          clip-path: inset(0 0 100% 0);
+          transition: clip-path 0.3s ease;
+          will-change: clip-path;
+          display: flex;
+          padding: 12px;
+          flex-direction: column;
+          gap: 12px;
+
+          &.dropdown--active {
+            clip-path: inset(0 0 0 0);
+          }
+        }
+        .dropdown-custom-text {
+          font-size: 14px;
+          line-height: 24px;
+        }
+      }
+      .dropdown-custom-btn {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid rgba(26, 61, 78, 0.3);
+        padding-bottom: 12px;
+      }
+      .form-text-area {
+        position: relative;
+        textarea {
+          resize: none;
+          width: 100%;
+          margin-top: 16px;
+          border: none;
+          font-size: 14px;
+          line-height: 24px;
+          border-bottom: 1px solid rgba(26, 61, 78, 0.3);
+          &:not(:placeholder-shown) + label {
+            opacity: 0;
+            visibility: hidden;
+          }
+        }
+        label {
+          position: absolute;
+          left: 0;
+          top: 16px;
+          font-size: 14px;
+          line-height: 24px;
+          transition: opacity 0.3s ease, visibility 0.3s ease;
+          pointer-events: none;
+        }
+      }
+      .form-note {
+        font-size: 12px;
+        line-height: 20px;
+        font-weight: 500;
+        margin-top: 8px;
+        margin-bottom: 24px;
+        span {
+          a {
+            color: var(--color-primary);
+          }
+        }
+      }
+      form {
+        button {
+          width: 212px;
+          height: 40px;
+          border-radius: 8px;
+          background-color: var(--color-text);
+          font-size: 10px;
+          line-height: 14px;
+          text-transform: uppercase;
+          color: var(--color-white);
+          font-weight: 500;
+          transition: all 0.3s ease;
+          &:hover {
+            background-color: var(--color-primary);
+          }
+        }
+      }
+    }
   }
 }
