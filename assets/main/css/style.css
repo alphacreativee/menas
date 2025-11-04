@@ -635,6 +635,12 @@ section {
   padding: 10px 24px;
   background-color: #000;
 }
+@media (max-width: 1150px) {
+  .footer-bottom {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px 24px;
+  }
+}
 @media (max-width: 991px) {
   .footer-bottom {
     grid-template-columns: 1fr;
@@ -648,6 +654,12 @@ section {
 @media (max-width: 1200px) {
   .footer-bottom .menas-group {
     padding-left: 12px;
+  }
+}
+@media (max-width: 1150px) {
+  .footer-bottom .menas-group {
+    padding-left: 0px;
+    grid-row: 2/3;
   }
 }
 @media (max-width: 991px) {
@@ -673,6 +685,12 @@ section {
   gap: 24px;
   position: relative;
   z-index: 3;
+}
+@media (max-width: 1150px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px 24px;
+  }
 }
 @media (max-width: 991px) {
   .footer-grid {
@@ -703,6 +721,11 @@ section {
 @media (max-width: 1200px) {
   .footer-col.terms {
     padding-left: 12px;
+  }
+}
+@media (max-width: 1150px) {
+  .footer-col.terms {
+    padding-left: 0px;
   }
 }
 @media (max-width: 991px) {
@@ -741,6 +764,11 @@ section {
     padding-left: 12px;
   }
 }
+@media (max-width: 1150px) {
+  .footer-col.by-alpha {
+    padding-left: 0px;
+  }
+}
 @media (max-width: 991px) {
   .footer-col.by-alpha {
     padding-left: 0;
@@ -761,6 +789,14 @@ section {
     padding-left: 12px;
   }
 }
+@media (max-width: 1150px) and (min-width: 992px) {
+  .footer-col.col-address {
+    padding-left: 0px;
+  }
+  .footer-col.col-address ul li:first-child {
+    width: 85%;
+  }
+}
 @media (max-width: 991px) {
   .footer-col.col-address {
     padding-left: 0;
@@ -770,6 +806,11 @@ section {
   display: flex;
   flex-direction: column;
   gap: 60px;
+}
+@media (max-width: 1150px) {
+  .footer-col.col-address .col-wrapper {
+    gap: 24px;
+  }
 }
 @media (max-width: 991px) {
   .footer-col.col-address .col-wrapper {
@@ -818,6 +859,11 @@ section {
     padding-left: 12px;
   }
 }
+@media (max-width: 1150px) {
+  .footer-col.col-about-menas, .footer-col.col-menu {
+    padding-left: 0px;
+  }
+}
 @media (max-width: 991px) {
   .footer-col.col-about-menas, .footer-col.col-menu {
     padding-left: 0;
@@ -828,7 +874,7 @@ section {
   flex-direction: column;
   gap: 12px;
 }
-@media (max-width: 991px) {
+@media (max-width: 1150px) {
   .footer-col.col-about-menas ul, .footer-col.col-menu ul {
     flex-direction: row;
     flex-wrap: wrap;
