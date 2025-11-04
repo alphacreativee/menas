@@ -73,8 +73,8 @@ ${rulesContent}
 
 NHIỆM VỤ CỦA BẠN:
 - Trả lời các câu hỏi DỰA TRÊN THÔNG TIN TRONG rule.txt
-- Đóng vai là đại diện chính thức của website, hiểu rõ tất cả thông tin về sản phẩm/dịch vụ
-- Nếu được hỏi về thông tin KHÔNG CÓ trong rule.txt, hãy lịch sự nói rằng bạn chưa có thông tin đó
+- Đóng vai là đại diện chính thức của website, hiểu rõ tất cả thông tin về sản phẩm/dịch vụ và mọi thông tin của website từ rule.txt
+- Nếu được hỏi về thông tin KHÔNG CÓ trong rule.txt, hãy lịch sự nói rằng bạn chưa có thông tin đó và nên nói ra thông tin liên hệ với công ty
 - TUYỆT ĐỐI không trả lời các thông tin không liên quan đến website
 - QUAN TRỌNG: TỰ ĐỘNG PHÁT HIỆN NGÔN NGỮ của người dùng và TRẢ LỜI BẰNG CHÍNH NGÔN NGỮ ĐÓ
   + Nếu họ hỏi bằng Tiếng Việt → Trả lời bằng Tiếng Việt
@@ -133,7 +133,21 @@ function addMessage(text, type) {
   messageDiv.appendChild(contentDiv);
   messageDiv.appendChild(timeDiv);
   messagesDiv.appendChild(messageDiv);
-  messagesDiv.scrollTop = messagesDiv.scrollHeight;
+
+  // Scroll để hiển thị message mới
+  if (type === "ai") {
+    // Đợi render xong
+    requestAnimationFrame(() => {
+      // Scroll để top của AI message hiển thị ở đầu container
+      messageDiv.scrollIntoView({ behavior: "smooth", block: "start" });
+      setTimeout(() => {
+        messagesDiv.scrollTop -= 20;
+      }, 300);
+    });
+  } else {
+    // User message scroll xuống bottom
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+  }
 }
 
 function removeMarkdown(text) {
