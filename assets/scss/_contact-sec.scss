@@ -36,7 +36,7 @@
               line-height: 24px;
               padding-bottom: 12px;
               border-bottom: 1px solid rgba(26, 61, 78, 0.3);
-
+              color: var(--color-text);
               &:not(:placeholder-shown) + label {
                 opacity: 0;
                 visibility: hidden;

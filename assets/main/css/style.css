@@ -2146,6 +2146,7 @@ section {
   line-height: 24px;
   padding-bottom: 12px;
   border-bottom: 1px solid rgba(26, 61, 78, 0.3);
+  color: var(--color-text);
 }
 .contact-sec .contact-right .form-group-top .form-item .form-field input:not(:placeholder-shown) + label {
   opacity: 0;
