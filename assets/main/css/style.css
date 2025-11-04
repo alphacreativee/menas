@@ -1146,6 +1146,9 @@ section {
 .hero .swiper-banner .swiper-slide {
   overflow: hidden;
 }
+.hero .swiper-banner .swiper-slide:first-child img {
+  transform: scale(1.1);
+}
 .hero .swiper-banner .slide-banner {
   width: 100%;
   height: 100%;
@@ -2143,6 +2146,7 @@ section {
   line-height: 24px;
   padding-bottom: 12px;
   border-bottom: 1px solid rgba(26, 61, 78, 0.3);
+  color: var(--color-text);
 }
 .contact-sec .contact-right .form-group-top .form-item .form-field input:not(:placeholder-shown) + label {
   opacity: 0;
@@ -2182,7 +2186,8 @@ section {
 .contact-sec .contact-right .dropdown-custom-select .dropdown-custom-menu.dropdown--active {
   clip-path: inset(0 0 0 0);
 }
-.contact-sec .contact-right .dropdown-custom-select .dropdown-custom-text {
+.contact-sec .contact-right .dropdown-custom-select .dropdown-custom-text,
+.contact-sec .contact-right .dropdown-custom-select .dropdown-custom-item {
   font-size: 14px;
   line-height: 24px;
 }
