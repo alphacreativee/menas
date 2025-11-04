@@ -2185,7 +2185,8 @@ section {
 .contact-sec .contact-right .dropdown-custom-select .dropdown-custom-menu.dropdown--active {
   clip-path: inset(0 0 0 0);
 }
-.contact-sec .contact-right .dropdown-custom-select .dropdown-custom-text {
+.contact-sec .contact-right .dropdown-custom-select .dropdown-custom-text,
+.contact-sec .contact-right .dropdown-custom-select .dropdown-custom-item {
   font-size: 14px;
   line-height: 24px;
 }
