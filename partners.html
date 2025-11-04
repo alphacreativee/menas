@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đối tác đồng hành</title>
+    <!-- import favicon -->
+    <link
+      rel="icon"
+      href="./assets/images/menas-favicon-min.png"
+      type="image/x-icon"
+    />
+    <!-- meta -->
+    <meta property="og:url" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="" />
+    <!-- meta -->
+    <link rel="stylesheet" href="./assets/libs/bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/libs/lenis.css" />
+    <link rel="stylesheet" href="./assets/libs/swiper-bundle.min.css" />
+    <!-- end meta -->
+    <!-- link custom css page -->
+    <link rel="stylesheet" href="./assets/main/css/style.min.css" />
+    <link rel="stylesheet" href="./assets/fonts/SVN-Graphik/stylesheet.css" />
+    <!-- end link custom css page -->
+    <!-- scrollRestoration -->
+    <script>
+      if ("scrollRestoration" in history) {
+        history.scrollRestoration = "manual";
+      }
+    </script>
+  </head>
+  <body>
+    <!-- layout -->
+    <!-- header -->
+    <script>
+      fetch("./components/header.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("header").innerHTML = data;
+          const currentPath = window.location.pathname || "/";
+
+          const navLinks = document.querySelectorAll(".header-menu ul>li>a");
+          navLinks.forEach((link) => {
+            const linkPath = link.getAttribute("href");
+
+            // Normalize paths for comparison
+            let normalizedCurrentPath = currentPath;
+            let normalizedLinkPath = linkPath;
+
+            // Remove leading "./" from link path
+            if (normalizedLinkPath.startsWith("./")) {
+              normalizedLinkPath = normalizedLinkPath.substring(1);
+            }
+
+            // For GitHub Pages, get the last segment of the path
+            const currentSegment =
+              normalizedCurrentPath.split("/").pop() || "/";
+            const linkSegment = normalizedLinkPath.split("/").pop() || "/";
+
+            // Check if paths match
+            const isMatch =
+              normalizedLinkPath === normalizedCurrentPath || // Exact match
+              currentSegment === linkSegment || // Segment match
+              (currentPath.endsWith(normalizedLinkPath) &&
+                normalizedLinkPath !== "/") || // Ends with
+              (currentPath === "/" && (linkPath === "/" || linkPath === "./")); // Home page
+
+            if (isMatch) {
+              link.classList.add("active");
+            }
+          });
+        });
+    </script>
+
+    <header id="header" class="not-home"></header>
+    <div class="blank-spacing"></div>
+    <!-- end header -->
+
+    <!-- magic cursor -->
+    <div class="magic-cursor">
+      <div class="cursor">
+        <div class="text"></div>
+      </div>
+    </div>
+    <script>
+      fetch("./components/chat.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("chat-ai").innerHTML = data;
+        });
+    </script>
+    <div id="chat-ai" data-lenis-prevent></div>
+    <main>
+      <section class="hero has-slider">
+        <div class="container-fluid p-0">
+          <div class="hero-sec__container">
+            <div class="swiper swiper-banner">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="slide-banner">
+                    <img
+                      srcset="./assets/images/about/banner/banner-6.webp"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="slide-banner">
+                    <img
+                      srcset="./assets/images/about/banner/banner-1.webp"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="slide-banner">
+                    <img
+                      srcset="./assets/images/about/banner/banner-2.webp"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="slide-banner">
+                    <img
+                      srcset="./assets/images/about/banner/banner-3.webp"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="slide-banner">
+                    <img
+                      srcset="./assets/images/about/banner/banner-4.webp"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="slide-banner">
+                    <img
+                      srcset="./assets/images/about/banner/banner-5.webp"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="slide-banner">
+                    <img
+                      srcset="./assets/images/about/banner/banner-6.webp"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="slide-banner">
+                    <img
+                      srcset="./assets/images/about/banner/banner-8.webp"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="slide-banner">
+                    <img
+                      srcset="./assets/images/about/banner/banner-9.webp"
+                      alt=""
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="swiper-content effect-title-auto h3-font color-white d-none"
+                data-delay="0.5"
+              >
+                Về Menas Group
+              </div>
+              <div class="swiper-pagination"></div>
+              <div class="progress-bar d-none"></div>
+              <div class="swiper-arrows">
+                <div class="swiper-prev">
+                  <svg
+                    width="7"
+                    height="12"
+                    viewBox="0 0 7 12"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M5.91183 5.96875C4.46529 5.60711 1.35523 3.92913 0.487304 0.11026"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    />
+                    <path
+                      d="M5.91183 5.75195C4.46529 6.11359 1.35523 7.79158 0.487305 11.6104"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    />
+                  </svg>
+                </div>
+                <div class="swiper-next">
+                  <svg
+                    width="7"
+                    height="12"
+                    viewBox="0 0 7 12"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M5.91183 5.96875C4.46529 5.60711 1.35523 3.92913 0.487304 0.11026"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    />
+                    <path
+                      d="M5.91183 5.75195C4.46529 6.11359 1.35523 7.79158 0.487305 11.6104"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="hero-overlay" id="banner"></div>
+      <section class="intro">
+        <div class="intro-overlay"></div>
+        <div class="intro-container pb-0">
+          <div class="intro-text effect-line b1-bold-font">
+            Menas luôn đặt khách hàng lên hàng đầu và cam kết cung cấp giải pháp
+            tối ưu nhất, xây dựng mối quan hệ đối tác mạnh mẽ với các thương
+            hiệu lớn đa dạng ngành nghề, giúp tạo ra giá trị cho các bên.
+          </div>
+        </div>
+      </section>
+      <section class="scroll-wrap" style="--z-index: 2" id="value">
+        <div class="container-fluid p-0">
+          <div class="row g-0 scroll-wrap-item">
+            <div class="col-lg-6">
+              <div class="scroll-wrap-image animation-image-clip">
+                <img src="./assets/images/partner/partner-3.webp" alt="" />
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="scroll-wrap-content">
+                <div class="scroll-wrap-box">
+                  <h3 class="h2-font title-box">
+                    Tham gia chuỗi hệ sinh thái toàn diện
+                  </h3>
+                  <div class="description-box b1-font">
+                    Trở thành đối tác của Menas đồng nghĩa với việc gia nhập vào
+                    một hệ sinh thái thương mại đa dạng. Điều này giúp đối tác
+                    tối đa hóa khả năng tiếp cận khách hàng tiềm năng, tận dụng
+                    mạng lưới phân phối rộng lớn và cơ hội hợp tác chéo trong
+                    các dự án của Menas. 
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row g-0 scroll-wrap-item flex-lg-row-reverse">
+            <div class="col-lg-6">
+              <div class="scroll-wrap-image animation-image-clip">
+                <img src="./assets/images/partner/partner-2.webp" alt="" />
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="scroll-wrap-content">
+                <div class="scroll-wrap-box">
+                  <h3 class="h2-font title-box">
+                    Tối ưu hóa & Nâng cao giá trị tài sản bất động sản 
+                  </h3>
+                  <div class="description-box b1-font">
+                    Menas cung cấp dịch vụ tư vấn B2B chất lượng cao, giúp các
+                    doanh nghiệp đối tác tối ưu hóa quản lý bất động sản. Menas
+                    không chỉ dừng lại ở việc quản lý mà còn hỗ trợ phát triển
+                    các tiện ích và cải tiến cơ sở hạ tầng nhằm nâng cao giá trị
+                    của bất động sản.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row g-0 scroll-wrap-item">
+            <div class="col-lg-6">
+              <div class="scroll-wrap-image animation-image-clip">
+                <img src="./assets/images/partner/partner-1.webp" alt="" />
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="scroll-wrap-content">
+                <div class="scroll-wrap-box">
+                  <h3 class="h2-font title-box">Đảm bảo lợi thế cạnh tranh</h3>
+                  <div class="description-box b1-font">
+                    Sự hợp tác chiến lược giúp thương hiệu đối tác được ưu tiên
+                    hiện diện tại các vị trí đắc địa nhất trong chuỗi dự án của
+                    Menas, từ đó xây dựng hình ảnh thương hiệu cao cấp và dẫn
+                    đầu thị trường. 
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="spacing"></div>
+      <section class="partner-info"></section>
+    </main>
+    <!-- layout -->
+    <!-- footer -->
+    <script>
+      fetch("./components/footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer").innerHTML = data;
+        });
+    </script>
+    <footer id="footer"></footer>
+    <!-- end footer -->
+    <!-- end layout -->
+
+    <script src="./assets/libs/jquery-3.7.1.js"></script>
+    <script src="./assets/libs/lenis.min.js"></script>
+    <script src="./assets/libs/gsap.min.js"></script>
+    <script src="./assets/libs/ScrollTrigger.min.js"></script>
+    <script src="./assets/libs/SplitText.min.js"></script>
+    <script src="./assets/libs/bootstrap.bundle.min.js"></script>
+    <script src="./assets/libs/imagesloaded.pkgd.min.js"></script>
+    <script src="./assets/libs/swiper-bundle.min.js"></script>
+    <!-- import custom js -->
+    <script src="./assets/js/index/chat.js"></script>
+    <script src="./assets/main/js/marquee.min.js"></script>
+    <script type="module" src="./assets/main/js/script.min.js"></script>
+
+    <!-- end import custom js -->
+  </body>
+</html>
+<!-- https://gsap.com/community/forums/topic/30338-circular-carouselslider/ -->
