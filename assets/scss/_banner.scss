@@ -206,22 +206,6 @@
           margin-bottom: 20px;
         }
       }
-
-      em {
-        font-family: var(--font-third);
-        font-style: normal;
-        font-size: 72px;
-        line-height: 72px;
-
-        @media (max-width: 991px) {
-          font-size: 48px;
-          line-height: 48px;
-
-          .char {
-            overflow: visible;
-          }
-        }
-      }
     }
   }
 
@@ -266,7 +250,8 @@
       height: 40px;
       border-radius: 50%;
       border: 1px solid var(--color-white);
-      color: var(--color-white);
+      color: var(--color-text);
+      background-color: var(--color-white);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -274,15 +259,16 @@
       transition: all 0.4s ease;
 
       &:hover {
-        background-color: var(--color-white);
-        color: var(--color-black);
+        background-color: var(--color-primary);
+        color: var(--color-white);
+        border-color: var(--color-primary);
       }
 
       svg {
         width: 7px;
         height: 12px;
 
-        path {
+        * {
           transition: all 0.4s ease;
         }
       }

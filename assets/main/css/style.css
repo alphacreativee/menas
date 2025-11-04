@@ -1446,21 +1446,6 @@ section {
     margin-bottom: 20px;
   }
 }
-.hero__content h2 em {
-  font-family: var(--font-third);
-  font-style: normal;
-  font-size: 72px;
-  line-height: 72px;
-}
-@media (max-width: 991px) {
-  .hero__content h2 em {
-    font-size: 48px;
-    line-height: 48px;
-  }
-  .hero__content h2 em .char {
-    overflow: visible;
-  }
-}
 .hero .swiper-pagination {
   height: 2px;
   background-color: transparent;
@@ -1498,7 +1483,8 @@ section {
   height: 40px;
   border-radius: 50%;
   border: 1px solid var(--color-white);
-  color: var(--color-white);
+  color: var(--color-text);
+  background-color: var(--color-white);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1507,16 +1493,17 @@ section {
 }
 .hero .swiper-arrows .swiper-next:hover,
 .hero .swiper-arrows .swiper-prev:hover {
-  background-color: var(--color-white);
-  color: var(--color-black);
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border-color: var(--color-primary);
 }
 .hero .swiper-arrows .swiper-next svg,
 .hero .swiper-arrows .swiper-prev svg {
   width: 7px;
   height: 12px;
 }
-.hero .swiper-arrows .swiper-next svg path,
-.hero .swiper-arrows .swiper-prev svg path {
+.hero .swiper-arrows .swiper-next svg *,
+.hero .swiper-arrows .swiper-prev svg * {
   transition: all 0.4s ease;
 }
 .hero .swiper-arrows .swiper-next::after,

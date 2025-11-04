@@ -616,7 +616,8 @@ function hero() {
 
   var swiperBanner = new Swiper(".swiper-banner", {
     loop: true,
-    speed: 1500,
+    speed: 900,
+    effect: "fade",
     grabCursor: true,
     watchSlidesProgress: true,
     mousewheelControl: true,
@@ -645,25 +646,25 @@ function hero() {
           }, 50);
         }
       },
-      progress: function (swiper) {
-        swiper.slides.forEach(function (slide) {
-          var slideProgress = slide.progress || 0;
-          var innerOffset = swiper.width * interleaveOffset;
-          var innerTranslate = slideProgress * innerOffset;
-          if (!isNaN(innerTranslate)) {
-            var slideInner = slide.querySelector(".slide-banner");
-            if (slideInner) {
-              slideInner.style.transform =
-                "translate3d(" + innerTranslate + "px, 0, 0)";
-            }
-          }
-        });
-      },
-      touchStart: function (swiper) {
-        swiper.slides.forEach(function (slide) {
-          slide.style.transition = "";
-        });
-      },
+      // progress: function (swiper) {
+      //   swiper.slides.forEach(function (slide) {
+      //     var slideProgress = slide.progress || 0;
+      //     var innerOffset = swiper.width * interleaveOffset;
+      //     var innerTranslate = slideProgress * innerOffset;
+      //     if (!isNaN(innerTranslate)) {
+      //       var slideInner = slide.querySelector(".slide-banner");
+      //       if (slideInner) {
+      //         slideInner.style.transform =
+      //           "translate3d(" + innerTranslate + "px, 0, 0)";
+      //       }
+      //     }
+      //   });
+      // },
+      // touchStart: function (swiper) {
+      //   swiper.slides.forEach(function (slide) {
+      //     slide.style.transition = "";
+      //   });
+      // },
       setTransition: function (swiper, speed) {
         var easing = "cubic-bezier(0.25, 0.1, 0.25, 1)";
         swiper.slides.forEach(function (slide) {
