@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tuyển dụng</title>
+    <!-- import favicon -->
+    <link
+      rel="icon"
+      href="./assets/images/menas-favicon-min.png"
+      type="image/x-icon"
+    />
+    <!-- meta -->
+    <meta property="og:url" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Tuyển dụng" />
+    <meta
+      property="og:description"
+      content="Cung cấp dịch vụ tư vấn, quản lý và phát triển bất động sản vượt trội cho các nhà phát triển và nhà đầu tư, mang lại hiệu quả cao trong vận hành và quản lý dự án với tầm nhìn dài hạn"
+    />
+    <meta
+      property="og:image"
+      content="https://alphacreativee.github.io/menas/assets/images/bg-intro.webp"
+    />
+    <!-- meta -->
+    <link rel="stylesheet" href="./assets/libs/bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/libs/lenis.css" />
+    <link rel="stylesheet" href="./assets/libs/swiper-bundle.min.css" />
+    <!-- end meta -->
+    <!-- link custom css page -->
+    <link rel="stylesheet" href="./assets/main/css/style.min.css" />
+    <link rel="stylesheet" href="./assets/fonts/SVN-Graphik/stylesheet.css" />
+    <!-- end link custom css page -->
+    <!-- scrollRestoration -->
+    <script>
+      if ("scrollRestoration" in history) {
+        history.scrollRestoration = "manual";
+      }
+    </script>
+  </head>
+  <body>
+    <!-- layout -->
+    <!-- header -->
+    <script>
+      fetch("./components/header.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("header").innerHTML = data;
+          const currentPath = window.location.pathname || "/";
+
+          const navLinks = document.querySelectorAll(".header-menu ul>li>a");
+          navLinks.forEach((link) => {
+            const linkPath = link.getAttribute("href");
+
+            // Normalize paths for comparison
+            let normalizedCurrentPath = currentPath;
+            let normalizedLinkPath = linkPath;
+
+            // Remove leading "./" from link path
+            if (normalizedLinkPath.startsWith("./")) {
+              normalizedLinkPath = normalizedLinkPath.substring(1);
+            }
+
+            // Get the last segment of the path
+            const currentSegment = normalizedCurrentPath.split("/").pop() || "";
+            const linkSegment = normalizedLinkPath.split("/").pop() || "";
+
+            // Check if current path is root or ends with /
+            const isRootPath =
+              currentPath === "/" ||
+              currentPath.endsWith("/") ||
+              currentSegment === "";
+
+            // Check if link is home/index
+            const isHomeLink =
+              linkPath === "/" ||
+              linkPath === "./" ||
+              linkPath === "./index.html" ||
+              linkPath === "index.html" ||
+              linkSegment === "index.html";
+
+            // Match logic
+            const isMatch =
+              normalizedLinkPath === normalizedCurrentPath || // Exact match
+              currentSegment === linkSegment || // Segment match
+              (isRootPath && isHomeLink) || // Root path matches home link
+              (currentPath.endsWith(normalizedLinkPath) &&
+                normalizedLinkPath !== "/");
+
+            if (isMatch) {
+              link.classList.add("active");
+            }
+          });
+        });
+    </script>
+    <header id="header" class="not-home"></header>
+    <div class="blank-spacing"></div>
+    <!-- end header -->
+
+    <!-- magic cursor -->
+    <div class="magic-cursor">
+      <div class="cursor">
+        <div class="text"></div>
+      </div>
+    </div>
+    <script>
+      fetch("./components/chat.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("chat-ai").innerHTML = data;
+        });
+    </script>
+    <div id="chat-ai" data-lenis-prevent></div>
+
+    <main>
+      <section class="hero has-slider not-has-sticky">
+        <div class="container-fluid p-0">
+          <div class="hero-sec__container">
+            <div class="swiper swiper-banner">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="slide-banner">
+                    <img
+                      srcset="./assets/images/reruitment/banner.webp"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="slide-banner">
+                    <img
+                      srcset="./assets/images/reruitment/banner.webp"
+                      alt=""
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+              <div class="swiper-arrows">
+                <div class="swiper-prev">
+                  <svg
+                    width="7"
+                    height="12"
+                    viewBox="0 0 7 12"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M5.91183 5.96875C4.46529 5.60711 1.35523 3.92913 0.487304 0.11026"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    />
+                    <path
+                      d="M5.91183 5.75195C4.46529 6.11359 1.35523 7.79158 0.487305 11.6104"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    />
+                  </svg>
+                </div>
+                <div class="swiper-next">
+                  <svg
+                    width="7"
+                    height="12"
+                    viewBox="0 0 7 12"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M5.91183 5.96875C4.46529 5.60711 1.35523 3.92913 0.487304 0.11026"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    />
+                    <path
+                      d="M5.91183 5.75195C4.46529 6.11359 1.35523 7.79158 0.487305 11.6104"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="form-reruitment-bar d-none">
+              <form action="">
+                <div class="form-item search">
+                  <div class="icon"></div>
+                  <input type="text" placeholder="Tìm vị trí công việc" />
+                </div>
+                <div class="form-item time"></div>
+                <div class="form-item field"></div>
+                <div class="form-item location"></div>
+                <button class="" type="submit">Tìm việc</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section-reruitment">
+        <div class="reruitment-wrapper">
+          <div
+            class="reruitment-title d-flex align-items-center justify-content-between"
+          >
+            <h2 class="title h1-font">Việc làm đang mở</h2>
+            <p class="b2-bold-font"><span>10</span> vị trí phù hợp</p>
+          </div>
+          <div class="reruitment-tabs d-flex align-items-center">
+            <div class="tab-item active" data-tab="all">Tất cả</div>
+            <div class="tab-item" data-tab="1">Văn Phòng</div>
+            <div class="tab-item" data-tab="2">Siêu thị</div>
+            <div class="tab-item" data-tab="3">️Nhà hàng</div>
+            <div class="tab-item" data-tab="4">Khách sạn</div>
+          </div>
+          <div class="reruitment-main">
+            <div class="reruitment-list">
+              <div class="item" data-cursor-text="Chi tiết">
+                <div class="item-left">
+                  <div class="item-title">Nhân viên Bán hàng Mỹ phẩm</div>
+                  <div class="item-desc">
+                    Mena Cosmetics and Perfumes • TP. HCM – Quận 1
+                  </div>
+                </div>
+                <div class="item-right">
+                  <div class="item-salary">8–12 triệu + KPI</div>
+                  <div class="item-date">Hết hạn: 10/10/2026</div>
+                </div>
+                <a href="./recruitment-detail.html" class="link"></a>
+              </div>
+              <div class="item" data-cursor-text="Chi tiết">
+                <div class="item-left">
+                  <div class="item-title">Nhân viên Bán hàng Mỹ phẩm</div>
+                  <div class="item-desc">
+                    Mena Cosmetics and Perfumes • TP. HCM – Quận 1
+                  </div>
+                </div>
+                <div class="item-right">
+                  <div class="item-salary">8–12 triệu + KPI</div>
+                  <div class="item-date">Hết hạn: 10/10/2026</div>
+                </div>
+                <a href="./recruitment-detail.html" class="link"></a>
+              </div>
+              <div class="item" data-cursor-text="Chi tiết">
+                <div class="item-left">
+                  <div class="item-title">Nhân viên Bán hàng Mỹ phẩm</div>
+                  <div class="item-desc">
+                    Mena Cosmetics and Perfumes • TP. HCM – Quận 1
+                  </div>
+                </div>
+                <div class="item-right">
+                  <div class="item-salary">8–12 triệu + KPI</div>
+                  <div class="item-date">Hết hạn: 10/10/2026</div>
+                </div>
+                <a href="./recruitment-detail.html" class="link"></a>
+              </div>
+              <div class="item" data-cursor-text="Chi tiết">
+                <div class="item-left">
+                  <div class="item-title">Nhân viên Bán hàng Mỹ phẩm</div>
+                  <div class="item-desc">
+                    Mena Cosmetics and Perfumes • TP. HCM – Quận 1
+                  </div>
+                </div>
+                <div class="item-right">
+                  <div class="item-salary">8–12 triệu + KPI</div>
+                  <div class="item-date">Hết hạn: 10/10/2026</div>
+                </div>
+                <a href="./recruitment-detail.html" class="link"></a>
+              </div>
+              <div class="item" data-cursor-text="Chi tiết">
+                <div class="item-left">
+                  <div class="item-title">Nhân viên Bán hàng Mỹ phẩm</div>
+                  <div class="item-desc">
+                    Mena Cosmetics and Perfumes • TP. HCM – Quận 1
+                  </div>
+                </div>
+                <div class="item-right">
+                  <div class="item-salary">8–12 triệu + KPI</div>
+                  <div class="item-date">Hết hạn: 10/10/2026</div>
+                </div>
+                <a href="./recruitment-detail.html" class="link"></a>
+              </div>
+            </div>
+            <div class="pagination">
+              <a
+                href="#"
+                class="prev-page page-number disabled"
+                aria-label="Previous page"
+              >
+                <svg
+                  width="6"
+                  height="11"
+                  viewBox="0 0 6 11"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style="transform: rotate(180deg)"
+                >
+                  <path
+                    d="M5.69249 5.31641C4.43465 5.00196 1.73029 3.54294 0.975586 0.222417"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M5.69249 5.12891C4.43465 5.44335 1.73029 6.90237 0.975586 10.2229"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                </svg>
+              </a>
+
+              <a href="#" class="page-number active">1</a>
+              <a href="#" class="page-number">2</a>
+              <a href="#" class="page-number">3</a>
+              <span class="dots">...</span>
+              <a href="#" class="page-number">8</a>
+
+              <a href="#" class="next-page page-number" aria-label="Next page">
+                <svg
+                  width="6"
+                  height="11"
+                  viewBox="0 0 6 11"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5.69249 5.31641C4.43465 5.00196 1.73029 3.54294 0.975586 0.222417"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M5.69249 5.12891C4.43465 5.44335 1.73029 6.90237 0.975586 10.2229"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section-fields spacing-top" style="--bg-section: #f7f7f7">
+        <div class="container-fluid p-0">
+          <h2
+            class="section-title h2-font font-heading color-text effect-title text-center"
+          >
+            Đồng hành cùng Menas
+          </h2>
+          <div class="fields-list">
+            <div
+              class="fields-item data-fade-in animation-image-clip"
+              data-cursor-text="Chi tiết"
+            >
+              <div class="fields-item-img">
+                <img src="./assets/images/home/fields/field-1.webp" alt="" />
+              </div>
+              <div class="fields-item-name color-text text-center">
+                <h3 class="h3-font color-white font-heading">
+                  Mức lương & Phúc lợi hấp dẫn
+                </h3>
+              </div>
+            </div>
+            <div
+              class="fields-item data-fade-in animation-image-clip"
+              data-delay="0.2"
+              data-cursor-text="Chi tiết"
+            >
+              <div class="fields-item-img">
+                <img src="./assets/images/home/fields/field-2.webp" alt="" />
+              </div>
+              <div class="fields-item-name color-text text-center">
+                <h3 class="h3-font color-white font-heading">
+                  Môi trường trẻ trung & năng động
+                </h3>
+              </div>
+            </div>
+            <div
+              class="fields-item data-fade-in animation-image-clip"
+              data-cursor-text="Chi tiết"
+            >
+              <div class="fields-item-img">
+                <img src="./assets/images/home/fields/field-3.webp" alt="" />
+              </div>
+              <div class="fields-item-name color-text text-center">
+                <h3 class="h3-font color-white font-heading">
+                  Nhiều cơ hội thăng tiến
+                </h3>
+              </div>
+            </div>
+            <div
+              class="fields-item data-fade-in animation-image-clip"
+              data-delay="0.2"
+              data-cursor-text="Chi tiết"
+            >
+              <div class="fields-item-img">
+                <img src="./assets/images/home/fields/field-4.webp" alt="" />
+              </div>
+              <div class="fields-item-name color-text text-center">
+                <h3 class="h3-font color-white font-heading">
+                  Đào tạo & không ngừng phát triển
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- layout -->
+    <!-- footer -->
+    <script>
+      fetch("./components/footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer").innerHTML = data;
+        });
+    </script>
+    <footer id="footer"></footer>
+    <!-- end footer -->
+    <!-- end layout -->
+
+    <script src="./assets/libs/jquery-3.7.1.js"></script>
+    <script src="./assets/libs/lenis.min.js"></script>
+    <script src="./assets/libs/gsap.min.js"></script>
+    <script src="./assets/libs/ScrollTrigger.min.js"></script>
+    <script src="./assets/libs/SplitText.min.js"></script>
+    <script src="./assets/libs/bootstrap.bundle.min.js"></script>
+    <script src="./assets/libs/imagesloaded.pkgd.min.js"></script>
+    <script src="./assets/libs/swiper-bundle.min.js"></script>
+    <!-- import custom js -->
+    <script src="./assets/js/index/chat.js"></script>
+    <script src="./assets/main/js/marquee.min.js"></script>
+    <script type="module" src="./assets/main/js/script.min.js"></script>
+
+    <!-- end import custom js -->
+  </body>
+</html>
+<!-- https://gsap.com/community/forums/topic/30338-circular-carouselslider/ -->

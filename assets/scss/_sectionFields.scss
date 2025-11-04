@@ -1,7 +1,12 @@
 .section-fields {
   // padding-top: 80px;
   background-color: var(--color-white);
+  background-color: var(--bg-section);
   position: relative;
+
+  &.spacing-top {
+    padding-top: 48px;
+  }
 
   .section-title {
     margin-bottom: 48px;
