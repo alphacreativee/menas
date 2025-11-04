@@ -1146,6 +1146,9 @@ section {
 .hero .swiper-banner .swiper-slide {
   overflow: hidden;
 }
+.hero .swiper-banner .swiper-slide:first-child img {
+  transform: scale(1.1);
+}
 .hero .swiper-banner .slide-banner {
   width: 100%;
   height: 100%;

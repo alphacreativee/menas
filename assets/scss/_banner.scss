@@ -119,6 +119,11 @@
 
     .swiper-slide {
       overflow: hidden;
+      &:first-child {
+        img {
+          transform: scale(1.1);
+        }
+      }
     }
     .slide-banner {
       width: 100%;
