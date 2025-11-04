@@ -133,7 +133,21 @@ function addMessage(text, type) {
   messageDiv.appendChild(contentDiv);
   messageDiv.appendChild(timeDiv);
   messagesDiv.appendChild(messageDiv);
-  messagesDiv.scrollTop = messagesDiv.scrollHeight;
+
+  // Scroll để hiển thị message mới
+  if (type === "ai") {
+    // Đợi render xong
+    requestAnimationFrame(() => {
+      // Scroll để top của AI message hiển thị ở đầu container
+      messageDiv.scrollIntoView({ behavior: "smooth", block: "start" });
+      setTimeout(() => {
+        messagesDiv.scrollTop -= 20;
+      }, 300);
+    });
+  } else {
+    // User message scroll xuống bottom
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+  }
 }
 
 function removeMarkdown(text) {
