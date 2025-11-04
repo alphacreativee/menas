@@ -1,0 +1,92 @@
+.section-reruitment {
+  background-color: var(--color-white);
+
+  .reruitment {
+    &-wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 0;
+    }
+
+    &-tabs {
+      gap: 12px;
+      margin-top: 40px;
+
+      .tab-item {
+        height: 40px;
+        padding: 6px 27px;
+        border-radius: 20px;
+        border: 1px solid var(--color-text);
+        transition: all 0.4s ease;
+        cursor: pointer;
+
+        &.active,
+        &:hover {
+          background-color: var(--color-primary);
+          border-color: var(--color-primary);
+          color: var(--color-white);
+        }
+      }
+    }
+
+    &-main {
+      margin-top: 24px;
+
+      .pagination {
+        .page-number {
+          background-color: #f7f7f7;
+
+          &:hover,
+          &.active {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+          }
+        }
+      }
+    }
+
+    &-list {
+      .item {
+        padding: 24px;
+        border-radius: 8px;
+        border: 1px solid var(--color-text);
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        transition: all 0.4s ease;
+        position: relative;
+
+        .link {
+          position: absolute;
+          inset: 0;
+        }
+
+        &:hover {
+          border-color: var(--color-primary);
+        }
+
+        &:not(:last-child) {
+          margin-bottom: 12px;
+        }
+
+        &-title,
+        &-salary {
+          font-size: 17px;
+          line-height: 24px;
+          font-weight: 500;
+        }
+
+        &-desc,
+        &-date {
+          font-size: 14px;
+          line-height: 24px;
+          margin-top: 4px;
+        }
+
+        &-date {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}
