@@ -1,0 +1,160 @@
+.news-detail {
+  background-color: var(--color-white);
+  padding: 60px 0 40px;
+  position: relative;
+
+  &::before {
+    content: "";
+    width: 100%;
+    height: 240px;
+    background: linear-gradient(to bottom right, #fffbeb 0%, #ffffff 70%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  &__wrapper {
+    max-width: 920px;
+    margin: 0 auto;
+    color: var(--color-text);
+    position: relative;
+    z-index: 2;
+
+    .date {
+      font-size: 12px;
+      line-height: 20px;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .title {
+      font-size: 32px;
+      line-height: 40px;
+      font-weight: 500;
+      margin-bottom: 24px;
+    }
+
+    .content {
+      * {
+        font-size: 17px;
+        line-height: 24px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      .wp-block-image {
+        margin: 30px 0;
+      }
+
+      h2,
+      h3 {
+        font-size: 24px;
+        line-height: 32px;
+        font-weight: 500;
+        margin-bottom: 24px;
+      }
+
+      p,
+      ul,
+      ol {
+        margin-bottom: 24px;
+      }
+
+      ul,
+      ol {
+        list-style: disc;
+        padding-left: 16px;
+        margin-left: 4px;
+
+        li {
+          &:not(:last-child) {
+            margin-bottom: 8px;
+          }
+        }
+      }
+
+      ol {
+        list-style: decimal;
+      }
+
+      a {
+        font-weight: 500;
+        transition: all 0.4s ease;
+
+        &:hover {
+          color: var(--color-primary);
+        }
+      }
+    }
+  }
+
+  &__cta {
+    margin-top: 40px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 600;
+
+    display: flex;
+    align-items: center;
+    gap: 48px;
+
+    .like,
+    .share {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .like {
+      cursor: pointer;
+      position: relative;
+
+      &::after {
+        content: "";
+        width: 2px;
+        height: 12px;
+        position: absolute;
+        background-color: var(--color-text);
+        right: -25px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .icon {
+        svg * {
+          transition: all 0.4s ease;
+        }
+      }
+
+      &:hover,
+      &.active {
+        .icon {
+          color: #ff0000;
+        }
+      }
+    }
+
+    .share {
+      ul {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        svg {
+          * {
+            transition: all 0.4s ease;
+          }
+        }
+
+        li {
+          &:hover {
+            color: var(--color-primary);
+          }
+        }
+      }
+    }
+  }
+}
