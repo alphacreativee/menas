@@ -751,7 +751,7 @@ section {
     padding-left: 45px;
   }
 }
-@media (max-width: 1200px) and (min-width: 992px) {
+@media (max-width: 1200px) and (min-width: 1151px) {
   .footer-bottom ul.social {
     padding-left: 24px;
   }
@@ -823,7 +823,7 @@ section {
   gap: 24px;
   flex-wrap: wrap;
 }
-@media (min-width: 992px) and (max-width: 1200px) {
+@media (min-width: 1151px) and (max-width: 1200px) {
   .footer-col.terms ul {
     gap: 24px;
   }
@@ -852,7 +852,7 @@ section {
     padding-left: 45px;
   }
 }
-@media (max-width: 1150px) and (min-width: 992px) {
+@media (max-width: 1150px) and (min-width: 1151px) {
   .footer-col.col-address {
     padding-left: 0px;
   }
@@ -903,7 +903,7 @@ section {
     padding-left: 45px;
   }
 }
-@media (max-width: 1200px) and (min-width: 992px) {
+@media (max-width: 1200px) and (min-width: 1151px) {
   .footer-col.col-about-menas, .footer-col.col-menu {
     padding-left: 24px;
   }
