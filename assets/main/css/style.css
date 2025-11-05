@@ -2769,29 +2769,32 @@ section {
   grid-template-columns: repeat(3, 1fr);
   gap: 16px 24px;
 }
+.partner-info .group-info .info-item {
+  display: flex;
+  align-items: flex-end;
+}
 .partner-info .group-info .info-item .form-field {
   position: relative;
+  width: 100%;
 }
 .partner-info .group-info .info-item .form-field.up-file input {
-  height: 37px;
+  height: 65px;
   text-indent: -9999px;
   position: relative;
   z-index: 1;
   padding-bottom: 12px;
-  padding-left: 20px;
 }
 .partner-info .group-info .info-item .form-field.up-file .icon {
-  right: auto;
-  left: 0;
   width: 15px;
   height: 20px;
+  top: 18px;
 }
 .partner-info .group-info .info-item .form-field.up-file label {
   position: absolute;
   z-index: 2;
   opacity: 1 !important;
   visibility: visible !important;
-  left: 20px;
+  left: 0;
   top: 3px;
 }
 .partner-info .group-info .info-item .form-field .icon {

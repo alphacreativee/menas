@@ -1330,11 +1330,7 @@ function header() {
     }
   });
 }
-function getDateLightPick() {
-  var picker = new Lightpick({
-    field: document.getElementById("establishment"),
-  });
-}
+
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   // sectionFields();
@@ -1356,7 +1352,7 @@ const init = () => {
   customDropdownSelectValue();
   parallaxSwiper();
   header();
-  getDateLightPick();
+
   ScrollTrigger.refresh();
 };
 preloadImages("img").then(() => {
