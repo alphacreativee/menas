@@ -86,6 +86,73 @@
         &-date {
           margin-top: 0;
         }
+
+        &-right {
+          text-align: right;
+        }
+      }
+    }
+  }
+}
+
+.form-reruitment-bar {
+  background-color: var(--color-white);
+  border-radius: 100px;
+  position: absolute;
+  z-index: 10;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1000px;
+
+  form {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    padding-left: 20px;
+    gap: 16px;
+
+    .form-item {
+      padding: 12px 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      &.search {
+        input {
+          width: calc(80%);
+          border: none;
+          font-size: 14px;
+          line-height: 24px;
+          color: var(--color-text);
+
+          &::placeholder {
+            color: rgba($color: #1a3d4e, $alpha: 0.7);
+          }
+        }
+      }
+
+      & > .icon {
+        width: 20px;
+        height: 20px;
+      }
+
+      .dropdown-custom-menu {
+        width: calc(100% + 16px + 20px);
+        min-width: 150px;
+      }
+    }
+
+    button {
+      width: 100%;
+      border-radius: 48px;
+      border: none;
+      background-color: var(--color-text);
+      transition: all 0.4s ease;
+      text-transform: uppercase;
+
+      &:hover {
+        background-color: var(--color-primary);
       }
     }
   }

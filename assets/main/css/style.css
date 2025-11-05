@@ -351,6 +351,61 @@ section {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.dropdown-custom {
+  position: relative;
+  cursor: pointer;
+}
+
+.dropdown-custom-menu {
+  position: absolute;
+  bottom: -17px;
+  left: -16px;
+  transform: translateY(100%);
+  background-color: var(--color-white);
+  width: 120px;
+  padding: 8px;
+  clip-path: inset(0 0 100% 0);
+  will-change: clip-path;
+  transition: clip-path 0.3s ease;
+  pointer-events: none;
+}
+.dropdown-custom-menu.dropdown--active {
+  clip-path: inset(0 0 0 0);
+  pointer-events: auto;
+}
+
+.dropdown-custom-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.dropdown-custom-btn .value-select {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.dropdown-custom-btn .value-select span {
+  color: var(--color-text);
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.dropdown-custom-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 8px;
+  color: var(--color-text);
+  transition: all 0.3s ease;
+}
+.dropdown-custom-item:hover {
+  color: var(--color-primary);
+}
+.dropdown-custom-item span {
+  font-size: 14px;
+  line-height: 18px;
+}
+
 .section-fields {
   background-color: var(--color-white);
   background-color: var(--bg-section);
@@ -1269,7 +1324,6 @@ section {
 .hero {
   width: 100%;
   position: fixed;
-  overflow: hidden;
   top: 60px;
   left: 0;
   background-color: var(--color-white);
@@ -1281,6 +1335,7 @@ section {
 .hero-sec__container {
   height: calc(100dvh - 60px);
   background-color: var(--color-white);
+  position: relative;
 }
 .hero.hidden-section {
   opacity: 0;
@@ -2748,4 +2803,60 @@ section {
 }
 .section-reruitment .reruitment-list .item-date {
   margin-top: 0;
+}
+.section-reruitment .reruitment-list .item-right {
+  text-align: right;
+}
+
+.form-reruitment-bar {
+  background-color: var(--color-white);
+  border-radius: 100px;
+  position: absolute;
+  z-index: 10;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1000px;
+}
+.form-reruitment-bar form {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  padding-left: 20px;
+  gap: 16px;
+}
+.form-reruitment-bar form .form-item {
+  padding: 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.form-reruitment-bar form .form-item.search input {
+  width: 80%;
+  border: none;
+  font-size: 14px;
+  line-height: 24px;
+  color: var(--color-text);
+}
+.form-reruitment-bar form .form-item.search input::placeholder {
+  color: rgba(26, 61, 78, 0.7);
+}
+.form-reruitment-bar form .form-item > .icon {
+  width: 20px;
+  height: 20px;
+}
+.form-reruitment-bar form .form-item .dropdown-custom-menu {
+  width: calc(100% + 16px + 20px);
+  min-width: 150px;
+}
+.form-reruitment-bar form button {
+  width: 100%;
+  border-radius: 48px;
+  border: none;
+  background-color: var(--color-text);
+  transition: all 0.4s ease;
+  text-transform: uppercase;
+}
+.form-reruitment-bar form button:hover {
+  background-color: var(--color-primary);
 }

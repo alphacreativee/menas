@@ -2,7 +2,7 @@
   width: 100%;
   position: fixed;
 
-  overflow: hidden;
+  // overflow: hidden;
   top: 60px;
   left: 0;
   background-color: var(--color-white);
@@ -16,6 +16,7 @@
     // height: 610px;
     height: calc(100dvh - 60px);
     background-color: var(--color-white);
+    position: relative;
   }
 
   &.hidden-section {
