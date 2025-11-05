@@ -2918,3 +2918,38 @@ section {
 .partner-info form button:hover {
   background-color: var(--color-primary);
 }
+.partner-info .captcha-text {
+  font-size: 14px;
+  line-height: 24px;
+  color: var(--color-text);
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(26, 61, 78, 0.3);
+  margin-top: 16px;
+}
+.partner-info .captcha-text span {
+  color: #ff0000;
+}
+.partner-info .dropdown-custom-text span {
+  color: #ff0000;
+}
+.partner-info .key-captcha {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.partner-info .key-captcha .key-value {
+  min-width: 196px;
+  height: 68px;
+  border-radius: 8px;
+  border: 1px solid rgba(26, 61, 78, 0.3);
+}
+.partner-info .key-captcha .btn-refresh {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  border: 1px solid var(--color-text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
