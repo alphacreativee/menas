@@ -580,11 +580,11 @@ section {
   background: var(--color-white);
   background-size: cover;
   background-position: center;
-  padding: 60px 0 48px;
+  padding: 32px 0;
 }
 .logo-wrap-content {
   width: 40%;
-  margin: 0 auto 48px;
+  margin: 0 auto 32px;
   text-align: center;
 }
 .logo-wrap .marquee {
@@ -1106,7 +1106,6 @@ section {
 }
 @media (max-width: 1200px) {
   .header-menu .header-cta {
-    display: flex;
     justify-content: center;
     margin: 24px auto 0;
   }
@@ -1120,7 +1119,10 @@ section {
 }
 @media (max-width: 1200px) {
   .header-cta {
-    display: none;
+    position: absolute;
+    right: 80px;
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
 .header-lang {
