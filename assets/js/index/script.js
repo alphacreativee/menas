@@ -1300,12 +1300,14 @@ function header() {
     }
   });
 
-  const menuSub = $("li.menu-item-has-children");
+  const menuSub = $("li.menu-item-has-children > a");
 
   menuSub.on("click", function (e) {
     e.preventDefault();
 
-    const subMenu = $(this).find(".sub-menu").first();
+    console.log($(this));
+
+    const subMenu = $(this).siblings(".sub-menu");
     const allSubMenus = $("#header .sub-menu").not(subMenu);
 
     allSubMenus.each(function () {

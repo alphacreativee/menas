@@ -1013,7 +1013,6 @@ section {
 }
 @media (max-width: 1200px) {
   .header-menu ul > li.menu-item-has-children > a {
-    pointer-events: none;
     color: var(--color-text) !important;
   }
   .header-menu ul > li.menu-item-has-children > a .icon {
@@ -1084,11 +1083,21 @@ section {
 .header-menu ul > li.menu-item-has-children .sub-menu li {
   width: 100%;
 }
+@media (max-width: 1200px) {
+  .header-menu ul > li.menu-item-has-children .sub-menu li:last-child a {
+    padding-bottom: 0;
+  }
+}
 .header-menu ul > li.menu-item-has-children .sub-menu li a {
   padding: 8px;
   transition: all 0.4s ease;
   width: 100%;
   display: block;
+}
+@media (max-width: 1200px) {
+  .header-menu ul > li.menu-item-has-children .sub-menu li a {
+    padding: 12px 8px;
+  }
 }
 .header-menu ul > li.menu-item-has-children .sub-menu li a:hover {
   color: var(--color-primary);
