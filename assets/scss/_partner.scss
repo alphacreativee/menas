@@ -2,8 +2,8 @@
   position: relative;
   z-index: 2;
   background-color: var(--color-white-2);
+  padding: 48px 24px;
   &-container {
-    padding: 48px 24px;
     display: flex;
     flex-direction: column;
     gap: 40px;
@@ -115,9 +115,13 @@
     padding-bottom: 12px;
   }
   .suggest {
+    &-note {
+      border: 1px solid rgba(26, 61, 78, 0.3);
+      border-radius: 8px;
+    }
     &-container {
       display: grid;
-      grid-template-columns: auto 310px;
+      grid-template-columns: 2fr 1fr;
       gap: 24px;
     }
     .form-text-area {
@@ -125,12 +129,10 @@
       textarea {
         resize: none;
         width: 100%;
-        margin-top: 16px;
+
         border: none;
         font-size: 14px;
         line-height: 24px;
-        border: 1px solid rgba(26, 61, 78, 0.3);
-        border-radius: 8px;
         padding: 16px;
         &:not(:placeholder-shown) + label {
           opacity: 0;
@@ -141,24 +143,12 @@
         position: absolute;
         left: 16px;
         top: 16px;
-        top: 33px;
+        top: 16px;
         font-size: 14px;
         line-height: 24px;
         color: var(--color-text);
         transition: opacity 0.3s ease, visibility 0.3s ease;
         pointer-events: none;
-      }
-    }
-    .form-note {
-      font-size: 12px;
-      line-height: 20px;
-      font-weight: 500;
-      margin-top: 8px;
-      margin-bottom: 24px;
-      span {
-        a {
-          color: var(--color-primary);
-        }
       }
     }
   }
@@ -214,6 +204,22 @@
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+  }
+  .form-bottom {
+    margin-top: 8px;
+    .form-note {
+      margin-bottom: 24px;
+      font-size: 12px;
+      line-height: 20px;
+      font-weight: 500;
+      margin-top: 8px;
+      margin-bottom: 24px;
+      span {
+        a {
+          color: var(--color-primary);
+        }
+      }
     }
   }
 }
