@@ -34,6 +34,10 @@
     @media (max-width: 991px) {
       max-width: 60%;
     }
+
+    @media (max-width: 767px) {
+      max-width: 70%;
+    }
   }
 
   &-image {

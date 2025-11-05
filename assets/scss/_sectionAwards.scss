@@ -18,6 +18,10 @@
     &-slider {
       margin-top: 48px;
 
+      @media (max-width: 991px) {
+        margin-top: 32px;
+      }
+
       .swiper-slide {
         height: auto;
       }
@@ -134,5 +138,9 @@
     top: 60px;
     right: 60px;
     transform: translateY(50%);
+
+    @media (max-width: 991px) {
+      right: 24px;
+    }
   }
 }
