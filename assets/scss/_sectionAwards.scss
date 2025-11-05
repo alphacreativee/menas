@@ -112,11 +112,19 @@
     &.arrow-prev {
       transform: scaleX(-1) translateY(50%);
       left: 10px;
+
+      @media (max-width: 991px) {
+        left: 4px;
+      }
     }
 
     &.arrow-next {
       transform: translateY(50%);
       right: 10px;
+
+      @media (max-width: 991px) {
+        right: 4px;
+      }
     }
   }
 
@@ -125,6 +133,6 @@
     position: absolute;
     top: 60px;
     right: 60px;
-    transform: translateY(20px);
+    transform: translateY(50%);
   }
 }
