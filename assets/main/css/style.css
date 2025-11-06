@@ -1721,6 +1721,8 @@ section {
 }
 .scroll-wrap.partner-sec {
   background-color: var(--color-white-2);
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 @media (max-width: 1024px) {
   .scroll-wrap {
@@ -3000,7 +3002,7 @@ section {
   position: relative;
   z-index: 2;
   background-color: var(--color-white);
-  padding: 48px 24px;
+  padding: 80px 24px 40px;
 }
 .partner-info-container {
   display: flex;
