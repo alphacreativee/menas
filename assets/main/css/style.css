@@ -70,9 +70,9 @@ a {
 }
 
 .h2-font {
-  font-size: 32px;
+  font-size: 24px;
+  line-height: 32px;
   font-weight: 500;
-  line-height: 40px;
 }
 
 .h3-font {
@@ -1678,7 +1678,7 @@ section {
   z-index: 2;
 }
 .intro-text {
-  max-width: 50%;
+  max-width: 960px;
   margin: 0 auto;
   text-align: center;
   position: relative;
@@ -1762,7 +1762,7 @@ section {
   }
 }
 .scroll-wrap-content {
-  padding-left: calc(8.3333333333% + 48px);
+  padding-left: calc(8.3333333333% + 24px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -2097,7 +2097,7 @@ section {
 }
 .responsibility .section-desc {
   margin: 24px auto 0;
-  max-width: 685px;
+  max-width: 960px;
 }
 .responsibility-grid {
   display: flex;
