@@ -276,13 +276,21 @@ section {
     max-height: 250px;
     overflow-y: auto;
     z-index: 10;
-    transform: translateY(14px);
-    min-width: 200px;
+    transform: translateY(12px);
+    width: 190px;
     clip-path: inset(0 0 0 0);
     pointer-events: auto;
     padding: 8px;
     will-change: clip-path;
     transition: clip-path 0.3s ease;
+
+    &::-webkit-scrollbar {
+      width: 2px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--color-primary);
+    }
 
     &.hidden {
       clip-path: inset(0 0 100% 0);
