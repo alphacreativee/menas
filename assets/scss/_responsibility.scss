@@ -5,6 +5,9 @@
 
   &-wrapper {
     padding: 48px 80px;
+    @media (max-width: 1024px) {
+      padding: 48px 60px;
+    }
     @media (max-width: 991px) {
       padding: 48px 24px;
     }
@@ -27,6 +30,9 @@
     flex-wrap: wrap;
     gap: 48px 40px;
     margin-top: 48px;
+    @media (max-width: 991px) {
+      gap: 24px;
+    }
   }
 
   &-item {
@@ -34,7 +40,10 @@
     height: auto;
     position: relative;
     overflow: hidden;
-    @media (max-width: 991px) {
+    @media (max-width: 1024px) {
+      width: calc(calc(100% - 40px) / 2);
+    }
+    @media (max-width: 767px) {
       width: 100%;
     }
     &::after {
