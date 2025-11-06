@@ -3031,6 +3031,7 @@ section {
   position: relative;
   z-index: 1;
   padding-bottom: 12px;
+  cursor: pointer;
 }
 .partner-info .group-info .info-item .form-field.up-file .icon {
   width: 15px;
@@ -3102,6 +3103,8 @@ section {
 .partner-info .dropdown-custom-select .dropdown-custom-item {
   font-size: 14px;
   line-height: 24px;
+  padding: 0;
+  cursor: pointer;
 }
 .partner-info .dropdown-custom-btn {
   display: flex;
