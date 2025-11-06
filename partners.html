@@ -238,7 +238,316 @@
           </div>
         </div>
       </section>
-      <section class="scroll-wrap" style="--z-index: 2" id="value">
+      <section class="partner-info">
+        <div class="container-fluid p-0">
+          <div class="row g-0 justify-content-center">
+            <div class="col-lg-8">
+              <form action="">
+                <div class="partner-info-container">
+                  <div class="profile-person data-fade-in">
+                    <h3 class="profile-title h2-font color-text">
+                      Thông tin cá nhân
+                    </h3>
+                    <div class="group-info">
+                      <div class="info-item">
+                        <div class="form-field">
+                          <input
+                            type="text"
+                            name="name"
+                            placeholder=" "
+                            autocomplete="off"
+                          />
+                          <label for="name">Họ và tên <span>*</span></label>
+                        </div>
+                      </div>
+
+                      <div class="info-item">
+                        <div class="form-field">
+                          <input
+                            type="text"
+                            name="position"
+                            placeholder=" "
+                            autocomplete="off"
+                          />
+                          <label for="position">Chức vụ <span>*</span></label>
+                        </div>
+                      </div>
+                      <div class="info-item">
+                        <div class="form-field">
+                          <div class="dropdown-custom-select">
+                            <div class="dropdown-custom-btn">
+                              <div class="dropdown-custom-text">
+                                Cấp bậc <span>*</span>
+                              </div>
+                              <div class="ic">
+                                <svg
+                                  width="11"
+                                  height="6"
+                                  viewBox="0 0 11 6"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M5.12695 5.69347C5.4414 4.43563 6.90042 1.73127 10.2209 0.976562"
+                                    stroke="#1A3D4E"
+                                    stroke-width="2"
+                                  />
+                                  <path
+                                    d="M5.31641 5.69347C5.00196 4.43563 3.54294 1.73127 0.222417 0.976562"
+                                    stroke="#1A3D4E"
+                                    stroke-width="2"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                            <div class="dropdown-custom-menu">
+                              <div
+                                class="dropdown-custom-item link-hover color-black"
+                              >
+                                Fresher
+                              </div>
+                              <div
+                                class="dropdown-custom-item link-hover color-black"
+                              >
+                                Junior
+                              </div>
+                              <div
+                                class="dropdown-custom-item link-hover color-black"
+                              >
+                                Leader
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="info-item">
+                        <div class="form-field">
+                          <input
+                            type="email"
+                            name="email"
+                            placeholder=" "
+                            autocomplete="off"
+                          />
+                          <label for="email">Email <span>*</span></label>
+                        </div>
+                      </div>
+                      <div class="info-item">
+                        <div class="form-field">
+                          <input
+                            type="tel"
+                            name="phonenumber"
+                            placeholder=" "
+                            autocomplete="off"
+                            pattern="[0-9]{10,11}"
+                          />
+                          <label for="phonenumber"
+                            >Số điện thoại <span>*</span></label
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="profile-company data-fade-in">
+                    <h3 class="profile-title h2-font color-text">
+                      Thông tin công ty
+                    </h3>
+                    <div class="group-info">
+                      <div class="info-item">
+                        <div class="form-field">
+                          <input
+                            type="text"
+                            name="namecompany"
+                            placeholder=" "
+                            autocomplete="off"
+                          />
+                          <label for="namecompany"
+                            >Tên công ty <span>*</span></label
+                          >
+                        </div>
+                      </div>
+                      <div class="info-item">
+                        <div class="form-field">
+                          <input
+                            type="text"
+                            name="responsibility"
+                            placeholder=" "
+                            autocomplete="off"
+                          />
+                          <label for="responsibility"
+                            >Lĩnh vực <span>*</span></label
+                          >
+                        </div>
+                      </div>
+                      <div class="info-item">
+                        <div class="form-field">
+                          <input
+                            type="text"
+                            name="region"
+                            placeholder=" "
+                            autocomplete="off"
+                          />
+                          <label for="region"
+                            >Quốc gia/Khu vực <span>*</span></label
+                          >
+                        </div>
+                      </div>
+                      <div class="info-item">
+                        <div class="form-field">
+                          <input
+                            type="text"
+                            name="mst"
+                            placeholder=" "
+                            autocomplete="off"
+                          />
+                          <label for="mst">Mã số thuế <span>*</span></label>
+                        </div>
+                      </div>
+                      <div class="info-item">
+                        <div class="form-field">
+                          <input
+                            type="text"
+                            name="website"
+                            placeholder=" "
+                            autocomplete="off"
+                          />
+                          <label for="website">Website <span>*</span></label>
+                        </div>
+                      </div>
+                      <div class="info-item">
+                        <div class="form-field up-file">
+                          <input
+                            type="file"
+                            name="file"
+                            autocomplete="off"
+                            placeholder=" "
+                            accept="application/pdf"
+                          />
+                          <label for="file"
+                            >Catalog/ Bảng báo giá/ Thông tin sản phẩm/ Đề xuất
+                            chiến lược hợp tác. <span>*</span></label
+                          >
+                          <div class="icon">
+                            <img
+                              src="./assets/images/icon/ic_upfile.svg"
+                              alt=""
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="suggest data-fade-in">
+                    <h3 class="profile-title h2-font color-text">
+                      Hãy cho chúng tôi biết về đề xuất hợp tác của bạn
+                    </h3>
+                    <div class="suggest-container">
+                      <div class="suggest-note">
+                        <div class="form-text-area">
+                          <textarea
+                            name=""
+                            id=""
+                            name="note"
+                            rows="5"
+                            placeholder=" "
+                          ></textarea>
+                          <label for="note"
+                            >Tổng quan & Yêu cầu của Công ty</label
+                          >
+                        </div>
+                      </div>
+                      <div class="suggest-col">
+                        <div class="form-field">
+                          <div class="dropdown-custom-select">
+                            <div class="dropdown-custom-btn">
+                              <div class="dropdown-custom-text">
+                                Bạn biết đến chúng tôi như thế nào?
+                                <span>*</span>
+                              </div>
+                              <div class="ic">
+                                <svg
+                                  width="11"
+                                  height="6"
+                                  viewBox="0 0 11 6"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M5.12695 5.69347C5.4414 4.43563 6.90042 1.73127 10.2209 0.976562"
+                                    stroke="#1A3D4E"
+                                    stroke-width="2"
+                                  />
+                                  <path
+                                    d="M5.31641 5.69347C5.00196 4.43563 3.54294 1.73127 0.222417 0.976562"
+                                    stroke="#1A3D4E"
+                                    stroke-width="2"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                            <div class="dropdown-custom-menu">
+                              <div
+                                class="dropdown-custom-item link-hover color-black"
+                              >
+                                Thông qua các trang social
+                              </div>
+                              <div
+                                class="dropdown-custom-item link-hover color-black"
+                              >
+                                Bạn bè giới thiệu
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-field">
+                          <div class="captcha-text">
+                            CAPTCHA - Nhập mã có trong hình ảnh <span>*</span>
+                          </div>
+                        </div>
+                        <div class="key-captcha">
+                          <div class="key-value"></div>
+                          <div class="btn-refresh">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <g clip-path="url(#clip0_1511_3820)">
+                                <path
+                                  d="M4.10156 8.42774C3.86719 9.0918 3.125 9.44336 2.5 9.20899C1.83594 8.97461 1.48438 8.27149 1.71875 7.60743C2.14844 6.39649 2.85156 5.26367 3.78906 4.32617C7.22656 0.927736 12.7344 0.927736 16.1719 4.32617L16.8359 5.0293V3.62305C16.8359 2.95899 17.4219 2.37305 18.0859 2.37305C18.7891 2.37305 19.3359 2.95899 19.3359 3.62305V7.99805C19.3359 8.70117 18.7891 9.24805 18.0859 9.24805H13.75C13.0469 9.24805 12.5 8.70117 12.5 7.99805C12.5 7.33399 13.0469 6.74805 13.75 6.74805H15.0781L14.4141 6.08399C11.9531 3.66211 8.00781 3.66211 5.54688 6.08399C4.88281 6.78711 4.375 7.56836 4.10156 8.42774ZM1.52344 11.8261C1.5625 11.7871 1.64062 11.7871 1.67969 11.7871C1.75781 11.7871 1.79688 11.748 1.875 11.748H6.25C6.91406 11.748 7.5 12.3339 7.5 12.998C7.5 13.7011 6.91406 14.248 6.25 14.248H4.88281L5.54688 14.9511C8.00781 17.373 11.9531 17.373 14.4141 14.9511C15.0781 14.248 15.5859 13.4668 15.8594 12.6074C16.0938 11.9433 16.8359 11.5918 17.4609 11.8261C18.125 12.0605 18.4766 12.7636 18.2422 13.4277C17.8125 14.6386 17.1094 15.7324 16.1719 16.7089C12.7344 20.1074 7.22656 20.1074 3.78906 16.7089L3.125 16.0058V17.373C3.125 18.0761 2.53906 18.623 1.875 18.623C1.17188 18.623 0.625 18.0761 0.625 17.373V13.0371C0.625 12.9589 0.625 12.8808 0.625 12.8418C0.625 12.7636 0.625 12.7246 0.664062 12.6855C0.703125 12.4902 0.820312 12.2949 0.976562 12.1386C1.13281 11.9824 1.32812 11.8652 1.52344 11.8261Z"
+                                  fill="#1A3D4E"
+                                />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_1511_3820">
+                                  <rect width="20" height="20" fill="white" />
+                                </clipPath>
+                              </defs>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-bottom">
+                  <div class="form-note">
+                    Bằng việc ‘ĐĂNG KÝ’, bạn đồng ý với
+                    <span>
+                      <a href="">Chính sách bảo mật</a>
+                    </span>
+                    của Menas.
+                  </div>
+                  <button>đăng ký</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="spacing"></div>
+      <section class="scroll-wrap partner-sec" style="--z-index: 2" id="value">
         <div class="container-fluid p-0">
           <div class="row g-0 scroll-wrap-item">
             <div class="col-lg-6">
@@ -304,315 +613,6 @@
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <div class="spacing"></div>
-      <section class="partner-info">
-        <div class="container-fluid p-0">
-          <div class="row g-0 justify-content-center">
-            <div class="col-lg-8">
-              <form action="">
-                <div class="partner-info-container">
-                  <div class="profile-person">
-                    <h3 class="profile-title h2-font color-text">
-                      Thông tin cá nhân
-                    </h3>
-                    <div class="group-info">
-                      <div class="info-item">
-                        <div class="form-field">
-                          <input
-                            type="text"
-                            name="name"
-                            placeholder=" "
-                            autocomplete="off"
-                          />
-                          <label for="name">Họ và tên<span>*</span></label>
-                        </div>
-                      </div>
-
-                      <div class="info-item">
-                        <div class="form-field">
-                          <input
-                            type="text"
-                            name="position"
-                            placeholder=" "
-                            autocomplete="off"
-                          />
-                          <label for="position">Chức vụ<span>*</span></label>
-                        </div>
-                      </div>
-                      <div class="info-item">
-                        <div class="form-field">
-                          <div class="dropdown-custom-select">
-                            <div class="dropdown-custom-btn">
-                              <div class="dropdown-custom-text">
-                                Cấp bậc<span>*</span>
-                              </div>
-                              <div class="ic">
-                                <svg
-                                  width="11"
-                                  height="6"
-                                  viewBox="0 0 11 6"
-                                  fill="none"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path
-                                    d="M5.12695 5.69347C5.4414 4.43563 6.90042 1.73127 10.2209 0.976562"
-                                    stroke="#1A3D4E"
-                                    stroke-width="2"
-                                  />
-                                  <path
-                                    d="M5.31641 5.69347C5.00196 4.43563 3.54294 1.73127 0.222417 0.976562"
-                                    stroke="#1A3D4E"
-                                    stroke-width="2"
-                                  />
-                                </svg>
-                              </div>
-                            </div>
-                            <div class="dropdown-custom-menu">
-                              <div
-                                class="dropdown-custom-item link-hover color-black"
-                              >
-                                Fresher
-                              </div>
-                              <div
-                                class="dropdown-custom-item link-hover color-black"
-                              >
-                                Junior
-                              </div>
-                              <div
-                                class="dropdown-custom-item link-hover color-black"
-                              >
-                                Leader
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="info-item">
-                        <div class="form-field">
-                          <input
-                            type="email"
-                            name="email"
-                            placeholder=" "
-                            autocomplete="off"
-                          />
-                          <label for="email">Email <span>*</span></label>
-                        </div>
-                      </div>
-                      <div class="info-item">
-                        <div class="form-field">
-                          <input
-                            type="tel"
-                            name="phonenumber"
-                            placeholder=" "
-                            autocomplete="off"
-                            pattern="[0-9]{10,11}"
-                          />
-                          <label for="phonenumber"
-                            >Số điện thoại<span>*</span></label
-                          >
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="profile-company">
-                    <h3 class="profile-title h2-font color-text">
-                      Thông tin công ty
-                    </h3>
-                    <div class="group-info">
-                      <div class="info-item">
-                        <div class="form-field">
-                          <input
-                            type="text"
-                            name="namecompany"
-                            placeholder=" "
-                            autocomplete="off"
-                          />
-                          <label for="namecompany"
-                            >Tên công ty<span>*</span></label
-                          >
-                        </div>
-                      </div>
-                      <div class="info-item">
-                        <div class="form-field">
-                          <input
-                            type="text"
-                            name="responsibility"
-                            placeholder=" "
-                            autocomplete="off"
-                          />
-                          <label for="responsibility"
-                            >Lĩnh vực<span>*</span></label
-                          >
-                        </div>
-                      </div>
-                      <div class="info-item">
-                        <div class="form-field">
-                          <input
-                            type="text"
-                            name="region"
-                            placeholder=" "
-                            autocomplete="off"
-                          />
-                          <label for="region"
-                            >Quốc gia/Khu vực<span>*</span></label
-                          >
-                        </div>
-                      </div>
-                      <div class="info-item">
-                        <div class="form-field">
-                          <input
-                            type="text"
-                            name="mst"
-                            placeholder=" "
-                            autocomplete="off"
-                          />
-                          <label for="mst">Mã số thuế<span>*</span></label>
-                        </div>
-                      </div>
-                      <div class="info-item">
-                        <div class="form-field">
-                          <input
-                            type="text"
-                            name="website"
-                            placeholder=" "
-                            autocomplete="off"
-                          />
-                          <label for="website">Website<span>*</span></label>
-                        </div>
-                      </div>
-                      <div class="info-item">
-                        <div class="form-field up-file">
-                          <input
-                            type="file"
-                            name="file"
-                            autocomplete="off"
-                            placeholder=" "
-                            accept="application/pdf"
-                          />
-                          <label for="file"
-                            >Catalog/ Bảng báo giá/ Thông tin sản phẩm/ Đề xuất
-                            chiến lược hợp tác.<span>*</span></label
-                          >
-                          <div class="icon">
-                            <img
-                              src="./assets/images/icon/ic_upfile.svg"
-                              alt=""
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="suggest">
-                    <h3 class="profile-title h2-font color-text">
-                      Hãy cho chúng tôi biết về đề xuất hợp tác của bạn
-                    </h3>
-                    <div class="suggest-container">
-                      <div class="suggest-note">
-                        <div class="form-text-area">
-                          <textarea
-                            name=""
-                            id=""
-                            name="note"
-                            rows="5"
-                            placeholder=" "
-                          ></textarea>
-                          <label for="note"
-                            >Tổng quan & Yêu cầu của Công ty</label
-                          >
-                        </div>
-                      </div>
-                      <div class="suggest-col">
-                        <div class="form-field">
-                          <div class="dropdown-custom-select">
-                            <div class="dropdown-custom-btn">
-                              <div class="dropdown-custom-text">
-                                Bạn biết đến chúng tôi như thế nào?
-                                <span>*</span>
-                              </div>
-                              <div class="ic">
-                                <svg
-                                  width="11"
-                                  height="6"
-                                  viewBox="0 0 11 6"
-                                  fill="none"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path
-                                    d="M5.12695 5.69347C5.4414 4.43563 6.90042 1.73127 10.2209 0.976562"
-                                    stroke="#1A3D4E"
-                                    stroke-width="2"
-                                  />
-                                  <path
-                                    d="M5.31641 5.69347C5.00196 4.43563 3.54294 1.73127 0.222417 0.976562"
-                                    stroke="#1A3D4E"
-                                    stroke-width="2"
-                                  />
-                                </svg>
-                              </div>
-                            </div>
-                            <div class="dropdown-custom-menu">
-                              <div
-                                class="dropdown-custom-item link-hover color-black"
-                              >
-                                Thông qua các trang social
-                              </div>
-                              <div
-                                class="dropdown-custom-item link-hover color-black"
-                              >
-                                Bạn bè giới thiệu
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="form-field">
-                          <div class="captcha-text">
-                            CAPTCHA - Nhập mã có trong hình ảnh<span>*</span>
-                          </div>
-                        </div>
-                        <div class="key-captcha">
-                          <div class="key-value"></div>
-                          <div class="btn-refresh">
-                            <svg
-                              width="20"
-                              height="20"
-                              viewBox="0 0 20 20"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <g clip-path="url(#clip0_1511_3820)">
-                                <path
-                                  d="M4.10156 8.42774C3.86719 9.0918 3.125 9.44336 2.5 9.20899C1.83594 8.97461 1.48438 8.27149 1.71875 7.60743C2.14844 6.39649 2.85156 5.26367 3.78906 4.32617C7.22656 0.927736 12.7344 0.927736 16.1719 4.32617L16.8359 5.0293V3.62305C16.8359 2.95899 17.4219 2.37305 18.0859 2.37305C18.7891 2.37305 19.3359 2.95899 19.3359 3.62305V7.99805C19.3359 8.70117 18.7891 9.24805 18.0859 9.24805H13.75C13.0469 9.24805 12.5 8.70117 12.5 7.99805C12.5 7.33399 13.0469 6.74805 13.75 6.74805H15.0781L14.4141 6.08399C11.9531 3.66211 8.00781 3.66211 5.54688 6.08399C4.88281 6.78711 4.375 7.56836 4.10156 8.42774ZM1.52344 11.8261C1.5625 11.7871 1.64062 11.7871 1.67969 11.7871C1.75781 11.7871 1.79688 11.748 1.875 11.748H6.25C6.91406 11.748 7.5 12.3339 7.5 12.998C7.5 13.7011 6.91406 14.248 6.25 14.248H4.88281L5.54688 14.9511C8.00781 17.373 11.9531 17.373 14.4141 14.9511C15.0781 14.248 15.5859 13.4668 15.8594 12.6074C16.0938 11.9433 16.8359 11.5918 17.4609 11.8261C18.125 12.0605 18.4766 12.7636 18.2422 13.4277C17.8125 14.6386 17.1094 15.7324 16.1719 16.7089C12.7344 20.1074 7.22656 20.1074 3.78906 16.7089L3.125 16.0058V17.373C3.125 18.0761 2.53906 18.623 1.875 18.623C1.17188 18.623 0.625 18.0761 0.625 17.373V13.0371C0.625 12.9589 0.625 12.8808 0.625 12.8418C0.625 12.7636 0.625 12.7246 0.664062 12.6855C0.703125 12.4902 0.820312 12.2949 0.976562 12.1386C1.13281 11.9824 1.32812 11.8652 1.52344 11.8261Z"
-                                  fill="#1A3D4E"
-                                />
-                              </g>
-                              <defs>
-                                <clipPath id="clip0_1511_3820">
-                                  <rect width="20" height="20" fill="white" />
-                                </clipPath>
-                              </defs>
-                            </svg>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="form-bottom">
-                  <div class="form-note">
-                    Bằng việc ‘ĐĂNG KÝ’, bạn đồng ý với
-                    <span>
-                      <a href="">Chính sách bảo mật</a>
-                    </span>
-                    của Menas.
-                  </div>
-                  <button>đăng ký</button>
-                </div>
-              </form>
             </div>
           </div>
         </div>

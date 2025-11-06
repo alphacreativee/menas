@@ -102,6 +102,12 @@ a {
   background-color: var(--color-white);
 }
 
+.b2-tag-font {
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
 *,
 *:before,
 *:after {
@@ -1719,6 +1725,11 @@ section {
   padding-left: calc(8.3333333333% + 48px);
   padding-right: calc(8.3333333333% + 48px);
 }
+.scroll-wrap.partner-sec {
+  background-color: var(--color-white-2);
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
 @media (max-width: 1024px) {
   .scroll-wrap {
     padding-right: 60px;
@@ -2498,7 +2509,7 @@ section {
   transition: all 0.4s ease;
 }
 .pagination .page-number:hover, .pagination .page-number.active {
-  background-color: var(--color-primary);
+  background-color: var(--color-text);
   color: var(--color-white);
 }
 .pagination .page-number.active {
@@ -2529,7 +2540,7 @@ section {
 .contact-sec .contact-left ul {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 8px;
 }
 .contact-sec .contact-right .form-group-top {
   display: grid;
@@ -3009,8 +3020,8 @@ section {
 .partner-info {
   position: relative;
   z-index: 2;
-  background-color: var(--color-white-2);
-  padding: 48px 24px;
+  background-color: var(--color-white);
+  padding: 80px 24px 40px;
 }
 .partner-info-container {
   display: flex;
@@ -3039,6 +3050,7 @@ section {
   position: relative;
   z-index: 1;
   padding-bottom: 12px;
+  cursor: pointer;
 }
 .partner-info .group-info .info-item .form-field.up-file .icon {
   width: 15px;
@@ -3091,7 +3103,7 @@ section {
   left: 0;
   width: calc(100% + 12px);
   z-index: 1;
-  background-color: var(--color-white);
+  background-color: var(--color-white-2);
   bottom: 0;
   left: -12px;
   transform: translateY(100%);
@@ -3110,6 +3122,8 @@ section {
 .partner-info .dropdown-custom-select .dropdown-custom-item {
   font-size: 14px;
   line-height: 24px;
+  padding: 0;
+  cursor: pointer;
 }
 .partner-info .dropdown-custom-btn {
   display: flex;
