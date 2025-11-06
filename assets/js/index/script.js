@@ -1284,12 +1284,13 @@ function header() {
 
   function closeMenu() {
     btnHambuger.classList.remove("active");
-    headerMenu.classList.add("closing");
+    headerMenu.classList.remove("active");
+    // headerMenu.classList.add("closing");
     tl.reverse();
 
-    tl.eventCallback("onReverseComplete", () => {
-      headerMenu.classList.remove("active", "closing");
-    });
+    // tl.eventCallback("onReverseComplete", () => {
+    //   headerMenu.classList.remove("active", "closing");
+    // });
   }
 
   btnHambuger.addEventListener("click", () => {
