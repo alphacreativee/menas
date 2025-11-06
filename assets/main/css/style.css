@@ -2895,6 +2895,7 @@ section {
   transform: translateX(-50%);
   width: 100%;
   max-width: 1000px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
 }
 .form-reruitment-bar form {
   display: grid;
