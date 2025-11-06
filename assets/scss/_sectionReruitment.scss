@@ -14,11 +14,15 @@
 
       .tab-item {
         height: 40px;
-        padding: 6px 27px;
+        padding: 9px 16px 10px;
         border-radius: 20px;
         border: 1px solid var(--color-text);
         transition: all 0.4s ease;
         cursor: pointer;
+
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 600;
 
         &.active,
         &:hover {
@@ -119,13 +123,14 @@
       align-items: center;
       gap: 12px;
 
-      &.search {
+      &.search,
+      &.location {
         input {
-          width: calc(80%);
           border: none;
           font-size: 14px;
           line-height: 24px;
           color: var(--color-text);
+          padding-left: 0;
 
           &::placeholder {
             color: rgba($color: #1a3d4e, $alpha: 0.7);
