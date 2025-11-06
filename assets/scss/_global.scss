@@ -251,3 +251,54 @@ section {
     // font-weight: 600;
   }
 }
+
+// field suggestion
+.field-suggestion {
+  position: relative;
+  width: 100%;
+
+  input {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+
+  .field-suggestion__list {
+    position: absolute;
+    top: 100%;
+    left: -12px;
+    right: 0;
+    background: var(--color-white);
+    border: none;
+    border-radius: unset;
+    list-style: none;
+    max-height: 250px;
+    overflow-y: auto;
+    z-index: 10;
+    transform: translateY(14px);
+    min-width: 200px;
+    clip-path: inset(0 0 0 0);
+    pointer-events: auto;
+    padding: 8px;
+    will-change: clip-path;
+    transition: clip-path 0.3s ease;
+
+    &.hidden {
+      clip-path: inset(0 0 100% 0);
+      pointer-events: none;
+    }
+
+    li {
+      padding: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      line-height: 18px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: var(--color-primary);
+      }
+    }
+  }
+}

@@ -412,6 +412,51 @@ section {
   line-height: 18px;
 }
 
+.field-suggestion {
+  position: relative;
+  width: 100%;
+}
+.field-suggestion input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+.field-suggestion .field-suggestion__list {
+  position: absolute;
+  top: 100%;
+  left: -12px;
+  right: 0;
+  background: var(--color-white);
+  border: none;
+  border-radius: unset;
+  list-style: none;
+  max-height: 250px;
+  overflow-y: auto;
+  z-index: 10;
+  transform: translateY(14px);
+  min-width: 200px;
+  clip-path: inset(0 0 0 0);
+  pointer-events: auto;
+  padding: 8px;
+  will-change: clip-path;
+  transition: clip-path 0.3s ease;
+}
+.field-suggestion .field-suggestion__list.hidden {
+  clip-path: inset(0 0 100% 0);
+  pointer-events: none;
+}
+.field-suggestion .field-suggestion__list li {
+  padding: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 18px;
+  transition: all 0.3s ease;
+}
+.field-suggestion .field-suggestion__list li:hover {
+  color: var(--color-primary);
+}
+
 .section-fields {
   background-color: var(--color-white);
   background-color: var(--bg-section);
@@ -2836,11 +2881,14 @@ section {
 }
 .section-reruitment .reruitment-tabs .tab-item {
   height: 40px;
-  padding: 6px 27px;
+  padding: 9px 16px 10px;
   border-radius: 20px;
   border: 1px solid var(--color-text);
   transition: all 0.4s ease;
   cursor: pointer;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
 }
 .section-reruitment .reruitment-tabs .tab-item.active, .section-reruitment .reruitment-tabs .tab-item:hover {
   background-color: var(--color-primary);
@@ -2918,14 +2966,14 @@ section {
   align-items: center;
   gap: 12px;
 }
-.form-reruitment-bar form .form-item.search input {
-  width: 80%;
+.form-reruitment-bar form .form-item.search input, .form-reruitment-bar form .form-item.location input {
   border: none;
   font-size: 14px;
   line-height: 24px;
   color: var(--color-text);
+  padding-left: 0;
 }
-.form-reruitment-bar form .form-item.search input::placeholder {
+.form-reruitment-bar form .form-item.search input::placeholder, .form-reruitment-bar form .form-item.location input::placeholder {
   color: rgba(26, 61, 78, 0.7);
 }
 .form-reruitment-bar form .form-item > .icon {
