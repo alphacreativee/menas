@@ -101,28 +101,50 @@
         &-right {
           text-align: right;
         }
+
+        &-tags {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          margin-top: 16px;
+
+          .tag-item {
+            padding: 6px 16px;
+            border-radius: 100px;
+            background-color: rgba(228, 160, 37, 0.1);
+
+            font-size: 12px;
+            line-height: 20px;
+            font-weight: 600;
+            letter-spacing: 0.28px;
+          }
+        }
       }
     }
   }
 }
 
 .form-reruitment-bar {
-  background-color: var(--color-white);
-  border-radius: 100px;
   position: absolute;
   z-index: 10;
   top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -76px);
   width: 100%;
   max-width: 1000px;
-  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.1);
+
+  h2.title {
+    margin-bottom: 36px;
+  }
 
   .dropdown-custom-menu {
     bottom: -23px;
   }
 
   form {
+    background-color: var(--color-white);
+    border-radius: 100px;
+    box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.1);
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     padding-left: 20px;
@@ -151,6 +173,7 @@
 
       & > .icon {
         width: 20px;
+        min-width: 20px;
         height: 20px;
       }
 
