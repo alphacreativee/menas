@@ -102,6 +102,12 @@ a {
   background-color: var(--color-white);
 }
 
+.b2-tag-font {
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
 *,
 *:before,
 *:after {
@@ -1668,6 +1674,9 @@ section {
   padding-left: calc(8.3333333333% + 48px);
   padding-right: calc(8.3333333333% + 48px);
 }
+.scroll-wrap.partner-sec {
+  background-color: var(--color-white-2);
+}
 @media (max-width: 1024px) {
   .scroll-wrap {
     padding-right: 60px;
@@ -2478,7 +2487,7 @@ section {
 .contact-sec .contact-left ul {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 8px;
 }
 .contact-sec .contact-right .form-group-top {
   display: grid;
@@ -2942,7 +2951,7 @@ section {
 .partner-info {
   position: relative;
   z-index: 2;
-  background-color: var(--color-white-2);
+  background-color: var(--color-white);
   padding: 48px 24px;
 }
 .partner-info-container {
