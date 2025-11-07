@@ -1402,7 +1402,39 @@ function fieldSuggestion() {
     });
   }
 }
+function swiperNews() {
+  if ($(".news-slider").length < 1) return;
 
+  var swiperNewsContent = new Swiper(".news-slider-text", {
+    effect: "fade",
+    loop: true,
+    slidesPerView: 1,
+    speed: 900
+  });
+
+  var swiperNews = new Swiper(".news-slider", {
+    loop: true,
+    speed: 900,
+    effect: "fade",
+    grabCursor: true,
+    watchSlidesProgress: true,
+    mousewheel: true,
+    keyboard: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false
+    },
+    navigation: {
+      nextEl: ".news .swiper-button-next",
+      prevEl: ".news .swiper-button-prev"
+    },
+    controller: {
+      control: swiperNewsContent
+    }
+  });
+
+  swiperNewsContent.controller.control = swiperNews;
+}
 function formReruitment() {
   if ($("#formReruitment").length < 1) return;
 
@@ -1592,6 +1624,7 @@ const init = () => {
   parallaxSwiper();
   header();
   fieldSuggestion();
+  swiperNews();
   activeInputForm();
   formReruitment();
   uploadPdf();
