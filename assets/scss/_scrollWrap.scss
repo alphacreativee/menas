@@ -3,8 +3,8 @@
     position: relative;
     padding: 80px 24px;
     background-color: var(--color-white);
-    padding-left: calc(calc(1 / 12) * 100% + 48px);
-    padding-right: calc(calc(1 / 12) * 100% + 48px);
+    padding-left: calc(calc(1 / 12) * 100% + 24px);
+    padding-right: calc(calc(1 / 12) * 100% + 24px);
     &.partner-sec {
       background-color: var(--color-white-2);
       padding-top: 40px;

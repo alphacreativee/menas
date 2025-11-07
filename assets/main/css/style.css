@@ -1726,8 +1726,8 @@ section {
   position: relative;
   padding: 80px 24px;
   background-color: var(--color-white);
-  padding-left: calc(8.3333333333% + 48px);
-  padding-right: calc(8.3333333333% + 48px);
+  padding-left: calc(8.3333333333% + 24px);
+  padding-right: calc(8.3333333333% + 24px);
 }
 .scroll-wrap.partner-sec {
   background-color: var(--color-white-2);
