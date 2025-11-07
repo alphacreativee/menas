@@ -29,7 +29,7 @@
         display: flex;
         align-items: center;
         gap: 12px;
-        margin-top: 24px;
+        margin-top: 12px;
 
         .tag-item {
           padding: 6px 16px;
@@ -39,7 +39,7 @@
       }
 
       .detail-main {
-        margin-top: 48px;
+        margin-top: 24px;
         display: flex;
         align-items: flex-start;
         gap: 24px;
@@ -57,7 +57,7 @@
             font-size: 17px;
             line-height: 24px;
             font-weight: 500;
-            margin-top: 30px;
+            margin-top: 24px;
             margin-bottom: 8px;
           }
 
@@ -79,7 +79,7 @@
         }
 
         .reruitment-detail__cta {
-          margin-top: 40px;
+          margin-top: 24px;
 
           .share {
             display: flex;
@@ -118,13 +118,17 @@
           border-radius: 8px;
 
           h4 {
-            margin-bottom: 16px;
+            margin-bottom: 12px;
           }
 
           ul {
             li {
               display: grid;
               grid-template-columns: 90px auto;
+
+              &:not(:first-child) {
+                margin-top: 8px;
+              }
             }
           }
         }
@@ -170,7 +174,7 @@
                   pointer-events: none;
                 }
 
-                &.active,
+                &:not(:placeholder-shown),
                 &:focus,
                 &:focus-visible {
                   & + label {
@@ -284,7 +288,7 @@
             .btn--custom {
               padding: 13px;
               border-radius: 8px;
-              border: 1px solid var(--color-text);
+              border: 1px solid rgba(26, 61, 78, 0.3);
 
               display: flex;
               align-items: center;

@@ -245,7 +245,7 @@
             </div>
             <div class="detail-bar">
               <div class="more-info">
-                <h4 class="b1-bold-font">Thông tin nhanh</h4>
+                <h4 class="b2-bold-font">Thông tin nhanh</h4>
                 <ul>
                   <li>
                     <p class="b2-font">Thu nhập</p>
@@ -262,22 +262,38 @@
                 </ul>
               </div>
               <div class="reruitment-form">
-                <h2 class="title b1-bold-font">Ứng tuyển</h2>
-                <div class="desc tag-font">
+                <h2 class="title b2-bold-font">Ứng tuyển</h2>
+                <div class="desc b2-font">
                   * Vui lòng nhập thông tin chính xác
                 </div>
 
                 <form action="" id="formReruitment">
                   <div class="field-item">
-                    <input type="text" autocomplete="off" name="name" />
+                    <input
+                      type="text"
+                      autocomplete="off"
+                      name="name"
+                      placeholder=" "
+                    />
                     <label for="name">Họ & tên<span>*</span></label>
                   </div>
                   <div class="field-item">
-                    <input type="number" autocomplete="off" name="phone" />
+                    <input
+                      name="phone"
+                      placeholder=" "
+                      type="tel"
+                      autocomplete="off"
+                      pattern="[0-9]{10,11}"
+                    />
                     <label for="phone">Số điện thoại<span>*</span></label>
                   </div>
                   <div class="field-item">
-                    <input type="email" autocomplete="off" name="email" />
+                    <input
+                      type="email"
+                      autocomplete="off"
+                      name="email"
+                      placeholder=" "
+                    />
                     <label for="email">Địa chỉ email<span>*</span></label>
                   </div>
                   <div class="field-item address">
@@ -326,8 +342,8 @@
                       <img src="./assets/images/icon/ic_upfile.svg" alt="" />
                     </div>
                   </div>
-                  <div class="note tag-font pdf-note">
-                    Chấp nhận file PDF/DOC/DOCX/JPG/PNG &lt;5MB
+                  <div class="note b2-font pdf-note">
+                    Chấp nhận PDF/DOC/DOCX/JPG/PNG &lt;5MB
                   </div>
                   <div class="cta">
                     <div class="cta-contact">
@@ -345,7 +361,7 @@
                       Nộp đơn ứng tuyển
                     </button>
                   </div>
-                  <div class="accept tag-font">
+                  <div class="accept b2-font">
                     Bằng việc nộp đơn, tôi đồng ý với
                     <a href="./policy.html">Chính sách bảo mật</a> của Menas
                     Group.
