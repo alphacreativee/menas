@@ -1746,7 +1746,7 @@ section {
   }
 }
 .scroll-wrap-item {
-  margin-bottom: 80px;
+  margin-bottom: 60px;
 }
 @media (max-width: 991px) {
   .scroll-wrap-item {
