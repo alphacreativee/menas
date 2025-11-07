@@ -1,0 +1,15 @@
+.reruitment {
+  &-related {
+    background-color: var(--color-white);
+
+    h2.title {
+      margin-bottom: 40px;
+    }
+
+    .reruitment-wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 0;
+    }
+  }
+}

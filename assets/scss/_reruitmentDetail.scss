@@ -108,6 +108,8 @@
 
         .detail-bar {
           width: 355px;
+          // position: sticky;
+          // top: 84px;
         }
 
         .more-info {
@@ -144,6 +146,99 @@
               border-bottom: 1px solid rgba(26, 61, 78, 0.3);
               position: relative;
 
+              &.error {
+                border-color: #ff0000;
+
+                label {
+                  color: #ff0000;
+                }
+              }
+
+              input {
+                &[type="number"] {
+                  -moz-appearance: textfield; /* Firefox */
+
+                  &::-webkit-outer-spin-button, /* Chrome */
+                  &::-webkit-inner-spin-button {
+                    -webkit-appearance: none;
+                    margin: 0;
+                  }
+                }
+
+                & + label {
+                  transition: all 0.4s ease;
+                  pointer-events: none;
+                }
+
+                &.active,
+                &:focus,
+                &:focus-visible {
+                  & + label {
+                    font-size: 10px;
+                    line-height: 14px;
+                    top: 4px;
+                  }
+                }
+              }
+
+              &.address {
+                position: relative;
+                z-index: 2;
+
+                label {
+                  font-size: 10px;
+                  line-height: 14px;
+                  top: 4px;
+                }
+              }
+
+              &.upload {
+                position: relative;
+                min-height: 36px;
+
+                input {
+                  padding-right: 25px;
+                  padding: 0;
+                  border: none;
+                  opacity: 0;
+                  position: absolute;
+                  z-index: 2;
+
+                  & + label {
+                    font-size: 14px !important;
+                    line-height: 24px !important;
+                    top: 50% !important;
+                  }
+                }
+
+                .icon {
+                  width: 15px;
+                  height: auto;
+
+                  position: absolute;
+                  top: 50%;
+                  transform: translateY(calc(calc(-3px) - 50%));
+                  right: 0;
+                }
+              }
+
+              .dropdown-custom {
+                min-height: 36px;
+                display: flex;
+                align-items: center;
+              }
+
+              .dropdown-custom-btn {
+                width: 100%;
+                justify-content: space-between;
+              }
+
+              .dropdown-custom-menu {
+                width: calc(100% + 16px);
+                background-color: var(--color-white-2);
+                bottom: -1px;
+              }
+
               label {
                 font-size: 14px;
                 line-height: 24px;
@@ -167,7 +262,8 @@
                 width: 100%;
                 font-size: 14px;
                 line-height: 24px;
-                padding: 0 0 12px 0;
+                padding: 0;
+                color: var(--color-text);
               }
             }
           }

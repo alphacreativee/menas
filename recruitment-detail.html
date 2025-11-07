@@ -115,7 +115,7 @@
     <main>
       <section class="reruitment-detail">
         <div class="reruitment-detail__wrapper">
-          <h1 class="title h1-font color-text">Nhân viên Bán hàng Mỹ phẩm</h1>
+          <h1 class="title h2-font color-text">Nhân viên Bán hàng Mỹ phẩm</h1>
           <div class="desc b2-font">
             Mena Cosmetics and Perfumes • TP. HCM – Quận 1
           </div>
@@ -267,20 +267,66 @@
                   * Vui lòng nhập thông tin chính xác
                 </div>
 
-                <form action="">
+                <form action="" id="formReruitment">
                   <div class="field-item">
-                    <input type="text" name="name" />
+                    <input type="text" autocomplete="off" name="name" />
                     <label for="name">Họ & tên<span>*</span></label>
                   </div>
                   <div class="field-item">
-                    <input type="text" name="phone" />
+                    <input type="number" autocomplete="off" name="phone" />
                     <label for="phone">Số điện thoại<span>*</span></label>
                   </div>
                   <div class="field-item">
-                    <input type="text" name="upload" />
-                    <label for="phone">Tải lên CV</label>
+                    <input type="email" autocomplete="off" name="email" />
+                    <label for="email">Địa chỉ email<span>*</span></label>
                   </div>
-                  <div class="note tag-font">
+                  <div class="field-item address">
+                    <label for="address">Địa chỉ ứng tuyển</label>
+                    <div class="dropdown-custom">
+                      <div class="dropdown-custom-btn">
+                        <div class="value-select">
+                          <span>Vincom Đồng Khởi, TP.HCM - Quận 1</span>
+                        </div>
+                        <div class="icon">
+                          <svg
+                            width="11"
+                            height="6"
+                            viewBox="0 0 11 6"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M5.125 5.69347C5.43944 4.43563 6.89846 1.73127 10.219 0.976562"
+                              stroke="currentColor"
+                              stroke-width="2"
+                            />
+                            <path
+                              d="M5.31543 5.69347C5.00099 4.43563 3.54197 1.73127 0.22144 0.976562"
+                              stroke="currentColor"
+                              stroke-width="2"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                      <div class="dropdown-custom-menu">
+                        <div class="dropdown-custom-item">
+                          <span>Marina IFC, TP.HCM - Quận 1</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="field-item upload">
+                    <input
+                      type="file"
+                      name="upload"
+                      accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                    />
+                    <label for="upload">Tải lên CV</label>
+                    <div class="icon">
+                      <img src="./assets/images/icon/ic_upfile.svg" alt="" />
+                    </div>
+                  </div>
+                  <div class="note tag-font pdf-note">
                     Chấp nhận file PDF/DOC/DOCX/JPG/PNG &lt;5MB
                   </div>
                   <div class="cta">
@@ -310,7 +356,136 @@
           </div>
         </div>
       </section>
+      <section class="reruitment-related">
+        <div class="reruitment-wrapper">
+          <h2 class="title h2-font text-center">Việc làm tương tự</h2>
+          <div class="reruitment-main">
+            <div class="reruitment-list">
+              <div class="item" data-cursor-text="Chi tiết">
+                <div class="item-left">
+                  <div class="item-title">Nhân viên Bán hàng Mỹ phẩm</div>
+                  <div class="item-desc">
+                    Mena Cosmetics and Perfumes • TP. HCM – Quận 1
+                  </div>
+                  <div class="item-tags">
+                    <div class="tag-item">Vincom Đồng Khởi</div>
+                    <div class="tag-item">Marina IFC</div>
+                  </div>
+                </div>
+                <div class="item-right">
+                  <div class="item-salary">8–12 triệu + KPI</div>
+                  <div class="item-date">Hết hạn: 10/10/2026</div>
+                </div>
+                <a href="./recruitment-detail.html" class="link"></a>
+              </div>
+              <div class="item" data-cursor-text="Chi tiết">
+                <div class="item-left">
+                  <div class="item-title">Thu ngân siêu thị</div>
+                  <div class="item-desc">
+                    Mena Gourmet Market • TP. HCM – Tân Bình (Menas Mall SGA)
+                  </div>
+                </div>
+                <div class="item-right">
+                  <div class="item-salary">7–9 triệu + KPI</div>
+                  <div class="item-date">Hết hạn: 10/10/2026</div>
+                </div>
+                <a href="./recruitment-detail.html" class="link"></a>
+              </div>
+              <div class="item" data-cursor-text="Chi tiết">
+                <div class="item-left">
+                  <div class="item-title">Barista</div>
+                  <div class="item-desc">
+                    L'Amuse Gourmet Café • TP. HCM – Quận 7
+                  </div>
+                </div>
+                <div class="item-right">
+                  <div class="item-salary">7–10 triệu + Phụ cấp bữa ăn</div>
+                  <div class="item-date">Hết hạn: 10/10/2026</div>
+                </div>
+                <a href="./recruitment-detail.html" class="link"></a>
+              </div>
+            </div>
+            <div class="pagination">
+              <a
+                href="#"
+                class="prev-page page-number disabled"
+                aria-label="Previous page"
+              >
+                <svg
+                  width="6"
+                  height="11"
+                  viewBox="0 0 6 11"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style="transform: rotate(180deg)"
+                >
+                  <path
+                    d="M5.69249 5.31641C4.43465 5.00196 1.73029 3.54294 0.975586 0.222417"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M5.69249 5.12891C4.43465 5.44335 1.73029 6.90237 0.975586 10.2229"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                </svg>
+              </a>
+
+              <a href="#" class="page-number active">1</a>
+              <a href="#" class="page-number">2</a>
+              <a href="#" class="page-number">3</a>
+              <span class="dots">...</span>
+              <a href="#" class="page-number">8</a>
+
+              <a href="#" class="next-page page-number" aria-label="Next page">
+                <svg
+                  width="6"
+                  height="11"
+                  viewBox="0 0 6 11"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5.69249 5.31641C4.43465 5.00196 1.73029 3.54294 0.975586 0.222417"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M5.69249 5.12891C4.43465 5.44335 1.73029 6.90237 0.975586 10.2229"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
+
+    <div
+      class="modal modal-success fade"
+      tabindex="-1"
+      id="modalReruitmentSuccess"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="icon">
+              <img src="./assets/images/icon-success.gif" alt="" />
+            </div>
+            <div class="title b1-bold-font text-center">
+              Cảm ơn bạn đã ứng tuyển!
+            </div>
+            <div class="desc tag-font text-center">
+              Hồ sơ của bạn đã được gửi thành công. <br />
+              Chúng tôi sẽ kết nối bạn sớm.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- layout -->
     <!-- footer -->
     <script>
