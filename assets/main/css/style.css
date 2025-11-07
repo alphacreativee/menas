@@ -2773,29 +2773,21 @@ section {
   background-color: var(--color-white);
   padding: 80px 24px;
 }
-.field-detail .col-left {
-  padding-left: 8.3333333333%;
-  padding-right: 48px;
-}
 .field-detail-image {
   width: 100%;
-  aspect-ratio: 526/322;
+  aspect-ratio: 922/434;
+  margin-bottom: 24px;
 }
 .field-detail-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-.field-detail-box {
-  padding-left: calc(8.3333333333% + 48px);
-  padding-right: calc(16.6666666667% + 48px);
-  width: 100%;
-  margin: 0 auto;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 24px;
+.field-detail-desc .title {
+  margin-bottom: 12px;
+}
+.field-detail-desc .description {
+  margin-bottom: 12px;
 }
 
 .media {
