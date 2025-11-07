@@ -2,11 +2,11 @@
   position: relative;
   z-index: 2;
   background-color: var(--color-white);
-  padding: 80px 24px 40px;
+  padding: 40px 24px 40px;
   &-container {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 24px;
   }
   .profile-title {
     margin-bottom: 24px;

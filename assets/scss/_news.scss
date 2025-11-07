@@ -6,7 +6,7 @@
     position: relative;
   }
   &-featured {
-    padding: 60px 60px 0;
+    padding: 40px 60px 0;
     display: flex;
 
     .news-item {
@@ -80,7 +80,7 @@
   }
 
   &-main {
-    padding: 60px;
+    padding: 40px 60px;
 
     .list-item {
       display: grid;
@@ -126,7 +126,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 48px;
+  margin-top: 40px;
   gap: 10px;
 
   .page-number {
