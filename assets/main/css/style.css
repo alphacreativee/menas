@@ -463,6 +463,72 @@ section {
   color: var(--color-primary);
 }
 
+a.aloading,
+button.aloading {
+  pointer-events: none;
+  color: transparent !important;
+  background-color: var(--color-primary);
+  position: relative;
+}
+a.aloading::after,
+button.aloading::after {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid transparent;
+  border-radius: 50%;
+  border-top: 2px solid var(--color-white);
+  border-right: 2px solid var(--color-white);
+  width: 20px;
+  height: 20px;
+  animation: spin-animation 1s linear infinite;
+  z-index: 2;
+  background: 0 0;
+}
+@keyframes spin-animation {
+  0% {
+    transform: translate(-50%, -50%) rotate(0);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.modal-success .modal-dialog {
+  width: 360px;
+  height: 360px;
+}
+.modal-success .modal-content {
+  border: none;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.modal-success .modal-content .desc {
+  margin-top: 16px;
+}
+.modal-success .modal-body {
+  height: 360px;
+  background: linear-gradient(to top left, #fffbeb 0%, #ffffff 40%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 40px;
+}
+.modal-success .modal-body .icon {
+  width: 60%;
+  height: auto;
+  margin: 0 auto;
+}
+.modal-success .modal-body .icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .section-fields {
   background-color: var(--color-white);
   background-color: var(--bg-section);
@@ -3002,17 +3068,18 @@ section {
   border-color: var(--color-primary);
   color: var(--color-white);
 }
-.section-reruitment .reruitment-main {
+
+.reruitment-main {
   margin-top: 24px;
 }
-.section-reruitment .reruitment-main .pagination .page-number {
+.reruitment-main .pagination .page-number {
   background-color: #f7f7f7;
 }
-.section-reruitment .reruitment-main .pagination .page-number:hover, .section-reruitment .reruitment-main .pagination .page-number.active {
+.reruitment-main .pagination .page-number:hover, .reruitment-main .pagination .page-number.active {
   background-color: var(--color-text);
   color: var(--color-white);
 }
-.section-reruitment .reruitment-list .item {
+.reruitment-list .item {
   padding: 24px;
   border-radius: 8px;
   border: 1px solid var(--color-text);
@@ -3022,43 +3089,43 @@ section {
   transition: all 0.4s ease;
   position: relative;
 }
-.section-reruitment .reruitment-list .item:hover .item-title {
+.reruitment-list .item:hover .item-title {
   color: var(--color-primary);
 }
-.section-reruitment .reruitment-list .item .link {
+.reruitment-list .item .link {
   position: absolute;
   inset: 0;
 }
-.section-reruitment .reruitment-list .item:hover {
+.reruitment-list .item:hover {
   border-color: var(--color-primary);
 }
-.section-reruitment .reruitment-list .item:not(:last-child) {
+.reruitment-list .item:not(:last-child) {
   margin-bottom: 12px;
 }
-.section-reruitment .reruitment-list .item-title, .section-reruitment .reruitment-list .item-salary {
+.reruitment-list .item-title, .reruitment-list .item-salary {
   font-size: 17px;
   line-height: 24px;
   font-weight: 500;
   transition: all 0.4s ease;
 }
-.section-reruitment .reruitment-list .item-desc, .section-reruitment .reruitment-list .item-date {
+.reruitment-list .item-desc, .reruitment-list .item-date {
   font-size: 14px;
   line-height: 24px;
   margin-top: 4px;
 }
-.section-reruitment .reruitment-list .item-date {
+.reruitment-list .item-date {
   margin-top: 0;
 }
-.section-reruitment .reruitment-list .item-right {
+.reruitment-list .item-right {
   text-align: right;
 }
-.section-reruitment .reruitment-list .item-tags {
+.reruitment-list .item-tags {
   display: flex;
   align-items: center;
   gap: 12px;
   margin-top: 16px;
 }
-.section-reruitment .reruitment-list .item-tags .tag-item {
+.reruitment-list .item-tags .tag-item {
   padding: 6px 16px;
   border-radius: 100px;
   background-color: rgba(228, 160, 37, 0.1);
@@ -3471,6 +3538,76 @@ section {
   border-bottom: 1px solid rgba(26, 61, 78, 0.3);
   position: relative;
 }
+.reruitment-detail__wrapper .detail-main .reruitment-form form .field-item.error {
+  border-color: #ff0000;
+}
+.reruitment-detail__wrapper .detail-main .reruitment-form form .field-item.error label {
+  color: #ff0000;
+}
+.reruitment-detail__wrapper .detail-main .reruitment-form form .field-item input[type=number] {
+  -moz-appearance: textfield; /* Firefox */
+}
+.reruitment-detail__wrapper .detail-main .reruitment-form form .field-item input[type=number]::-webkit-outer-spin-button, .reruitment-detail__wrapper .detail-main .reruitment-form form .field-item input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.reruitment-detail__wrapper .detail-main .reruitment-form form .field-item input + label {
+  transition: all 0.4s ease;
+  pointer-events: none;
+}
+.reruitment-detail__wrapper .detail-main .reruitment-form form .field-item input.active + label, .reruitment-detail__wrapper .detail-main .reruitment-form form .field-item input:focus + label, .reruitment-detail__wrapper .detail-main .reruitment-form form .field-item input:focus-visible + label {
+  font-size: 10px;
+  line-height: 14px;
+  top: 4px;
+}
+.reruitment-detail__wrapper .detail-main .reruitment-form form .field-item.address {
+  position: relative;
+  z-index: 2;
+}
+.reruitment-detail__wrapper .detail-main .reruitment-form form .field-item.address label {
+  font-size: 10px;
+  line-height: 14px;
+  top: 4px;
+}
+.reruitment-detail__wrapper .detail-main .reruitment-form form .field-item.upload {
+  position: relative;
+  min-height: 36px;
+}
+.reruitment-detail__wrapper .detail-main .reruitment-form form .field-item.upload input {
+  padding-right: 25px;
+  padding: 0;
+  border: none;
+  opacity: 0;
+  position: absolute;
+  z-index: 2;
+}
+.reruitment-detail__wrapper .detail-main .reruitment-form form .field-item.upload input + label {
+  font-size: 14px !important;
+  line-height: 24px !important;
+  top: 50% !important;
+}
+.reruitment-detail__wrapper .detail-main .reruitment-form form .field-item.upload .icon {
+  width: 15px;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  transform: translateY(calc(-3px - 50%));
+  right: 0;
+}
+.reruitment-detail__wrapper .detail-main .reruitment-form form .field-item .dropdown-custom {
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+}
+.reruitment-detail__wrapper .detail-main .reruitment-form form .field-item .dropdown-custom-btn {
+  width: 100%;
+  justify-content: space-between;
+}
+.reruitment-detail__wrapper .detail-main .reruitment-form form .field-item .dropdown-custom-menu {
+  width: calc(100% + 16px);
+  background-color: var(--color-white-2);
+  bottom: -1px;
+}
 .reruitment-detail__wrapper .detail-main .reruitment-form form .field-item label {
   font-size: 14px;
   line-height: 24px;
@@ -3491,7 +3628,8 @@ section {
   width: 100%;
   font-size: 14px;
   line-height: 24px;
-  padding: 0 0 12px 0;
+  padding: 0;
+  color: var(--color-text);
 }
 .reruitment-detail__wrapper .detail-main .reruitment-form .note {
   margin-top: 8px;
@@ -3533,4 +3671,16 @@ section {
 .reruitment-detail__wrapper .detail-main .reruitment-form .accept a {
   transition: all 0.4s ease;
   color: var(--color-primary);
+}
+
+.reruitment-related {
+  background-color: var(--color-white);
+}
+.reruitment-related h2.title {
+  margin-bottom: 40px;
+}
+.reruitment-related .reruitment-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 0;
 }

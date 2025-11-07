@@ -1435,6 +1435,173 @@ function swiperNews() {
 
   swiperNewsContent.controller.control = swiperNews;
 }
+function formReruitment() {
+  if ($("#formReruitment").length < 1) return;
+
+  $("#formReruitment").on("submit", function (e) {
+    e.preventDefault();
+
+    const $form = $(this);
+    const $inputName = $form.find("input[name='name']");
+    const $inputEmail = $form.find("input[name='email']");
+    const $inputFile = $form.find("input[type='file']");
+    const $success = $form.find(".success-message");
+    const $buttonSubmit = $form.find("button[type='submit']");
+    const jobId = $buttonSubmit.attr("job-id");
+
+    let isValid = true;
+
+    $form.find("input").removeClass("error");
+
+    if ($inputName.val().trim() === "") {
+      $inputName.closest(".field-item").addClass("error");
+      isValid = false;
+    }
+
+    if ($inputEmail.val().trim() === "") {
+      $inputEmail.closest(".field-item").addClass("error");
+      isValid = false;
+    }
+
+    if ($inputFile.get(0).files.length === 0) {
+      $inputFile.closest(".field-item").addClass("error");
+      isValid = false;
+    }
+
+    if (!isValid) return;
+
+    $buttonSubmit.addClass("aloading");
+    setTimeout(() => {
+      $buttonSubmit.removeClass("aloading");
+      $("#modalReruitmentSuccess").modal("show");
+    }, 5000);
+
+    const formData = new FormData();
+    formData.append("action", "submit_recruitment_form");
+    formData.append("name", $inputName.val().trim());
+    formData.append("email", $inputEmail.val().trim());
+    formData.append("cv", $inputCV.val().trim());
+    formData.append("file", $inputFile.get(0).files[0]);
+    formData.append("job_id", jobId);
+
+    // $.ajax({
+    //   url: ajaxUrl,
+    //   type: "POST",
+    //   data: formData,
+    //   processData: false,
+    //   contentType: false,
+    //   beforeSend: function () {
+    //     $buttonSubmit.addClass("aloading");
+    //   },
+    //   success: function (res) {
+    //     $form[0].reset();
+
+    //     const $labelSpan = $form
+    //       .find("input[type='file']")
+    //       .next("label")
+    //       .find("span");
+    //     $labelSpan.text("Upload file under 5MB").removeClass("has-file");
+
+    //     if ($note.length > 0 && $success.length > 0) {
+    //       $note.hide();
+    //       $success.show();
+
+    //       setTimeout(function () {
+    //         $note.show();
+    //         $success.hide();
+    //       }, 5000);
+    //     }
+
+    //     $inputFile.removeClass("error");
+    //     $buttonSubmit.removeClass("aloading");
+    //   },
+    //   error: function (xhr, status, error) {
+    //     console.error("Lỗi khi gửi form:", error);
+    //     $form.append(
+    //       '<span class="contact-message body-sm-regular" style="color: #FF0000;">Có lỗi xảy ra, vui lòng thử lại sau.</span>'
+    //     );
+    //     $buttonSubmit.removeClass("aloading");
+    //   }
+    // });
+  });
+}
+
+function activeInputForm() {
+  const inputs = $("#formReruitment input");
+
+  if (inputs.length < 1) return;
+
+  inputs.each(function () {
+    const thisInput = $(this);
+
+    if (thisInput.text().trim() !== "") {
+      thisInput.addClass("active");
+    }
+  });
+
+  inputs.on("change", function () {
+    const thisInput = $(this);
+
+    if (thisInput.text().trim() !== " ") {
+      thisInput.addClass("active");
+    }
+  });
+}
+
+function uploadPdf() {
+  const $uploadNote = $("form").find(".pdf-note");
+  const originalNoteText = $uploadNote.text();
+
+  $("input[name='upload']").on("change", function () {
+    console.log("click");
+
+    const file = this.files[0];
+    const $input = $(this);
+    const $labelSpan = $input.siblings("label[for='upload']");
+    const allowedTypes = [
+      "application/pdf",
+      "application/msword",
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "image/jpeg",
+      "image/png",
+    ];
+    const maxSize = 5 * 1024 * 1024;
+
+    function truncateText(text, maxLength) {
+      return text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
+    }
+
+    function formatFileName(name) {
+      const lower = name.toLowerCase();
+      return lower.charAt(0).toUpperCase() + lower.slice(1);
+    }
+
+    $input.removeClass("error");
+    $labelSpan.text("Upload file under 5MB");
+    $uploadNote.text(originalNoteText);
+
+    if (!file) return;
+
+    if (!allowedTypes.includes(file.type)) {
+      $input.addClass("error");
+      $uploadNote.text("Only PDF/DOC/DOCX/JPG/PNG files allowed");
+      $input.val("");
+      return;
+    }
+
+    if (file.size > maxSize) {
+      $input.addClass("error");
+      $uploadNote.text("File too large (max 5MB)");
+      $input.val("");
+      return;
+    }
+
+    const formattedName = formatFileName(truncateText(file.name, 35));
+    $labelSpan.text(formattedName);
+    $labelSpan.addClass("has-file");
+  });
+}
+
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   // sectionFields();
@@ -1458,6 +1625,10 @@ const init = () => {
   header();
   fieldSuggestion();
   swiperNews();
+  activeInputForm();
+  formReruitment();
+  uploadPdf();
+
   ScrollTrigger.refresh();
 };
 preloadImages("img").then(() => {
