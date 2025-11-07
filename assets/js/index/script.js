@@ -728,7 +728,7 @@ function sectionIntro() {
 
   if ($(".intro-overlay").length) {
     gsap.to(".intro-overlay", {
-      y: -100,
+      y: -40,
       ease: "none",
       scrollTrigger: {
         trigger: "section.intro",
