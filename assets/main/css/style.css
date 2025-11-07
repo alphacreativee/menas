@@ -467,7 +467,7 @@ a.aloading,
 button.aloading {
   pointer-events: none;
   color: transparent !important;
-  background-color: var(--color-primary);
+  background-color: var(--color-primary) !important;
   position: relative;
 }
 a.aloading::after,
@@ -2675,7 +2675,7 @@ button.aloading::after {
 }
 
 .contact-sec {
-  padding: 48px 24px;
+  padding: 40px 24px;
   position: relative;
   z-index: 2;
   background-color: var(--color-white);
@@ -2718,30 +2718,34 @@ button.aloading::after {
 .contact-sec .contact-right .form-group-top {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px 24px;
+  gap: 24px;
 }
 .contact-sec .contact-right .form-group-top .form-item .form-field {
   position: relative;
+}
+.contact-sec .contact-right .form-group-top .form-item .form-field.error label {
+  color: #ff0000;
 }
 .contact-sec .contact-right .form-group-top .form-item .form-field input {
   width: 100%;
   border: none;
   font-size: 14px;
   line-height: 24px;
-  padding-bottom: 12px;
+  padding-bottom: 6px;
   border-bottom: 1px solid rgba(26, 61, 78, 0.3);
   color: var(--color-text);
 }
-.contact-sec .contact-right .form-group-top .form-item .form-field input:not(:placeholder-shown) + label {
-  opacity: 0;
-  visibility: hidden;
+.contact-sec .contact-right .form-group-top .form-item .form-field input:not(:placeholder-shown) + label, .contact-sec .contact-right .form-group-top .form-item .form-field input:focus + label, .contact-sec .contact-right .form-group-top .form-item .form-field input:focus-visible + label {
+  transform: translateY(-100%);
+  font-size: 10px;
+  line-height: 14px;
 }
 .contact-sec .contact-right .form-group-top .form-item .form-field label {
   position: absolute;
   font-size: 14px;
   line-height: 24px;
   left: 0px;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition: all 0.4s ease;
   pointer-events: none;
 }
 .contact-sec .contact-right .form-group-top .form-item .form-field span {
@@ -2783,28 +2787,30 @@ button.aloading::after {
   padding-bottom: 12px;
 }
 .contact-sec .contact-right .form-text-area {
+  margin-top: 24px;
   position: relative;
 }
 .contact-sec .contact-right .form-text-area textarea {
   resize: none;
   width: 100%;
-  margin-top: 16px;
   border: none;
   font-size: 14px;
   line-height: 24px;
   border-bottom: 1px solid rgba(26, 61, 78, 0.3);
+  color: var(--color-text);
 }
-.contact-sec .contact-right .form-text-area textarea:not(:placeholder-shown) + label {
-  opacity: 0;
-  visibility: hidden;
+.contact-sec .contact-right .form-text-area textarea:not(:placeholder-shown) + label, .contact-sec .contact-right .form-text-area textarea:focus + label, .contact-sec .contact-right .form-text-area textarea:focus-visible + label {
+  transform: translateY(-100%);
+  font-size: 10px;
+  line-height: 14px;
 }
 .contact-sec .contact-right .form-text-area label {
   position: absolute;
   left: 0;
-  top: 16px;
+  top: 0;
   font-size: 14px;
   line-height: 24px;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition: all 0.4s ease;
   pointer-events: none;
 }
 .contact-sec .contact-right .form-note {
@@ -3457,7 +3463,7 @@ button.aloading::after {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-top: 24px;
+  margin-top: 12px;
 }
 .reruitment-detail__wrapper .list-tags .tag-item {
   padding: 6px 16px;
@@ -3465,7 +3471,7 @@ button.aloading::after {
   background-color: rgba(228, 160, 37, 0.1);
 }
 .reruitment-detail__wrapper .detail-main {
-  margin-top: 48px;
+  margin-top: 24px;
   display: flex;
   align-items: flex-start;
   gap: 24px;
@@ -3480,7 +3486,7 @@ button.aloading::after {
   font-size: 17px;
   line-height: 24px;
   font-weight: 500;
-  margin-top: 30px;
+  margin-top: 24px;
   margin-bottom: 8px;
 }
 .reruitment-detail__wrapper .detail-main .detail-desc p,
@@ -3497,7 +3503,7 @@ button.aloading::after {
   color: var(--color-primary);
 }
 .reruitment-detail__wrapper .detail-main .reruitment-detail__cta {
-  margin-top: 40px;
+  margin-top: 24px;
 }
 .reruitment-detail__wrapper .detail-main .reruitment-detail__cta .share {
   display: flex;
@@ -3524,11 +3530,14 @@ button.aloading::after {
   border-radius: 8px;
 }
 .reruitment-detail__wrapper .detail-main .more-info h4 {
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 .reruitment-detail__wrapper .detail-main .more-info ul li {
   display: grid;
   grid-template-columns: 90px auto;
+}
+.reruitment-detail__wrapper .detail-main .more-info ul li:not(:first-child) {
+  margin-top: 8px;
 }
 .reruitment-detail__wrapper .detail-main .reruitment-form {
   margin-top: 20px;
@@ -3563,7 +3572,7 @@ button.aloading::after {
   transition: all 0.4s ease;
   pointer-events: none;
 }
-.reruitment-detail__wrapper .detail-main .reruitment-form form .field-item input.active + label, .reruitment-detail__wrapper .detail-main .reruitment-form form .field-item input:focus + label, .reruitment-detail__wrapper .detail-main .reruitment-form form .field-item input:focus-visible + label {
+.reruitment-detail__wrapper .detail-main .reruitment-form form .field-item input:not(:placeholder-shown) + label, .reruitment-detail__wrapper .detail-main .reruitment-form form .field-item input:focus + label, .reruitment-detail__wrapper .detail-main .reruitment-form form .field-item input:focus-visible + label {
   font-size: 10px;
   line-height: 14px;
   top: 4px;
@@ -3653,7 +3662,7 @@ button.aloading::after {
 .reruitment-detail__wrapper .detail-main .reruitment-form .cta .btn--custom {
   padding: 13px;
   border-radius: 8px;
-  border: 1px solid var(--color-text);
+  border: 1px solid rgba(26, 61, 78, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;

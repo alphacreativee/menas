@@ -1526,28 +1526,6 @@ function formReruitment() {
   });
 }
 
-function activeInputForm() {
-  const inputs = $("#formReruitment input");
-
-  if (inputs.length < 1) return;
-
-  inputs.each(function () {
-    const thisInput = $(this);
-
-    if (thisInput.text().trim() !== "") {
-      thisInput.addClass("active");
-    }
-  });
-
-  inputs.on("change", function () {
-    const thisInput = $(this);
-
-    if (thisInput.text().trim() !== " ") {
-      thisInput.addClass("active");
-    }
-  });
-}
-
 function uploadPdf() {
   const $uploadNote = $("form").find(".pdf-note");
   const originalNoteText = $uploadNote.text();
@@ -1602,6 +1580,57 @@ function uploadPdf() {
   });
 }
 
+function formContact() {
+  if ($("#formContact").length < 1) return;
+
+  $("#formContact").on("submit", function (e) {
+    e.preventDefault();
+
+    const $form = $(this);
+    const $inputName = $form.find("input[name='name']");
+    const $inputPhone = $form.find("input[name='phonenumber']");
+    const $inputEmail = $form.find("input[name='email']");
+    const $inputRegion = $form.find("input[name='region']");
+    const $inputCompany = $form.find("input[name='company']");
+    const $inputWebsite = $form.find("input[name='website']");
+    const $buttonSubmit = $form.find("button[type='submit']");
+
+    let isValid = true;
+
+    $form.find("input").removeClass("error");
+
+    if ($inputName.val().trim() === "") {
+      $inputName.closest(".form-field").addClass("error");
+      isValid = false;
+    }
+
+    if ($inputPhone.val().trim() === "") {
+      $inputPhone.closest(".form-field").addClass("error");
+      isValid = false;
+    }
+
+    if ($inputEmail.val().trim() === "") {
+      $inputEmail.closest(".form-field").addClass("error");
+      isValid = false;
+    }
+
+    if ($inputRegion.val().trim() === "") {
+      $inputRegion.closest(".form-field").addClass("error");
+      isValid = false;
+    }
+
+    if (!isValid) return;
+
+    $buttonSubmit.addClass("aloading");
+    setTimeout(() => {
+      $buttonSubmit.removeClass("aloading");
+      $("#modalContactSuccess").modal("show");
+    }, 5000);
+
+    const formData = new FormData();
+  });
+}
+
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   // sectionFields();
@@ -1625,9 +1654,9 @@ const init = () => {
   header();
   fieldSuggestion();
   swiperNews();
-  activeInputForm();
   formReruitment();
   uploadPdf();
+  formContact();
 
   ScrollTrigger.refresh();
 };

@@ -356,7 +356,7 @@
                   >
                     Thông tin
                   </div>
-                  <form action="" class="data-fade-in">
+                  <form action="" class="data-fade-in" id="formContact">
                     <div class="form-group-top">
                       <div class="form-item">
                         <div class="form-field">
@@ -443,13 +443,13 @@
                       <label for="note">Lời nhắn</label>
                     </div>
                     <div class="form-note">
-                      Bằng việc ‘LIÊN HỆ’, bạn đồng ý với
+                      Bằng việc ‘GỬI THÔNG TIN’, bạn đồng ý với
                       <span>
-                        <a href="">Chính sách bảo mật</a>
+                        <a href="./policy.html">Chính sách bảo mật</a>
                       </span>
                       của Menas.
                     </div>
-                    <button>gửi thông tin</button>
+                    <button type="submit">gửi thông tin</button>
                   </form>
                 </div>
               </div>
@@ -458,6 +458,27 @@
         </div>
       </section>
     </main>
+
+    <div
+      class="modal modal-success fade"
+      tabindex="-1"
+      id="modalContactSuccess"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="icon">
+              <img src="./assets/images/icon-success.gif" alt="" />
+            </div>
+            <div class="title b1-bold-font text-center">Cảm ơn bạn!</div>
+            <div class="desc tag-font text-center">
+              Thông tin của bạn đã được gửi thành công.
+              <br />Chúng tôi sẽ liên hệ bạn trong thời gian sớm nhất.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- layout -->
     <!-- footer -->
     <script>
