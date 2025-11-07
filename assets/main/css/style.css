@@ -838,8 +838,8 @@ section {
   color: var(--color-primary);
 }
 .footer-bottom ul.social li a svg {
-  width: 20px;
-  height: 20px;
+  width: 14px;
+  height: 16px;
 }
 .footer-bottom ul.social li a svg path {
   color: var(--color-white);
@@ -992,6 +992,10 @@ section {
     flex-wrap: wrap;
     gap: 12px 24px;
   }
+}
+.footer-social-wrapper {
+  display: flex;
+  align-items: center;
 }
 @media (max-width: 1150px) {
   .footer-social-wrapper {
@@ -2528,11 +2532,11 @@ section {
 }
 .contact-sec .contact-container {
   display: grid;
-  grid-template-columns: 3fr 5fr;
+  grid-template-columns: 4fr 5fr;
   gap: 24px;
 }
 .contact-sec .contact-title {
-  margin-bottom: 40px;
+  margin-bottom: 24px;
 }
 .contact-sec .contact-left {
   max-width: 75%;
@@ -2541,6 +2545,25 @@ section {
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+.contact-sec .contact-left ul li p {
+  display: inline;
+}
+.contact-sec .contact-left ul.social {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  margin-top: 24px;
+}
+.contact-sec .contact-left ul.social li a svg {
+  width: 16px;
+  height: 16px;
+}
+.contact-sec .contact-left ul.social li a svg path {
+  transition: all 0.4s;
+}
+.contact-sec .contact-left ul.social li a:hover svg path {
+  fill: var(--color-primary);
 }
 .contact-sec .contact-right .form-group-top {
   display: grid;

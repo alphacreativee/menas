@@ -113,8 +113,8 @@
             }
           }
           svg {
-            width: 20px;
-            height: 20px;
+            width: 14px;
+            height: 16px;
             path {
               color: var(--color-white);
               transition: all 0.3s ease;
@@ -280,6 +280,8 @@
     }
   }
   &-social-wrapper {
+    display: flex;
+    align-items: center;
     @media (max-width: 1150px) {
       grid-column: 2 / 3;
     }
