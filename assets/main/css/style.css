@@ -2463,9 +2463,15 @@ section {
 
 .news {
   background-color: var(--color-white-2);
+  position: relative;
+  z-index: 2;
+}
+.news-wrapper {
+  position: relative;
 }
 .news-featured {
   padding: 60px 60px 0;
+  display: flex;
 }
 .news-featured .news-item {
   display: grid;
@@ -2482,6 +2488,54 @@ section {
 .news-featured .news-item .desc {
   display: block;
 }
+.news-featured .news-slider-wrapper {
+  width: 50%;
+}
+.news-featured .news-slider-wrapper .news-slider {
+  width: 100%;
+  aspect-ratio: 648/380;
+}
+.news-featured .news-slider-wrapper .news-slider .news-image {
+  width: 100%;
+  height: 100%;
+}
+.news-featured .news-slider-wrapper .news-slider .news-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.news-featured .news-slider-content {
+  width: 50%;
+}
+.news .news-slider-text {
+  height: 100%;
+}
+.news .news-slider-text .swiper-slide .content {
+  background-color: var(--color-white);
+  height: 100%;
+  width: 100%;
+  padding: 0 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.news .news-slider-text .swiper-slide .content .date {
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.news .news-slider-text .swiper-slide .content .name {
+  font-size: 17px;
+  line-height: 24px;
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+.news .news-slider-text .swiper-slide .content .desc {
+  font-size: 17px;
+  line-height: 24px;
+  font-weight: 400;
+}
 .news-main {
   padding: 60px;
 }
@@ -2489,6 +2543,36 @@ section {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 30px;
+}
+.news .swiper-button-prev {
+  transform: rotate(-180deg);
+}
+.news .swiper-custom-btn {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--color-white);
+  margin: 0;
+  transition: all 0.4s ease;
+}
+.news .swiper-custom-btn:hover {
+  background-color: var(--color-primary);
+}
+.news .swiper-custom-btn:hover svg path {
+  color: var(--color-white);
+}
+.news .swiper-custom-btn:after {
+  content: unset;
+  font-size: 0;
+}
+.news .swiper-custom-btn svg {
+  width: 7px;
+  height: 12px;
+}
+.news .swiper-custom-btn svg path {
+  color: var(--color-text);
+  transition: all 0.4s ease;
 }
 
 .pagination {
