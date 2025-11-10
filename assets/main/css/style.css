@@ -1132,7 +1132,7 @@ button.aloading::after {
   .footer-col.col-about-menas ul {
     display: grid;
     grid-template-columns: max-content max-content max-content;
-    gap: 4px 16px;
+    gap: 4px 14px;
   }
   .footer-col.col-about-menas ul li:nth-child(3), .footer-col.col-about-menas ul li:last-child {
     width: 100%;

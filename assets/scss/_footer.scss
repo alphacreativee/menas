@@ -337,7 +337,7 @@
         @media (max-width: 767px) {
           display: grid;
           grid-template-columns: max-content max-content max-content;
-          gap: 4px 16px;
+          gap: 4px 14px;
           li {
             &:nth-child(3),
             &:last-child {
