@@ -96,6 +96,11 @@
                 border-radius: 50%;
                 background-color: var(--color-text);
               }
+              p {
+                @media (max-width: 767px) {
+                  text-align: justify;
+                }
+              }
             }
           }
         }
