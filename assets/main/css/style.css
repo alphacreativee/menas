@@ -719,11 +719,11 @@ button.aloading::after {
   background: var(--color-white);
   background-size: cover;
   background-position: center;
-  padding: 40px 0;
+  padding: 24px 0;
 }
 .logo-wrap-content {
   width: 40%;
-  margin: 0 auto 8px;
+  margin: 0 auto 15px;
   text-align: center;
 }
 .logo-wrap .marquee {
@@ -734,7 +734,7 @@ button.aloading::after {
   width: 100%;
   position: relative;
   overflow: hidden;
-  margin-bottom: 8px;
+  margin-bottom: 0;
 }
 .logo-wrap .marquee-wrap:last-child {
   margin-bottom: 0;
@@ -1841,6 +1841,11 @@ button.aloading::after {
   position: relative;
   z-index: 2;
 }
+@media (max-width: 991px) {
+  .intro-container {
+    padding: 24px;
+  }
+}
 .intro-text {
   max-width: 960px;
   margin: 0 auto;
@@ -1850,12 +1855,7 @@ button.aloading::after {
 }
 @media (max-width: 991px) {
   .intro-text {
-    max-width: 60%;
-  }
-}
-@media (max-width: 767px) {
-  .intro-text {
-    max-width: 70%;
+    max-width: 100%;
   }
 }
 .intro-image {

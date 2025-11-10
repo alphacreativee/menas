@@ -21,6 +21,10 @@
     padding: 40px 24px;
     position: relative;
     z-index: 2;
+
+    @media (max-width: 991px) {
+      padding: 24px;
+    }
   }
 
   &-text {
@@ -32,11 +36,7 @@
     z-index: 2;
 
     @media (max-width: 991px) {
-      max-width: 60%;
-    }
-
-    @media (max-width: 767px) {
-      max-width: 70%;
+      max-width: 100%;
     }
   }
 
