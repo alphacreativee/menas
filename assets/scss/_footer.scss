@@ -10,7 +10,8 @@
       position: absolute;
       width: 100%;
       height: 100%;
-      inset: 0;
+      left: 0;
+      bottom: 0;
       z-index: 1;
 
       video {
@@ -26,12 +27,18 @@
       left: 0;
       transform: translateY(100px);
       right: 0;
+      @media (max-width: 767px) {
+        height: 300px;
+      }
     }
 
     &.footer-overlay {
       opacity: 0;
       pointer-events: none;
       position: unset !important;
+      @media (max-width: 767px) {
+        height: 300px;
+      }
     }
     .footer-logo-sub {
       display: flex;
