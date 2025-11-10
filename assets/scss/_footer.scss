@@ -27,18 +27,12 @@
       left: 0;
       transform: translateY(100px);
       right: 0;
-      @media (max-width: 767px) {
-        height: 300px;
-      }
     }
 
     &.footer-overlay {
       opacity: 0;
       pointer-events: none;
       position: unset !important;
-      @media (max-width: 767px) {
-        height: 300px;
-      }
     }
     .footer-logo-sub {
       display: flex;

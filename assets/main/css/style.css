@@ -816,20 +816,10 @@ button.aloading::after {
   transform: translateY(100px);
   right: 0;
 }
-@media (max-width: 767px) {
-  .footer-container.footer-main {
-    height: 300px;
-  }
-}
 .footer-container.footer-overlay {
   opacity: 0;
   pointer-events: none;
   position: unset !important;
-}
-@media (max-width: 767px) {
-  .footer-container.footer-overlay {
-    height: 300px;
-  }
 }
 .footer-container .footer-logo-sub {
   display: flex;
