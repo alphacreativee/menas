@@ -1971,7 +1971,7 @@ button.aloading::after {
   }
 }
 .section-awards .awards-slider {
-  margin-top: 48px;
+  margin-top: 40px;
 }
 @media (max-width: 991px) {
   .section-awards .awards-slider {
