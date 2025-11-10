@@ -21,6 +21,9 @@
     padding: 40px 24px;
     position: relative;
     z-index: 2;
+    @media (max-width: 767px) {
+      padding: 16px 24px 0;
+    }
   }
 
   &-text {
@@ -36,7 +39,11 @@
     }
 
     @media (max-width: 767px) {
-      max-width: 70%;
+      max-width: 100%;
+      font-size: 14px;
+      line-height: 24px;
+      font-weight: 400;
+      text-align: justify;
     }
   }
 
