@@ -176,15 +176,15 @@ section {
   overflow: hidden;
   will-change: clip-path;
 
-  @media (min-width: 992px) {
-    &:hover {
-      clip-path: inset(1.5%);
+  &:hover {
+    clip-path: inset(1.3%);
 
-      img,
-      video {
-        transform: scale(1.03);
-      }
+    img,
+    video {
+      transform: scale(1.03);
     }
+  }
+  @media (min-width: 992px) {
   }
 
   img,

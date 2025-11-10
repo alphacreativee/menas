@@ -32,11 +32,19 @@ a {
   font-size: 17px;
   line-height: 24px;
   font-weight: 400;
+
+  @media (max-width: 991px) {
+    font-size: 14px;
+  }
 }
 .b1-bold-font {
   font-size: 17px;
   line-height: 24px;
   font-weight: 500;
+
+  @media (max-width: 991px) {
+    font-size: 14px;
+  }
 }
 .b2-font {
   font-size: 14px;
@@ -64,11 +72,21 @@ a {
   font-size: 24px;
   line-height: 32px;
   font-weight: 500;
+
+  @media (max-width: 991px) {
+    font-size: 17px;
+    line-height: 24px;
+  }
 }
 .h3-font {
   font-size: 24px;
   line-height: 32px;
   font-weight: 500;
+
+  @media (max-width: 991px) {
+    font-size: 17px;
+    line-height: 24px;
+  }
 }
 .tag-font {
   font-size: 12px;
