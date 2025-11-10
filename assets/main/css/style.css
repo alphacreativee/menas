@@ -3219,64 +3219,77 @@ button.aloading::after {
   flex-direction: column;
   gap: 24px;
 }
+.partner-info-container .profile-person {
+  position: relative;
+  z-index: 3;
+}
+.partner-info-container .profile-company {
+  position: relative;
+  z-index: 2;
+}
 .partner-info .profile-title {
   margin-bottom: 24px;
 }
 .partner-info .group-info {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px 24px;
+  gap: 32px 24px;
 }
 .partner-info .group-info .info-item {
   display: flex;
   align-items: flex-end;
 }
-.partner-info .group-info .info-item .form-field {
+.partner-info .form-field {
   position: relative;
   width: 100%;
 }
-.partner-info .group-info .info-item .form-field.up-file input {
+.partner-info .form-field.up-file input {
   height: 65px;
   text-indent: -9999px;
   position: relative;
   z-index: 1;
-  padding-bottom: 12px;
+  padding-bottom: 8px;
   cursor: pointer;
 }
-.partner-info .group-info .info-item .form-field.up-file .icon {
+.partner-info .form-field.up-file .icon {
   width: 15px;
   height: 20px;
-  top: 18px;
+  bottom: 12px;
+  top: unset;
 }
-.partner-info .group-info .info-item .form-field.up-file label {
+.partner-info .form-field.up-file label {
   position: absolute;
   z-index: 2;
   opacity: 1 !important;
   visibility: visible !important;
   left: 0;
-  top: 3px;
+  bottom: 8px;
+  font-size: 14px !important;
+  line-height: 24px !important;
+  transform: none !important;
+  color: var(--color-text) !important;
 }
-.partner-info .group-info .info-item .form-field .icon {
+.partner-info .form-field .icon {
   position: absolute;
   right: 0;
   top: 5px;
   pointer-events: none;
 }
-.partner-info .group-info .info-item .form-field input {
+.partner-info .form-field input {
   width: 100%;
   border: none;
   font-size: 14px;
   line-height: 24px;
-  padding-bottom: 12px;
+  padding-bottom: 8px;
   border-bottom: 1px solid rgba(26, 61, 78, 0.3);
   color: var(--color-text);
 }
-.partner-info .group-info .info-item .form-field input:not(:placeholder-shown) + label, .partner-info .group-info .info-item .form-field input:focus + label, .partner-info .group-info .info-item .form-field input:focus-visible + label {
-  transform: translateY(-100%);
+.partner-info .form-field input:not(:placeholder-shown) + label, .partner-info .form-field input:focus + label, .partner-info .form-field input:focus-visible + label {
+  transform: translateY(calc(-2px - 100%));
   font-size: 10px;
   line-height: 14px;
 }
-.partner-info .group-info .info-item .form-field label {
+.partner-info .form-field label {
   position: absolute;
   font-size: 14px;
   line-height: 24px;
@@ -3284,8 +3297,23 @@ button.aloading::after {
   transition: all 0.4s ease;
   pointer-events: none;
 }
-.partner-info .group-info .info-item .form-field span {
+.partner-info .form-field span {
   color: #ff0000;
+}
+.partner-info .form-field.error input {
+  border-color: #ff0000;
+}
+.partner-info .form-field.error label,
+.partner-info .form-field.error .field-select-label {
+  color: #ff0000;
+}
+.partner-info .form-field.error .dropdown-custom-btn {
+  border-color: #ff0000;
+}
+.partner-info .form-field .field-select-label {
+  font-size: 10px;
+  line-height: 14px;
+  margin-bottom: 2px;
 }
 .partner-info .dropdown-custom-select {
   position: relative;
@@ -3322,7 +3350,7 @@ button.aloading::after {
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid rgba(26, 61, 78, 0.3);
-  padding-bottom: 12px;
+  padding-bottom: 8px;
 }
 .partner-info .suggest-note {
   border: 1px solid rgba(26, 61, 78, 0.3);
@@ -3378,9 +3406,7 @@ button.aloading::after {
   font-size: 14px;
   line-height: 24px;
   color: var(--color-text);
-  padding-bottom: 12px;
-  border-bottom: 1px solid rgba(26, 61, 78, 0.3);
-  margin-top: 16px;
+  margin-top: 32px;
 }
 .partner-info .captcha-text span {
   color: #ff0000;

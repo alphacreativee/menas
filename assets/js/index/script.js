@@ -597,6 +597,8 @@ function customDropdownSelectValue() {
 
         displayText.textContent = optionText;
 
+        dropdownWrapper.classList.add("selected");
+
         closeAllDropdowns();
       });
     });
@@ -1531,8 +1533,6 @@ function uploadPdf() {
   const originalNoteText = $uploadNote.text();
 
   $("input[name='upload']").on("change", function () {
-    console.log("click");
-
     const file = this.files[0];
     const $input = $(this);
     const $labelSpan = $input.siblings("label[for='upload']");
@@ -1556,21 +1556,32 @@ function uploadPdf() {
 
     $input.removeClass("error");
     $labelSpan.text("Upload file under 5MB");
-    $uploadNote.text(originalNoteText);
+
+    if ($uploadNote) {
+      $uploadNote.text(originalNoteText);
+    }
 
     if (!file) return;
 
     if (!allowedTypes.includes(file.type)) {
       $input.addClass("error");
-      $uploadNote.text("Only PDF/DOC/DOCX/JPG/PNG files allowed");
       $input.val("");
+
+      if ($uploadNote) {
+        $uploadNote.text("Only PDF/DOC/DOCX/JPG/PNG files allowed");
+      }
+
       return;
     }
 
     if (file.size > maxSize) {
       $input.addClass("error");
-      $uploadNote.text("File too large (max 5MB)");
       $input.val("");
+
+      if ($uploadNote) {
+        $uploadNote.text("File too large (max 5MB)");
+      }
+
       return;
     }
 
@@ -1645,14 +1656,18 @@ function formCooperate() {
     const $inputPhone = $form.find("input[name='phonenumber']");
 
     const $inputCompany = $form.find("input[name='company']");
+    const $inputRegion = $form.find("input[name='region']");
     const $inputMST = $form.find("input[name='mst']");
     const $inputWebsite = $form.find("input[name='website']");
 
+    const $inputCapcha = $form.find("input[name='capcha']");
     const $buttonSubmit = $form.find("button[type='submit']");
+
+    const $selectRequired = $form.find(".dropdown-custom-select");
 
     let isValid = true;
 
-    $form.find("input").removeClass("error");
+    $form.find(".form-field").removeClass("error");
 
     if ($inputName.val().trim() === "") {
       $inputName.closest(".form-field").addClass("error");
@@ -1693,6 +1708,41 @@ function formCooperate() {
       $inputRegion.closest(".form-field").addClass("error");
       isValid = false;
     }
+
+    const correctCaptcha = "lrjhfrt";
+    if (
+      $inputCapcha.val().trim() === "" ||
+      $inputCapcha.val().trim().toLowerCase() !== correctCaptcha
+    ) {
+      $inputCapcha.closest(".form-field").addClass("error");
+      isValid = false;
+    }
+
+    $selectRequired.each(function () {
+      const wrapper = $(this);
+
+      const formField = wrapper.closest(".form-field");
+
+      if (!wrapper.hasClass("selected")) {
+        formField.addClass("error");
+        isValid = false;
+      } else {
+        formField.removeClass("error");
+      }
+    });
+
+    $("input[name='upload'][fieldRequired]").each(function () {
+      const $input = $(this);
+      const $field = $input.closest(".form-field");
+
+      if ($field) {
+        if (this.files.length === 0) {
+          $field.addClass("error");
+        } else {
+          $field.removeClass("error");
+        }
+      }
+    });
 
     if (!isValid) return;
 
