@@ -21,8 +21,14 @@
     padding: 40px 24px;
     position: relative;
     z-index: 2;
+<<<<<<< HEAD
     @media (max-width: 767px) {
       padding: 16px 24px 0;
+=======
+
+    @media (max-width: 991px) {
+      padding: 24px;
+>>>>>>> staging
     }
   }
 
@@ -35,6 +41,7 @@
     z-index: 2;
 
     @media (max-width: 991px) {
+<<<<<<< HEAD
       max-width: 60%;
     }
 
@@ -44,6 +51,9 @@
       line-height: 24px;
       font-weight: 400;
       text-align: justify;
+=======
+      max-width: 100%;
+>>>>>>> staging
     }
   }
 

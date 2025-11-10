@@ -719,11 +719,11 @@ button.aloading::after {
   background: var(--color-white);
   background-size: cover;
   background-position: center;
-  padding: 32px 0;
+  padding: 24px 0;
 }
 .logo-wrap-content {
   width: 40%;
-  margin: 0 auto 32px;
+  margin: 0 auto 15px;
   text-align: center;
 }
 .logo-wrap .marquee {
@@ -734,7 +734,7 @@ button.aloading::after {
   width: 100%;
   position: relative;
   overflow: hidden;
-  margin-bottom: 32px;
+  margin-bottom: 0;
 }
 .logo-wrap .marquee-wrap:last-child {
   margin-bottom: 0;
@@ -753,8 +753,8 @@ button.aloading::after {
   flex: none;
 }
 .logo-wrap .marquee-item {
-  margin-right: 30px;
-  margin-left: 30px;
+  margin-right: 20px;
+  margin-left: 20px;
   flex: none;
   width: 170px;
 }
@@ -1115,23 +1115,27 @@ button.aloading::after {
   }
 }
 @media (min-width: 1200px) {
-  .footer-col.col-about-menas, .footer-col.col-menu {
+  .footer-col.col-about-menas,
+  .footer-col.col-menu {
     padding-left: 45px;
   }
 }
 @media (max-width: 1200px) and (min-width: 1151px) {
-  .footer-col.col-about-menas, .footer-col.col-menu {
+  .footer-col.col-about-menas,
+  .footer-col.col-menu {
     padding-left: 24px;
   }
 }
-.footer-col.col-about-menas ul, .footer-col.col-menu ul {
+.footer-col.col-about-menas ul,
+.footer-col.col-menu ul {
   display: inline-grid;
   grid-template-columns: max-content max-content;
   column-gap: 40px;
   row-gap: 12px;
 }
 @media (max-width: 1150px) {
-  .footer-col.col-about-menas ul, .footer-col.col-menu ul {
+  .footer-col.col-about-menas ul,
+  .footer-col.col-menu ul {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 12px 24px;
@@ -1143,7 +1147,8 @@ button.aloading::after {
     grid-template-columns: max-content max-content max-content;
     gap: 4px 14px;
   }
-  .footer-col.col-about-menas ul li:nth-child(3), .footer-col.col-about-menas ul li:last-child {
+  .footer-col.col-about-menas ul li:nth-child(3),
+  .footer-col.col-about-menas ul li:last-child {
     width: 100%;
     text-align: right;
   }
@@ -1221,7 +1226,8 @@ button.aloading::after {
   transition: all 0.4s ease;
   color: var(--color-text);
 }
-.header-menu ul > li > a:hover, .header-menu ul > li > a.active {
+.header-menu ul > li > a:hover,
+.header-menu ul > li > a.active {
   background-position: 0;
   color: var(--color-primary);
 }
@@ -1397,10 +1403,12 @@ button.aloading::after {
   align-items: center;
   gap: 10px;
 }
-.header-lang .dropdown-custom-btn:hover, .header-lang .dropdown-custom-btn.active {
+.header-lang .dropdown-custom-btn:hover,
+.header-lang .dropdown-custom-btn.active {
   color: var(--color-primary);
 }
-.header-lang .dropdown-custom-btn:hover span, .header-lang .dropdown-custom-btn.active span {
+.header-lang .dropdown-custom-btn:hover span,
+.header-lang .dropdown-custom-btn.active span {
   background-position: 0 !important;
   color: var(--color-primary) !important;
 }
@@ -1654,7 +1662,11 @@ button.aloading::after {
   bottom: 0;
   left: 0;
   z-index: 1;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgb(0, 0, 0) 100%
+  );
 }
 .hero .swiper-banner .swiper-content {
   width: 100%;
@@ -1860,11 +1872,7 @@ button.aloading::after {
 }
 @media (max-width: 767px) {
   .intro-text {
-    max-width: 100%;
-    font-size: 14px;
-    line-height: 24px;
-    font-weight: 400;
-    text-align: justify;
+    max-width: 70%;
   }
 }
 .intro-image {
@@ -2471,7 +2479,11 @@ button.aloading::after {
 .responsibility-item::after {
   display: none;
   content: "";
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgb(0, 0, 0) 95%);
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 50%,
+    rgb(0, 0, 0) 95%
+  );
   inset: 0;
   position: absolute;
 }
@@ -2566,7 +2578,8 @@ button.aloading::after {
 .chat-button:hover {
   background-color: var(--color-secondary);
 }
-.chat-button:hover svg path:nth-child(2), .chat-button:hover svg path:nth-child(3) {
+.chat-button:hover svg path:nth-child(2),
+.chat-button:hover svg path:nth-child(3) {
   stroke: var(--color-secondary);
 }
 .chat-button svg path {
@@ -2769,7 +2782,9 @@ button.aloading::after {
 }
 
 @keyframes typing {
-  0%, 60%, 100% {
+  0%,
+  60%,
+  100% {
     transform: translateY(0);
   }
   30% {
@@ -2950,7 +2965,8 @@ button.aloading::after {
   color: var(--color-text);
   transition: all 0.4s ease;
 }
-.pagination .page-number:hover, .pagination .page-number.active {
+.pagination .page-number:hover,
+.pagination .page-number.active {
   background-color: var(--color-text);
   color: var(--color-white);
 }
@@ -3068,7 +3084,27 @@ button.aloading::after {
   border-bottom: 1px solid rgba(26, 61, 78, 0.3);
   color: var(--color-text);
 }
-.contact-sec .contact-right .form-group-top .form-item .form-field input:not(:placeholder-shown) + label, .contact-sec .contact-right .form-group-top .form-item .form-field input:focus + label, .contact-sec .contact-right .form-group-top .form-item .form-field input:focus-visible + label {
+.contact-sec
+  .contact-right
+  .form-group-top
+  .form-item
+  .form-field
+  input:not(:placeholder-shown)
+  + label,
+.contact-sec
+  .contact-right
+  .form-group-top
+  .form-item
+  .form-field
+  input:focus
+  + label,
+.contact-sec
+  .contact-right
+  .form-group-top
+  .form-item
+  .form-field
+  input:focus-visible
+  + label {
   transform: translateY(-100%);
   font-size: 10px;
   line-height: 14px;
@@ -3104,7 +3140,10 @@ button.aloading::after {
   flex-direction: column;
   gap: 12px;
 }
-.contact-sec .contact-right .dropdown-custom-select .dropdown-custom-menu.dropdown--active {
+.contact-sec
+  .contact-right
+  .dropdown-custom-select
+  .dropdown-custom-menu.dropdown--active {
   clip-path: inset(0 0 0 0);
 }
 .contact-sec .contact-right .dropdown-custom-select .dropdown-custom-text,
@@ -3137,7 +3176,13 @@ button.aloading::after {
   border-bottom: 1px solid rgba(26, 61, 78, 0.3);
   color: var(--color-text);
 }
-.contact-sec .contact-right .form-text-area textarea:not(:placeholder-shown) + label, .contact-sec .contact-right .form-text-area textarea:focus + label, .contact-sec .contact-right .form-text-area textarea:focus-visible + label {
+.contact-sec
+  .contact-right
+  .form-text-area
+  textarea:not(:placeholder-shown)
+  + label,
+.contact-sec .contact-right .form-text-area textarea:focus + label,
+.contact-sec .contact-right .form-text-area textarea:focus-visible + label {
   transform: translateY(-100%);
   font-size: 10px;
   line-height: 14px;
@@ -3391,7 +3436,8 @@ button.aloading::after {
 .news-detail__cta .like .icon svg * {
   transition: all 0.4s ease;
 }
-.news-detail__cta .like:hover .icon, .news-detail__cta .like.active .icon {
+.news-detail__cta .like:hover .icon,
+.news-detail__cta .like.active .icon {
   color: #ff0000;
 }
 .news-detail__cta .share ul {
@@ -3451,15 +3497,26 @@ button.aloading::after {
   opacity: 0;
   pointer-events: none;
 }
-.section-reruitment .reruitment-tabs .tab-item.active, .section-reruitment .reruitment-tabs .tab-item:hover {
+.section-reruitment .reruitment-tabs .tab-item.active,
+.section-reruitment .reruitment-tabs .tab-item:hover {
   background-color: var(--color-primary);
   border-color: var(--color-primary);
   color: var(--color-white);
 }
-.section-reruitment .reruitment-tabs .tab-item.active .icon.has-img-hover img, .section-reruitment .reruitment-tabs .tab-item:hover .icon.has-img-hover img {
+.section-reruitment .reruitment-tabs .tab-item.active .icon.has-img-hover img,
+.section-reruitment .reruitment-tabs .tab-item:hover .icon.has-img-hover img {
   opacity: 0;
 }
-.section-reruitment .reruitment-tabs .tab-item.active .icon.has-img-hover .img-hover, .section-reruitment .reruitment-tabs .tab-item:hover .icon.has-img-hover .img-hover {
+.section-reruitment
+  .reruitment-tabs
+  .tab-item.active
+  .icon.has-img-hover
+  .img-hover,
+.section-reruitment
+  .reruitment-tabs
+  .tab-item:hover
+  .icon.has-img-hover
+  .img-hover {
   opacity: 1;
 }
 
@@ -3469,7 +3526,8 @@ button.aloading::after {
 .reruitment-main .pagination .page-number {
   background-color: #f7f7f7;
 }
-.reruitment-main .pagination .page-number:hover, .reruitment-main .pagination .page-number.active {
+.reruitment-main .pagination .page-number:hover,
+.reruitment-main .pagination .page-number.active {
   background-color: var(--color-text);
   color: var(--color-white);
 }
@@ -3496,13 +3554,15 @@ button.aloading::after {
 .reruitment-list .item:not(:last-child) {
   margin-bottom: 12px;
 }
-.reruitment-list .item-title, .reruitment-list .item-salary {
+.reruitment-list .item-title,
+.reruitment-list .item-salary {
   font-size: 17px;
   line-height: 24px;
   font-weight: 500;
   transition: all 0.4s ease;
 }
-.reruitment-list .item-desc, .reruitment-list .item-date {
+.reruitment-list .item-desc,
+.reruitment-list .item-date {
   font-size: 14px;
   line-height: 24px;
   margin-top: 4px;
@@ -3559,14 +3619,16 @@ button.aloading::after {
   align-items: center;
   gap: 12px;
 }
-.form-reruitment-bar form .form-item.search input, .form-reruitment-bar form .form-item.location input {
+.form-reruitment-bar form .form-item.search input,
+.form-reruitment-bar form .form-item.location input {
   border: none;
   font-size: 14px;
   line-height: 24px;
   color: var(--color-text);
   padding-left: 0;
 }
-.form-reruitment-bar form .form-item.search input::placeholder, .form-reruitment-bar form .form-item.location input::placeholder {
+.form-reruitment-bar form .form-item.search input::placeholder,
+.form-reruitment-bar form .form-item.location input::placeholder {
   color: #1a3d4e;
 }
 .form-reruitment-bar form .form-item > .icon {
@@ -3581,7 +3643,10 @@ button.aloading::after {
 .form-reruitment-bar form .form-item .dropdown-custom-menu::-webkit-scrollbar {
   width: 2px;
 }
-.form-reruitment-bar form .form-item .dropdown-custom-menu::-webkit-scrollbar-thumb {
+.form-reruitment-bar
+  form
+  .form-item
+  .dropdown-custom-menu::-webkit-scrollbar-thumb {
   background: var(--color-primary);
 }
 .form-reruitment-bar form button {
@@ -3672,7 +3737,9 @@ button.aloading::after {
   border-bottom: 1px solid rgba(26, 61, 78, 0.3);
   color: var(--color-text);
 }
-.partner-info .form-field input:not(:placeholder-shown) + label, .partner-info .form-field input:focus + label, .partner-info .form-field input:focus-visible + label {
+.partner-info .form-field input:not(:placeholder-shown) + label,
+.partner-info .form-field input:focus + label,
+.partner-info .form-field input:focus-visible + label {
   transform: translateY(calc(-2px - 100%));
   font-size: 10px;
   line-height: 14px;
@@ -3760,7 +3827,11 @@ button.aloading::after {
   line-height: 24px;
   padding: 16px;
 }
-.partner-info .suggest .form-text-area textarea:not(:placeholder-shown) + label {
+.partner-info
+  .suggest
+  .form-text-area
+  textarea:not(:placeholder-shown)
+  + label {
   opacity: 0;
   visibility: hidden;
 }
@@ -3922,10 +3993,21 @@ button.aloading::after {
   align-items: center;
   gap: 12px;
 }
-.reruitment-detail__wrapper .detail-main .reruitment-detail__cta .share ul svg * {
+.reruitment-detail__wrapper
+  .detail-main
+  .reruitment-detail__cta
+  .share
+  ul
+  svg
+  * {
   transition: all 0.4s ease;
 }
-.reruitment-detail__wrapper .detail-main .reruitment-detail__cta .share ul li:hover {
+.reruitment-detail__wrapper
+  .detail-main
+  .reruitment-detail__cta
+  .share
+  ul
+  li:hover {
   color: var(--color-primary);
 }
 .reruitment-detail__wrapper .detail-main .detail-bar {
@@ -3962,42 +4044,111 @@ button.aloading::after {
   border-bottom: 1px solid rgba(26, 61, 78, 0.3);
   position: relative;
 }
-.reruitment-detail__wrapper .detail-main .reruitment-form form .field-item.error {
+.reruitment-detail__wrapper
+  .detail-main
+  .reruitment-form
+  form
+  .field-item.error {
   border-color: #ff0000;
 }
-.reruitment-detail__wrapper .detail-main .reruitment-form form .field-item.error label {
+.reruitment-detail__wrapper
+  .detail-main
+  .reruitment-form
+  form
+  .field-item.error
+  label {
   color: #ff0000;
 }
-.reruitment-detail__wrapper .detail-main .reruitment-form form .field-item input[type=number] {
+.reruitment-detail__wrapper
+  .detail-main
+  .reruitment-form
+  form
+  .field-item
+  input[type="number"] {
   -moz-appearance: textfield; /* Firefox */
 }
-.reruitment-detail__wrapper .detail-main .reruitment-form form .field-item input[type=number]::-webkit-outer-spin-button, .reruitment-detail__wrapper .detail-main .reruitment-form form .field-item input[type=number]::-webkit-inner-spin-button {
+.reruitment-detail__wrapper
+  .detail-main
+  .reruitment-form
+  form
+  .field-item
+  input[type="number"]::-webkit-outer-spin-button,
+.reruitment-detail__wrapper
+  .detail-main
+  .reruitment-form
+  form
+  .field-item
+  input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-.reruitment-detail__wrapper .detail-main .reruitment-form form .field-item input + label {
+.reruitment-detail__wrapper
+  .detail-main
+  .reruitment-form
+  form
+  .field-item
+  input
+  + label {
   transition: all 0.4s ease;
   pointer-events: none;
 }
-.reruitment-detail__wrapper .detail-main .reruitment-form form .field-item input:not(:placeholder-shown) + label, .reruitment-detail__wrapper .detail-main .reruitment-form form .field-item input:focus + label, .reruitment-detail__wrapper .detail-main .reruitment-form form .field-item input:focus-visible + label {
+.reruitment-detail__wrapper
+  .detail-main
+  .reruitment-form
+  form
+  .field-item
+  input:not(:placeholder-shown)
+  + label,
+.reruitment-detail__wrapper
+  .detail-main
+  .reruitment-form
+  form
+  .field-item
+  input:focus
+  + label,
+.reruitment-detail__wrapper
+  .detail-main
+  .reruitment-form
+  form
+  .field-item
+  input:focus-visible
+  + label {
   font-size: 10px;
   line-height: 14px;
   top: 4px;
 }
-.reruitment-detail__wrapper .detail-main .reruitment-form form .field-item.address {
+.reruitment-detail__wrapper
+  .detail-main
+  .reruitment-form
+  form
+  .field-item.address {
   position: relative;
   z-index: 2;
 }
-.reruitment-detail__wrapper .detail-main .reruitment-form form .field-item.address label {
+.reruitment-detail__wrapper
+  .detail-main
+  .reruitment-form
+  form
+  .field-item.address
+  label {
   font-size: 10px;
   line-height: 14px;
   top: 4px;
 }
-.reruitment-detail__wrapper .detail-main .reruitment-form form .field-item.upload {
+.reruitment-detail__wrapper
+  .detail-main
+  .reruitment-form
+  form
+  .field-item.upload {
   position: relative;
   min-height: 36px;
 }
-.reruitment-detail__wrapper .detail-main .reruitment-form form .field-item.upload input {
+.reruitment-detail__wrapper
+  .detail-main
+  .reruitment-form
+  form
+  .field-item.upload
+  input {
   padding-right: 25px;
   padding: 0;
   border: none;
@@ -4005,12 +4156,23 @@ button.aloading::after {
   position: absolute;
   z-index: 2;
 }
-.reruitment-detail__wrapper .detail-main .reruitment-form form .field-item.upload input + label {
+.reruitment-detail__wrapper
+  .detail-main
+  .reruitment-form
+  form
+  .field-item.upload
+  input
+  + label {
   font-size: 14px !important;
   line-height: 24px !important;
   top: 50% !important;
 }
-.reruitment-detail__wrapper .detail-main .reruitment-form form .field-item.upload .icon {
+.reruitment-detail__wrapper
+  .detail-main
+  .reruitment-form
+  form
+  .field-item.upload
+  .icon {
   width: 15px;
   height: auto;
   position: absolute;
@@ -4018,21 +4180,41 @@ button.aloading::after {
   transform: translateY(calc(-3px - 50%));
   right: 0;
 }
-.reruitment-detail__wrapper .detail-main .reruitment-form form .field-item .dropdown-custom {
+.reruitment-detail__wrapper
+  .detail-main
+  .reruitment-form
+  form
+  .field-item
+  .dropdown-custom {
   min-height: 36px;
   display: flex;
   align-items: center;
 }
-.reruitment-detail__wrapper .detail-main .reruitment-form form .field-item .dropdown-custom-btn {
+.reruitment-detail__wrapper
+  .detail-main
+  .reruitment-form
+  form
+  .field-item
+  .dropdown-custom-btn {
   width: 100%;
   justify-content: space-between;
 }
-.reruitment-detail__wrapper .detail-main .reruitment-form form .field-item .dropdown-custom-menu {
+.reruitment-detail__wrapper
+  .detail-main
+  .reruitment-form
+  form
+  .field-item
+  .dropdown-custom-menu {
   width: calc(100% + 16px);
   background-color: var(--color-white-2);
   bottom: -1px;
 }
-.reruitment-detail__wrapper .detail-main .reruitment-form form .field-item label {
+.reruitment-detail__wrapper
+  .detail-main
+  .reruitment-form
+  form
+  .field-item
+  label {
   font-size: 14px;
   line-height: 24px;
   position: absolute;
@@ -4040,13 +4222,28 @@ button.aloading::after {
   top: 50%;
   transform: translateY(calc(-6px - 50%));
 }
-.reruitment-detail__wrapper .detail-main .reruitment-form form .field-item label span {
+.reruitment-detail__wrapper
+  .detail-main
+  .reruitment-form
+  form
+  .field-item
+  label
+  span {
   color: #ff0000;
 }
-.reruitment-detail__wrapper .detail-main .reruitment-form form .field-item:not(:first-child) {
+.reruitment-detail__wrapper
+  .detail-main
+  .reruitment-form
+  form
+  .field-item:not(:first-child) {
   margin-top: 16px;
 }
-.reruitment-detail__wrapper .detail-main .reruitment-form form .field-item input {
+.reruitment-detail__wrapper
+  .detail-main
+  .reruitment-form
+  form
+  .field-item
+  input {
   height: 36px;
   border: none;
   width: 100%;
@@ -4075,7 +4272,11 @@ button.aloading::after {
   justify-content: center;
   transition: all 0.4s ease;
 }
-.reruitment-detail__wrapper .detail-main .reruitment-form .cta .btn--custom:hover {
+.reruitment-detail__wrapper
+  .detail-main
+  .reruitment-form
+  .cta
+  .btn--custom:hover {
   background-color: var(--color-text);
   color: var(--color-white);
 }
@@ -4085,7 +4286,11 @@ button.aloading::after {
   color: var(--color-white);
   background-color: var(--color-text);
 }
-.reruitment-detail__wrapper .detail-main .reruitment-form .cta .btn-submit:hover {
+.reruitment-detail__wrapper
+  .detail-main
+  .reruitment-form
+  .cta
+  .btn-submit:hover {
   border-color: var(--color-primary);
   background-color: var(--color-primary);
 }
