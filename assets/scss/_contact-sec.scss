@@ -3,21 +3,39 @@
   position: relative;
   z-index: 2;
   background-color: var(--color-white);
+  @media (max-width: 767px) {
+    padding: 16px 24px;
+  }
   .contact {
     &-container {
       display: grid;
       grid-template-columns: 4fr 5fr;
       gap: 24px;
+      @media (max-width: 767px) {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
     }
     &-title {
       margin-bottom: 24px;
     }
     &-left {
       max-width: 75%;
+      @media (max-width: 767px) {
+        max-width: 100%;
+      }
+      .contact-title {
+        @media (max-width: 767px) {
+          margin-bottom: 8px;
+        }
+      }
       ul {
         display: flex;
         flex-direction: column;
         gap: 8px;
+        @media (max-width: 767px) {
+          gap: 0;
+        }
         li {
           p {
             display: inline;
@@ -28,6 +46,9 @@
           flex-direction: row;
           gap: 16px;
           margin-top: 24px;
+          @media (max-width: 767px) {
+            margin-top: 8px;
+          }
           li {
             a {
               svg {
@@ -50,10 +71,22 @@
       }
     }
     &-right {
+      .contact-title {
+        @media (max-width: 767px) {
+          font-size: 14px;
+          line-height: 20px;
+          font-weight: 600;
+          margin-bottom: 16px;
+        }
+      }
       .form-group-top {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 24px;
+        @media (max-width: 767px) {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
         .form-item {
           .form-field {
             position: relative;
@@ -138,6 +171,9 @@
       .form-text-area {
         margin-top: 24px;
         position: relative;
+        @media (max-width: 767px) {
+          margin-top: 16px;
+        }
         textarea {
           resize: none;
           width: 100%;
@@ -173,9 +209,19 @@
         font-weight: 500;
         margin-top: 8px;
         margin-bottom: 24px;
+        @media (max-width: 991px) {
+          font-weight: 400;
+        }
+        @media (max-width: 767px) {
+          margin-top: 8px;
+          margin-bottom: 16px;
+        }
         span {
           a {
             color: var(--color-primary);
+            @media (max-width: 991px) {
+              font-weight: 600;
+            }
           }
         }
       }
@@ -191,6 +237,10 @@
           color: var(--color-white);
           font-weight: 500;
           transition: all 0.3s ease;
+          letter-spacing: 0.03rem;
+          @media (max-width: 767px) {
+            width: 100%;
+          }
           &:hover {
             background-color: var(--color-primary);
           }
