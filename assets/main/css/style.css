@@ -897,6 +897,14 @@ button.aloading::after {
   position: relative;
   z-index: 3;
 }
+.footer-bottom.mobile {
+  display: none;
+}
+@media (max-width: 767px) {
+  .footer-bottom.mobile {
+    display: block;
+  }
+}
 @media (max-width: 1150px) {
   .footer-bottom {
     grid-template-columns: repeat(2, 1fr);
