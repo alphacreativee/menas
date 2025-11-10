@@ -568,6 +568,14 @@ button.aloading::after {
 .section-fields.not-home .fields-list {
   padding: 40px;
 }
+@media (max-width: 991px) {
+  .section-fields.not-home .fields-list {
+    padding: 16px 24px;
+  }
+  .section-fields.not-home .fields-list .fields-item {
+    width: 100%;
+  }
+}
 .section-fields .fields-list {
   display: flex;
   flex-wrap: wrap;
