@@ -11,7 +11,7 @@
     @media (max-width: 991px) {
       padding: 48px 24px;
     }
-    @media (max-width: 767px) {
+    @media (max-width: 991px) {
       padding: 16px 24px;
     }
   }
@@ -21,7 +21,7 @@
     @media (max-width: 991px) {
       padding-right: 0;
     }
-    @media (max-width: 767px) {
+    @media (max-width: 991px) {
       .section-title {
         text-align: left !important;
         font-size: 14px;
@@ -34,7 +34,7 @@
   .section-desc {
     margin: 24px auto 0;
     max-width: 960px;
-    @media (max-width: 767px) {
+    @media (max-width: 991px) {
       margin-top: 8px;
       text-align: justify;
       font-size: 14px;
@@ -64,7 +64,7 @@
     @media (max-width: 1024px) {
       width: calc(calc(100% - 40px) / 2);
     }
-    @media (max-width: 767px) {
+    @media (max-width: 991px) {
       width: 100%;
     }
     &::after {
@@ -83,7 +83,7 @@
       width: 100%;
       aspect-ratio: 400 / 300;
       overflow: hidden;
-      @media (max-width: 767px) {
+      @media (max-width: 991px) {
         aspect-ratio: 327 / 245;
       }
       img {
@@ -112,7 +112,7 @@
       justify-content: flex-start;
       pointer-events: none;
       margin-top: 24px;
-      @media (max-width: 767px) {
+      @media (max-width: 991px) {
         margin-top: 16px;
         text-align: justify;
         .title {
