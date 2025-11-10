@@ -858,10 +858,12 @@ button.aloading::after {
 .footer-container .footer-logo-sub-content {
   margin-top: 24px;
   padding-right: 32px;
+  max-width: 300px;
 }
 @media (max-width: 767px) {
   .footer-container .footer-logo-sub-content {
     display: none;
+    max-width: 100%;
   }
 }
 .footer-container .menas-group p {
@@ -2512,7 +2514,7 @@ button.aloading::after {
 @media (max-width: 991px) {
   .responsibility .section-desc {
     margin-top: 8px;
-    text-align: justify;
+    text-align: justify !important;
     font-size: 14px;
     line-height: 24px;
     font-weight: 400;
