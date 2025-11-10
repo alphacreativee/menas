@@ -18,6 +18,12 @@
   &.not-home {
     .fields-list {
       padding: 40px;
+      @media (max-width: 991px) {
+        padding: 16px 24px;
+        .fields-item {
+          width: 100%;
+        }
+      }
     }
   }
   .fields-list {
