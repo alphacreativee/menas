@@ -3244,11 +3244,39 @@ button.aloading::after {
   font-size: 14px;
   line-height: 20px;
   font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-reruitment .reruitment-tabs .tab-item .icon {
+  width: 13px;
+  height: 13px;
+  position: relative;
+}
+.section-reruitment .reruitment-tabs .tab-item .icon img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+  transition: all 0.4s ease;
+}
+.section-reruitment .reruitment-tabs .tab-item .icon .img-hover {
+  z-index: 1;
+  opacity: 0;
+  pointer-events: none;
 }
 .section-reruitment .reruitment-tabs .tab-item.active, .section-reruitment .reruitment-tabs .tab-item:hover {
   background-color: var(--color-primary);
   border-color: var(--color-primary);
   color: var(--color-white);
+}
+.section-reruitment .reruitment-tabs .tab-item.active .icon.has-img-hover img, .section-reruitment .reruitment-tabs .tab-item:hover .icon.has-img-hover img {
+  opacity: 0;
+}
+.section-reruitment .reruitment-tabs .tab-item.active .icon.has-img-hover .img-hover, .section-reruitment .reruitment-tabs .tab-item:hover .icon.has-img-hover .img-hover {
+  opacity: 1;
 }
 
 .reruitment-main {
