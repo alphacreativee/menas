@@ -253,6 +253,11 @@ body {
   pointer-events: none;
   z-index: 1061;
 }
+@media (max-width: 1023px) {
+  .magic-cursor {
+    display: none;
+  }
+}
 .magic-cursor .cursor {
   width: 10px;
   height: 10px;
@@ -592,6 +597,11 @@ button.aloading::after {
     width: calc((100% - 24px) / 2);
   }
 }
+@media (max-width: 480px) {
+  .section-fields .fields-item {
+    width: 100%;
+  }
+}
 .section-fields .fields-item-img {
   width: 100%;
   aspect-ratio: 648/386;
@@ -746,10 +756,20 @@ button.aloading::after {
   background-position: center;
   padding: 24px 0;
 }
+@media (max-width: 991px) {
+  .logo-wrap {
+    padding-bottom: 0;
+  }
+}
 .logo-wrap-content {
   width: 40%;
   margin: 0 auto 8px;
   text-align: center;
+}
+@media (max-width: 991px) {
+  .logo-wrap-content {
+    margin-bottom: 0;
+  }
 }
 .logo-wrap .marquee {
   width: 100vw;
@@ -786,11 +806,6 @@ button.aloading::after {
 @media (max-width: 991px) {
   .logo-wrap .marquee-item {
     width: 120px;
-  }
-}
-@media (max-width: 767px) {
-  .logo-wrap .marquee-item {
-    width: 90px;
   }
 }
 .logo-wrap .marquee-item .logo-icon {
@@ -1594,6 +1609,12 @@ button.aloading::after {
   position: unset;
   top: unset;
 }
+@media (max-width: 991px) {
+  .hero {
+    position: unset;
+    top: unset;
+  }
+}
 .hero-sec__container {
   height: calc(100dvh - 60px);
   background-color: var(--color-white);
@@ -1601,7 +1622,7 @@ button.aloading::after {
 }
 @media (max-width: 991px) {
   .hero-sec__container {
-    height: 640px;
+    height: auto;
   }
 }
 .hero.hidden-section {
@@ -1625,7 +1646,7 @@ button.aloading::after {
 }
 @media (max-width: 991px) {
   .hero-overlay {
-    height: 640px;
+    display: none;
   }
 }
 .hero .video-banner {
@@ -1728,12 +1749,6 @@ button.aloading::after {
   object-fit: cover;
   object-position: center;
 }
-@media (max-width: 991px) {
-  .hero {
-    height: 540px !important;
-    max-height: 100dvh;
-  }
-}
 .hero .swiper-slide-active img,
 .hero .swiper-slide-duplicate-active img {
   transition-delay: 0s !important;
@@ -1774,7 +1789,7 @@ button.aloading::after {
 }
 .hero .swiper-pagination {
   height: 2px;
-  background-color: transparent;
+  background-color: var(--color-white);
   top: unset;
   bottom: 0;
 }

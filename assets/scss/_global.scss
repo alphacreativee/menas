@@ -49,6 +49,11 @@
   left: 0;
   pointer-events: none;
   z-index: 1061;
+
+  @media (max-width: 1023px) {
+    display: none;
+  }
+
   .cursor {
     width: 10px;
     height: 10px;

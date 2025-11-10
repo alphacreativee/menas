@@ -206,6 +206,8 @@ function sectionFields() {
 }
 
 function magicCursor() {
+  if ($(window).width < 1024) return;
+
   var circle = document.querySelector(".magic-cursor");
 
   gsap.set(circle, {
@@ -779,7 +781,11 @@ function hero() {
     }
   });
 
-  if ($("section.hero").length > 0 && $("section.intro").length > 0) {
+  if (
+    $("section.hero").length > 0 &&
+    $("section.intro").length > 0 &&
+    $(window).width() > 991
+  ) {
     ScrollTrigger.create({
       start: 0,
       end: "max",
@@ -799,7 +805,7 @@ function hero() {
 function sectionIntro() {
   if ($("section.intro").length < 1) return;
 
-  if ($(".intro-overlay").length) {
+  if ($(".intro-overlay").length && $(window).width() > 991) {
     gsap.to(".intro-overlay", {
       y: -40,
       ease: "none",
@@ -876,7 +882,11 @@ function sectionIntro() {
     });
   });
 
-  if ($("section.hero").length > 0 && $("section.intro").length > 0) {
+  if (
+    $("section.hero").length > 0 &&
+    $("section.intro").length > 0 &&
+    $(window).width() > 991
+  ) {
     gsap.to(".hero", {
       y: -200,
       ease: "none",

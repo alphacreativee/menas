@@ -12,6 +12,11 @@
     top: unset;
   }
 
+  @media (max-width: 991px) {
+    position: unset;
+    top: unset;
+  }
+
   &-sec__container {
     // height: 610px;
     height: calc(100dvh - 60px);
@@ -19,7 +24,7 @@
     position: relative;
 
     @media (max-width: 991px) {
-      height: 640px;
+      height: auto;
     }
   }
 
@@ -50,7 +55,7 @@
     background-color: transparent;
 
     @media (max-width: 991px) {
-      height: 640px;
+      display: none;
     }
   }
 
@@ -171,11 +176,6 @@
     }
   }
 
-  @media (max-width: 991px) {
-    height: 540px !important;
-    max-height: 100dvh;
-  }
-
   .swiper-slide-active img,
   .swiper-slide-duplicate-active img {
     transition-delay: 0s !important;
@@ -219,7 +219,7 @@
 
   .swiper-pagination {
     height: 2px;
-    background-color: transparent;
+    background-color: var(--color-white);
     top: unset;
     bottom: 0;
 

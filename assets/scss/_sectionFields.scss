@@ -43,6 +43,10 @@
     @media (max-width: 991px) {
       width: calc(calc(100% - 24px) / 2);
     }
+
+    @media (max-width: 480px) {
+      width: 100%;
+    }
   }
 
   .fields-item-img {

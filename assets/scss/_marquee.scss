@@ -6,10 +6,19 @@
   background-size: cover;
   background-position: center;
   padding: 24px 0;
+
+  @media (max-width: 991px) {
+    padding-bottom: 0;
+  }
+
   &-content {
     width: 40%;
     margin: 0 auto 8px;
     text-align: center;
+
+    @media (max-width: 991px) {
+      margin-bottom: 0;
+    }
   }
   .marquee {
     width: 100vw;
@@ -47,7 +56,7 @@
       }
 
       @media (max-width: 767px) {
-        width: 90px;
+        // width: 90px;
       }
 
       .logo-icon {
