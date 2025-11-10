@@ -239,15 +239,13 @@
         <div class="container-fluid p-0">
           <div class="row g-0 justify-content-center">
             <div class="col-lg-8">
-              <form action="">
+              <form action="" class="data-fade-in" id="formCooperate">
                 <div class="partner-info-container">
                   <div class="profile-person">
-                    <h3
-                      class="profile-title b1-bold-font color-text effect-title"
-                    >
+                    <h3 class="profile-title b1-bold-font color-text">
                       Thông tin cá nhân
                     </h3>
-                    <div class="group-info data-fade-in">
+                    <div class="group-info">
                       <div class="info-item">
                         <div class="form-field">
                           <input
@@ -347,12 +345,10 @@
                     </div>
                   </div>
                   <div class="profile-company">
-                    <h3
-                      class="profile-title b1-bold-font color-text effect-title"
-                    >
+                    <h3 class="profile-title b1-bold-font color-text">
                       Thông tin công ty
                     </h3>
-                    <div class="group-info data-fade-in">
+                    <div class="group-info">
                       <div class="info-item">
                         <div class="form-field">
                           <input
@@ -489,12 +485,10 @@
                     </div>
                   </div>
                   <div class="suggest">
-                    <h3
-                      class="profile-title b1-bold-font color-text effect-title"
-                    >
+                    <h3 class="profile-title b1-bold-font color-text">
                       Hãy cho chúng tôi biết về đề xuất hợp tác của bạn
                     </h3>
-                    <div class="suggest-container data-fade-in">
+                    <div class="suggest-container">
                       <div class="suggest-note">
                         <div class="form-text-area">
                           <textarea
@@ -558,7 +552,12 @@
                           </div>
                         </div>
                         <div class="key-captcha">
-                          <div class="key-value"></div>
+                          <div class="key-value">
+                            <img
+                              src="./assets/images/partner/CAPTCHA.png"
+                              alt=""
+                            />
+                          </div>
                           <div class="btn-refresh">
                             <svg
                               width="20"
@@ -585,7 +584,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="form-bottom data-fade-in">
+                <div class="form-bottom">
                   <div class="form-note">
                     Bằng việc ‘ĐĂNG KÝ’, bạn đồng ý với
                     <span>
@@ -672,6 +671,29 @@
         </div>
       </section>
     </main>
+
+    <div
+      class="modal modal-success fade"
+      tabindex="-1"
+      id="modalCooperateSuccess"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="icon">
+              <img src="./assets/images/icon-success.gif" alt="" />
+            </div>
+            <div class="title b1-bold-font text-center">
+              Cảm ơn bạn đã liên hệ!
+            </div>
+            <div class="desc tag-font text-center">
+              Hồ sơ của bạn đã được gửi thành công. <br />
+              Chúng tôi sẽ kết nối bạn sớm.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- layout -->
     <!-- footer -->
     <script>

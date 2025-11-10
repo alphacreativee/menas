@@ -58,9 +58,15 @@
           padding-bottom: 12px;
           border-bottom: 1px solid rgba(26, 61, 78, 0.3);
           color: var(--color-text);
-          &:not(:placeholder-shown) + label {
-            opacity: 0;
-            visibility: hidden;
+
+          &:not(:placeholder-shown),
+          &:focus,
+          &:focus-visible {
+            & + label {
+              transform: translateY(-100%);
+              font-size: 10px;
+              line-height: 14px;
+            }
           }
         }
 
@@ -69,7 +75,7 @@
           font-size: 14px;
           line-height: 24px;
           left: 0px;
-          transition: opacity 0.3s ease, visibility 0.3s ease;
+          transition: all 0.4s ease;
           pointer-events: none;
         }
 
