@@ -171,6 +171,9 @@
       .form-text-area {
         margin-top: 24px;
         position: relative;
+        @media (max-width: 767px) {
+          margin-top: 16px;
+        }
         textarea {
           resize: none;
           width: 100%;

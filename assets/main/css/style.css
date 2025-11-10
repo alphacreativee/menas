@@ -2920,6 +2920,11 @@ button.aloading::after {
   margin-top: 24px;
   position: relative;
 }
+@media (max-width: 767px) {
+  .contact-sec .contact-right .form-text-area {
+    margin-top: 16px;
+  }
+}
 .contact-sec .contact-right .form-text-area textarea {
   resize: none;
   width: 100%;
