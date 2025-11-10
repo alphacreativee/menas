@@ -5,10 +5,10 @@
   background: var(--color-white);
   background-size: cover;
   background-position: center;
-  padding: 32px 0;
+  padding: 40px 0;
   &-content {
     width: 40%;
-    margin: 0 auto 32px;
+    margin: 0 auto 8px;
     text-align: center;
   }
   .marquee {
@@ -18,7 +18,7 @@
       width: 100%;
       position: relative;
       overflow: hidden;
-      margin-bottom: 32px;
+      margin-bottom: 8px;
       &:last-child {
         margin-bottom: 0;
       }
@@ -37,8 +37,8 @@
       }
     }
     &-item {
-      margin-right: 30px;
-      margin-left: 30px;
+      margin-right: 20px;
+      margin-left: 20px;
       flex: none;
       width: 170px;
 
