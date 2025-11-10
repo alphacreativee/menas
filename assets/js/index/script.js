@@ -420,17 +420,18 @@ function effectText() {
     });
   });
   gsap.registerPlugin(ScrollTrigger, SplitText);
-
   document.querySelectorAll(".scroll-wrap-item").forEach((scrollItem) => {
     const img = scrollItem.querySelector(".scroll-wrap-image");
     const title = scrollItem.querySelector(".title-box");
     const desc = scrollItem.querySelector(".description-box");
     const btn = scrollItem.querySelector(".btn-view-all");
+    const isMobile = window.innerWidth <= 768;
+    const start = isMobile ? "top 85%" : "top 62%";
 
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: scrollItem,
-        start: "top 62%",
+        start: start,
         toggleActions: "play none none none"
       }
     });
@@ -448,54 +449,116 @@ function effectText() {
         mask: "chars"
       });
       gsap.set(split.chars, { y: "125%", opacity: 0 });
-      tl.to(
-        split.chars,
-        { y: "0%", opacity: 1, duration: 1, ease: "power3.out", stagger: 0.03 },
-        `-=${0.8 - delay}`
-      );
+
+      if (isMobile) {
+        // Mobile: ScrollTrigger riêng cho title
+        gsap.to(split.chars, {
+          y: "0%",
+          opacity: 1,
+          duration: 1,
+          ease: "power3.out",
+          stagger: 0.03,
+          scrollTrigger: {
+            trigger: title,
+            start: "top 85%",
+            toggleActions: "play none none none"
+            // markers: true,
+          }
+        });
+      } else {
+        // Desktop: Dùng timeline chung
+        tl.to(
+          split.chars,
+          {
+            y: "0%",
+            opacity: 1,
+            duration: 1,
+            ease: "power3.out",
+            stagger: 0.03
+          },
+          `-=${0.8 - delay}`
+        );
+      }
     }
 
     if (desc) {
       const descDelay = parseFloat(desc.getAttribute("data-delay")) || 0;
 
-      const splitDesc = new SplitText(desc, {
-        type: "lines",
-        linesClass: "line",
-        mask: "lines"
-      });
+      if (isMobile) {
+        // Mobile: ScrollTrigger riêng cho desc
+        gsap.set(desc, { opacity: 0, y: 20 });
 
-      gsap.set(splitDesc.lines, { yPercent: 100, willChange: "transform" });
-
-      tl.fromTo(
-        splitDesc.lines,
-        {
-          yPercent: 100
-        },
-        {
-          yPercent: 0,
-          duration: 1,
+        gsap.to(desc, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
           ease: "power3.out",
-          stagger: 0.08,
-          delay: descDelay
-        },
-        "<"
-      );
+          scrollTrigger: {
+            trigger: desc,
+            start: "top 85%",
+            toggleActions: "play none none none"
+            // markers: true,
+          }
+        });
+      } else {
+        // Desktop: Animation từng dòng
+        const splitDesc = new SplitText(desc, {
+          type: "lines",
+          linesClass: "line",
+          mask: "lines"
+        });
+
+        gsap.set(splitDesc.lines, { yPercent: 100, willChange: "transform" });
+
+        tl.fromTo(
+          splitDesc.lines,
+          {
+            yPercent: 100
+          },
+          {
+            yPercent: 0,
+            duration: 1,
+            ease: "power3.out",
+            stagger: 0.08,
+            delay: descDelay
+          },
+          "<"
+        );
+      }
     }
 
     if (btn) {
       const btnDelay = parseFloat(btn.getAttribute("data-delay")) || 0;
       gsap.set(btn, { opacity: 0, y: 20 });
-      tl.to(
-        btn,
-        {
+
+      if (isMobile) {
+        // Mobile: ScrollTrigger riêng cho button
+        gsap.to(btn, {
           opacity: 1,
           y: 0,
           duration: 0.3,
           ease: "none",
-          delay: btnDelay
-        },
-        "<" // Bắt đầu trước khi animation trước kết thúc 0.5s
-      );
+          scrollTrigger: {
+            trigger: btn,
+            start: "top 85%",
+            toggleActions: "play none none none"
+            // markers: true,
+          }
+        });
+      } else {
+        // Desktop: Dùng timeline chung
+        tl.to(
+          btn,
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.3,
+            ease: "none",
+            delay: btnDelay
+          },
+          "<"
+        );
+      }
     }
   });
 }
