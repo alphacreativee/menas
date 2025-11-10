@@ -11,7 +11,7 @@
     &-wrapper {
       padding: 40px 60px 40px;
       @media (max-width: 991px) {
-        padding: 48px 24px;
+        padding: 24px;
       }
     }
 
@@ -19,7 +19,7 @@
       margin-top: 40px;
 
       @media (max-width: 991px) {
-        margin-top: 32px;
+        margin-top: 24px;
       }
 
       .swiper-slide {
@@ -141,6 +141,7 @@
 
     @media (max-width: 991px) {
       right: 24px;
+      top: 24px;
     }
   }
 }

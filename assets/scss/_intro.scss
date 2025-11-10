@@ -5,6 +5,10 @@
 
   h2.title {
     margin-bottom: 24px;
+
+    @media (max-width: 991px) {
+      margin-bottom: 16px;
+    }
   }
 
   &-overlay {
@@ -37,6 +41,8 @@
 
     @media (max-width: 991px) {
       max-width: 100%;
+      font-weight: 400;
+      text-align: justify;
     }
   }
 

@@ -35,6 +35,10 @@
   height: 100%;
   background-color: var(--color-white);
 
+  @media (max-width: 991px) {
+    background-color: transparent;
+  }
+
   &.awards-item {
     .content {
       justify-content: space-between;
@@ -60,6 +64,10 @@
     flex-direction: column;
     justify-content: flex-start;
 
+    @media (max-width: 991px) {
+      padding: 16px 0 0;
+    }
+
     .name {
       font-size: 17px;
       line-height: 24px;
@@ -70,6 +78,11 @@
       line-clamp: 3;
       -webkit-box-orient: vertical;
       transition: all 0.4s ease;
+
+      @media (max-width: 991px) {
+        font-size: 14px;
+        line-height: 20px;
+      }
     }
 
     .date {
@@ -77,6 +90,10 @@
       line-height: 20px;
       font-weight: 500;
       margin-bottom: 8px;
+
+      @media (max-width: 991px) {
+        margin-bottom: 4px;
+      }
     }
 
     .desc {
