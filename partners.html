@@ -271,10 +271,13 @@
                       </div>
                       <div class="info-item">
                         <div class="form-field">
+                          <div class="field-select-label">
+                            Cấp bậc <span>*</span>
+                          </div>
                           <div class="dropdown-custom-select">
                             <div class="dropdown-custom-btn">
                               <div class="dropdown-custom-text">
-                                Cấp bậc <span>*</span>
+                                Chọn cấp bậc
                               </div>
                               <div class="ic">
                                 <svg
@@ -353,22 +356,24 @@
                         <div class="form-field">
                           <input
                             type="text"
-                            name="namecompany"
+                            name="company"
                             placeholder=" "
                             autocomplete="off"
                           />
-                          <label for="namecompany"
+                          <label for="company"
                             >Tên công ty <span>*</span></label
                           >
                         </div>
                       </div>
                       <div class="info-item">
                         <div class="form-field">
+                          <div class="field-select-label">
+                            Lĩnh vực <span>*</span>
+                          </div>
                           <div class="dropdown-custom-select">
                             <div class="dropdown-custom-btn">
                               <div class="dropdown-custom-text">
-                                Lĩnh vực
-                                <span>*</span>
+                                Chọn lĩnh vực
                               </div>
                               <div class="ic">
                                 <svg
@@ -465,12 +470,13 @@
                         <div class="form-field up-file">
                           <input
                             type="file"
-                            name="file"
+                            name="upload"
+                            fieldRequired
                             autocomplete="off"
                             placeholder=" "
-                            accept="application/pdf"
+                            accept=".pdf,.doc,.docx"
                           />
-                          <label for="file"
+                          <label for="upload"
                             >Catalog/ Bảng báo giá/ Thông tin sản phẩm/ Đề xuất
                             chiến lược hợp tác. <span>*</span></label
                           >
@@ -505,12 +511,13 @@
                       </div>
                       <div class="suggest-col">
                         <div class="form-field">
+                          <div class="field-select-label">
+                            Bạn biết đến chúng tôi như thế nào?
+                            <span>*</span>
+                          </div>
                           <div class="dropdown-custom-select">
                             <div class="dropdown-custom-btn">
-                              <div class="dropdown-custom-text">
-                                Bạn biết đến chúng tôi như thế nào?
-                                <span>*</span>
-                              </div>
+                              <div class="dropdown-custom-text">Lựa chọn</div>
                               <div class="ic">
                                 <svg
                                   width="11"
@@ -546,10 +553,16 @@
                             </div>
                           </div>
                         </div>
-                        <div class="form-field">
-                          <div class="captcha-text">
+                        <div class="form-field captcha-text">
+                          <input
+                            type="text"
+                            name="capcha"
+                            placeholder=" "
+                            autocomplete="off"
+                          />
+                          <label for="capcha">
                             CAPTCHA - Nhập mã có trong hình ảnh <span>*</span>
-                          </div>
+                          </label>
                         </div>
                         <div class="key-captcha">
                           <div class="key-value">
@@ -588,11 +601,11 @@
                   <div class="form-note">
                     Bằng việc ‘ĐĂNG KÝ’, bạn đồng ý với
                     <span>
-                      <a href="">Chính sách bảo mật</a>
+                      <a href="./policy.html">Chính sách bảo mật</a>
                     </span>
                     của Menas.
                   </div>
-                  <button>đăng ký</button>
+                  <button type="submit">đăng ký</button>
                 </div>
               </form>
             </div>
