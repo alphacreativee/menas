@@ -10,7 +10,9 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
-
+    @media (max-width: 991px) {
+      gap: 16px;
+    }
     .profile-person {
       position: relative;
       z-index: 3;
@@ -31,6 +33,10 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 32px 24px;
+    @media (max-width: 991px) {
+      grid-template-columns: 1fr;
+      gap: 16px 0;
+    }
     .info-item {
       display: flex;
       align-items: flex-end;
@@ -69,6 +75,7 @@
         line-height: 24px !important;
         transform: none !important;
         color: var(--color-text) !important;
+        max-width: 90%;
       }
     }
     .icon {
@@ -179,6 +186,10 @@
       display: grid;
       grid-template-columns: 2fr 1fr;
       gap: 24px;
+      @media (max-width: 991px) {
+        grid-template-columns: 1fr;
+        gap: 16px 0;
+      }
     }
     .form-text-area {
       position: relative;
@@ -220,6 +231,10 @@
       color: var(--color-white);
       font-weight: 500;
       transition: all 0.3s ease;
+      @media (max-width: 991px) {
+        width: 100%;
+        display: block;
+      }
       &:hover {
         background-color: var(--color-primary);
       }
@@ -232,6 +247,9 @@
     // padding-bottom: 12px;
     // border-bottom: 1px solid rgba(26, 61, 78, 0.3);
     margin-top: 32px;
+    @media (max-width: 991px) {
+      margin-top: 16px;
+    }
     span {
       color: #ff0000;
     }
@@ -271,6 +289,9 @@
       font-weight: 500;
       margin-top: 8px;
       margin-bottom: 24px;
+      @media (max-width: 991px) {
+        margin-bottom: 16px;
+      }
       span {
         a {
           color: var(--color-primary);

@@ -2092,6 +2092,12 @@ button.aloading::after {
   padding-top: 40px;
   padding-bottom: 40px;
 }
+@media (max-width: 991px) {
+  .scroll-wrap.partner-sec {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+}
 @media (max-width: 1024px) {
   .scroll-wrap {
     padding-right: 60px;
@@ -3826,6 +3832,11 @@ button.aloading::after {
   flex-direction: column;
   gap: 24px;
 }
+@media (max-width: 991px) {
+  .partner-info-container {
+    gap: 16px;
+  }
+}
 .partner-info-container .profile-person {
   position: relative;
   z-index: 3;
@@ -3846,6 +3857,12 @@ button.aloading::after {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 32px 24px;
+}
+@media (max-width: 991px) {
+  .partner-info .group-info {
+    grid-template-columns: 1fr;
+    gap: 16px 0;
+  }
 }
 .partner-info .group-info .info-item {
   display: flex;
@@ -3880,6 +3897,7 @@ button.aloading::after {
   line-height: 24px !important;
   transform: none !important;
   color: var(--color-text) !important;
+  max-width: 90%;
 }
 .partner-info .form-field .icon {
   position: absolute;
@@ -3973,6 +3991,12 @@ button.aloading::after {
   grid-template-columns: 2fr 1fr;
   gap: 24px;
 }
+@media (max-width: 991px) {
+  .partner-info .suggest-container {
+    grid-template-columns: 1fr;
+    gap: 16px 0;
+  }
+}
 .partner-info .suggest .form-text-area {
   position: relative;
 }
@@ -4011,6 +4035,12 @@ button.aloading::after {
   font-weight: 500;
   transition: all 0.3s ease;
 }
+@media (max-width: 991px) {
+  .partner-info form button {
+    width: 100%;
+    display: block;
+  }
+}
 .partner-info form button:hover {
   background-color: var(--color-primary);
 }
@@ -4019,6 +4049,11 @@ button.aloading::after {
   line-height: 24px;
   color: var(--color-text);
   margin-top: 32px;
+}
+@media (max-width: 991px) {
+  .partner-info .captcha-text {
+    margin-top: 16px;
+  }
 }
 .partner-info .captcha-text span {
   color: #ff0000;
@@ -4057,6 +4092,11 @@ button.aloading::after {
   font-weight: 500;
   margin-top: 8px;
   margin-bottom: 24px;
+}
+@media (max-width: 991px) {
+  .partner-info .form-bottom .form-note {
+    margin-bottom: 16px;
+  }
 }
 .partner-info .form-bottom .form-note span a {
   color: var(--color-primary);
