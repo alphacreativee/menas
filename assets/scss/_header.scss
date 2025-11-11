@@ -280,8 +280,10 @@
       transition: clip-path 0.3s ease;
       pointer-events: none;
       @media (max-width: 991px) {
-        bottom: -17px;
         width: 90px;
+        top: 30px;
+        height: max-content;
+        background-color: var(--color-white-2);
       }
       &.dropdown--active {
         clip-path: inset(0 0 0 0);

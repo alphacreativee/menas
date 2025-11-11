@@ -1452,8 +1452,10 @@ button.aloading::after {
 }
 @media (max-width: 991px) {
   .header-lang .dropdown-custom-menu {
-    bottom: -17px;
     width: 90px;
+    top: 30px;
+    height: max-content;
+    background-color: var(--color-white-2);
   }
 }
 .header-lang .dropdown-custom-menu.dropdown--active {
