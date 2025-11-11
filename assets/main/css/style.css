@@ -1648,11 +1648,6 @@ button.aloading::after {
   background-color: var(--color-white);
   position: relative;
 }
-@media (max-width: 991px) {
-  .hero-sec__container {
-    height: auto;
-  }
-}
 .hero.hidden-section {
   opacity: 0;
   pointer-events: none;
@@ -1859,6 +1854,12 @@ button.aloading::after {
   justify-content: center;
   position: unset;
   transition: all 0.4s ease;
+}
+@media (max-width: 991px) {
+  .hero .swiper-arrows .swiper-next,
+  .hero .swiper-arrows .swiper-prev {
+    display: none;
+  }
 }
 .hero .swiper-arrows .swiper-next:hover,
 .hero .swiper-arrows .swiper-prev:hover {
