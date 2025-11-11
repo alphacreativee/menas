@@ -3073,7 +3073,7 @@ button.aloading::after {
   z-index: 2;
   background-color: var(--color-white);
 }
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .contact-sec {
     padding: 16px 24px;
   }
@@ -3083,7 +3083,7 @@ button.aloading::after {
   grid-template-columns: 4fr 5fr;
   gap: 24px;
 }
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .contact-sec .contact-container {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -3095,12 +3095,27 @@ button.aloading::after {
 .contact-sec .contact-left {
   max-width: 75%;
 }
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .contact-sec .contact-left {
     max-width: 100%;
   }
 }
-@media (max-width: 767px) {
+.contact-sec .contact-left .ic-qr {
+  width: 94px;
+  aspect-ratio: 1;
+  border: 1px solid rgba(26, 61, 78, 0.3);
+  margin-top: 40px;
+}
+@media (max-width: 991px) {
+  .contact-sec .contact-left .ic-qr {
+    margin-top: 16px;
+  }
+}
+.contact-sec .contact-left .ic-qr img {
+  width: auto;
+  height: auto;
+}
+@media (max-width: 991px) {
   .contact-sec .contact-left .contact-title {
     margin-bottom: 8px;
   }
@@ -3110,7 +3125,7 @@ button.aloading::after {
   flex-direction: column;
   gap: 8px;
 }
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .contact-sec .contact-left ul {
     gap: 0;
   }
@@ -3124,7 +3139,7 @@ button.aloading::after {
   gap: 16px;
   margin-top: 24px;
 }
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .contact-sec .contact-left ul.social {
     margin-top: 8px;
   }
@@ -3139,7 +3154,7 @@ button.aloading::after {
 .contact-sec .contact-left ul.social li a:hover svg path {
   fill: var(--color-primary);
 }
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .contact-sec .contact-right .contact-title {
     font-size: 14px;
     line-height: 20px;
@@ -3152,7 +3167,7 @@ button.aloading::after {
   grid-template-columns: 1fr 1fr;
   gap: 24px;
 }
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .contact-sec .contact-right .form-group-top {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -3228,7 +3243,7 @@ button.aloading::after {
   margin-top: 24px;
   position: relative;
 }
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .contact-sec .contact-right .form-text-area {
     margin-top: 16px;
   }
@@ -3268,7 +3283,7 @@ button.aloading::after {
     font-weight: 400;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .contact-sec .contact-right .form-note {
     margin-top: 8px;
     margin-bottom: 16px;
@@ -3295,7 +3310,7 @@ button.aloading::after {
   transition: all 0.3s ease;
   letter-spacing: 0.03rem;
 }
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .contact-sec .contact-right form button {
     width: 100%;
   }
