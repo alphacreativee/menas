@@ -575,7 +575,7 @@ button.aloading::after {
 }
 @media (max-width: 991px) {
   .section-fields.not-home .fields-list {
-    padding: 16px 24px;
+    padding: 16px 24px 24px;
   }
   .section-fields.not-home .fields-list .fields-item {
     width: 100%;
