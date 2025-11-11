@@ -213,6 +213,21 @@
     .header-cta {
       display: none;
 
+      &.mobile {
+        @media (max-width: 991px) {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: static;
+          .value-select {
+            span {
+              font-size: 14px;
+              line-height: 20px;
+              font-weight: 600;
+            }
+          }
+        }
+      }
       @media (max-width: 1200px) {
         // display: flex;
         justify-content: center;
@@ -228,7 +243,11 @@
   &-cta {
     display: flex;
     justify-content: flex-end;
-
+    &.desktop {
+      @media (max-width: 1200px) {
+        display: none;
+      }
+    }
     @media (max-width: 1200px) {
       // display: none;
 

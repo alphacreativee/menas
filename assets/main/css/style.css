@@ -1389,6 +1389,19 @@ button.aloading::after {
 .header-menu .header-cta {
   display: none;
 }
+@media (max-width: 991px) {
+  .header-menu .header-cta.mobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: static;
+  }
+  .header-menu .header-cta.mobile .value-select span {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 600;
+  }
+}
 @media (max-width: 1200px) {
   .header-menu .header-cta {
     justify-content: center;
@@ -1401,6 +1414,11 @@ button.aloading::after {
 .header-cta {
   display: flex;
   justify-content: flex-end;
+}
+@media (max-width: 1200px) {
+  .header-cta.desktop {
+    display: none;
+  }
 }
 @media (max-width: 1200px) {
   .header-cta {
