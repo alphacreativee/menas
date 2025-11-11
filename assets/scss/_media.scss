@@ -3,10 +3,19 @@
   position: relative;
   z-index: 2;
   background-color: var(--color-white);
+  @media (max-width: 991px) {
+    padding: 16px 0;
+  }
   &-title {
     text-align: center;
     padding: 0 24px;
     margin-bottom: 48px;
+    @media (max-width: 991px) {
+      font-size: 17px;
+      line-height: 24px;
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
   }
   &-list {
     .img-wrapper {
@@ -32,6 +41,9 @@
       align-items: center;
       transition: all 0.4s ease;
       margin: 0;
+      @media (max-width: 991px) {
+        display: none;
+      }
       &:hover {
         background-color: var(--color-primary);
         svg {

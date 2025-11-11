@@ -3,11 +3,16 @@
   z-index: 2;
   background-color: var(--color-white);
   padding: 40px 24px;
-
+  @media (max-width: 991px) {
+    padding: 16px 24px;
+  }
   &-image {
     width: 100%;
     aspect-ratio: 922 / 434;
     margin-bottom: 24px;
+    @media (max-width: 991px) {
+      margin-bottom: 16px;
+    }
     img {
       width: 100%;
       height: 100%;
@@ -17,9 +22,24 @@
   &-desc {
     .title {
       margin-bottom: 12px;
+      @media (max-width: 991px) {
+        margin-bottom: 8px;
+        text-align: justify;
+      }
     }
     .description {
       margin-bottom: 12px;
+      @media (max-width: 991px) {
+        margin-bottom: 8px;
+        text-align: justify;
+      }
+    }
+    .link-external {
+      font-size: 10px;
+      line-height: 14px;
+      a {
+        display: inline-block;
+      }
     }
   }
 }

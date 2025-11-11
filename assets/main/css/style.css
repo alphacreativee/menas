@@ -3343,10 +3343,20 @@ button.aloading::after {
   background-color: var(--color-white);
   padding: 40px 24px;
 }
+@media (max-width: 991px) {
+  .field-detail {
+    padding: 16px 24px;
+  }
+}
 .field-detail-image {
   width: 100%;
   aspect-ratio: 922/434;
   margin-bottom: 24px;
+}
+@media (max-width: 991px) {
+  .field-detail-image {
+    margin-bottom: 16px;
+  }
 }
 .field-detail-image img {
   width: 100%;
@@ -3356,8 +3366,27 @@ button.aloading::after {
 .field-detail-desc .title {
   margin-bottom: 12px;
 }
+@media (max-width: 991px) {
+  .field-detail-desc .title {
+    margin-bottom: 8px;
+    text-align: justify;
+  }
+}
 .field-detail-desc .description {
   margin-bottom: 12px;
+}
+@media (max-width: 991px) {
+  .field-detail-desc .description {
+    margin-bottom: 8px;
+    text-align: justify;
+  }
+}
+.field-detail-desc .link-external {
+  font-size: 10px;
+  line-height: 14px;
+}
+.field-detail-desc .link-external a {
+  display: inline-block;
 }
 
 .media {
@@ -3366,10 +3395,23 @@ button.aloading::after {
   z-index: 2;
   background-color: var(--color-white);
 }
+@media (max-width: 991px) {
+  .media {
+    padding: 16px 0;
+  }
+}
 .media-title {
   text-align: center;
   padding: 0 24px;
   margin-bottom: 48px;
+}
+@media (max-width: 991px) {
+  .media-title {
+    font-size: 17px;
+    line-height: 24px;
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
 }
 .media-list .img-wrapper {
   width: 100%;
@@ -3394,6 +3436,11 @@ button.aloading::after {
   align-items: center;
   transition: all 0.4s ease;
   margin: 0;
+}
+@media (max-width: 991px) {
+  .media-wrapper .button-custom {
+    display: none;
+  }
 }
 .media-wrapper .button-custom:hover {
   background-color: var(--color-primary);
