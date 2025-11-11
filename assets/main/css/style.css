@@ -1916,7 +1916,7 @@ button.aloading::after {
 }
 @media (max-width: 991px) {
   .intro-container {
-    padding: 24px;
+    padding: 16px 24px;
   }
 }
 .intro-text {
@@ -1968,13 +1968,14 @@ button.aloading::after {
 }
 .scroll-wrap-big {
   padding: 40px 24px;
-  background-color: var(--color-white);
+  background-color: var(--color-white-2);
   padding-left: calc(8.3333333333% + 24px);
   padding-right: calc(8.3333333333% + 24px);
+  padding-top: 40px;
 }
 @media (max-width: 991px) {
   .scroll-wrap-big {
-    padding: 0px 24px 16px;
+    padding: 16px 24px;
   }
 }
 .scroll-wrap-big-heading {
@@ -3382,9 +3383,31 @@ button.aloading::after {
     text-align: justify;
   }
 }
+.field-detail-desc .description ul li {
+  margin-bottom: 12px;
+}
+@media (max-width: 991px) {
+  .field-detail-desc .description ul li {
+    margin-bottom: 8px;
+  }
+}
+.field-detail-desc .description ul li:last-child {
+  margin-bottom: 0;
+}
+.field-detail-desc .description ul li p {
+  font-size: 17px;
+  line-height: 24px;
+  font-weight: 400;
+}
+@media (max-width: 991px) {
+  .field-detail-desc .description ul li p {
+    font-size: 14px;
+  }
+}
 .field-detail-desc .link-external {
   font-size: 10px;
   line-height: 14px;
+  margin-bottom: 12px;
 }
 .field-detail-desc .link-external a {
   display: inline-block;
@@ -3788,6 +3811,11 @@ button.aloading::after {
   background-color: var(--color-white);
   padding: 40px 24px 40px;
 }
+@media (max-width: 991px) {
+  .partner-info {
+    padding: 16px 24px;
+  }
+}
 .partner-info-container {
   display: flex;
   flex-direction: column;
@@ -3803,6 +3831,11 @@ button.aloading::after {
 }
 .partner-info .profile-title {
   margin-bottom: 24px;
+}
+@media (max-width: 991px) {
+  .partner-info .profile-title {
+    margin-bottom: 16px;
+  }
 }
 .partner-info .group-info {
   display: grid;
