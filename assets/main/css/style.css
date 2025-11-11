@@ -2725,6 +2725,11 @@ button.aloading::after {
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+@media (max-width: 767px) {
+  .chat-container {
+    width: calc(100% - 48px);
+  }
+}
 .chat-container.active {
   opacity: 1;
   visibility: visible;
