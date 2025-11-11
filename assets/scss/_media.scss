@@ -21,6 +21,9 @@
     .img-wrapper {
       width: 100%;
       aspect-ratio: 802 / 452;
+      @media (max-width: 991px) {
+        aspect-ratio: 327 / 185;
+      }
       img {
         width: 100%;
         height: 100%;

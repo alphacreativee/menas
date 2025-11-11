@@ -1319,7 +1319,7 @@ function parallaxSwiper() {
 
   const swiperRoom = new Swiper(".media-list", {
     centeredSlides: true,
-    slidesPerView: 1.3,
+    slidesPerView: 1.2,
     initialSlide: 1,
     speed: 900,
     parallax: true,
