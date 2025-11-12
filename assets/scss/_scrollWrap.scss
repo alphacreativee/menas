@@ -1,13 +1,13 @@
 .scroll {
   &-wrap {
     position: relative;
-    padding: 80px 24px 0;
+    padding: 40px 24px;
     background-color: var(--color-white);
     padding-left: calc(calc(1 / 12) * 100% + 24px);
     padding-right: calc(calc(1 / 12) * 100% + 24px);
     &-big {
       padding: 40px 24px;
-      background-color: var(--color-white-2);
+      background-color: #f7f7f7;
       padding-left: calc(calc(1 / 12) * 100% + 24px);
       padding-right: calc(calc(1 / 12) * 100% + 24px);
       padding-top: 40px;

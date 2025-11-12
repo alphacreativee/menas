@@ -35,13 +35,15 @@
     // }
   }
   &-text {
-    max-width: 960px;
+    max-width: 1200px;
 
     margin: 0 auto;
     text-align: center;
     position: relative;
     z-index: 2;
-
+    font-size: 17px;
+    line-height: 24px;
+    font-weight: 400;
     @media (max-width: 991px) {
       max-width: 100%;
       font-size: 14px;

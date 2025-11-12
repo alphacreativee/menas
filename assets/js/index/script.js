@@ -992,11 +992,11 @@ function sectionAwards() {
           spaceBetween: 24,
         },
         768: {
-          slidesPerView: 3,
+          slidesPerView: isAwardsSlider ? "auto" : 3,
           spaceBetween: 24,
         },
         480: {
-          slidesPerView: 2,
+          slidesPerView: isAwardsSlider ? 1 : 2,
           spaceBetween: 24,
         },
         0: {

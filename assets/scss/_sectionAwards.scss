@@ -23,9 +23,15 @@
       &.prize {
         .swiper-slide {
           width: calc((100%) / 3);
+          @media (max-width: 767px) {
+            width: 50%;
+          }
           &:first-child {
             width: 100%;
           }
+        }
+        .awards-item {
+          background-color: var(--color-white);
         }
       }
       @media (max-width: 991px) {
@@ -71,6 +77,8 @@
           @media (max-width: 991px) {
             position: static;
             transform: translateY(0);
+            padding: 16px 0 0;
+            background-color: var(--color-white);
           }
           &-overlay {
             // padding: 32px;
@@ -83,6 +91,9 @@
           }
           .name {
             margin-bottom: 8px;
+            @media (max-width: 991px) {
+              text-align: justify;
+            }
           }
           .description {
             font-size: 14px;
@@ -97,6 +108,7 @@
               opacity: 1;
               visibility: visible;
               height: auto;
+              text-align: justify;
             }
           }
         }
