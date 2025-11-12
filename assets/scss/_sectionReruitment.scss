@@ -44,7 +44,7 @@
         display: flex;
         align-items: center;
         gap: 8px;
-        @media (max-width: 991px) {
+        @media (max-width: 525px) {
           flex: 1 1 auto;
           min-width: fit-content;
           text-align: center;

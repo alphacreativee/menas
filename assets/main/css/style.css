@@ -3815,7 +3815,7 @@ button.aloading::after {
   align-items: center;
   gap: 8px;
 }
-@media (max-width: 991px) {
+@media (max-width: 525px) {
   .section-reruitment .reruitment-tabs .tab-item {
     flex: 1 1 auto;
     min-width: fit-content;
