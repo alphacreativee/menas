@@ -20,7 +20,9 @@
       margin: 0 auto;
       position: relative;
       z-index: 2;
-
+      @media (max-width: 991px) {
+        padding: 16px 24px;
+      }
       .desc {
         margin-top: 8px;
       }
@@ -30,7 +32,9 @@
         align-items: center;
         gap: 12px;
         margin-top: 12px;
-
+        @media (max-width: 991px) {
+          margin-bottom: 12px;
+        }
         .tag-item {
           padding: 6px 16px;
           border-radius: 100px;
@@ -43,10 +47,16 @@
         display: flex;
         align-items: flex-start;
         gap: 24px;
-
+        @media (max-width: 991px) {
+          flex-direction: column;
+          margin-top: 0;
+          gap: 16px;
+        }
         .detail-desc {
           width: calc(100% - 24px - 355px);
-
+          @media (max-width: 991px) {
+            width: 100%;
+          }
           * {
             &:first-child {
               margin-top: 0;
@@ -59,6 +69,10 @@
             font-weight: 500;
             margin-top: 24px;
             margin-bottom: 8px;
+            @media (max-width: 991px) {
+              margin-top: 12px;
+              margin-bottom: 8px;
+            }
           }
 
           p,
@@ -80,7 +94,9 @@
 
         .reruitment-detail__cta {
           margin-top: 24px;
-
+          @media (max-width: 991px) {
+            margin-top: 16px;
+          }
           .share {
             display: flex;
             align-items: center;
@@ -110,6 +126,9 @@
           width: 355px;
           // position: sticky;
           // top: 84px;
+          @media (max-width: 991px) {
+            width: 100%;
+          }
         }
 
         .more-info {
@@ -138,7 +157,9 @@
           padding: 24px;
           border-radius: 8px;
           background-color: var(--color-white);
-
+          @media (max-width: 991px) {
+            margin-top: 12px;
+          }
           .desc {
             margin-top: 8px;
           }

@@ -1522,6 +1522,15 @@ function swiperNews() {
   });
 
   swiperNewsContent.controller.control = swiperNews;
+
+  if ($(".news-mobile").length < 1) return;
+  var swiperNewsMobile = new Swiper(".news-mobile", {
+    slidesPerView: 1,
+    navigation: {
+      nextEl: ".news-mobile-wrapper .swiper-button-next",
+      prevEl: ".news-mobile-wrapper .swiper-button-prev",
+    },
+  });
 }
 function formReruitment() {
   if ($("#formReruitment").length < 1) return;

@@ -4,12 +4,18 @@
 
     h2.title {
       margin-bottom: 40px;
+      @media (max-width: 991px) {
+        margin-bottom: 16px;
+      }
     }
 
     .reruitment-wrapper {
       max-width: 1000px;
       margin: 0 auto;
       padding: 40px 0;
+      @media (max-width: 991px) {
+        padding: 16px 24px;
+      }
     }
   }
 }

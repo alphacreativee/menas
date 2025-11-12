@@ -357,13 +357,21 @@ button {
   .modal-dialog {
     width: 360px;
     height: 360px;
+    @media (max-width: 767px) {
+      width: 100%;
+      margin: 0;
+      justify-content: center;
+    }
   }
 
   .modal-content {
     border: none;
     border-radius: 8px;
     overflow: hidden;
-
+    @media (max-width: 991px) {
+      width: 320px;
+      height: 320px;
+    }
     .desc {
       margin-top: 16px;
     }
