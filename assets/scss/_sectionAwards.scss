@@ -20,7 +20,14 @@
 
     &-slider {
       margin-top: 40px;
-
+      &.prize {
+        .swiper-slide {
+          width: calc((100%) / 3);
+          &:first-child {
+            width: 100%;
+          }
+        }
+      }
       @media (max-width: 991px) {
         margin-top: 16px;
       }
@@ -32,6 +39,15 @@
       .awards-item {
         height: 100%;
         position: relative;
+        &.no-content {
+          .image {
+            aspect-ratio: 1320 / 380;
+            @media (max-width: 991px) {
+              aspect-ratio: unset;
+              height: 100%;
+            }
+          }
+        }
         @media (max-width: 991px) {
           background-color: var(--color-white-2);
         }

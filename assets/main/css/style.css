@@ -575,12 +575,22 @@ button.aloading::after {
 .section-fields.spacing-top {
   padding-top: 40px;
 }
+@media (max-width: 991px) {
+  .section-fields.spacing-top {
+    padding-top: 16px;
+  }
+}
 .section-fields .section-title {
   margin-bottom: 40px;
 }
 @media (max-width: 991px) {
   .section-fields .section-title {
-    margin-bottom: 32px;
+    margin-bottom: 24px;
+  }
+}
+@media (max-width: 767px) {
+  .section-fields .section-title {
+    margin-bottom: 16px;
   }
 }
 .section-fields.not-home .fields-list {
@@ -727,6 +737,11 @@ button.aloading::after {
   pointer-events: none;
   --after-height: 0%;
 }
+@media (max-width: 991px) {
+  .loading {
+    display: none;
+  }
+}
 .loading::before {
   content: "";
   position: absolute;
@@ -779,7 +794,7 @@ button.aloading::after {
 }
 @media (max-width: 991px) {
   .logo-wrap {
-    padding-bottom: 0;
+    padding: 16px 0;
   }
 }
 .logo-wrap-content {
@@ -829,6 +844,11 @@ button.aloading::after {
     width: 120px;
   }
 }
+@media (max-width: 767px) {
+  .logo-wrap .marquee-item {
+    width: 90px;
+  }
+}
 .logo-wrap .marquee-item .logo-icon {
   width: 100%;
   height: 110px;
@@ -836,6 +856,11 @@ button.aloading::after {
   justify-content: center;
   align-items: center;
   background-color: var(--color-white);
+}
+@media (max-width: 991px) {
+  .logo-wrap .marquee-item .logo-icon {
+    height: 50px;
+  }
 }
 .logo-wrap .marquee-item .logo-icon img {
   width: auto;
@@ -931,6 +956,13 @@ button.aloading::after {
     gap: 12px;
   }
 }
+@media (max-width: 991px) {
+  .footer-col-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 24px;
+  }
+}
 @media (max-width: 767px) {
   .footer-col-wrapper {
     display: grid;
@@ -964,7 +996,7 @@ button.aloading::after {
 .footer-bottom.mobile {
   display: none;
 }
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .footer-bottom.mobile {
     display: block;
   }
@@ -1200,7 +1232,12 @@ button.aloading::after {
     gap: 12px 24px;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 991px) {
+  .footer-col.col-about-menas ul {
+    display: flex;
+  }
+}
+@media (max-width: 700px) {
   .footer-col.col-about-menas ul {
     display: grid;
     grid-template-columns: max-content max-content max-content;
@@ -1235,6 +1272,11 @@ button.aloading::after {
   background-color: var(--color-white);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
+@media (max-width: 991px) {
+  #header .header-logo a {
+    display: block !important;
+  }
+}
 #header.not-home .header-logo a {
   display: block !important;
 }
@@ -1249,8 +1291,18 @@ button.aloading::after {
   padding: 13px 24px;
   height: 60px;
 }
+@media (max-width: 991px) {
+  .header-container {
+    grid-template-columns: 1fr 115px 1fr;
+  }
+}
 .header-logo {
   width: 115px;
+}
+@media (max-width: 991px) {
+  .header-logo {
+    grid-column: 2/3;
+  }
 }
 @media (max-width: 1200px) {
   .header-menu {
@@ -1422,6 +1474,11 @@ button.aloading::after {
   }
   .header-menu .header-cta .dropdown-custom-menu {
     transform: translate(0);
+  }
+}
+@media (max-width: 991px) {
+  .header-menu .header-cta {
+    margin-top: 32px;
   }
 }
 .header-cta {
@@ -1659,7 +1716,7 @@ button.aloading::after {
   }
 }
 .hero-sec__container {
-  height: calc(100dvh - 60px);
+  height: calc(100svh - 60px);
   background-color: var(--color-white);
   position: relative;
 }
@@ -1678,7 +1735,7 @@ button.aloading::after {
   z-index: 2;
 }
 .hero-overlay {
-  height: calc(100dvh - 60px);
+  height: calc(100svh - 60px);
   width: 1px;
   background-color: transparent;
 }
@@ -2352,6 +2409,12 @@ button.aloading::after {
 .section-awards .awards-slider {
   margin-top: 40px;
 }
+.section-awards .awards-slider.prize .swiper-slide {
+  width: 33.3333333333%;
+}
+.section-awards .awards-slider.prize .swiper-slide:first-child {
+  width: 100%;
+}
 @media (max-width: 991px) {
   .section-awards .awards-slider {
     margin-top: 16px;
@@ -2363,6 +2426,15 @@ button.aloading::after {
 .section-awards .awards-slider .awards-item {
   height: 100%;
   position: relative;
+}
+.section-awards .awards-slider .awards-item.no-content .image {
+  aspect-ratio: 1320/380;
+}
+@media (max-width: 991px) {
+  .section-awards .awards-slider .awards-item.no-content .image {
+    aspect-ratio: unset;
+    height: 100%;
+  }
 }
 @media (max-width: 991px) {
   .section-awards .awards-slider .awards-item {

@@ -73,6 +73,11 @@
     @media (max-width: 1024px) {
       gap: 12px;
     }
+    @media (max-width: 991px) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 24px;
+    }
     @media (max-width: 767px) {
       display: grid;
       grid-template-columns: 76px auto;
@@ -104,7 +109,7 @@
     z-index: 3;
     &.mobile {
       display: none;
-      @media (max-width: 767px) {
+      @media (max-width: 991px) {
         display: block;
       }
     }
@@ -343,7 +348,11 @@
     }
     &.col-about-menas {
       ul {
-        @media (max-width: 767px) {
+        @media (max-width: 991px) {
+          display: flex;
+        }
+
+        @media (max-width: 700px) {
           display: grid;
           grid-template-columns: max-content max-content max-content;
           gap: 4px 14px;

@@ -10,6 +10,7 @@ gsap.ticker.add((time) => {
 
 gsap.ticker.lagSmoothing(0);
 function loading() {
+  if (window.innerWidth < 991) return;
   if (!document.querySelector(".loading")) return;
   const logo = document.getElementById("logo");
   const loadingAfter = document.querySelector(".loading");
@@ -987,7 +988,7 @@ function sectionAwards() {
       },
       breakpoints: {
         1024: {
-          slidesPerView: isAwardsSlider ? 3 : 4,
+          slidesPerView: isAwardsSlider ? "auto" : 4,
           spaceBetween: 24,
         },
         768: {

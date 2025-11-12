@@ -9,6 +9,9 @@
   padding-top: 15px;
   pointer-events: none;
   --after-height: 0%;
+  @media (max-width: 991px) {
+    display: none;
+  }
   &::before {
     content: "";
     position: absolute;
