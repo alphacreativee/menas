@@ -1,6 +1,6 @@
 .reruitment {
   &-detail {
-    background-color: var(--color-white-2);
+    background-color: #f7f7f7;
     position: relative;
 
     &::before {
@@ -64,8 +64,8 @@
           }
 
           h4 {
-            font-size: 17px;
-            line-height: 24px;
+            font-size: 14px;
+            line-height: 20px;
             font-weight: 500;
             margin-top: 24px;
             margin-bottom: 8px;
@@ -74,7 +74,11 @@
               margin-bottom: 8px;
             }
           }
-
+          ul,
+          ol {
+            list-style-type: disc;
+            padding-left: 20px;
+          }
           p,
           ul,
           ol,
@@ -106,7 +110,7 @@
               display: flex;
               align-items: center;
               gap: 12px;
-
+              list-style-type: none;
               svg {
                 * {
                   transition: all 0.4s ease;
@@ -299,7 +303,9 @@
 
           .cta {
             margin-top: 24px;
-
+            @media (max-width: 991px) {
+              margin-top: 16px;
+            }
             &-contact {
               display: grid;
               gap: 8px;

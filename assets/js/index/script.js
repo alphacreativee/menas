@@ -1509,10 +1509,11 @@ function swiperNews() {
     watchSlidesProgress: true,
     mousewheel: true,
     keyboard: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
+    allowTouchMove: false,
+    // autoplay: {
+    //   delay: 5000,
+    //   disableOnInteraction: false,
+    // },
     navigation: {
       nextEl: ".news .swiper-button-next",
       prevEl: ".news .swiper-button-prev",

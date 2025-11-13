@@ -55,7 +55,7 @@
         width: 120px;
       }
       @media (max-width: 767px) {
-        width: 90px;
+        width: 100px;
       }
       .logo-icon {
         width: 100%;
@@ -66,12 +66,15 @@
         align-items: center;
         background-color: var(--color-white);
         @media (max-width: 991px) {
-          height: 50px;
+          height: 55px;
         }
         img {
           width: auto;
           height: auto;
           display: block;
+          @media (max-width: 991px) {
+            object-fit: contain;
+          }
         }
       }
       .logo-name {

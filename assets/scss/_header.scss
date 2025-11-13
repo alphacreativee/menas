@@ -49,10 +49,10 @@
   &-menu {
     @media (max-width: 1200px) {
       position: fixed;
-      height: 100dvh;
-      width: 350px;
+      height: calc(100dvh - 60px);
+      width: 100%;
       background-color: var(--color-white);
-      top: 0;
+      top: 60px;
       right: 0;
       clip-path: inset(0 0 0 100%);
       transition: clip-path 0.8s ease;

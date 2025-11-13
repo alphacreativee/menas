@@ -92,7 +92,7 @@
       padding-bottom: 8px;
       border-bottom: 1px solid rgba(26, 61, 78, 0.3);
       color: var(--color-text);
-
+      border-radius: 0;
       &:not(:placeholder-shown),
       &:focus,
       &:focus-visible {

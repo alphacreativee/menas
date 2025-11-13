@@ -3,20 +3,20 @@
     position: relative;
     padding: 40px 24px;
     background-color: var(--color-white);
-    padding-left: calc(calc(1 / 12) * 100% + 24px);
-    padding-right: calc(calc(1 / 12) * 100% + 24px);
+    padding-left: calc(calc(1 / 12) * 100%);
+    padding-right: calc(calc(1 / 12) * 100%);
     &-big {
       padding: 40px 24px;
       background-color: #f7f7f7;
-      padding-left: calc(calc(1 / 12) * 100% + 24px);
-      padding-right: calc(calc(1 / 12) * 100% + 24px);
+      padding-left: calc(calc(1 / 12) * 100%);
+      padding-right: calc(calc(1 / 12) * 100%);
       padding-top: 40px;
       @media (max-width: 991px) {
         padding: 16px 24px;
       }
       &-heading {
-        padding-left: calc(calc(1 / 12) * 100% + 24px);
-        padding-right: calc(calc(1 / 12) * 100% + 24px);
+        // padding-left: calc(calc(1 / 12) * 100% + 24px);
+        // padding-right: calc(calc(1 / 12) * 100% + 24px);
         text-align: center;
         margin-bottom: 40px;
         @media (max-width: 991px) {

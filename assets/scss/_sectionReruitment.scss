@@ -12,6 +12,8 @@
     }
     &-title {
       .title {
+        font-size: 17px;
+        line-height: 24px;
         @media (max-width: 991px) {
           font-size: 17px;
           line-height: 24px;
@@ -21,6 +23,13 @@
     &-tabs {
       gap: 12px;
       margin-top: 40px;
+      @media (min-width: 992px) {
+        display: grid !important;
+        grid-template-columns: repeat(7, minmax(max-content, 1fr));
+        .tab-item {
+          justify-content: center;
+        }
+      }
       @media (max-width: 991px) {
         margin-top: 24px;
         flex-wrap: wrap;
@@ -126,6 +135,9 @@
       align-items: flex-start;
       transition: all 0.4s ease;
       position: relative;
+      &:hover {
+        cursor: none;
+      }
       @media (max-width: 991px) {
         flex-direction: column;
         gap: 16px;
@@ -139,6 +151,9 @@
       .link {
         position: absolute;
         inset: 0;
+        &:hover {
+          cursor: none;
+        }
       }
 
       &:hover {
@@ -205,16 +220,21 @@
 .form-reruitment-bar {
   position: absolute;
   z-index: 10;
-  top: 50%;
+  top: 24px;
   left: 50%;
-  transform: translate(-50%, -76px);
+  transform: translate(-50%, 0);
   width: 100%;
   max-width: 1000px;
+  .dropdown-custom-select {
+    position: relative;
+  }
   @media (max-width: 991px) {
     max-width: calc(100% - 48px);
   }
   h2.title {
     margin-bottom: 36px;
+    color: var(--color-text);
+
     @media (max-width: 991px) {
       margin-bottom: 24px;
     }
@@ -229,7 +249,8 @@
     border-radius: 100px;
     box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.1);
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    // grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: 1fr 0.9fr 0.8fr 1fr 1fr;
     padding-left: 20px;
     gap: 16px;
     @media (max-width: 991px) {

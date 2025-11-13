@@ -22,7 +22,7 @@
       margin-top: 40px;
       &.prize {
         .swiper-slide {
-          width: calc((100%) / 3);
+          width: calc((100% - 48px) / 3);
           @media (max-width: 767px) {
             width: 50%;
           }
@@ -47,7 +47,7 @@
         position: relative;
         &.no-content {
           .image {
-            aspect-ratio: 1320 / 380;
+            aspect-ratio: 1320 / 360;
             @media (max-width: 991px) {
               aspect-ratio: unset;
               height: 100%;
@@ -182,8 +182,10 @@
     transform: translateY(50%);
 
     @media (max-width: 991px) {
+      top: auto;
+      bottom: 29px;
       right: 24px;
-      top: 24px;
+      transform: translateY(0);
     }
   }
 }
