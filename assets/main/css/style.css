@@ -269,8 +269,8 @@ body {
   justify-content: center;
 }
 .magic-cursor .cursor.show-text {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   background-color: var(--color-primary);
 }
 .magic-cursor .cursor.show-text .text {
@@ -279,7 +279,7 @@ body {
 }
 .magic-cursor .cursor span {
   font-family: var(--font-body);
-  font-size: 10px;
+  font-size: 8px;
   line-height: 14px;
   font-weight: 600;
   letter-spacing: 0.8px;
@@ -2048,7 +2048,7 @@ button.aloading::after {
 @media (max-width: 991px) {
   .intro-text {
     max-width: 100%;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 24px;
     font-weight: 400;
     text-align: justify;
@@ -2386,7 +2386,7 @@ button.aloading::after {
 }
 @media (max-width: 991px) {
   .news-item .content .name {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 20px;
     text-align: justify;
   }
@@ -2808,9 +2808,10 @@ button.aloading::after {
   line-clamp: 8;
   -webkit-box-orient: vertical;
   transition: all 0.4s ease;
-  font-size: 14px;
+  font-size: 17px;
   line-height: 24px;
   margin-top: 8px;
+  text-align: justify;
 }
 .responsibility-item .item-content .title {
   transition-delay: 0s;
@@ -4112,7 +4113,7 @@ button.aloading::after {
 .form-reruitment-bar {
   position: absolute;
   z-index: 10;
-  top: 24px;
+  top: 16px;
   left: 50%;
   transform: translate(-50%, 0);
   width: 100%;
@@ -4127,12 +4128,12 @@ button.aloading::after {
   }
 }
 .form-reruitment-bar h2.title {
-  margin-bottom: 36px;
+  margin-bottom: 16px;
   color: var(--color-text);
 }
 @media (max-width: 991px) {
   .form-reruitment-bar h2.title {
-    margin-bottom: 24px;
+    margin-bottom: 16px;
   }
 }
 .form-reruitment-bar .dropdown-custom-menu {

@@ -220,7 +220,7 @@
 .form-reruitment-bar {
   position: absolute;
   z-index: 10;
-  top: 24px;
+  top: 16px;
   left: 50%;
   transform: translate(-50%, 0);
   width: 100%;
@@ -232,11 +232,11 @@
     max-width: calc(100% - 48px);
   }
   h2.title {
-    margin-bottom: 36px;
+    margin-bottom: 16px;
     color: var(--color-text);
 
     @media (max-width: 991px) {
-      margin-bottom: 24px;
+      margin-bottom: 16px;
     }
   }
 
