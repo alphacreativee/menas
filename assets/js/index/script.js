@@ -1849,7 +1849,6 @@ function initRecruitmentBarSticky() {
     start: "120px top",
     end: sectionFields ? () => sectionFields.offsetTop : "bottom bottom",
     onEnter: () => {
-      // Lưu chiều cao của bar
       const height = recruitmentBar.offsetHeight;
       placeholder.style.height = height + "px";
       placeholder.style.display = "block";
@@ -1874,7 +1873,6 @@ function initRecruitmentBarSticky() {
       });
     },
     onLeave: () => {
-      // Khi scroll qua section-fields thì xóa sticky
       if (sectionFields) {
         placeholder.style.display = "none";
         recruitmentBar.classList.remove("sticky");
@@ -1882,7 +1880,6 @@ function initRecruitmentBarSticky() {
       }
     },
     onEnterBack: () => {
-      // Khi scroll ngược lại từ section-fields thì add lại sticky
       if (sectionFields) {
         const height = recruitmentBar.offsetHeight;
         placeholder.style.height = height + "px";
