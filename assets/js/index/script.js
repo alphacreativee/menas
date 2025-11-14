@@ -1839,21 +1839,28 @@ function initRecruitmentBarSticky() {
 
   if (!recruitmentBar) return;
 
-  // Tạo một placeholder để giữ chỗ khi bar chuyển sang fixed
   const placeholder = document.createElement("div");
   placeholder.style.display = "none";
   recruitmentBar.parentNode.insertBefore(placeholder, recruitmentBar);
 
+  const endPosition = sectionFields
+    ? () => sectionFields.offsetTop - 120 + " top"
+    : "bottom bottom";
+
   ScrollTrigger.create({
     trigger: "body",
     start: "120px top",
-    end: sectionFields ? () => sectionFields.offsetTop : "bottom bottom",
+    end: endPosition,
     onEnter: () => {
+      const currentTop = recruitmentBar.getBoundingClientRect().top;
       const height = recruitmentBar.offsetHeight;
+
       placeholder.style.height = height + "px";
       placeholder.style.display = "block";
 
+      recruitmentBar.style.top = currentTop + "px";
       recruitmentBar.classList.add("sticky");
+
       gsap.to(recruitmentBar, {
         top: "76px",
         duration: 0.4,
@@ -1861,12 +1868,16 @@ function initRecruitmentBarSticky() {
       });
     },
     onLeaveBack: () => {
-      placeholder.style.display = "none";
+      const currentTop = recruitmentBar.getBoundingClientRect().top;
+
+      recruitmentBar.style.top = currentTop + "px";
 
       gsap.to(recruitmentBar, {
+        top: currentTop + "px",
         duration: 0.4,
         ease: "power2.out",
         onComplete: () => {
+          placeholder.style.display = "none";
           recruitmentBar.classList.remove("sticky");
           recruitmentBar.style.top = "";
         },
@@ -1874,19 +1885,36 @@ function initRecruitmentBarSticky() {
     },
     onLeave: () => {
       if (sectionFields) {
-        placeholder.style.display = "none";
-        recruitmentBar.classList.remove("sticky");
-        recruitmentBar.style.top = "";
+        const currentTop = recruitmentBar.getBoundingClientRect().top;
+
+        gsap.to(recruitmentBar, {
+          top: currentTop + "px",
+          duration: 0.4,
+          ease: "power2.out",
+          onComplete: () => {
+            placeholder.style.display = "none";
+            recruitmentBar.classList.remove("sticky");
+            recruitmentBar.style.top = "";
+          },
+        });
       }
     },
     onEnterBack: () => {
       if (sectionFields) {
+        const currentTop = recruitmentBar.getBoundingClientRect().top;
         const height = recruitmentBar.offsetHeight;
+
         placeholder.style.height = height + "px";
         placeholder.style.display = "block";
 
+        recruitmentBar.style.top = currentTop + "px";
         recruitmentBar.classList.add("sticky");
-        recruitmentBar.style.top = "76px";
+
+        gsap.to(recruitmentBar, {
+          top: "76px",
+          duration: 0.4,
+          ease: "power2.out",
+        });
       }
     },
   });
