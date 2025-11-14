@@ -1564,6 +1564,7 @@ button.aloading::after {
   will-change: clip-path;
   transition: clip-path 0.3s ease;
   pointer-events: none;
+  height: max-content;
 }
 @media (max-width: 991px) {
   .header-lang .dropdown-custom-menu {

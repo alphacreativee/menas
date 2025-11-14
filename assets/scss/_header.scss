@@ -294,6 +294,7 @@
       will-change: clip-path;
       transition: clip-path 0.3s ease;
       pointer-events: none;
+      height: max-content;
       @media (max-width: 991px) {
         width: 90px;
         top: 30px;
