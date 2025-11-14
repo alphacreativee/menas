@@ -2,7 +2,7 @@
   position: relative;
   z-index: 2;
   background-color: var(--color-white);
-  padding: 40px 24px;
+  padding: 40px 60px;
   @media (max-width: 991px) {
     padding: 16px 24px;
   }
@@ -34,6 +34,9 @@
         text-align: justify;
       }
       ul {
+        > * {
+          text-align: justify;
+        }
         li {
           margin-bottom: 12px;
           @media (max-width: 991px) {

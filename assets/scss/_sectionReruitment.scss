@@ -216,15 +216,28 @@
     }
   }
 }
-
-.form-reruitment-bar {
+.form-rerutiment-title {
   position: absolute;
   z-index: 10;
   top: 16px;
   left: 50%;
   transform: translate(-50%, 0);
+  h2.title {
+    color: var(--color-text);
+  }
+}
+.form-reruitment-bar {
+  position: absolute;
+  z-index: 10;
+  top: 76px;
+  left: 50%;
+  transform: translate(-50%, 0);
   width: 100%;
   max-width: 1000px;
+  &.sticky {
+    position: fixed;
+    top: 76px;
+  }
   .dropdown-custom-select {
     position: relative;
   }
@@ -253,6 +266,7 @@
     grid-template-columns: 1fr 0.9fr 0.8fr 1fr 1fr;
     padding-left: 20px;
     gap: 16px;
+
     @media (max-width: 991px) {
       display: flex;
       justify-content: space-between;

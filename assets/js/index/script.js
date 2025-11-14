@@ -428,7 +428,7 @@ function effectText() {
     const title = scrollItem.querySelector(".title-box");
     const desc = scrollItem.querySelector(".description-box");
     const btn = scrollItem.querySelector(".btn-view-all");
-    const isMobile = window.innerWidth <= 768;
+    const isMobile = window.innerWidth <= 991;
     const start = isMobile ? "top 85%" : "top 62%";
 
     const tl = gsap.timeline({
@@ -454,7 +454,6 @@ function effectText() {
       gsap.set(split.chars, { y: "125%", opacity: 0 });
 
       if (isMobile) {
-        // Mobile: ScrollTrigger riêng cho title
         gsap.to(split.chars, {
           y: "0%",
           opacity: 1,
@@ -465,11 +464,9 @@ function effectText() {
             trigger: title,
             start: "top 85%",
             toggleActions: "play none none none",
-            // markers: true,
           },
         });
       } else {
-        // Desktop: Dùng timeline chung
         tl.to(
           split.chars,
           {
@@ -486,11 +483,9 @@ function effectText() {
 
     if (desc) {
       const descDelay = parseFloat(desc.getAttribute("data-delay")) || 0;
+      gsap.set(desc, { opacity: 0, y: 30 });
 
       if (isMobile) {
-        // Mobile: ScrollTrigger riêng cho desc
-        gsap.set(desc, { opacity: 0, y: 20 });
-
         gsap.to(desc, {
           opacity: 1,
           y: 0,
@@ -504,26 +499,14 @@ function effectText() {
           },
         });
       } else {
-        // Desktop: Animation từng dòng
-        const splitDesc = new SplitText(desc, {
-          type: "lines",
-          linesClass: "line",
-          mask: "lines",
-        });
-
-        gsap.set(splitDesc.lines, { yPercent: 100, willChange: "transform" });
-
-        tl.fromTo(
-          splitDesc.lines,
+        tl.to(
+          desc,
           {
-            yPercent: 100,
-          },
-          {
-            yPercent: 0,
+            opacity: 1,
+            y: 0,
             duration: 1,
             ease: "power3.out",
-            stagger: 0.08,
-            delay: descDelay,
+            delay: 0.2,
           },
           "<"
         );
@@ -1828,18 +1811,18 @@ function formCooperate() {
       }
     });
 
-    $("input[name='upload'][fieldRequired]").each(function () {
-      const $input = $(this);
-      const $field = $input.closest(".form-field");
+    // $("input[name='upload'][fieldRequired]").each(function () {
+    //   const $input = $(this);
+    //   const $field = $input.closest(".form-field");
 
-      if ($field) {
-        if (this.files.length === 0) {
-          $field.addClass("error");
-        } else {
-          $field.removeClass("error");
-        }
-      }
-    });
+    //   if ($field) {
+    //     if (this.files.length === 0) {
+    //       $field.addClass("error");
+    //     } else {
+    //       $field.removeClass("error");
+    //     }
+    //   }
+    // });
 
     if (!isValid) return;
 
@@ -1848,6 +1831,67 @@ function formCooperate() {
       $buttonSubmit.removeClass("aloading");
       $("#modalCooperateSuccess").modal("show");
     }, 5000);
+  });
+}
+function initRecruitmentBarSticky() {
+  const recruitmentBar = document.querySelector(".form-reruitment-bar");
+  const sectionFields = document.querySelector(".section-fields");
+
+  if (!recruitmentBar) return;
+
+  // Tạo một placeholder để giữ chỗ khi bar chuyển sang fixed
+  const placeholder = document.createElement("div");
+  placeholder.style.display = "none";
+  recruitmentBar.parentNode.insertBefore(placeholder, recruitmentBar);
+
+  ScrollTrigger.create({
+    trigger: "body",
+    start: "120px top",
+    end: sectionFields ? () => sectionFields.offsetTop : "bottom bottom",
+    onEnter: () => {
+      // Lưu chiều cao của bar
+      const height = recruitmentBar.offsetHeight;
+      placeholder.style.height = height + "px";
+      placeholder.style.display = "block";
+
+      recruitmentBar.classList.add("sticky");
+      gsap.to(recruitmentBar, {
+        top: "76px",
+        duration: 0.4,
+        ease: "power2.out",
+      });
+    },
+    onLeaveBack: () => {
+      placeholder.style.display = "none";
+
+      gsap.to(recruitmentBar, {
+        duration: 0.4,
+        ease: "power2.out",
+        onComplete: () => {
+          recruitmentBar.classList.remove("sticky");
+          recruitmentBar.style.top = "";
+        },
+      });
+    },
+    onLeave: () => {
+      // Khi scroll qua section-fields thì xóa sticky
+      if (sectionFields) {
+        placeholder.style.display = "none";
+        recruitmentBar.classList.remove("sticky");
+        recruitmentBar.style.top = "";
+      }
+    },
+    onEnterBack: () => {
+      // Khi scroll ngược lại từ section-fields thì add lại sticky
+      if (sectionFields) {
+        const height = recruitmentBar.offsetHeight;
+        placeholder.style.height = height + "px";
+        placeholder.style.display = "block";
+
+        recruitmentBar.classList.add("sticky");
+        recruitmentBar.style.top = "76px";
+      }
+    },
   });
 }
 
@@ -1878,7 +1922,7 @@ const init = () => {
   uploadPdf();
   formContact();
   formCooperate();
-
+  initRecruitmentBarSticky();
   ScrollTrigger.refresh();
 };
 preloadImages("img").then(() => {

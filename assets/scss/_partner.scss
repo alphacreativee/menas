@@ -2,7 +2,8 @@
   position: relative;
   z-index: 2;
   background-color: var(--color-white);
-  padding: 40px 24px 40px;
+  padding: 40px calc(calc(1 / 12) * 100%) 40px;
+
   @media (max-width: 991px) {
     padding: 16px 24px;
   }
