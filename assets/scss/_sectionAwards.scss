@@ -2,6 +2,9 @@
   position: relative;
   z-index: 1;
   background-color: var(--color-white-2);
+  &.field-detail-sec {
+    background-color: #f7f7f7;
+  }
   &.detail {
     .btn-view-all {
       top: 50px;

@@ -2445,6 +2445,9 @@ button.aloading::after {
   z-index: 1;
   background-color: var(--color-white-2);
 }
+.section-awards.field-detail-sec {
+  background-color: #f7f7f7;
+}
 .section-awards.detail .btn-view-all {
   top: 50px;
   transform: translateY(0);
@@ -3676,10 +3679,10 @@ button.aloading::after {
 }
 
 .media {
-  padding: 0 0 40px;
+  padding: 40px 0 40px;
   position: relative;
   z-index: 2;
-  background-color: var(--color-white);
+  background-color: var(--color-white-2);
 }
 @media (max-width: 991px) {
   .media {
