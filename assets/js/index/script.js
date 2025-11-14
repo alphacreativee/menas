@@ -550,13 +550,19 @@ function effectText() {
 }
 
 function customDropdown() {
-  const dropdowns = document.querySelectorAll(".dropdown-custom");
+  const dropdowns = document.querySelectorAll(
+    ".dropdown-custom, .dropdown-custom-select"
+  );
 
   dropdowns.forEach((dropdown) => {
     const btnDropdown = dropdown.querySelector(".dropdown-custom-btn");
     const dropdownMenu = dropdown.querySelector(".dropdown-custom-menu");
     const dropdownItems = dropdown.querySelectorAll(".dropdown-custom-item");
     const valueSelect = dropdown.querySelector(".value-select");
+    const displayText = dropdown.querySelector(".dropdown-custom-text");
+
+    // Kiểm tra loại dropdown
+    const isSelectType = dropdown.classList.contains("dropdown-custom-select");
 
     // Toggle dropdown on button click
     btnDropdown.addEventListener("click", function (e) {
@@ -576,26 +582,28 @@ function customDropdown() {
       item.addEventListener("click", function (e) {
         e.stopPropagation();
 
-        // Store current values from the button
-        const currentImgEl = valueSelect.querySelector("img");
-        const currentImg = currentImgEl ? currentImgEl.src : "";
-        const currentText = valueSelect.querySelector("span").textContent;
-        const currentHtml = valueSelect.innerHTML;
+        if (isSelectType) {
+          // Logic cho dropdown-custom-select
+          const optionText = item.textContent;
+          displayText.textContent = optionText;
+          dropdown.classList.add("selected");
+        } else {
+          // Logic cho dropdown-custom
+          const currentImgEl = valueSelect.querySelector("img");
+          const currentImg = currentImgEl ? currentImgEl.src : "";
+          const currentText = valueSelect.querySelector("span").textContent;
+          const clickedHtml = item.innerHTML;
 
-        // Store clicked item values
-        const clickedHtml = item.innerHTML;
+          valueSelect.innerHTML = clickedHtml;
 
-        // Update the button with clicked item values
-        valueSelect.innerHTML = clickedHtml;
+          const isSelectTime = currentText.trim() === "Time";
 
-        const isSelectTime = currentText.trim() === "Time";
-
-        // Update the clicked item with the previous button values
-        if (!isSelectTime) {
-          if (currentImg) {
-            item.innerHTML = `<span>${currentText}</span><img src="${currentImg}" alt="" />`;
-          } else {
-            item.innerHTML = `<span>${currentText}</span>`;
+          if (!isSelectTime) {
+            if (currentImg) {
+              item.innerHTML = `<span>${currentText}</span><img src="${currentImg}" alt="" />`;
+            } else {
+              item.innerHTML = `<span>${currentText}</span>`;
+            }
           }
         }
 
@@ -623,59 +631,6 @@ function customDropdown() {
       }
     });
   }
-}
-function customDropdownSelectValue() {
-  const allDropdowns = document.querySelectorAll(".dropdown-custom-select");
-
-  allDropdowns.forEach(function (dropdownWrapper) {
-    const toggleButton = dropdownWrapper.querySelector(".dropdown-custom-btn");
-    const menuList = dropdownWrapper.querySelector(".dropdown-custom-menu");
-    const menuOptions = dropdownWrapper.querySelectorAll(
-      ".dropdown-custom-item"
-    );
-    const displayText = dropdownWrapper.querySelector(".dropdown-custom-text");
-
-    toggleButton.addEventListener("click", function (e) {
-      e.stopPropagation();
-      closeAllDropdowns(dropdownWrapper);
-      menuList.classList.toggle("dropdown--active");
-      toggleButton.classList.toggle("--active");
-    });
-
-    document.addEventListener("click", function () {
-      closeAllDropdowns();
-    });
-
-    menuOptions.forEach(function (option) {
-      option.addEventListener("click", function (e) {
-        e.stopPropagation();
-
-        const optionText = option.textContent;
-
-        displayText.textContent = optionText;
-
-        dropdownWrapper.classList.add("selected");
-
-        closeAllDropdowns();
-      });
-    });
-
-    function closeAllDropdowns(currentDropdown) {
-      document.querySelectorAll(".dropdown-custom-btn").forEach(function (btn) {
-        btn.classList.remove("active");
-      });
-
-      allDropdowns.forEach(function (dropdown) {
-        const menu = dropdown.querySelector(".dropdown-custom-menu");
-        const btn = dropdown.querySelector(".dropdown-custom-btn");
-
-        if (!currentDropdown || dropdown !== currentDropdown) {
-          menu.classList.remove("dropdown--active");
-          btn.classList.remove("--active");
-        }
-      });
-    }
-  });
 }
 
 function hero() {
@@ -1886,7 +1841,7 @@ const init = () => {
   wipe();
   hoverVideo();
   scrollTop();
-  customDropdownSelectValue();
+  // customDropdownSelectValue();
   parallaxSwiper();
   header();
   fieldSuggestion();
