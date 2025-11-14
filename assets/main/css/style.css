@@ -443,7 +443,7 @@ section {
 }
 .field-suggestion input {
   width: 100%;
-  padding: 8px 10px;
+  padding: 8px 0px 8px 10px;
   border: 1px solid #ccc;
   border-radius: 6px;
 }
