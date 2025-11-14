@@ -111,7 +111,148 @@
         });
     </script>
     <div id="chat-ai" data-lenis-prevent></div>
+    <div class="form-reruitment-bar">
+      <form action="">
+        <div class="form-item search">
+          <div class="icon">
+            <img src="./assets/images/reruitment/icon-search.svg" alt="" />
+          </div>
 
+          <div class="field-suggestion">
+            <input type="text" placeholder="Tìm vị trí công việc" />
+            <ul class="field-suggestion__list hidden" data-lenis-prevent>
+              <li>Nhân viên Bán hàng Mỹ phẩm</li>
+              <li>Thu ngân siêu thị</li>
+              <li>Barista</li>
+              <li>Nhân Viên F&B</li>
+              <li>Nhân Viên Admin - Kho</li>
+              <li>Quản Lý Cửa Hàng</li>
+              <li>Giám Sát Cửa Hàng</li>
+              <li>Kế Toán Nguồn Vốn & Đầu Tư</li>
+              <li>Nhân Viên Chăm Sóc Khách Hàng</li>
+              <li>Nhân Viên Bán Hàng</li>
+              <li>Chuyên Viên Chính Sách Và Phúc Lợi</li>
+              <li>Giám Sát Quầy Hàng</li>
+              <li>Trưởng Ca Bếp</li>
+            </ul>
+          </div>
+        </div>
+        <div class="form-item type">
+          <div class="icon">
+            <img src="./assets/images/reruitment/icon-time.svg" alt="" />
+          </div>
+          <div class="dropdown-custom-select">
+            <div class="dropdown-custom-btn">
+              <div class="value-select">
+                <span class="dropdown-custom-text">Loại hình làm việc</span>
+              </div>
+              <div class="icon">
+                <svg
+                  width="11"
+                  height="6"
+                  viewBox="0 0 11 6"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5.125 5.69347C5.43944 4.43563 6.89846 1.73127 10.219 0.976562"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M5.31543 5.69347C5.00099 4.43563 3.54197 1.73127 0.22144 0.976562"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div class="dropdown-custom-menu">
+              <div class="dropdown-custom-item">
+                <span>Toàn thời gian</span>
+              </div>
+              <div class="dropdown-custom-item">
+                <span>Bán thời gian</span>
+              </div>
+              <div class="dropdown-custom-item">
+                <span>Thực tập</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-item field">
+          <div class="icon">
+            <img src="./assets/images/reruitment/icon-field.svg" alt="" />
+          </div>
+          <div class="dropdown-custom-select">
+            <div class="dropdown-custom-btn">
+              <div class="value-select">
+                <span class="dropdown-custom-text">Chọn lĩnh vực</span>
+              </div>
+              <div class="icon">
+                <svg
+                  width="11"
+                  height="6"
+                  viewBox="0 0 11 6"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5.125 5.69347C5.43944 4.43563 6.89846 1.73127 10.219 0.976562"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M5.31543 5.69347C5.00099 4.43563 3.54197 1.73127 0.22144 0.976562"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div class="dropdown-custom-menu" data-lenis-prevent>
+              <div class="dropdown-custom-item">
+                <span>Tất cả</span>
+              </div>
+              <div class="dropdown-custom-item">
+                <span>Siêu thị</span>
+              </div>
+              <div class="dropdown-custom-item">
+                <span>Bán lẻ</span>
+              </div>
+              <div class="dropdown-custom-item">
+                <span>️Nhà hàng</span>
+              </div>
+              <div class="dropdown-custom-item">
+                <span>Khách sạn</span>
+              </div>
+              <div class="dropdown-custom-item">
+                <span>Vui chơi giải trí</span>
+              </div>
+              <div class="dropdown-custom-item">
+                <span>Văn Phòng</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-item location">
+          <div class="icon">
+            <img src="./assets/images/reruitment/icon-location.svg" alt="" />
+          </div>
+          <div class="field-suggestion">
+            <input type="text" placeholder="Chọn địa điểm" />
+            <ul class="field-suggestion__list hidden" data-lenis-prevent>
+              <li>TP. HCM – P. Bến Thành</li>
+              <li>TP. HCM – P. Tân Định</li>
+              <li>TP. HCM – P. Dakao</li>
+              <li>TP. HCM – P. Khánh Hội</li>
+              <li>TP. HCM – P. Phú Nhuận</li>
+            </ul>
+          </div>
+        </div>
+        <button class="button-font color-white" type="submit">Tìm việc</button>
+      </form>
+    </div>
     <main>
       <section class="hero has-slider not-has-sticky">
         <div class="container-fluid p-0">
@@ -195,170 +336,6 @@
               <h2 class="title h2-font color-white text-center">
                 Tỏa sáng cùng chúng tôi!
               </h2>
-            </div>
-            <div class="form-reruitment-bar">
-              <form action="">
-                <div class="form-item search">
-                  <div class="icon">
-                    <img
-                      src="./assets/images/reruitment/icon-search.svg"
-                      alt=""
-                    />
-                  </div>
-
-                  <div class="field-suggestion">
-                    <input type="text" placeholder="Tìm vị trí công việc" />
-                    <ul
-                      class="field-suggestion__list hidden"
-                      data-lenis-prevent
-                    >
-                      <li>Nhân viên Bán hàng Mỹ phẩm</li>
-                      <li>Thu ngân siêu thị</li>
-                      <li>Barista</li>
-                      <li>Nhân Viên F&B</li>
-                      <li>Nhân Viên Admin - Kho</li>
-                      <li>Quản Lý Cửa Hàng</li>
-                      <li>Giám Sát Cửa Hàng</li>
-                      <li>Kế Toán Nguồn Vốn & Đầu Tư</li>
-                      <li>Nhân Viên Chăm Sóc Khách Hàng</li>
-                      <li>Nhân Viên Bán Hàng</li>
-                      <li>Chuyên Viên Chính Sách Và Phúc Lợi</li>
-                      <li>Giám Sát Quầy Hàng</li>
-                      <li>Trưởng Ca Bếp</li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="form-item type">
-                  <div class="icon">
-                    <img
-                      src="./assets/images/reruitment/icon-time.svg"
-                      alt=""
-                    />
-                  </div>
-                  <div class="dropdown-custom-select">
-                    <div class="dropdown-custom-btn">
-                      <div class="value-select">
-                        <span class="dropdown-custom-text"
-                          >Loại hình làm việc</span
-                        >
-                      </div>
-                      <div class="icon">
-                        <svg
-                          width="11"
-                          height="6"
-                          viewBox="0 0 11 6"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M5.125 5.69347C5.43944 4.43563 6.89846 1.73127 10.219 0.976562"
-                            stroke="currentColor"
-                            stroke-width="2"
-                          />
-                          <path
-                            d="M5.31543 5.69347C5.00099 4.43563 3.54197 1.73127 0.22144 0.976562"
-                            stroke="currentColor"
-                            stroke-width="2"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                    <div class="dropdown-custom-menu">
-                      <div class="dropdown-custom-item">
-                        <span>Toàn thời gian</span>
-                      </div>
-                      <div class="dropdown-custom-item">
-                        <span>Bán thời gian</span>
-                      </div>
-                      <div class="dropdown-custom-item">
-                        <span>Thực tập</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="form-item field">
-                  <div class="icon">
-                    <img
-                      src="./assets/images/reruitment/icon-field.svg"
-                      alt=""
-                    />
-                  </div>
-                  <div class="dropdown-custom-select">
-                    <div class="dropdown-custom-btn">
-                      <div class="value-select">
-                        <span class="dropdown-custom-text">Chọn lĩnh vực</span>
-                      </div>
-                      <div class="icon">
-                        <svg
-                          width="11"
-                          height="6"
-                          viewBox="0 0 11 6"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M5.125 5.69347C5.43944 4.43563 6.89846 1.73127 10.219 0.976562"
-                            stroke="currentColor"
-                            stroke-width="2"
-                          />
-                          <path
-                            d="M5.31543 5.69347C5.00099 4.43563 3.54197 1.73127 0.22144 0.976562"
-                            stroke="currentColor"
-                            stroke-width="2"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                    <div class="dropdown-custom-menu" data-lenis-prevent>
-                      <div class="dropdown-custom-item">
-                        <span>Tất cả</span>
-                      </div>
-                      <div class="dropdown-custom-item">
-                        <span>Siêu thị</span>
-                      </div>
-                      <div class="dropdown-custom-item">
-                        <span>Bán lẻ</span>
-                      </div>
-                      <div class="dropdown-custom-item">
-                        <span>️Nhà hàng</span>
-                      </div>
-                      <div class="dropdown-custom-item">
-                        <span>Khách sạn</span>
-                      </div>
-                      <div class="dropdown-custom-item">
-                        <span>Vui chơi giải trí</span>
-                      </div>
-                      <div class="dropdown-custom-item">
-                        <span>Văn Phòng</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="form-item location">
-                  <div class="icon">
-                    <img
-                      src="./assets/images/reruitment/icon-location.svg"
-                      alt=""
-                    />
-                  </div>
-                  <div class="field-suggestion">
-                    <input type="text" placeholder="Chọn địa điểm" />
-                    <ul
-                      class="field-suggestion__list hidden"
-                      data-lenis-prevent
-                    >
-                      <li>TP. HCM – P. Bến Thành</li>
-                      <li>TP. HCM – P. Tân Định</li>
-                      <li>TP. HCM – P. Dakao</li>
-                      <li>TP. HCM – P. Khánh Hội</li>
-                      <li>TP. HCM – P. Phú Nhuận</li>
-                    </ul>
-                  </div>
-                </div>
-                <button class="button-font color-white" type="submit">
-                  Tìm việc
-                </button>
-              </form>
             </div>
           </div>
         </div>

@@ -1839,10 +1839,6 @@ function initRecruitmentBarSticky() {
 
   if (!recruitmentBar) return;
 
-  const placeholder = document.createElement("div");
-  placeholder.style.display = "none";
-  recruitmentBar.parentNode.insertBefore(placeholder, recruitmentBar);
-
   const endPosition = sectionFields
     ? () => sectionFields.offsetTop - 120 + " top"
     : "bottom bottom";
@@ -1852,69 +1848,21 @@ function initRecruitmentBarSticky() {
     start: "120px top",
     end: endPosition,
     onEnter: () => {
-      const currentTop = recruitmentBar.getBoundingClientRect().top;
-      const height = recruitmentBar.offsetHeight;
-
-      placeholder.style.height = height + "px";
-      placeholder.style.display = "block";
-
-      recruitmentBar.style.top = currentTop + "px";
       recruitmentBar.classList.add("sticky");
-
-      gsap.to(recruitmentBar, {
-        top: "76px",
-        duration: 0.4,
-        ease: "power2.out",
-      });
     },
     onLeaveBack: () => {
-      const currentTop = recruitmentBar.getBoundingClientRect().top;
-
-      recruitmentBar.style.top = currentTop + "px";
-
-      gsap.to(recruitmentBar, {
-        top: currentTop + "px",
-        duration: 0.4,
-        ease: "power2.out",
-        onComplete: () => {
-          placeholder.style.display = "none";
-          recruitmentBar.classList.remove("sticky");
-          recruitmentBar.style.top = "";
-        },
-      });
+      recruitmentBar.classList.remove("sticky");
     },
     onLeave: () => {
       if (sectionFields) {
-        const currentTop = recruitmentBar.getBoundingClientRect().top;
-
-        gsap.to(recruitmentBar, {
-          top: currentTop + "px",
-          duration: 0.4,
-          ease: "power2.out",
-          onComplete: () => {
-            placeholder.style.display = "none";
-            recruitmentBar.classList.remove("sticky");
-            recruitmentBar.style.top = "";
-          },
-        });
+        recruitmentBar.classList.add("hidden");
+        recruitmentBar.classList.remove("sticky");
       }
     },
     onEnterBack: () => {
       if (sectionFields) {
-        const currentTop = recruitmentBar.getBoundingClientRect().top;
-        const height = recruitmentBar.offsetHeight;
-
-        placeholder.style.height = height + "px";
-        placeholder.style.display = "block";
-
-        recruitmentBar.style.top = currentTop + "px";
+        recruitmentBar.classList.remove("hidden");
         recruitmentBar.classList.add("sticky");
-
-        gsap.to(recruitmentBar, {
-          top: "76px",
-          duration: 0.4,
-          ease: "power2.out",
-        });
       }
     },
   });
