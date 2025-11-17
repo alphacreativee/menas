@@ -2635,9 +2635,8 @@ button.aloading::after {
 .section-awards .btn-view-all {
   width: max-content;
   position: absolute;
-  top: 60px;
+  top: 52px;
   right: 60px;
-  transform: translateY(50%);
 }
 @media (max-width: 991px) {
   .section-awards .btn-view-all {
