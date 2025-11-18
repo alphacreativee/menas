@@ -2157,15 +2157,29 @@ button.aloading::after {
 .scroll-wrap-big-content-item:last-child {
   margin-bottom: 0;
 }
-.scroll-wrap-big-content-item h5 {
+.scroll-wrap-big-content-item ul {
+  margin-bottom: 24px;
+}
+@media (max-width: 991px) {
+  .scroll-wrap-big-content-item ul {
+    margin-bottom: 12px;
+  }
+}
+.scroll-wrap-big-content-item ul:last-child {
+  margin-bottom: 0;
+}
+.scroll-wrap-big-content-item h5,
+.scroll-wrap-big-content-item p > strong {
   font-size: 17px;
   line-height: 24px;
   font-weight: 500;
   color: var(--color-text);
   margin-bottom: 12px;
+  display: block;
 }
 @media (max-width: 991px) {
-  .scroll-wrap-big-content-item h5 {
+  .scroll-wrap-big-content-item h5,
+  .scroll-wrap-big-content-item p > strong {
     margin-bottom: 4px;
     font-size: 14px;
     line-height: 20px;
@@ -2176,6 +2190,16 @@ button.aloading::after {
   padding-left: 20px;
   position: relative;
   margin-bottom: 12px;
+  font-size: 17px;
+  line-height: 24px;
+  font-weight: 400;
+}
+@media (max-width: 991px) {
+  .scroll-wrap-big-content-item ul li {
+    text-align: justify;
+    font-size: 14px;
+    line-height: 20px;
+  }
 }
 @media (max-width: 991px) {
   .scroll-wrap-big-content-item ul li {
@@ -3642,6 +3666,22 @@ button.aloading::after {
   .field-detail-desc .description {
     margin-bottom: 8px;
     text-align: justify;
+  }
+}
+.field-detail-desc .description > p {
+  font-size: 17px;
+  line-height: 24px;
+  font-weight: 400;
+  display: block;
+  margin-bottom: 12px;
+  text-align: justify;
+}
+.field-detail-desc .description > p:last-child {
+  margin-bottom: 0;
+}
+@media (max-width: 991px) {
+  .field-detail-desc .description > p {
+    font-size: 14px;
   }
 }
 .field-detail-desc .description ul > * {

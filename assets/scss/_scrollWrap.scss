@@ -64,12 +64,23 @@
           &:last-child {
             margin-bottom: 0;
           }
-          h5 {
+          ul {
+            margin-bottom: 24px;
+            @media (max-width: 991px) {
+              margin-bottom: 12px;
+            }
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+          h5,
+          p > strong {
             font-size: 17px;
             line-height: 24px;
             font-weight: 500;
             color: var(--color-text);
             margin-bottom: 12px;
+            display: block;
             @media (max-width: 991px) {
               margin-bottom: 4px;
               font-size: 14px;
@@ -82,6 +93,14 @@
               padding-left: 20px;
               position: relative;
               margin-bottom: 12px;
+              font-size: 17px;
+              line-height: 24px;
+              font-weight: 400;
+              @media (max-width: 991px) {
+                text-align: justify;
+                font-size: 14px;
+                line-height: 20px;
+              }
               @media (max-width: 991px) {
                 margin-bottom: 4px;
               }

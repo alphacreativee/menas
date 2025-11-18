@@ -33,6 +33,21 @@
         margin-bottom: 8px;
         text-align: justify;
       }
+      > p {
+        font-size: 17px;
+        line-height: 24px;
+        font-weight: 400;
+        display: block;
+        margin-bottom: 12px;
+        text-align: justify;
+        &:last-child {
+          margin-bottom: 0;
+        }
+        @media (max-width: 991px) {
+          font-size: 14px;
+        }
+      }
+
       ul {
         > * {
           text-align: justify;
