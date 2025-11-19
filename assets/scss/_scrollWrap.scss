@@ -198,6 +198,15 @@
       }
       .description-box {
         text-align: justify;
+        p {
+          &:not(:first-child) {
+            margin-top: 24px;
+
+            @media (max-width: 991px) {
+              margin-top: 16px;
+            }
+          }
+        }
         .br {
           display: block;
           height: 24px;
