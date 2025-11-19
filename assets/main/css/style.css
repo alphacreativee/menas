@@ -2312,6 +2312,9 @@ button.aloading::after {
 .scroll-wrap-box .description-box {
   text-align: justify;
 }
+.scroll-wrap-box .description-box p:not(:first-child) {
+  margin-top: 12px;
+}
 .scroll-wrap-box .description-box .br {
   display: block;
   height: 24px;

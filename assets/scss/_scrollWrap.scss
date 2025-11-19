@@ -200,11 +200,7 @@
         text-align: justify;
         p {
           &:not(:first-child) {
-            margin-top: 24px;
-
-            @media (max-width: 991px) {
-              margin-top: 16px;
-            }
+            margin-top: 12px;
           }
         }
         .br {
