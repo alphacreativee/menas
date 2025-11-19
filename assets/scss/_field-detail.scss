@@ -79,5 +79,13 @@
         display: inline-block;
       }
     }
+
+    a {
+      transition: all 0.4s ease;
+
+      &:hover {
+        color: var(--color-primary);
+      }
+    }
   }
 }

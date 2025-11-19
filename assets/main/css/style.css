@@ -3716,6 +3716,12 @@ button.aloading::after {
 .field-detail-desc .link-external a {
   display: inline-block;
 }
+.field-detail-desc a {
+  transition: all 0.4s ease;
+}
+.field-detail-desc a:hover {
+  color: var(--color-primary);
+}
 
 .media {
   padding: 40px 0 40px;
