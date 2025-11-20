@@ -140,6 +140,7 @@
     }
 
     .like {
+      gap: 4px;
       cursor: pointer;
       position: relative;
 
@@ -155,6 +156,9 @@
       }
 
       .icon {
+        min-width: 20px;
+        margin-right: 12px;
+
         svg * {
           transition: all 0.4s ease;
         }
@@ -165,6 +169,10 @@
         .icon {
           color: #ff0000;
         }
+      }
+
+      &.loading {
+        pointer-events: none;
       }
     }
 

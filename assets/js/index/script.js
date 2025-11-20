@@ -17,13 +17,13 @@ function loading() {
   // const yPos = window.innerHeight - 173;
   const YPOS = {
     mobile: window.innerHeight - 115,
-    desktop: window.innerHeight - 173,
+    desktop: window.innerHeight - 173
   };
 
   const yPos = window.innerWidth < 991 ? YPOS.mobile : YPOS.desktop;
   const ASPECT_RATIOS = {
     mobile: 3,
-    desktop: 145 / 28,
+    desktop: 145 / 28
   };
   const aspectRatio =
     window.innerWidth < 1024 ? ASPECT_RATIOS.mobile : ASPECT_RATIOS.desktop;
@@ -31,11 +31,11 @@ function loading() {
 
   gsap.set(logo, {
     y: yPos,
-    scale: aspectRatio,
+    scale: aspectRatio
   });
 
   gsap.set(loadingAfter, {
-    "--after-height": "0px",
+    "--after-height": "0px"
   });
 
   gsap.to(logo, {
@@ -47,7 +47,7 @@ function loading() {
       const logoTop = logoRect.top;
       const afterHeight = window.innerHeight - logoTop + paddingTop;
       gsap.set(loadingAfter, {
-        "--after-height": afterHeight + "px",
+        "--after-height": afterHeight + "px"
       });
     },
     onComplete: () => {
@@ -57,9 +57,9 @@ function loading() {
         ease: "expo.in",
         onComplete: () => {
           document.querySelector(".loading").classList.add("loaded");
-        },
+        }
       });
-    },
+    }
   });
 }
 // end lenis
@@ -82,7 +82,7 @@ function sectionFields() {
         img,
         { clipPath: "inset(100px 100px 100px 100px)" }, // cách top, right, bottom, left 100px
         { clipPath: "inset(0px 0px 0px 0px)", ease: "none" } // full 100%
-      ),
+      )
     });
 
     // Hiệu ứng clipPath đóng (thu nhỏ lại thành hình chữ nhật nhỏ)
@@ -96,14 +96,14 @@ function sectionFields() {
           img,
           { clipPath: "inset(0px 0px 0px 0px)" }, // đang full
           { clipPath: "inset(100px 100px 100px 100px)", ease: "none" } // thu lại cách đều 100px
-        ),
+        )
       });
     }
 
     if (title) {
       const splitTitle = SplitText.create(title, {
         type: "chars",
-        mask: "chars",
+        mask: "chars"
       });
       gsap.set(splitTitle.chars, { y: "125%" });
 
@@ -111,16 +111,16 @@ function sectionFields() {
         scrollTrigger: {
           trigger: item,
           start: "top 20%",
-          toggleActions: "play none none none",
+          toggleActions: "play none none none"
           // markers: true
-        },
+        }
       });
 
       tlTitle.to(splitTitle.chars, {
         y: "0%",
         ease: "power2.out",
         duration: 0.6,
-        stagger: 0.03,
+        stagger: 0.03
       });
     }
 
@@ -128,7 +128,7 @@ function sectionFields() {
       const splitDesc = new SplitText(desc, {
         type: "lines",
         linesClass: "line",
-        mask: "lines",
+        mask: "lines"
       });
 
       gsap.set(splitDesc.lines, { yPercent: 100 });
@@ -137,16 +137,16 @@ function sectionFields() {
         scrollTrigger: {
           trigger: item,
           start: "top 20%",
-          toggleActions: "play none none none",
+          toggleActions: "play none none none"
           // markers: true,
-        },
+        }
       });
 
       tlDesc.to(splitDesc.lines, {
         yPercent: 0,
         ease: "power2.out",
         duration: 0.8,
-        stagger: 0.1,
+        stagger: 0.1
       });
     }
 
@@ -163,9 +163,9 @@ function sectionFields() {
             trigger: imgEl,
             start: "top bottom",
             end: "top top",
-            scrub: 1,
+            scrub: 1
             // markers: true
-          },
+          }
         }
       );
     }
@@ -182,7 +182,7 @@ function sectionFields() {
       onEnterBack: () => {
         $(".fields-tabs__item").removeClass("active");
         $(".fields-tabs__item").eq(index).addClass("active");
-      },
+      }
     });
   });
 
@@ -202,7 +202,7 @@ function sectionFields() {
     },
     onLeaveBack: () => {
       $(".fields-tabs").removeClass("active");
-    },
+    }
   });
 }
 
@@ -213,7 +213,7 @@ function magicCursor() {
 
   gsap.set(circle, {
     xPercent: -50,
-    yPercent: -50,
+    yPercent: -50
   });
 
   let mouseX = 0,
@@ -226,7 +226,7 @@ function magicCursor() {
     gsap.to(circle, {
       x: mouseX,
       y: mouseY,
-      duration: 0.1,
+      duration: 0.1
     });
   });
 
@@ -276,7 +276,7 @@ function effectText() {
       {
         opacity: 0,
         y: 20,
-        willChange: "opacity, transform",
+        willChange: "opacity, transform"
       },
       {
         opacity: 1,
@@ -287,8 +287,8 @@ function effectText() {
         scrollTrigger: {
           trigger: element,
           start: "top 80%",
-          end: "bottom 80%",
-        },
+          end: "bottom 80%"
+        }
       }
     );
   }
@@ -307,7 +307,7 @@ function effectText() {
       const split = new SplitText(description, {
         type: "lines",
         linesClass: "line",
-        mask: "lines",
+        mask: "lines"
       });
 
       gsap.fromTo(
@@ -318,7 +318,7 @@ function effectText() {
           duration: 1,
           ease: "power3.out",
           stagger: 0.05,
-          delay: delay,
+          delay: delay
         }
       );
     }
@@ -331,7 +331,7 @@ function effectText() {
       const split = new SplitText(description, {
         type: "lines",
         linesClass: "line",
-        mask: "lines",
+        mask: "lines"
       });
 
       gsap.fromTo(
@@ -344,8 +344,8 @@ function effectText() {
           stagger: 0.05,
           scrollTrigger: {
             trigger: description,
-            start: "top 80%",
-          },
+            start: "top 80%"
+          }
         }
       );
     }
@@ -358,7 +358,7 @@ function effectText() {
       const split = new SplitText(description, {
         type: "lines",
         linesClass: "line",
-        mask: "lines",
+        mask: "lines"
       });
 
       gsap.fromTo(
@@ -370,8 +370,8 @@ function effectText() {
           ease: "power3.out",
           scrollTrigger: {
             trigger: description,
-            start: "top 80%",
-          },
+            start: "top 80%"
+          }
         }
       );
     }
@@ -382,7 +382,7 @@ function effectText() {
 
     const splitTitle = SplitText.create(title, {
       type: "words,chars",
-      mask: "words",
+      mask: "words"
     });
 
     gsap.set(splitTitle.chars, { y: "125%" });
@@ -392,7 +392,7 @@ function effectText() {
       ease: "power3.out",
       duration: 1,
       stagger: 0.03,
-      delay: delay,
+      delay: delay
     });
   });
 
@@ -402,7 +402,7 @@ function effectText() {
     const splitTitle = new SplitText(title, {
       type: "chars, words",
       charsClass: "char",
-      mask: "chars",
+      mask: "chars"
     });
 
     gsap.set(splitTitle.chars, { y: "125%", opacity: 0 });
@@ -417,9 +417,9 @@ function effectText() {
       scrollTrigger: {
         trigger: title,
         start: "top 80%",
-        toggleActions: "play none none none",
+        toggleActions: "play none none none"
         // markers: true,
-      },
+      }
     });
   });
   gsap.registerPlugin(ScrollTrigger, SplitText);
@@ -435,8 +435,8 @@ function effectText() {
       scrollTrigger: {
         trigger: scrollItem,
         start: start,
-        toggleActions: "play none none none",
-      },
+        toggleActions: "play none none none"
+      }
     });
 
     if (img) {
@@ -449,7 +449,7 @@ function effectText() {
       const split = new SplitText(title, {
         type: "chars,words",
         charsClass: "char",
-        mask: "chars",
+        mask: "chars"
       });
       gsap.set(split.chars, { y: "125%", opacity: 0 });
 
@@ -463,8 +463,8 @@ function effectText() {
           scrollTrigger: {
             trigger: title,
             start: "top 85%",
-            toggleActions: "play none none none",
-          },
+            toggleActions: "play none none none"
+          }
         });
       } else {
         tl.to(
@@ -474,7 +474,7 @@ function effectText() {
             opacity: 1,
             duration: 1,
             ease: "power3.out",
-            stagger: 0.03,
+            stagger: 0.03
           },
           `-=${0.8 - delay}`
         );
@@ -494,9 +494,9 @@ function effectText() {
           scrollTrigger: {
             trigger: desc,
             start: "top 85%",
-            toggleActions: "play none none none",
+            toggleActions: "play none none none"
             // markers: true,
-          },
+          }
         });
       } else {
         tl.to(
@@ -506,7 +506,7 @@ function effectText() {
             y: 0,
             duration: 1,
             ease: "power3.out",
-            delay: 0.2,
+            delay: 0.2
           },
           "<"
         );
@@ -527,9 +527,9 @@ function effectText() {
           scrollTrigger: {
             trigger: btn,
             start: "top 85%",
-            toggleActions: "play none none none",
+            toggleActions: "play none none none"
             // markers: true,
-          },
+          }
         });
       } else {
         // Desktop: Dùng timeline chung
@@ -540,7 +540,7 @@ function effectText() {
             y: 0,
             duration: 0.3,
             ease: "none",
-            delay: btnDelay,
+            delay: btnDelay
           },
           "<"
         );
@@ -649,15 +649,15 @@ function hero() {
     keyboardControl: true,
     navigation: {
       nextEl: ".swiper-banner .swiper-next",
-      prevEl: ".swiper-banner .swiper-prev",
+      prevEl: ".swiper-banner .swiper-prev"
     },
     pagination: {
       el: ".swiper-banner .swiper-pagination",
-      type: "progressbar",
+      type: "progressbar"
     },
     autoplay: {
       delay: 5000,
-      disableOnInteraction: false,
+      disableOnInteraction: false
     },
     on: {
       init: function (swiper) {
@@ -716,8 +716,8 @@ function hero() {
           img.style.transition = "transform 5000ms ease-out";
           img.style.transform = "scale(1)";
         }
-      },
-    },
+      }
+    }
   });
 
   if (
@@ -736,7 +736,7 @@ function hero() {
         } else {
           $(".hero").removeClass("hidden-section");
         }
-      },
+      }
     });
   }
 }
@@ -752,9 +752,9 @@ function sectionIntro() {
         trigger: "section.intro",
         start: "top 60%",
         end: "+=300",
-        scrub: true,
+        scrub: true
         // markers: true
-      },
+      }
     });
   }
 
@@ -764,7 +764,7 @@ function sectionIntro() {
       gsap.fromTo(
         img,
         {
-          scale: 1.2,
+          scale: 1.2
           // yPercent: 10
         },
         {
@@ -775,9 +775,9 @@ function sectionIntro() {
             trigger: "section.intro",
             start: "top 80%",
             end: "bottom top",
-            scrub: true,
+            scrub: true
             // markers: true
-          },
+          }
         }
       );
     });
@@ -788,7 +788,7 @@ function sectionIntro() {
       gsap.fromTo(
         img,
         {
-          scale: 1.2,
+          scale: 1.2
           // yPercent: 10
         },
         {
@@ -799,9 +799,9 @@ function sectionIntro() {
             trigger: "section.intro",
             start: "top 80%",
             end: "bottom top",
-            scrub: true,
+            scrub: true
             // markers: true
-          },
+          }
         }
       );
     });
@@ -816,8 +816,8 @@ function sectionIntro() {
         trigger: "section.intro",
         start: "top 80%",
         end: "bottom top",
-        scrub: true,
-      },
+        scrub: true
+      }
     });
   });
 
@@ -833,9 +833,9 @@ function sectionIntro() {
         trigger: ".intro",
         start: "top 60%",
         end: "top top",
-        scrub: true,
+        scrub: true
         // markers: true
-      },
+      }
     });
   }
 }
@@ -854,10 +854,10 @@ function scrollWrap() {
             trigger: trigger,
             start: "top top",
             end: "bottom top",
-            scrub: true,
+            scrub: true
             // markers: true,
           },
-          defaults: { ease: "none" },
+          defaults: { ease: "none" }
         });
 
         tl.fromTo(
@@ -871,10 +871,10 @@ function scrollWrap() {
             trigger: trigger,
             start: "top bottom",
             end: "bottom bottom",
-            scrub: true,
+            scrub: true
             // markers: true,
           },
-          defaults: { ease: "none" },
+          defaults: { ease: "none" }
         });
 
         tl.fromTo(
@@ -888,9 +888,9 @@ function scrollWrap() {
             trigger: trigger,
             start: "top bottom",
             end: "bottom top",
-            scrub: true,
+            scrub: true
           },
-          defaults: { ease: "none" },
+          defaults: { ease: "none" }
         });
 
         tl.fromTo(
@@ -900,7 +900,7 @@ function scrollWrap() {
         );
 
         tl.to(item, {
-          clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+          clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)"
         });
       }
     });
@@ -922,26 +922,26 @@ function sectionAwards() {
       autoplay: false,
       navigation: {
         prevEl: section.querySelector(".arrow-prev"),
-        nextEl: section.querySelector(".arrow-next"),
+        nextEl: section.querySelector(".arrow-next")
       },
       breakpoints: {
         1024: {
           slidesPerView: isAwardsSlider ? "auto" : 4,
-          spaceBetween: 24,
+          spaceBetween: 24
         },
         768: {
           slidesPerView: isAwardsSlider ? "auto" : 3,
-          spaceBetween: 24,
+          spaceBetween: 24
         },
         480: {
           slidesPerView: isAwardsSlider ? 1 : 2,
-          spaceBetween: 24,
+          spaceBetween: 24
         },
         0: {
           slidesPerView: 1,
-          spaceBetween: 24,
-        },
-      },
+          spaceBetween: 24
+        }
+      }
     });
   });
 
@@ -956,9 +956,9 @@ function sectionAwards() {
         trigger: section,
         start: "top 70%",
         end: "bottom bottom",
-        toggleActions: "play none none none",
+        toggleActions: "play none none none"
         // markers: true,
-      },
+      }
     });
 
     tl.to(items, {
@@ -966,7 +966,7 @@ function sectionAwards() {
       opacity: 1,
       duration: 0.6,
       ease: "power2.out",
-      stagger: 0.2,
+      stagger: 0.2
     });
   });
 }
@@ -1007,8 +1007,8 @@ function ticket() {
       duration: duration,
       ease: "linear",
       modifiers: {
-        x: gsap.utils.unitize((x) => parseFloat(x) % contentWidth),
-      },
+        x: gsap.utils.unitize((x) => parseFloat(x) % contentWidth)
+      }
     });
 
     // Diamond rotation animation
@@ -1018,7 +1018,7 @@ function ticket() {
         rotation: -360,
         repeat: -1,
         duration: 3,
-        ease: "linear",
+        ease: "linear"
       });
     });
   });
@@ -1038,9 +1038,9 @@ function responsibility() {
       trigger: ".responsibility-grid",
       start: "top 70%",
       end: "bottom bottom",
-      toggleActions: "play none none none",
+      toggleActions: "play none none none"
       // markers: true,
-    },
+    }
   });
 
   tl.to(responsibilityItems, {
@@ -1048,7 +1048,7 @@ function responsibility() {
     opacity: 1,
     duration: 0.6,
     ease: "power2.out",
-    stagger: 0.2,
+    stagger: 0.2
   });
 
   const responsibilityItemsMove = $(".responsibility .responsibility-item");
@@ -1079,9 +1079,9 @@ function parallaxSection() {
         trigger: $section[0],
         start: "top 80%",
         end: "bottom top",
-        scrub: true,
+        scrub: true
         // markers: true
-      },
+      }
     });
   });
 }
@@ -1097,7 +1097,7 @@ function hideMenuOnFooter() {
     },
     onLeaveBack: () => {
       document.querySelector(".chat-button").classList.remove("show-chat");
-    },
+    }
     // markers: true
   });
   // show menu fixed on scroll
@@ -1114,7 +1114,7 @@ function hideMenuOnFooter() {
       document
         .querySelector(".menu-fixed-bottom")
         .classList.remove("show-menu-fixed");
-    },
+    }
     // markers: true
   });
   // hide menu fixed on footer
@@ -1132,7 +1132,7 @@ function hideMenuOnFooter() {
       document
         .querySelector(".menu-fixed-bottom")
         .classList.remove("hide-menu-fixed");
-    },
+    }
   });
 
   // const heightFooter = document.querySelector("footer").offsetHeight;
@@ -1169,8 +1169,8 @@ function hideMenuOnFooter() {
         scrub: true,
         // markers: true,
         toggleActions: "play reverse play reverse",
-        invalidateOnRefresh: true, // Quan trọng: tính lại khi refresh
-      },
+        invalidateOnRefresh: true // Quan trọng: tính lại khi refresh
+      }
     }
   );
 }
@@ -1188,9 +1188,9 @@ function wipe() {
       scrollTrigger: {
         trigger: wipe,
         start: "top 40%",
-        end: "top 30%",
+        end: "top 30%"
         // markers: true,
-      },
+      }
     });
   });
 }
@@ -1238,7 +1238,7 @@ function scrollTop() {
         lenis.scrollTo(0, {
           offset: 0,
           duration: 0.6,
-          easing: (t) => t,
+          easing: (t) => t
         });
       } else {
         const $targetEl = $(hash);
@@ -1246,7 +1246,7 @@ function scrollTop() {
           lenis.scrollTo($targetEl[0], {
             offset: -headerHeight,
             duration: 0.6,
-            easing: (t) => t,
+            easing: (t) => t
           });
         }
       }
@@ -1265,19 +1265,19 @@ function parallaxSwiper() {
     loop: true,
     spaceBetween: 8,
     autoplay: {
-      delay: 2000,
+      delay: 2000
     },
     navigation: {
       nextEl: ".media .swiper-button-next",
-      prevEl: ".media .swiper-button-prev",
+      prevEl: ".media .swiper-button-prev"
     },
     breakpoints: {
       991: {
         slidesPerView: 1.7,
         autoplay: false,
-        spaceBetween: 32,
-      },
-    },
+        spaceBetween: 32
+      }
+    }
   });
 }
 
@@ -1292,14 +1292,14 @@ function header() {
 
   const tl = gsap.timeline({
     paused: true,
-    defaults: { ease: "power2.out" },
+    defaults: { ease: "power2.out" }
   });
 
   tl.from(".header-menu > ul > li, .header-menu .header-cta", {
     y: 20,
     opacity: 0,
     stagger: 0.1,
-    duration: 0.6,
+    duration: 0.6
   });
 
   function openMenu() {
@@ -1436,7 +1436,7 @@ function swiperNews() {
     effect: "fade",
     loop: true,
     slidesPerView: 1,
-    speed: 900,
+    speed: 900
   });
 
   var swiperNews = new Swiper(".news-slider", {
@@ -1454,11 +1454,11 @@ function swiperNews() {
     // },
     navigation: {
       nextEl: ".news .swiper-button-next",
-      prevEl: ".news .swiper-button-prev",
+      prevEl: ".news .swiper-button-prev"
     },
     controller: {
-      control: swiperNewsContent,
-    },
+      control: swiperNewsContent
+    }
   });
 
   swiperNewsContent.controller.control = swiperNews;
@@ -1468,8 +1468,8 @@ function swiperNews() {
     slidesPerView: 1,
     navigation: {
       nextEl: ".news-mobile-wrapper .swiper-button-next",
-      prevEl: ".news-mobile-wrapper .swiper-button-prev",
-    },
+      prevEl: ".news-mobile-wrapper .swiper-button-prev"
+    }
   });
 }
 function formReruitment() {
@@ -1576,7 +1576,7 @@ function uploadPdf() {
       "application/msword",
       "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
       "image/jpeg",
-      "image/png",
+      "image/png"
     ];
     const maxSize = 5 * 1024 * 1024;
 
@@ -1639,6 +1639,7 @@ function formContact() {
     const $inputRegion = $form.find("input[name='region']");
     const $inputCompany = $form.find("input[name='company']");
     const $inputWebsite = $form.find("input[name='website']");
+    const $inputMessage = $form.find("textarea[name='message']");
     const $buttonSubmit = $form.find("button[type='submit']");
 
     let isValid = true;
@@ -1667,13 +1668,36 @@ function formContact() {
 
     if (!isValid) return;
 
-    $buttonSubmit.addClass("aloading");
-    setTimeout(() => {
-      $buttonSubmit.removeClass("aloading");
-      $("#modalContactSuccess").modal("show");
-    }, 5000);
-
-    const formData = new FormData();
+    $.ajax({
+      url: ajaxUrl,
+      type: "POST",
+      data: {
+        action: "submit_contact_form",
+        name: $inputName.val().trim(),
+        phone: $inputPhone.val().trim(),
+        email: $inputEmail.val().trim(),
+        region: $inputRegion.val().trim(),
+        company: $inputCompany.val().trim(),
+        website: $inputWebsite.val().trim(),
+        message: $inputMessage.val().trim()
+      },
+      beforeSend: function () {
+        $buttonSubmit.addClass("aloading");
+      },
+      success: function (res) {
+        $form[0].reset();
+        $form.find(".form-field").removeClass("error");
+        $buttonSubmit.removeClass("aloading");
+        $("#modalContactSuccess").modal("show");
+      },
+      error: function (xhr, status, error) {
+        console.error("Lỗi khi gửi form:", error);
+        $form.append(
+          '<span class="contact-message body-sm-regular" style="color: #FF0000;">Có lỗi xảy ra, vui lòng thử lại sau.</span>'
+        );
+        $buttonSubmit.removeClass("aloading");
+      }
+    });
   });
 }
 
@@ -1744,14 +1768,14 @@ function formCooperate() {
       isValid = false;
     }
 
-    const correctCaptcha = "lrjhfrt";
-    if (
-      $inputCapcha.val().trim() === "" ||
-      $inputCapcha.val().trim().toLowerCase() !== correctCaptcha
-    ) {
-      $inputCapcha.closest(".form-field").addClass("error");
-      isValid = false;
-    }
+    // const correctCaptcha = "lrjhfrt";
+    // if (
+    //   $inputCapcha.val().trim() === "" ||
+    //   $inputCapcha.val().trim().toLowerCase() !== correctCaptcha
+    // ) {
+    //   $inputCapcha.closest(".form-field").addClass("error");
+    //   isValid = false;
+    // }
 
     $selectRequired.each(function () {
       const wrapper = $(this);
@@ -1766,19 +1790,6 @@ function formCooperate() {
       }
     });
 
-    // $("input[name='upload'][fieldRequired]").each(function () {
-    //   const $input = $(this);
-    //   const $field = $input.closest(".form-field");
-
-    //   if ($field) {
-    //     if (this.files.length === 0) {
-    //       $field.addClass("error");
-    //     } else {
-    //       $field.removeClass("error");
-    //     }
-    //   }
-    // });
-
     if (!isValid) return;
 
     $buttonSubmit.addClass("aloading");
@@ -1788,6 +1799,7 @@ function formCooperate() {
     }, 5000);
   });
 }
+
 function initRecruitmentBarSticky() {
   const recruitmentBar = document.querySelector(".form-reruitment-bar");
   const sectionFields = document.querySelector(".section-fields");
@@ -1819,7 +1831,53 @@ function initRecruitmentBarSticky() {
         recruitmentBar.classList.remove("hidden");
         recruitmentBar.classList.add("sticky");
       }
-    },
+    }
+  });
+}
+
+function toggleLikePostDetail() {
+  if ($(".news-detail").length < 1) return;
+
+  $(".news-detail .like").on("click", function () {
+    var $btn = $(this);
+    var postID = $btn.data("post-id");
+
+    var formData = new FormData();
+    formData.append("action", "toggle_post_like");
+    formData.append("post_id", postID);
+
+    $.ajax({
+      url: ajaxUrl,
+      type: "POST",
+      data: formData,
+      processData: false,
+      contentType: false,
+
+      beforeSend: function () {
+        $btn.addClass("aloading");
+      },
+
+      success: function (res) {
+        if (res.success) {
+          // toggle active state
+          if (res.data.liked) {
+            $btn.addClass("active");
+          } else {
+            $btn.removeClass("active");
+          }
+
+          // update count
+          $btn.find(".like-count").text(res.data.count);
+        }
+
+        $btn.removeClass("aloading");
+      },
+
+      error: function (xhr, status, error) {
+        console.error("Lỗi AJAX:", error);
+        $btn.removeClass("aloading");
+      }
+    });
   });
 }
 
@@ -1851,6 +1909,7 @@ const init = () => {
   formContact();
   formCooperate();
   initRecruitmentBarSticky();
+  toggleLikePostDetail();
   ScrollTrigger.refresh();
 };
 preloadImages("img").then(() => {

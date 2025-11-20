@@ -229,12 +229,10 @@
           margin-top: 8px;
           margin-bottom: 16px;
         }
-        span {
-          a {
-            color: var(--color-primary);
-            @media (max-width: 991px) {
-              font-weight: 600;
-            }
+        a {
+          color: var(--color-primary);
+          @media (max-width: 991px) {
+            font-weight: 600;
           }
         }
       }
