@@ -1472,26 +1472,39 @@ function swiperNews() {
     }
   });
 }
-function formReruitment() {
-  if ($("#formReruitment").length < 1) return;
 
-  $("#formReruitment").on("submit", function (e) {
+function formReruitment() {
+  const $form = $("#formReruitment");
+  if ($form.length < 1) return;
+
+  $form.on("submit", function (e) {
     e.preventDefault();
 
-    const $form = $(this);
     const $inputName = $form.find("input[name='name']");
+    const $inputPhone = $form.find("input[name='phone']");
     const $inputEmail = $form.find("input[name='email']");
     const $inputFile = $form.find("input[type='file']");
-    const $success = $form.find(".success-message");
+    const $selectAddress = $form.find(
+      ".field-item.address .dropdown-custom-btn .value-select span"
+    );
     const $buttonSubmit = $form.find("button[type='submit']");
     const jobId = $buttonSubmit.attr("job-id");
+    const emailRecipient = $buttonSubmit.attr("email-recipient");
+
+    // Remove old errors + old message
+    $form.find(".field-item").removeClass("error");
+    $form.find(".contact-message").remove();
 
     let isValid = true;
 
-    $form.find("input").removeClass("error");
-
+    // Validate
     if ($inputName.val().trim() === "") {
       $inputName.closest(".field-item").addClass("error");
+      isValid = false;
+    }
+
+    if ($inputPhone.val().trim() === "") {
+      $inputPhone.closest(".field-item").addClass("error");
       isValid = false;
     }
 
@@ -1507,59 +1520,51 @@ function formReruitment() {
 
     if (!isValid) return;
 
-    $buttonSubmit.addClass("aloading");
-    setTimeout(() => {
-      $buttonSubmit.removeClass("aloading");
-      $("#modalReruitmentSuccess").modal("show");
-    }, 5000);
-
+    // Prepare data
     const formData = new FormData();
     formData.append("action", "submit_recruitment_form");
     formData.append("name", $inputName.val().trim());
+    formData.append("phone", $inputPhone.val().trim());
     formData.append("email", $inputEmail.val().trim());
-    formData.append("cv", $inputCV.val().trim());
+    formData.append("address", $selectAddress.text().trim());
     formData.append("file", $inputFile.get(0).files[0]);
     formData.append("job_id", jobId);
+    formData.append("email_recipient", emailRecipient.trim());
 
-    // $.ajax({
-    //   url: ajaxUrl,
-    //   type: "POST",
-    //   data: formData,
-    //   processData: false,
-    //   contentType: false,
-    //   beforeSend: function () {
-    //     $buttonSubmit.addClass("aloading");
-    //   },
-    //   success: function (res) {
-    //     $form[0].reset();
+    $.ajax({
+      url: ajaxUrl,
+      type: "POST",
+      data: formData,
+      processData: false,
+      contentType: false,
 
-    //     const $labelSpan = $form
-    //       .find("input[type='file']")
-    //       .next("label")
-    //       .find("span");
-    //     $labelSpan.text("Upload file under 5MB").removeClass("has-file");
+      beforeSend: function () {
+        $buttonSubmit.addClass("aloading");
+      },
 
-    //     if ($note.length > 0 && $success.length > 0) {
-    //       $note.hide();
-    //       $success.show();
+      success: function (res) {
+        $form[0].reset();
 
-    //       setTimeout(function () {
-    //         $note.show();
-    //         $success.hide();
-    //       }, 5000);
-    //     }
+        // Reset label upload
+        const $labelSpan = $form
+          .find("input[type='file']")
+          .next("label")
+          .find("span");
 
-    //     $inputFile.removeClass("error");
-    //     $buttonSubmit.removeClass("aloading");
-    //   },
-    //   error: function (xhr, status, error) {
-    //     console.error("Lỗi khi gửi form:", error);
-    //     $form.append(
-    //       '<span class="contact-message body-sm-regular" style="color: #FF0000;">Có lỗi xảy ra, vui lòng thử lại sau.</span>'
-    //     );
-    //     $buttonSubmit.removeClass("aloading");
-    //   }
-    // });
+        $labelSpan.text("Upload file under 5MB").removeClass("has-file");
+
+        $buttonSubmit.removeClass("aloading");
+
+        $("#modalSuccess").modal("show");
+      },
+
+      error: function () {
+        $form.append(
+          '<span class="contact-message body-sm-regular" style="color:#F00;">Có lỗi xảy ra, vui lòng thử lại sau.</span>'
+        );
+        $buttonSubmit.removeClass("aloading");
+      }
+    });
   });
 }
 
@@ -1641,6 +1646,7 @@ function formContact() {
     const $inputWebsite = $form.find("input[name='website']");
     const $inputMessage = $form.find("textarea[name='message']");
     const $buttonSubmit = $form.find("button[type='submit']");
+    const $emailRecipient = $buttonSubmit.attr("email-recipient");
 
     let isValid = true;
 
@@ -1679,7 +1685,8 @@ function formContact() {
         region: $inputRegion.val().trim(),
         company: $inputCompany.val().trim(),
         website: $inputWebsite.val().trim(),
-        message: $inputMessage.val().trim()
+        message: $inputMessage.val().trim(),
+        email_recipient: $emailRecipient.trim()
       },
       beforeSend: function () {
         $buttonSubmit.addClass("aloading");
@@ -1688,7 +1695,7 @@ function formContact() {
         $form[0].reset();
         $form.find(".form-field").removeClass("error");
         $buttonSubmit.removeClass("aloading");
-        $("#modalContactSuccess").modal("show");
+        $("#modalSuccess").modal("show");
       },
       error: function (xhr, status, error) {
         console.error("Lỗi khi gửi form:", error);
@@ -1708,95 +1715,167 @@ function formCooperate() {
     e.preventDefault();
 
     const $form = $(this);
+    const $buttonSubmit = $form.find("button[type='submit']");
+
+    // INPUTS
+    const $emailRecipient = $buttonSubmit.attr("email-recipient");
     const $inputName = $form.find("input[name='name']");
     const $inputPosition = $form.find("input[name='position']");
-
     const $inputEmail = $form.find("input[name='email']");
     const $inputPhone = $form.find("input[name='phonenumber']");
-
     const $inputCompany = $form.find("input[name='company']");
     const $inputRegion = $form.find("input[name='region']");
     const $inputMST = $form.find("input[name='mst']");
     const $inputWebsite = $form.find("input[name='website']");
-
+    const $inputMessage = $form.find("textarea[name='message']");
     const $inputCapcha = $form.find("input[name='capcha']");
-    const $buttonSubmit = $form.find("button[type='submit']");
+    const $captchaPrefix = $form.find("#captcha-prefix");
+
+    const $selectLevel = $form.find(
+      "#select-cooperate-level .dropdown-custom-btn .dropdown-custom-text"
+    );
+    const $selectField = $form.find(
+      "#select-business-area .dropdown-custom-btn .dropdown-custom-text"
+    );
+    const $selectReason = $form.find(
+      "#select-reason-found-us .dropdown-custom-btn .dropdown-custom-text"
+    );
+    const $inputFile = $form.find("input[type='file']");
 
     const $selectRequired = $form.find(".dropdown-custom-select");
 
     let isValid = true;
 
+    // Remove old errors
     $form.find(".form-field").removeClass("error");
+    $form.find(".contact-message").remove(); // remove old error messages
 
-    if ($inputName.val().trim() === "") {
-      $inputName.closest(".form-field").addClass("error");
-      isValid = false;
+    // Validation function
+    function checkRequired($input) {
+      if ($input.val().trim() === "") {
+        $input.closest(".form-field").addClass("error");
+        isValid = false;
+      }
     }
 
-    if ($inputPosition.val().trim() === "") {
-      $inputPosition.closest(".form-field").addClass("error");
-      isValid = false;
-    }
+    checkRequired($inputName);
+    checkRequired($inputPosition);
+    checkRequired($inputEmail);
+    checkRequired($inputPhone);
+    checkRequired($inputCompany);
+    checkRequired($inputRegion);
+    checkRequired($inputMST);
+    checkRequired($inputWebsite);
+    checkRequired($inputCapcha);
 
-    if ($inputEmail.val().trim() === "") {
-      $inputEmail.closest(".form-field").addClass("error");
-      isValid = false;
-    }
-
-    if ($inputPhone.val().trim() === "") {
-      $inputPhone.closest(".form-field").addClass("error");
-      isValid = false;
-    }
-
-    if ($inputCompany.val().trim() === "") {
-      $inputCompany.closest(".form-field").addClass("error");
-      isValid = false;
-    }
-
-    if ($inputMST.val().trim() === "") {
-      $inputMST.closest(".form-field").addClass("error");
-      isValid = false;
-    }
-
-    if ($inputWebsite.val().trim() === "") {
-      $inputWebsite.closest(".form-field").addClass("error");
-      isValid = false;
-    }
-
-    if ($inputRegion.val().trim() === "") {
-      $inputRegion.closest(".form-field").addClass("error");
-      isValid = false;
-    }
-
-    // const correctCaptcha = "lrjhfrt";
-    // if (
-    //   $inputCapcha.val().trim() === "" ||
-    //   $inputCapcha.val().trim().toLowerCase() !== correctCaptcha
-    // ) {
-    //   $inputCapcha.closest(".form-field").addClass("error");
-    //   isValid = false;
-    // }
-
+    // Validate dropdown custom
     $selectRequired.each(function () {
       const wrapper = $(this);
-
       const formField = wrapper.closest(".form-field");
 
       if (!wrapper.hasClass("selected")) {
         formField.addClass("error");
         isValid = false;
-      } else {
-        formField.removeClass("error");
       }
     });
 
     if (!isValid) return;
 
-    $buttonSubmit.addClass("aloading");
-    setTimeout(() => {
-      $buttonSubmit.removeClass("aloading");
-      $("#modalCooperateSuccess").modal("show");
-    }, 5000);
+    // ---------------------------
+    // Create FormData to include file upload
+    // ---------------------------
+    const formData = new FormData();
+    formData.append("name", $inputName.val().trim());
+    formData.append("position", $inputPosition.val().trim());
+    formData.append("email", $inputEmail.val().trim());
+    formData.append("phone", $inputPhone.val().trim());
+    formData.append("company", $inputCompany.val().trim());
+    formData.append("region", $inputRegion.val().trim());
+    formData.append("mst", $inputMST.val().trim());
+    formData.append("website", $inputWebsite.val().trim());
+
+    // Textarea
+    formData.append("message", $inputMessage.val().trim());
+
+    // Dropdown selects (custom)
+    formData.append("level", $selectLevel.text().trim());
+    formData.append("field", $selectField.text().trim());
+    formData.append("reason", $selectReason.text().trim());
+    formData.append("email_recipient", $emailRecipient.trim());
+
+    // File (if any)
+    if ($inputFile[0].files.length > 0) {
+      formData.append("file", $inputFile[0].files[0]);
+    }
+
+    // CAPTCHA
+    formData.append("capcha_answer", $inputCapcha.val().trim());
+    formData.append("capcha_prefix", $captchaPrefix.val().trim());
+
+    // WordPress AJAX action
+    formData.append("action", "submit_cooperate_form");
+
+    // AJAX submit
+    $.ajax({
+      url: ajaxUrl,
+      type: "POST",
+      data: formData,
+      processData: false, // prevent jQuery from converting FormData to string
+      contentType: false, // let browser set proper multipart/form-data
+      beforeSend: function () {
+        $buttonSubmit.addClass("aloading");
+      },
+      success: function (res) {
+        // CAPTCHA error
+        if (res.error_captcha) {
+          $inputCapcha.closest(".form-field").addClass("error");
+          $buttonSubmit.removeClass("aloading");
+          $("#refresh-captcha").click(); // refresh captcha automatically
+          return;
+        }
+
+        // Success
+        if (res.success) {
+          $form[0].reset();
+          $form.find(".form-field").removeClass("error");
+          $buttonSubmit.removeClass("aloading");
+          $("#refresh-captcha").click(); // refresh captcha after success
+          $("#modalSuccess").modal("show");
+        } else if (res.data && res.data.message) {
+          $form.append(
+            '<span class="contact-message body-sm-regular" style="color:#FF0000;">' +
+              res.data.message +
+              "</span>"
+          );
+          $buttonSubmit.removeClass("aloading");
+        }
+      },
+      error: function () {
+        $form.append(
+          '<span class="contact-message body-sm-regular" style="color:#FF0000;">Có lỗi xảy ra, vui lòng thử lại sau.</span>'
+        );
+        $buttonSubmit.removeClass("aloading");
+      }
+    });
+  });
+
+  // CAPTCHA refresh
+  $(document).on("click", "#refresh-captcha", function () {
+    const $btn = $(this);
+
+    $.ajax({
+      url: ajaxUrl,
+      type: "POST",
+      data: { action: "refresh_captcha" },
+      beforeSend: function () {
+        $btn.addClass("aloading");
+      },
+      success: function (res) {
+        $("#captcha-img").attr("src", res.image);
+        $("#captcha-prefix").val(res.prefix);
+        $btn.removeClass("aloading");
+      }
+    });
   });
 }
 

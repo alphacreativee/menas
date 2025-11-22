@@ -202,6 +202,7 @@
         font-size: 14px;
         line-height: 24px;
         padding: 16px;
+        color: var(--color-text);
         &:not(:placeholder-shown) + label {
           opacity: 0;
           visibility: hidden;
@@ -270,6 +271,12 @@
       height: 68px;
       border-radius: 8px;
       border: 1px solid rgba(26, 61, 78, 0.3);
+      padding: 10px;
+      overflow: hidden;
+
+      img {
+        object-fit: contain;
+      }
     }
     .btn-refresh {
       width: 48px;
@@ -279,6 +286,11 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      cursor: pointer;
+
+      &.aloading {
+        pointer-events: none;
+      }
     }
   }
   .form-bottom {

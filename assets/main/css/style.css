@@ -4513,6 +4513,7 @@ button.aloading::after {
   font-size: 14px;
   line-height: 24px;
   padding: 16px;
+  color: var(--color-text);
 }
 .partner-info .suggest .form-text-area textarea:not(:placeholder-shown) + label {
   opacity: 0;
@@ -4578,6 +4579,11 @@ button.aloading::after {
   height: 68px;
   border-radius: 8px;
   border: 1px solid rgba(26, 61, 78, 0.3);
+  padding: 10px;
+  overflow: hidden;
+}
+.partner-info .key-captcha .key-value img {
+  object-fit: contain;
 }
 .partner-info .key-captcha .btn-refresh {
   width: 48px;
@@ -4587,6 +4593,10 @@ button.aloading::after {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+}
+.partner-info .key-captcha .btn-refresh.aloading {
+  pointer-events: none;
 }
 .partner-info .form-bottom {
   margin-top: 8px;
@@ -4681,7 +4691,11 @@ button.aloading::after {
 .reruitment-detail__wrapper .detail-main .detail-desc *:first-child {
   margin-top: 0;
 }
-.reruitment-detail__wrapper .detail-main .detail-desc h4 {
+.reruitment-detail__wrapper .detail-main .detail-desc h4,
+.reruitment-detail__wrapper .detail-main .detail-desc h2,
+.reruitment-detail__wrapper .detail-main .detail-desc h3,
+.reruitment-detail__wrapper .detail-main .detail-desc h5,
+.reruitment-detail__wrapper .detail-main .detail-desc h6 {
   font-size: 14px;
   line-height: 20px;
   font-weight: 500;
@@ -4689,7 +4703,11 @@ button.aloading::after {
   margin-bottom: 8px;
 }
 @media (max-width: 991px) {
-  .reruitment-detail__wrapper .detail-main .detail-desc h4 {
+  .reruitment-detail__wrapper .detail-main .detail-desc h4,
+  .reruitment-detail__wrapper .detail-main .detail-desc h2,
+  .reruitment-detail__wrapper .detail-main .detail-desc h3,
+  .reruitment-detail__wrapper .detail-main .detail-desc h5,
+  .reruitment-detail__wrapper .detail-main .detail-desc h6 {
     margin-top: 12px;
     margin-bottom: 8px;
   }
@@ -4805,7 +4823,7 @@ button.aloading::after {
 }
 .reruitment-detail__wrapper .detail-main .reruitment-form form .field-item.address {
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 .reruitment-detail__wrapper .detail-main .reruitment-form form .field-item.address label {
   font-size: 10px;
