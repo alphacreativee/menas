@@ -3235,6 +3235,11 @@ button.aloading::after {
   line-height: 24px;
   font-weight: 400;
   text-align: justify;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 .news-main {
   padding: 40px 60px;
@@ -3674,6 +3679,36 @@ button.aloading::after {
   .field-detail-desc .description {
     margin-bottom: 8px;
     text-align: justify;
+  }
+}
+.field-detail-desc .description ul {
+  list-style: disc;
+  padding-left: 16px;
+  margin-left: 4px;
+  margin-bottom: 12px;
+  text-align: justify;
+}
+.field-detail-desc .description ul:last-child {
+  margin-bottom: 0;
+}
+@media (max-width: 991px) {
+  .field-detail-desc .description ul {
+    font-size: 14px;
+  }
+}
+.field-detail-desc .description ol {
+  list-style: decimal;
+  padding-left: 16px;
+  margin-left: 4px;
+  margin-bottom: 12px;
+  text-align: justify;
+}
+.field-detail-desc .description ol:last-child {
+  margin-bottom: 0;
+}
+@media (max-width: 991px) {
+  .field-detail-desc .description ol {
+    font-size: 14px;
   }
 }
 .field-detail-desc .description > p {
@@ -4231,6 +4266,7 @@ button.aloading::after {
 }
 .form-reruitment-bar .dropdown-custom-select {
   position: relative;
+  cursor: pointer;
 }
 @media (max-width: 991px) {
   .form-reruitment-bar {
@@ -4757,6 +4793,8 @@ button.aloading::after {
 }
 .reruitment-detail__wrapper .detail-main .detail-bar {
   width: 355px;
+  position: sticky;
+  top: -124px;
 }
 @media (max-width: 991px) {
   .reruitment-detail__wrapper .detail-main .detail-bar {
@@ -4829,6 +4867,9 @@ button.aloading::after {
   font-size: 10px;
   line-height: 14px;
   top: 4px;
+}
+.reruitment-detail__wrapper .detail-main .reruitment-form form .field-item.address .dropdown-custom {
+  padding-top: 10px;
 }
 .reruitment-detail__wrapper .detail-main .reruitment-form form .field-item.upload {
   position: relative;

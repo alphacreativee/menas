@@ -247,6 +247,7 @@
   }
   .dropdown-custom-select {
     position: relative;
+    cursor: pointer;
   }
   @media (max-width: 991px) {
     max-width: calc(100% - 48px);

@@ -119,7 +119,11 @@
           </div>
 
           <div class="field-suggestion">
-            <input type="text" placeholder="Tìm vị trí công việc" />
+            <input
+              type="text"
+              placeholder="Tìm vị trí công việc"
+              name="job-name"
+            />
             <ul class="field-suggestion__list hidden" data-lenis-prevent>
               <li>Nhân viên Bán hàng Mỹ phẩm</li>
               <li>Thu ngân siêu thị</li>
@@ -181,6 +185,8 @@
           </div>
         </div>
         <div class="form-item field">
+          <input type="hidden" name="field" />
+
           <div class="icon">
             <img src="./assets/images/reruitment/icon-field.svg" alt="" />
           </div>
@@ -240,7 +246,7 @@
             <img src="./assets/images/reruitment/icon-location.svg" alt="" />
           </div>
           <div class="field-suggestion">
-            <input type="text" placeholder="Chọn địa điểm" />
+            <input type="text" placeholder="Chọn địa điểm" name="location" />
             <ul class="field-suggestion__list hidden" data-lenis-prevent>
               <li>TP. HCM – P. Bến Thành</li>
               <li>TP. HCM – P. Tân Định</li>

@@ -207,14 +207,14 @@ function sectionFields() {
 }
 
 function magicCursor() {
-  if ($(window).width < 1024) return;
+  if (window.innerWidth < 1024) return;
+  const circle = document.querySelector(".magic-cursor");
+  if (!circle) return;
 
-  var circle = document.querySelector(".magic-cursor");
+  const cursorDot = circle.querySelector(".cursor");
+  const cursorText = circle.querySelector(".cursor .text");
 
-  gsap.set(circle, {
-    xPercent: -50,
-    yPercent: -50
-  });
+  gsap.set(circle, { xPercent: -50, yPercent: -50 });
 
   let mouseX = 0,
     mouseY = 0;
@@ -230,40 +230,53 @@ function magicCursor() {
     });
   });
 
-  const items = document.querySelectorAll(".modal, [data-cursor-text]");
-  var cursorDot = document.querySelector(".magic-cursor .cursor");
-  var cursorText = document.querySelector(".magic-cursor .cursor .text");
+  // Hover handler chung, kiểm tra target instanceof Element
+  function handleMouseEnter(e) {
+    const el =
+      e.target instanceof Element
+        ? e.target.closest("[data-cursor-text], .modal")
+        : null;
+    if (!el) return;
 
-  items.forEach((item) => {
-    item.addEventListener("mouseenter", () => {
-      let text = "";
-      if (item.classList.contains("modal")) {
-        text = "Đóng";
-      } else {
-        text = item.getAttribute("data-cursor-text");
-      }
+    let text = el.classList.contains("modal")
+      ? "Đóng"
+      : el.dataset.cursorText || "";
+    cursorText.innerHTML = `<span class="color-white">${text}</span>`;
+    cursorDot.classList.add("show-text");
+  }
 
-      // const text = item.getAttribute("data-cursor-text");
-      cursorText.innerHTML = `<span class="color-white">${text}</span>`;
-      cursorDot.classList.add("show-text");
-    });
+  function handleMouseLeave(e) {
+    const el =
+      e.target instanceof Element
+        ? e.target.closest("[data-cursor-text], .modal")
+        : null;
+    if (!el) return;
 
-    item.addEventListener("mouseleave", () => {
-      cursorText.innerHTML = "";
-      cursorDot.classList.remove("show-text");
-    });
-  });
+    cursorText.innerHTML = "";
+    cursorDot.classList.remove("show-text");
+  }
 
-  const itemsContent = document.querySelectorAll(".modal-dialog");
-  itemsContent.forEach((item) => {
-    item.addEventListener("mouseenter", () => {
-      cursorDot.classList.remove("show-text");
-    });
-    item.addEventListener("mouseleave", () => {
-      cursorText.innerHTML = `<span class="color-white">Đóng</span>`;
-      cursorDot.classList.add("show-text");
-    });
-  });
+  function handleModalDialogEnter(e) {
+    const el =
+      e.target instanceof Element ? e.target.closest(".modal-dialog") : null;
+    if (!el) return;
+
+    cursorDot.classList.remove("show-text");
+  }
+
+  function handleModalDialogLeave(e) {
+    const el =
+      e.target instanceof Element ? e.target.closest(".modal-dialog") : null;
+    if (!el) return;
+
+    cursorText.innerHTML = `<span class="color-white">Đóng</span>`;
+    cursorDot.classList.add("show-text");
+  }
+
+  document.addEventListener("mouseenter", handleMouseEnter, true);
+  document.addEventListener("mouseleave", handleMouseLeave, true);
+  document.addEventListener("mouseenter", handleModalDialogEnter, true);
+  document.addEventListener("mouseleave", handleModalDialogLeave, true);
 }
 
 function effectText() {
@@ -561,10 +574,8 @@ function customDropdown() {
     const valueSelect = dropdown.querySelector(".value-select");
     const displayText = dropdown.querySelector(".dropdown-custom-text");
 
-    // Kiểm tra loại dropdown
     const isSelectType = dropdown.classList.contains("dropdown-custom-select");
 
-    // Toggle dropdown on button click
     btnDropdown.addEventListener("click", function (e) {
       e.stopPropagation();
       closeAllDropdowns(dropdown);
@@ -572,23 +583,25 @@ function customDropdown() {
       btnDropdown.classList.toggle("--active");
     });
 
-    // Close dropdown when clicking outside
     document.addEventListener("click", function () {
       closeAllDropdowns();
     });
 
-    // Handle item selection
     dropdownItems.forEach((item) => {
       item.addEventListener("click", function (e) {
         e.stopPropagation();
 
         if (isSelectType) {
-          // Logic cho dropdown-custom-select
           const optionText = item.textContent;
           displayText.textContent = optionText;
           dropdown.classList.add("selected");
+
+          if (item.dataset.value !== undefined) {
+            displayText.dataset.value = item.dataset.value;
+          } else {
+            delete displayText.dataset.value;
+          }
         } else {
-          // Logic cho dropdown-custom
           const currentImgEl = valueSelect.querySelector("img");
           const currentImg = currentImgEl ? currentImgEl.src : "";
           const currentText = valueSelect.querySelector("span").textContent;
@@ -611,7 +624,6 @@ function customDropdown() {
       });
     });
 
-    // Close dropdown on scroll
     window.addEventListener("scroll", function () {
       if (dropdownMenu.closest(".header-lang")) {
         dropdownMenu.classList.remove("dropdown--active");
@@ -1408,7 +1420,11 @@ function fieldSuggestion() {
   // Select item
   $(".field-suggestion").on("click", "li", function () {
     const text = $(this).text();
+    console.log(text);
+
     const $input = $(this).closest(".field-suggestion").find("input");
+    console.log($input);
+
     $input.val(text);
     $(this).parent().addClass("hidden");
   });
@@ -1513,10 +1529,10 @@ function formReruitment() {
       isValid = false;
     }
 
-    if ($inputFile.get(0).files.length === 0) {
-      $inputFile.closest(".field-item").addClass("error");
-      isValid = false;
-    }
+    // if ($inputFile.get(0).files.length === 0) {
+    //   $inputFile.closest(".field-item").addClass("error");
+    //   isValid = false;
+    // }
 
     if (!isValid) return;
 
@@ -1960,6 +1976,64 @@ function toggleLikePostDetail() {
   });
 }
 
+function stickyReruitment() {
+  if ($(".reruitment-detail").length < 1 || $(window).width() < 992) return;
+
+  const heightHeader = $("header").outerHeight() || 0;
+  const heightMoreInfo =
+    $(".reruitment-detail .detail-bar .more-info").outerHeight() || 0;
+  const reruitmentBar = $(".reruitment-detail .detail-bar");
+
+  reruitmentBar.css("top", heightHeader - heightMoreInfo + "px");
+}
+
+function searchJob() {
+  if ($(".form-reruitment-bar").length < 1) return;
+
+  const $form = $(".form-reruitment-bar form");
+  const $buttonSubmit = $form.find("button[type='submit']");
+  const $jobName = $form.find("input[name='job-name']");
+  const $jobType = $form.find(
+    ".form-item.type .value-select .dropdown-custom-text"
+  );
+  const $jobField = $form.find(
+    ".form-item.field .value-select .dropdown-custom-text"
+  );
+  const $jobLocation = $form.find("input[name='location']");
+
+  $form.on("submit", function (e) {
+    e.preventDefault();
+
+    // Lấy giá trị ngay khi submit
+    const jobTypeValue = $jobType.data("value") || "";
+    const jobFieldValue = $jobField.data("value") || "";
+
+    const data = {
+      action: "filter_recruitment",
+      job_name: $jobName.val().trim() || "",
+      job_type: jobTypeValue,
+      field: jobFieldValue,
+      location: $jobLocation.val().trim() || ""
+    };
+
+    $.ajax({
+      url: ajaxUrl,
+      type: "POST",
+      data: data,
+      beforeSend: function () {
+        $buttonSubmit.addClass("aloading");
+      },
+      success: function (response) {
+        $buttonSubmit.removeClass("aloading");
+        $(".section-reruitment").html(response.data.html);
+      },
+      error: function (xhr, status, error) {
+        console.error("AJAX Error:", error);
+      }
+    });
+  });
+}
+
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   // sectionFields();
@@ -1989,6 +2063,8 @@ const init = () => {
   formCooperate();
   initRecruitmentBarSticky();
   toggleLikePostDetail();
+  stickyReruitment();
+  searchJob();
   ScrollTrigger.refresh();
 };
 preloadImages("img").then(() => {
