@@ -305,10 +305,8 @@
       @media (max-width: 991px) {
         margin-bottom: 16px;
       }
-      span {
-        a {
-          color: var(--color-primary);
-        }
+      a {
+        color: var(--color-primary);
       }
     }
   }

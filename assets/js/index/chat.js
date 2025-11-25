@@ -88,21 +88,46 @@ NHIỆM VỤ CỦA BẠN:
 
 Phong cách: Chuyên nghiệp, đa ngôn ngữ linh hoạt, am hiểu sâu về website, nhiệt tình hỗ trợ khách hàng toàn cầu.`;
 
-      addMessage(
-        "Xin chào! Tôi là trợ lý ảo của website MenasGroup. Tôi có thể giúp gì cho bạn hôm nay?",
-        "ai"
-      );
+      addMessage(getWelcomeMessage(false), "ai");
     } catch (error) {
       console.error("Không thể đọc file rule.txt:", error);
       SYSTEM_PROMPT = `Bạn là trợ lý AI thân thiện và đa ngôn ngữ. 
 - TỰ ĐỘNG PHÁT HIỆN ngôn ngữ của người dùng và TRẢ LỜI BẰNG CHÍNH NGÔN NGỮ ĐÓ
 - KHÔNG dùng emoji hoặc icon
 - Trả lời câu hỏi một cách hữu ích và lịch sự bằng bất kỳ ngôn ngữ nào`;
-      addMessage(
-        "Xin chào! Tôi là trợ lý AI đa ngôn ngữ. Tôi có thể giúp gì cho bạn?",
-        "ai"
-      );
+
+      addMessage(getWelcomeMessage(true), "ai");
     }
+  }
+
+  function getWelcomeMessage(isFallback = false) {
+    const lang = (
+      document.documentElement.getAttribute("lang") || ""
+    ).toLowerCase();
+
+    const messages = {
+      vi: {
+        normal:
+          "Xin chào! Tôi là trợ lý ảo của website Menas Group. Tôi có thể giúp gì cho bạn hôm nay?",
+        fallback:
+          "Xin chào! Tôi là trợ lý AI đa ngôn ngữ. Tôi có thể giúp gì cho bạn?"
+      },
+      en: {
+        normal:
+          "Hello! I'm the AI assistant of Menas Group. How may I help you today?",
+        fallback: "Hello! I am a multilingual AI assistant. How may I help you?"
+      },
+      zh: {
+        normal: "您好！我是 MenasGroup 网站的AI助手。请问有什么可以帮助您？",
+        fallback: "您好！我是多语言AI助手。我能为您做些什么？"
+      }
+    };
+
+    let key = "vi";
+    if (lang.startsWith("en")) key = "en";
+    if (lang.startsWith("zh")) key = "zh";
+
+    return isFallback ? messages[key].fallback : messages[key].normal;
   }
 
   function addMessage(text, type) {
@@ -211,7 +236,7 @@ Phong cách: Chuyên nghiệp, đa ngôn ngữ linh hoạt, am hiểu sâu về 
 
     conversationHistory.push({
       role: "user",
-      parts: [{ text: message }],
+      parts: [{ text: message }]
     });
 
     showTyping();
@@ -222,15 +247,15 @@ Phong cách: Chuyên nghiệp, đa ngôn ngữ linh hoạt, am hiểu sâu về 
       const contents = [
         {
           role: "user",
-          parts: [{ text: SYSTEM_PROMPT }],
+          parts: [{ text: SYSTEM_PROMPT }]
         },
-        ...conversationHistory,
+        ...conversationHistory
       ];
 
       const response = await fetch(`${API_ENDPOINT}?key=${apiKey}`, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/json"
         },
         body: JSON.stringify({
           contents: contents,
@@ -238,9 +263,9 @@ Phong cách: Chuyên nghiệp, đa ngôn ngữ linh hoạt, am hiểu sâu về 
             temperature: 0.7,
             topK: 40,
             topP: 0.95,
-            maxOutputTokens: 1024,
-          },
-        }),
+            maxOutputTokens: 1024
+          }
+        })
       });
 
       const data = await response.json();
@@ -252,7 +277,7 @@ Phong cách: Chuyên nghiệp, đa ngôn ngữ linh hoạt, am hiểu sâu về 
 
         conversationHistory.push({
           role: "model",
-          parts: [{ text: aiResponse }],
+          parts: [{ text: aiResponse }]
         });
       } else if (data.error) {
         addMessage("Lỗi: " + data.error.message, "ai");

@@ -1991,29 +1991,26 @@ function searchJob() {
   if ($(".form-reruitment-bar").length < 1) return;
 
   const $form = $(".form-reruitment-bar form");
-  const $buttonSubmit = $form.find("button[type='submit']");
-  const $jobName = $form.find("input[name='job-name']");
-  const $jobType = $form.find(
-    ".form-item.type .value-select .dropdown-custom-text"
-  );
-  const $jobField = $form.find(
-    ".form-item.field .value-select .dropdown-custom-text"
-  );
-  const $jobLocation = $form.find("input[name='location']");
-
   $form.on("submit", function (e) {
     e.preventDefault();
 
-    // Lấy giá trị ngay khi submit
-    const jobTypeValue = $jobType.data("value") || "";
-    const jobFieldValue = $jobField.data("value") || "";
+    const $buttonSubmit = $form.find("button[type='submit']");
+    let $jobName = $form.find("input[name='job-name']");
+    let $jobType = $form.find(
+      ".form-item.type .value-select .dropdown-custom-text"
+    );
+    let $jobField = $form.find(
+      ".form-item.field .value-select .dropdown-custom-text"
+    );
+    let $jobLocation = $form.find("input[name='location']");
 
     const data = {
       action: "filter_recruitment",
       job_name: $jobName.val().trim() || "",
-      job_type: jobTypeValue,
-      field: jobFieldValue,
-      location: $jobLocation.val().trim() || ""
+      job_type: $jobType.attr("data-value") || "",
+      term: $jobField.attr("data-value") || "all",
+      location: $jobLocation.val().trim() || "",
+      base_url: window.location.href.split("?")[0]
     };
 
     $.ajax({
@@ -2022,9 +2019,48 @@ function searchJob() {
       data: data,
       beforeSend: function () {
         $buttonSubmit.addClass("aloading");
+        $(".section-reruitment").addClass("aloading");
       },
       success: function (response) {
         $buttonSubmit.removeClass("aloading");
+        $(".section-reruitment").removeClass("aloading");
+        $(".section-reruitment").html(response.data.html);
+      },
+      error: function (xhr, status, error) {
+        console.error("AJAX Error:", error);
+      }
+    });
+  });
+
+  $(document).on("click", ".reruitment-tabs .tab-item", function () {
+    const $tab = $(this);
+    const dataField = $tab.attr("data-field");
+
+    const $form = $(".form-reruitment-bar form");
+    const $jobName = $form.find("input[name='job-name']");
+    const $jobType = $form.find(
+      ".form-item.type .value-select .dropdown-custom-text"
+    );
+    const $jobLocation = $form.find("input[name='location']");
+
+    const data = {
+      action: "filter_recruitment",
+      job_name: $jobName.val().trim() || "",
+      job_type: $jobType.attr("data-value") || "",
+      term: dataField || "all",
+      location: $jobLocation.val().trim() || "",
+      base_url: window.location.href.split("?")[0]
+    };
+
+    $.ajax({
+      url: ajaxUrl,
+      type: "POST",
+      data: data,
+      beforeSend: function () {
+        $(".section-reruitment").addClass("aloading");
+      },
+      success: function (response) {
+        $(".section-reruitment").removeClass("aloading");
         $(".section-reruitment").html(response.data.html);
       },
       error: function (xhr, status, error) {

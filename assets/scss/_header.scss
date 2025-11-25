@@ -62,6 +62,13 @@
       clip-path: inset(0 0 0 0);
     }
 
+    & > ul {
+      @media (max-width: 1200px) {
+        padding-top: 32px;
+        border-top: 1px solid rgba(0, 0, 0, 0.5);
+      }
+    }
+
     ul {
       display: flex;
       align-items: center;
@@ -69,7 +76,7 @@
 
       @media (max-width: 1200px) {
         flex-direction: column;
-        padding-top: 100px;
+        padding-top: 32px;
       }
 
       & > li {
