@@ -238,9 +238,20 @@ function magicCursor() {
         : null;
     if (!el) return;
 
-    let text = el.classList.contains("modal")
-      ? "Đóng"
-      : el.dataset.cursorText || "";
+    let text = "";
+
+    if (el.classList.contains("modal")) {
+      if (lang === "en-US") {
+        text = "Close";
+      } else if (lang === "zh-CN") {
+        text = "关闭";
+      } else {
+        text = "Đóng";
+      }
+    } else {
+      text = el.dataset.cursorText || "";
+    }
+
     cursorText.innerHTML = `<span class="color-white">${text}</span>`;
     cursorDot.classList.add("show-text");
   }
