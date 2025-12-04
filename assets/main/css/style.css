@@ -4267,8 +4267,10 @@ button.aloading::after {
 
 .form-rerutiment-title {
   position: absolute;
+  width: max-content;
+  max-width: 100%;
   z-index: 10;
-  top: 16px;
+  top: 20px;
   left: 50%;
   transform: translate(-50%, 0);
 }
@@ -4780,9 +4782,12 @@ button.aloading::after {
     margin-bottom: 8px;
   }
 }
-.reruitment-detail__wrapper .detail-main .detail-desc ul,
-.reruitment-detail__wrapper .detail-main .detail-desc ol {
+.reruitment-detail__wrapper .detail-main .detail-desc ul {
   list-style-type: disc;
+  padding-left: 20px;
+}
+.reruitment-detail__wrapper .detail-main .detail-desc ol {
+  list-style-type: decimal;
   padding-left: 20px;
 }
 .reruitment-detail__wrapper .detail-main .detail-desc p,

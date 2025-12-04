@@ -233,8 +233,10 @@
 }
 .form-rerutiment-title {
   position: absolute;
+  width: max-content;
+  max-width: 100%;
   z-index: 10;
-  top: 16px;
+  top: 20px;
   left: 50%;
   transform: translate(-50%, 0);
   h2.title {
