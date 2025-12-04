@@ -1286,7 +1286,7 @@ function parallaxSwiper() {
     speed: 900,
     parallax: true,
     loop: true,
-    spaceBetween: 8,
+    spaceBetween: 16,
     autoplay: {
       delay: 2000
     },
