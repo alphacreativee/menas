@@ -2005,8 +2005,7 @@ function searchJob() {
   $form.on("submit", function (e) {
     e.preventDefault();
 
-    const $buttonSubmit = $form.find("button[type='submit']");
-    let $jobName = $form.find("input[name='job-name']");
+    let $jobName = $form.find("input[name='job_name']");
     let $jobType = $form.find(
       ".form-item.type .value-select .dropdown-custom-text"
     );
@@ -2015,69 +2014,43 @@ function searchJob() {
     );
     let $jobLocation = $form.find("input[name='location']");
 
-    const data = {
-      action: "filter_recruitment",
-      job_name: $jobName.val().trim() || "",
-      job_type: $jobType.attr("data-value") || "",
-      term: $jobField.attr("data-value") || "all",
-      location: $jobLocation.val().trim() || "",
-      base_url: window.location.href.split("?")[0]
-    };
+    const params = new URLSearchParams();
 
-    $.ajax({
-      url: ajaxUrl,
-      type: "POST",
-      data: data,
-      beforeSend: function () {
-        $buttonSubmit.addClass("aloading");
-        $(".section-reruitment").addClass("aloading");
-      },
-      success: function (response) {
-        $buttonSubmit.removeClass("aloading");
-        $(".section-reruitment").removeClass("aloading");
-        $(".section-reruitment").html(response.data.html);
-      },
-      error: function (xhr, status, error) {
-        console.error("AJAX Error:", error);
-      }
-    });
+    if ($jobName.val().trim()) params.set("job_name", $jobName.val().trim());
+    if ($jobType.attr("data-value"))
+      params.set("job_type", $jobType.attr("data-value"));
+    if ($jobField.attr("data-value"))
+      params.set("term", $jobField.attr("data-value"));
+    if ($jobLocation.val().trim())
+      params.set("location", $jobLocation.val().trim());
+
+    const baseURL = window.location.href.split("?")[0];
+    const finalURL = baseURL + "?" + params.toString();
+
+    window.location.href = finalURL;
   });
 
   $(document).on("click", ".reruitment-tabs .tab-item", function () {
-    const $tab = $(this);
-    const dataField = $tab.attr("data-field");
+    const dataField = $(this).attr("data-field");
 
     const $form = $(".form-reruitment-bar form");
-    const $jobName = $form.find("input[name='job-name']");
+    const $jobName = $form.find("input[name='job_name']");
     const $jobType = $form.find(
       ".form-item.type .value-select .dropdown-custom-text"
     );
     const $jobLocation = $form.find("input[name='location']");
 
-    const data = {
-      action: "filter_recruitment",
-      job_name: $jobName.val().trim() || "",
-      job_type: $jobType.attr("data-value") || "",
-      term: dataField || "all",
-      location: $jobLocation.val().trim() || "",
-      base_url: window.location.href.split("?")[0]
-    };
+    const params = new URLSearchParams();
 
-    $.ajax({
-      url: ajaxUrl,
-      type: "POST",
-      data: data,
-      beforeSend: function () {
-        $(".section-reruitment").addClass("aloading");
-      },
-      success: function (response) {
-        $(".section-reruitment").removeClass("aloading");
-        $(".section-reruitment").html(response.data.html);
-      },
-      error: function (xhr, status, error) {
-        console.error("AJAX Error:", error);
-      }
-    });
+    params.set("term", dataField || "all");
+    if ($jobName.val().trim()) params.set("job_name", $jobName.val().trim());
+    if ($jobType.attr("data-value"))
+      params.set("job_type", $jobType.attr("data-value"));
+    if ($jobLocation.val().trim())
+      params.set("location", $jobLocation.val().trim());
+
+    const baseURL = window.location.href.split("?")[0];
+    window.location.href = baseURL + "?" + params.toString();
   });
 }
 

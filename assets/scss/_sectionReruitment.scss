@@ -1,6 +1,14 @@
 .section-reruitment {
   background-color: var(--color-white);
 
+  &.not-has-banner {
+    padding-top: 95px;
+
+    @media (max-width: 991px) {
+      padding-top: 70px;
+    }
+  }
+
   &.aloading {
     position: relative;
 
@@ -254,6 +262,11 @@
   transition: top 0.25s, opacity 0.25s, visibility 0.25s;
   opacity: 1;
   visibility: visible;
+
+  &.not-has-banner {
+    top: 90px;
+  }
+
   &.sticky {
     top: 76px;
   }
