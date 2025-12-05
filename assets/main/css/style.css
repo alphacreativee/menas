@@ -4055,6 +4055,14 @@ button.aloading::after {
 .section-reruitment {
   background-color: var(--color-white);
 }
+.section-reruitment.not-has-banner {
+  padding-top: 95px;
+}
+@media (max-width: 991px) {
+  .section-reruitment.not-has-banner {
+    padding-top: 70px;
+  }
+}
 .section-reruitment.aloading {
   position: relative;
 }
@@ -4289,6 +4297,9 @@ button.aloading::after {
   transition: top 0.25s, opacity 0.25s, visibility 0.25s;
   opacity: 1;
   visibility: visible;
+}
+.form-reruitment-bar.not-has-banner {
+  top: 90px;
 }
 .form-reruitment-bar.sticky {
   top: 76px;
